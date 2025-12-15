@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- === SEO === -->
+    <title>Devinson Rodriguez | Arquitectura Digital & IA</title>
+    <meta name="description" content="Desarrollador Web Full Stack. Soluciones de alto nivel: E-commerce, Mercado Pago y Automatización IA.">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Librerías -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <!-- Configuración Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        black: '#050505',
+                        dark: '#0a0a0a',
+                        glass: 'rgba(255, 255, 255, 0.05)',
+                        border: 'rgba(255, 255, 255, 0.1)',
+                        primary: '#3b82f6', /* Azul Tech */
+                        accent: '#8b5cf6', /* Violeta */
+                        success: '#10b981',
+                    },
+                    backgroundImage: {
+                        'hero-gradient': 'radial-gradient(circle at 50% 0%, #1e1b4b 0%, #050505 50%)',
+                        'grid-pattern': "url('data:image/svg+xml,%3Csvg width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M0 0h40v40H0V0zm1 1h38v38H1V1z\" fill=\"%23ffffff\" fill-opacity=\"0.03\"/%3E%3C/svg%3E')"
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 6s ease-in-out 3s infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { 
+            background-color: #050505; 
+            color: #ffffff; 
+            overflow-x: hidden;
+        }
+
+        /* 1. TEXTO GRADIENTE PREMIUM */
+        .text-gradient {
+            background: linear-gradient(to right, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* 2. GLASSMORPHISM */
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* 3. HERO IMAGE STYLING */
+        .hero-image-container {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .hero-image-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(to top, #050505, transparent);
+            pointer-events: none;
+        }
+
+        /* 4. FLOATING CHIPS (Elementos flotantes) */
+        .tech-chip {
+            position: absolute;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+            z-index: 20;
+            transition: transform 0.3s ease;
+        }
+        .tech-chip:hover {
+            transform: scale(1.05);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+
+        /* 5. TARJETA HOLOGRÁFICA */
+        .holo-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            transform-style: preserve-3d;
+            transition: transform 0.2s ease-out;
+        }
+        
+        /* 6. MARQUEE */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+        
+        /* Loader IA */
+        .ai-loader {
+            width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.1);
+            border-top-color: #3b82f6; border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Estilos Markdown */
+        .ai-response strong { color: #60a5fa; font-weight: 600; }
+        .ai-response ul { list-style: disc; margin-left: 20px; color: #94a3b8; }
+        .ai-response h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; margin-top: 1rem; color: white; }
+    </style>
+</head>
+<body class="antialiased font-sans">
+
+    <!-- Navegación Flotante Minimalista -->
+    <nav class="fixed w-full z-50 top-0 left-0 border-b border-white/5 bg-black/80 backdrop-blur-xl">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center font-bold text-white">D</div>
+                <span class="font-display font-bold text-lg tracking-tight">DEVINSON<span class="text-white/40">.CO</span></span>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-white/70">
+                <a href="#servicios" class="hover:text-white transition-colors">Servicios</a>
+                <a href="#proceso" class="hover:text-white transition-colors">Proceso</a>
+                <a href="#ia-lab" class="hover:text-white transition-colors flex items-center gap-2">
+                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span> IA Lab
+                </a>
+            </div>
+
+            <a href="#cotizar" class="bg-white text-black px-5 py-2 rounded-full font-bold text-sm hover:bg-gray-200 transition-colors">
+                Contactar
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION: Estilo Presentación de Producto -->
+    <section class="relative min-h-screen pt-32 pb-0 flex flex-col justify-end overflow-hidden bg-hero-gradient">
+        <!-- Fondo de Malla (Grid) -->
+        <div class="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none"></div>
+        
+        <!-- Contenido -->
+        <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-end justify-between h-full">
+            
+            <!-- Texto Izquierda -->
+            <div class="md:w-1/2 mb-20 md:mb-32 relative z-20">
+                <div class="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-white/10 bg-white/5 backdrop-blur-md">
+                    <span class="text-xs font-mono text-blue-400">● DISPONIBLE PARA PROYECTOS</span>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-display font-bold leading-tight mb-6">
+                    Arquitectura <br>
+                    <span class="text-gradient">Digital Avanzada</span>
+                </h1>
+                
+                <p class="text-gray-400 text-lg md:text-xl max-w-lg mb-8 font-light">
+                    No vendo simples páginas web. Construyo ecosistemas de venta automatizados con <strong class="text-white">Pagos Nativos</strong> e <strong class="text-white">Inteligencia Artificial</strong>.
+                </p>
+
+                <div class="flex flex-wrap gap-4">
+                    <button onclick="document.getElementById('ia-lab').scrollIntoView()" class="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg transition-all flex items-center gap-3">
+                        <i class="fas fa-robot"></i> Consultar con IA
+                    </button>
+                    <a href="https://github.com/Pech68" target="_blank" class="px-8 py-4 border border-white/20 hover:bg-white/5 text-white font-medium rounded-lg transition-all flex items-center gap-3">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- IMAGEN DEL EXPERTO (Tu foto) + CHIPS FLOTANTES -->
+            <div class="md:w-1/2 relative flex justify-center items-end h-[600px] w-full">
+                
+                <!-- Glow detrás de la imagen -->
+                <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[80%] bg-blue-600/20 blur-[100px] rounded-full"></div>
+
+                <!-- Tu Foto (Sin círculo, cuerpo completo/cintura arriba) -->
+                <div class="hero-image-container relative z-10 h-full flex items-end">
+                    <img src="https://i.imgur.com/DBrfwWX.png" 
+                         alt="Devinson Rodriguez Expert Developer" 
+                         class="h-full object-contain max-h-[85vh] drop-shadow-2xl filter brightness-110 contrast-110">
+                </div>
+
+                <!-- Chips Flotantes (Orbitando) - POSICIONES CORREGIDAS PARA NO TAPAR LA CARA -->
+                
+                <!-- Chip 1: Mercado Pago (Derecha, nivel medio) -->
+                <div class="tech-chip absolute top-1/2 -right-4 md:-right-16 animate-float">
+                    <div class="w-8 h-8 bg-blue-500/20 rounded flex items-center justify-center text-blue-400">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-400 uppercase tracking-wider">Gateway</p>
+                        <p class="font-bold text-sm">Mercado Pago</p>
+                    </div>
+                </div>
+
+                <!-- Chip 2: IA Status (Izquierda, nivel alto PERO AFUERA) -->
+                <div class="tech-chip absolute top-20 -left-4 md:-left-16 animate-float-delayed">
+                    <div class="w-8 h-8 bg-purple-500/20 rounded flex items-center justify-center text-purple-400">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-400 uppercase tracking-wider">Neural Engine</p>
+                        <p class="font-bold text-sm">Gemini AI</p>
+                    </div>
+                </div>
+
+                <!-- Chip 3: Code (Izquierda, nivel bajo) -->
+                <div class="tech-chip absolute bottom-1/4 -left-4 md:-left-16 bg-black/90 border-green-500/30">
+                    <div class="font-mono text-xs text-green-400">
+                        <span class="text-purple-400">const</span> success = <span class="text-yellow-400">true</span>;
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CINTA DE MARCAS/TECNOLOGÍAS -->
+    <div class="border-y border-white/5 bg-black py-6">
+        <div class="marquee-container">
+            <div class="marquee-content font-display font-bold text-4xl text-white/5 uppercase tracking-tighter flex gap-12">
+                <span>E-COMMERCE</span> <span>•</span> <span>REACT</span> <span>•</span> <span>NODE.JS</span> <span>•</span> <span>AUTOMATIZACIÓN</span> <span>•</span> <span>MERCADOPAGO</span> <span>•</span> <span>WHATSAPP API</span> <span>•</span> <span>GEMINI AI</span> <span>•</span> <span>PWA</span> <span>•</span> <span>STRIPE</span> <span>•</span> <span>NEQUI</span> <span>•</span>
+                <span>E-COMMERCE</span> <span>•</span> <span>REACT</span> <span>•</span> <span>NODE.JS</span> <span>•</span> <span>AUTOMATIZACIÓN</span> <span>•</span> <span>MERCADOPAGO</span> <span>•</span> <span>WHATSAPP API</span> <span>•</span> <span>GEMINI AI</span> <span>•</span> <span>PWA</span> <span>•</span> <span>STRIPE</span> <span>•</span> <span>NEQUI</span> <span>•</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- TARJETA DE PAGOS HOLOGRÁFICA (Estilo Hardware) -->
+    <section class="py-32 relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-3xl md:text-5xl font-display font-bold mb-4">Infraestructura de Pagos</h2>
+                <p class="text-gray-400">Diseñado para convertir visitas en ventas. Sin fricción.</p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row items-center justify-center gap-16">
+                
+                <!-- La Tarjeta (Hardware Visual) -->
+                <div class="relative group perspective-1000">
+                    <div id="payment-card" class="holo-card w-[340px] h-[500px] rounded-3xl p-8 flex flex-col justify-between relative shadow-2xl overflow-hidden cursor-pointer">
+                        
+                        <!-- Fondo circuito -->
+                        <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M54.627 0l.83.828-1.415 1.415-.828-.828-.828.828-1.415-1.415.828-.828-.828-.828 1.415-1.415.828.828.828-.828 1.415 1.415-.828.828zM22.485 0l.83.828-1.415 1.415-.828-.828-.828.828-1.415-1.415.828-.828-.828-.828 1.415-1.415.828.828.828-.828 1.415 1.415-.828.828z\' fill=\'%23ffffff\' fill-opacity=\'1\' fill-rule=\'evenodd\'/%3E%3C/svg%3E');"></div>
+                        
+                        <!-- Header Tarjeta -->
+                        <div class="flex justify-between items-start z-10">
+                            <i class="fas fa-wifi text-white/50 rotate-90"></i>
+                            <span class="text-xs font-mono text-blue-400 border border-blue-400/30 px-2 py-1 rounded">SECURE_V3</span>
+                        </div>
+
+                        <!-- Chip -->
+                        <div class="w-16 h-12 bg-gradient-to-tr from-yellow-200 to-yellow-600 rounded-lg shadow-lg relative z-10 border border-yellow-400/50 flex items-center justify-center">
+                            <div class="w-full h-[1px] bg-black/30"></div>
+                            <div class="absolute h-full w-[1px] bg-black/30"></div>
+                        </div>
+
+                        <!-- Logos -->
+                        <div class="space-y-4 z-10">
+                            <div class="flex items-center gap-4 bg-white/5 p-3 rounded-xl border border-white/5">
+                                <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white text-xs"><i class="fas fa-handshake"></i></div>
+                                <div>
+                                    <p class="text-sm font-bold">Mercado Pago</p>
+                                    <p class="text-[10px] text-gray-400">Tarjetas y PSE</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 bg-white/5 p-3 rounded-xl border border-white/5">
+                                <div class="w-8 h-8 rounded-full bg-pink-600 flex items-center justify-center text-white text-xs"><i class="fas fa-mobile"></i></div>
+                                <div>
+                                    <p class="text-sm font-bold">Nequi / Daviplata</p>
+                                    <p class="text-[10px] text-gray-400">Transferencia Directa</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Footer Tarjeta -->
+                        <div class="z-10 mt-4 pt-4 border-t border-white/10 flex justify-between items-center text-xs text-gray-500 font-mono">
+                            <span>ID: DEV-8832</span>
+                            <span>ACTIVE</span>
+                        </div>
+                        
+                        <!-- Brillo Overlay -->
+                        <div id="card-shine" class="absolute inset-0 pointer-events-none opacity-50 mix-blend-overlay"></div>
+                    </div>
+                </div>
+
+                <!-- Features Texto -->
+                <div class="lg:w-1/3 space-y-8">
+                    <div class="glass p-6 rounded-2xl">
+                        <h3 class="text-xl font-bold text-white mb-2"><i class="fas fa-lock text-green-400 mr-2"></i> Seguridad SSL</h3>
+                        <p class="text-sm text-gray-400">Encriptación de punta a punta. Tus clientes compran con total confianza.</p>
+                    </div>
+                    <div class="glass p-6 rounded-2xl">
+                        <h3 class="text-xl font-bold text-white mb-2"><i class="fas fa-bolt text-yellow-400 mr-2"></i> Checkout Rápido</h3>
+                        <p class="text-sm text-gray-400">Menos pasos, más ventas. Integración optimizada para móviles.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONSULTOR IA (Gemini) -->
+    <section id="ia-lab" class="py-32 bg-dark relative overflow-hidden">
+        <!-- Decoración Fondo -->
+        <div class="absolute -right-20 top-20 w-96 h-96 bg-purple-600/10 rounded-full blur-[100px]"></div>
+
+        <div class="container mx-auto px-6 relative z-10 max-w-4xl">
+            <div class="text-center mb-12">
+                <span class="text-purple-400 font-mono text-xs tracking-widest uppercase mb-2 block">Powered by Gemini AI</span>
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-white">Laboratorio de Ideas</h2>
+                <p class="text-gray-400 mt-4 max-w-lg mx-auto">Cuéntale a mi Inteligencia Artificial sobre tu negocio. Ella generará un plan técnico a medida para ti.</p>
+            </div>
+
+            <div class="bg-black border border-white/10 rounded-3xl p-1 shadow-2xl">
+                <div class="bg-gray-900/50 rounded-[22px] p-6 md:p-10 backdrop-blur-sm">
+                    <div class="flex flex-col gap-4">
+                        <label class="text-sm text-gray-400 font-mono ml-1">INPUT DEL SISTEMA:</label>
+                        <textarea id="ai-input" rows="2" class="w-full bg-black/50 border border-white/10 rounded-xl p-4 text-white placeholder-gray-600 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all resize-none text-lg" placeholder="Ej: Vendo ropa de bebé y quiero automatizar los pedidos por WhatsApp..."></textarea>
+                        
+                        <div class="flex justify-end">
+                            <button onclick="consultarIA()" id="ai-btn" class="px-6 py-3 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-all flex items-center gap-2">
+                                <span>Generar Plan</span>
+                                <i class="fas fa-sparkles text-purple-600"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Respuesta IA -->
+                    <div id="ai-result" class="hidden mt-8 border-t border-white/10 pt-8">
+                        <div class="flex items-center gap-2 mb-4">
+                            <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                            <span class="text-sm font-bold text-white tracking-wide">ANÁLISIS GENERADO</span>
+                        </div>
+                        <div id="ai-content" class="text-gray-300 text-sm leading-relaxed ai-response"></div>
+                        
+                        <div class="mt-6 flex justify-end">
+                            <a href="#cotizar" class="text-sm text-purple-400 hover:text-white transition-colors border-b border-purple-400/30 pb-1">Usar este plan en la cotización &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COTIZADOR & FOOTER -->
+    <footer id="cotizar" class="pt-32 pb-10 bg-black border-t border-white/5 relative">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-2 gap-20">
+                
+                <!-- Columna Izquierda: Cotizador -->
+                <div>
+                    <h2 class="text-3xl font-display font-bold text-white mb-2">Inicia el Proyecto</h2>
+                    <p class="text-gray-500 mb-8">Transparencia total. Sin costos ocultos.</p>
+                    
+                    <div class="space-y-3">
+                        <!-- Opción 1 -->
+                        <label class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group">
+                            <div class="flex items-center gap-3">
+                                <div class="w-5 h-5 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500">
+                                    <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                </div>
+                                <span class="text-white group-hover:text-blue-400 transition-colors">Base Web Profesional</span>
+                            </div>
+                            <span class="font-mono text-gray-400">$200.000</span>
+                            <input type="checkbox" checked disabled class="hidden">
+                        </label>
+
+                        <!-- Opción 2 -->
+                        <label class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group">
+                            <div class="flex items-center gap-3">
+                                <div class="w-5 h-5 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 relative">
+                                    <input type="checkbox" value="250000" onchange="calculateTotal()" class="opacity-0 absolute inset-0 cursor-pointer peer">
+                                    <div class="w-3 h-3 bg-blue-500 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+                                </div>
+                                <span class="text-white group-hover:text-blue-400 transition-colors">Pack Mercado Pago</span>
+                            </div>
+                            <span class="font-mono text-gray-400">$250.000</span>
+                        </label>
+
+                        <!-- Opción 3 -->
+                        <label class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group">
+                            <div class="flex items-center gap-3">
+                                <div class="w-5 h-5 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 relative">
+                                    <input type="checkbox" value="400000" onchange="calculateTotal()" class="opacity-0 absolute inset-0 cursor-pointer peer">
+                                    <div class="w-3 h-3 bg-blue-500 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+                                </div>
+                                <span class="text-white group-hover:text-blue-400 transition-colors">Módulo IA (Chatbot)</span>
+                            </div>
+                            <span class="font-mono text-gray-400">$400.000</span>
+                        </label>
+                    </div>
+
+                    <div class="mt-8 pt-8 border-t border-white/10 flex items-center justify-between">
+                        <div>
+                            <p class="text-xs text-gray-500 uppercase tracking-widest">Total Estimado</p>
+                            <p class="text-4xl font-display font-bold text-white mt-2" id="total-display">$200.000</p>
+                            <p class="text-xs text-blue-500 mt-1">COP (Pesos Colombianos)</p>
+                        </div>
+                        <a href="https://wa.me/573215203354" id="btn-cotizar" target="_blank" class="px-8 py-4 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+                            Continuar <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Contacto Simple -->
+                <div class="flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-6">Información de Contacto</h3>
+                        <ul class="space-y-6 text-gray-400">
+                            <li class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center"><i class="fas fa-envelope"></i></div>
+                                <span>contacto@devinson.co</span>
+                            </li>
+                            <li class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center"><i class="fab fa-whatsapp"></i></div>
+                                <span>+57 321 520 3354</span>
+                            </li>
+                            <li class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center"><i class="fas fa-map-marker-alt"></i></div>
+                                <span>Valledupar, Colombia</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mt-12 p-6 bg-gradient-to-r from-blue-900/20 to-purple-900/20 rounded-2xl border border-white/5">
+                        <p class="text-sm text-gray-300 italic">"La tecnología es mejor cuando une a las personas."</p>
+                        <p class="text-xs text-gray-500 mt-2 font-bold uppercase">- Devinson Rodriguez</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center border-t border-white/5 pt-10 text-xs text-gray-600 font-mono uppercase tracking-widest">
+                © 2024 Devinson System. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts Lógica -->
+    <script>
+        const apiKey = ""; // API Key
+
+        // 1. TILT EFFECT (Tarjeta 3D)
+        const card = document.getElementById('payment-card');
+        const shine = document.getElementById('card-shine');
+
+        if(card) {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = ((y - centerY) / centerY) * -8; // Rotación sutil
+                const rotateY = ((x - centerX) / centerX) * 8;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                shine.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.15) 0%, transparent 80%)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1,1,1)';
+                shine.style.background = 'transparent';
+            });
+        }
+
+        // 2. IA CONSULTANT
+        async function consultarIA() {
+            const input = document.getElementById('ai-input').value;
+            const btn = document.getElementById('ai-btn');
+            const resultDiv = document.getElementById('ai-result');
+            const contentDiv = document.getElementById('ai-content');
+
+            if (!input) return;
+
+            const originalContent = btn.innerHTML;
+            btn.innerHTML = '<div class="ai-loader"></div>';
+            btn.disabled = true;
+            resultDiv.classList.remove('hidden');
+            
+            // Simulación de escritura (mientras carga real)
+            contentDiv.innerHTML = '<span class="animate-pulse text-gray-500">Analizando requerimientos...</span>';
+
+            // Fallback si no hay API Key para demo
+            if (!apiKey) {
+                setTimeout(() => {
+                    const mockResponse = `
+### 🚀 Plan Estratégico Generado
+Para tu idea de "**${input}**", recomiendo la siguiente arquitectura:
+
+1. **Plataforma:** Web App Progresiva (PWA). Carga instantánea y funciona offline.
+2. **Pagos:** Pasarela híbrida (Mercado Pago + Wompi) para máxima cobertura en Colombia.
+3. **Automatización:** Bot de WhatsApp conectado al inventario para responder precios 24/7.
+
+**¿Por qué este plan?**
+Maximiza la conversión móvil y reduce costos operativos manuales.
+                    `;
+                    contentDiv.innerHTML = marked.parse(mockResponse);
+                    btn.innerHTML = originalContent;
+                    btn.disabled = false;
+                }, 2000);
+                return;
+            }
+            
+            // Aquí iría el fetch real a Gemini si tuviera key
+        }
+
+        // 3. COTIZADOR
+        function calculateTotal() {
+            const base = 200000;
+            let total = base;
+            document.querySelectorAll('input[type="checkbox"]:checked').forEach(box => {
+                if(!box.disabled) total += parseInt(box.value);
+            });
+            
+            const fmt = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(total);
+            document.getElementById('total-display').innerText = fmt;
+            
+            const btn = document.getElementById('btn-cotizar');
+            btn.href = `https://wa.me/573215203354?text=Hola Devinson, me interesa el plan estimado en ${fmt}`;
+        }
+    </script>
+</body>
+</html>
