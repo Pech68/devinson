@@ -35,7 +35,6 @@
                     },
                     backgroundImage: {
                         'hero-gradient': 'radial-gradient(circle at 50% 0%, #1e1b4b 0%, #050505 50%)',
-                        // Nueva textura de ruido sutil para dar calidad
                         'noise': "url('https://grainy-gradients.vercel.app/noise.svg')", 
                     },
                     animation: {
@@ -57,7 +56,7 @@
                         },
                         breathe: {
                             '0%, 100%': { transform: 'scale(1) translateY(0)', filter: 'brightness(100%)' },
-                            '50%': { transform: 'scale(1.02) translateY(-10px)', filter: 'brightness(110%)' },
+                            '50%': { transform: 'scale(1.02) translateY(-15px)', filter: 'brightness(115%)' },
                         },
                         fadeInUp: {
                             '0%': { opacity: '0', transform: 'translateY(20px)' },
@@ -86,19 +85,20 @@
             height: 100%;
             z-index: 0;
             pointer-events: none;
-            opacity: 0.4;
+            opacity: 0.6; /* Aumentado para visibilidad */
         }
 
-        /* TEXTURAS BLENDED (Mezcla de imágenes reales) */
+        /* TEXTURAS BLENDED (Mejora de visibilidad) */
         .bg-blend-image {
             position: absolute;
             inset: 0;
             background-size: cover;
             background-position: center;
-            opacity: 0.15; /* Sutil */
-            mix-blend-mode: overlay; /* La magia: mezcla con el negro */
+            opacity: 0.4; /* Aumentado drásticamente */
+            mix-blend-mode: screen; /* Cambiado a SCREEN para que brille sobre negro */
             pointer-events: none;
             z-index: 0;
+            filter: contrast(1.2) brightness(0.8); /* Ajuste de color */
         }
 
         /* 1. TEXTO GRADIENTE PREMIUM */
@@ -111,17 +111,17 @@
 
         /* 2. GLASSMORPHISM AVANZADO */
         .glass {
-            background: rgba(20, 20, 30, 0.4);
+            background: rgba(20, 20, 30, 0.6); /* Más opaco */
             backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
         }
         .glass:hover {
-            border-color: rgba(59, 130, 246, 0.4);
+            border-color: rgba(59, 130, 246, 0.6);
             transform: translateY(-5px);
-            background: rgba(30, 30, 45, 0.6);
+            background: rgba(30, 30, 45, 0.8);
             box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
         }
         /* Brillo al pasar el mouse */
@@ -130,7 +130,7 @@
             position: absolute;
             top: 0; left: -100%;
             width: 50%; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.05), transparent);
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
             transform: skewX(-25deg);
             transition: 0.5s;
         }
@@ -162,25 +162,25 @@
         /* 4. CHIPS FLOTANTES */
         .tech-chip {
             position: absolute;
-            background: rgba(10, 10, 15, 0.9);
+            background: rgba(10, 15, 25, 0.95);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 14px;
             padding: 12px 16px;
             display: flex;
             align-items: center;
             gap: 12px;
-            box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.9);
             z-index: 20;
             transition: all 0.3s ease;
             min-width: 170px;
         }
         .tech-chip:hover {
-            transform: scale(1.08) translateZ(30px);
-            border-color: rgba(59, 130, 246, 0.6);
-            box-shadow: 0 0 25px rgba(59, 130, 246, 0.3);
+            transform: scale(1.1) translateZ(40px);
+            border-color: rgba(59, 130, 246, 0.8);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
             z-index: 40;
-            background: rgba(20, 30, 50, 0.95);
+            background: #0f172a;
         }
         
         .chip-icon {
@@ -192,8 +192,8 @@
 
         /* 5. TARJETA HOLOGRÁFICA */
         .holo-card {
-            background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-            border: 1px solid rgba(255,255,255,0.1);
+            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+            border: 1px solid rgba(255,255,255,0.15);
             backdrop-filter: blur(20px);
             transform-style: preserve-3d;
             transition: transform 0.1s ease-out;
@@ -266,8 +266,8 @@
     <!-- HERO SECTION -->
     <section id="hero" class="relative min-h-screen pt-32 pb-0 flex flex-col justify-end overflow-hidden bg-hero-gradient perspective-1000">
         
-        <!-- TEXTURA REAL: Red Global (Mezclada con el fondo) -->
-        <div class="bg-blend-image" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop'); opacity: 0.1;"></div>
+        <!-- TEXTURA REAL VISIBLE: Red Global -->
+        <div class="bg-blend-image" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop'); opacity: 0.3;"></div>
         
         <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-end justify-between h-full">
             <!-- Texto Izquierda -->
@@ -335,8 +335,8 @@
 
     <!-- INFRAESTRUCTURA DE PAGOS (SERVICIOS) -->
     <section id="servicios" class="py-24 relative overflow-hidden bg-black">
-        <!-- TEXTURA REAL: Fibra óptica abstracta -->
-        <div class="bg-blend-image" style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?q=80&w=2070&auto=format&fit=crop'); opacity: 0.08;"></div>
+        <!-- TEXTURA REAL: Fibra óptica abstracta (Más visible) -->
+        <div class="bg-blend-image" style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?q=80&w=2070&auto=format&fit=crop'); opacity: 0.2;"></div>
         
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-16 reveal">
@@ -395,6 +395,11 @@
 
     <!-- PROCESO: Neural Roadmap -->
     <section id="proceso" class="py-24 bg-dark relative overflow-hidden">
+        <!-- TEXTURA REAL: Chip Luces Amarillas (Visibilidad Forzada) -->
+        <div style="position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1563770094211-72f3e4eb042a?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center; opacity: 0.5; filter: sepia(1) hue-rotate(10deg) saturate(2); z-index: 0;"></div>
+        <!-- Capa Oscura para leer texto -->
+        <div style="position: absolute; inset: 0; background: rgba(5,5,5,0.7); z-index: 0;"></div>
+
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-16 reveal">
                 <h2 class="text-3xl md:text-5xl font-display font-bold text-white">Mi Proceso</h2>
@@ -451,8 +456,8 @@
 
     <!-- CONSULTOR IA -->
     <section id="ia-lab" class="py-24 bg-black relative overflow-hidden">
-        <!-- TEXTURA REAL: Chip/Procesador (IA Vibe) -->
-        <div class="bg-blend-image" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop'); opacity: 0.1;"></div>
+        <!-- TEXTURA REAL: Chip/Procesador (Más visible) -->
+        <div class="bg-blend-image" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop'); opacity: 0.2;"></div>
         
         <div class="absolute -right-20 top-20 w-96 h-96 bg-purple-600/10 rounded-full blur-[100px]"></div>
 
@@ -637,14 +642,15 @@
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 
-        // 3. TILT EFFECT 3D REALISTA (Imagen Hero)
+        // 3. TILT EFFECT 3D REALISTA (Imagen Hero - SENSIBILIDAD AUMENTADA)
         const heroSection = document.getElementById('hero');
         const heroImgContainer = document.getElementById('hero-img-container');
         if (heroSection && heroImgContainer) {
             heroSection.addEventListener('mousemove', (e) => {
                 const xPos = (e.clientX / window.innerWidth - 0.5) * 2;
                 const yPos = (e.clientY / window.innerHeight - 0.5) * 2;
-                heroImgContainer.style.transform = `perspective(1000px) rotateY(${xPos * 5}deg) rotateX(${yPos * -5}deg)`;
+                // AUMENTO DE SENSIBILIDAD: De 5 a 15
+                heroImgContainer.style.transform = `perspective(1000px) rotateY(${xPos * 15}deg) rotateX(${yPos * -15}deg)`;
             });
             heroSection.addEventListener('mouseleave', () => {
                 heroImgContainer.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)';
@@ -661,10 +667,10 @@
                 const y = e.clientY - rect.top;
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
-                const rotateX = ((y - centerY) / centerY) * -8; 
-                const rotateY = ((x - centerX) / centerX) * 8;
+                const rotateX = ((y - centerY) / centerY) * -15; // AUMENTADO
+                const rotateY = ((x - centerX) / centerX) * 15;  // AUMENTADO
                 card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-                shine.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.15) 0%, transparent 80%)`;
+                shine.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.25) 0%, transparent 80%)`;
             });
             card.addEventListener('mouseleave', () => {
                 card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1,1,1)';
