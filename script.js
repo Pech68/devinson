@@ -4,6 +4,8 @@ const apiKey = "AIzaSyBdaivnoeGHO4gM8V2HGckDu6T2XApKlZM"; // <--- TU LLAVE (Aseg
 // 0. LÓGICA DE TEMPORADAS INTELIGENTES
 // ============================================
 let currentThemeColor = 'rgba(59, 130, 246, 0.15)'; // Azul por defecto
+let particleMode = 'circle'; // 'circle', 'emoji', 'colombia'
+let particleEmoji = ''; // Para guardar el emoji de la temporada
 
 function detectarTemporada() {
     const date = new Date();
@@ -15,38 +17,50 @@ function detectarTemporada() {
     const badge = document.getElementById('holiday-badge');
     const badgeText = document.getElementById('holiday-text');
     const badgeIcon = document.getElementById('holiday-icon');
-
-    // Resetear clases por si acaso
+    
+    // Resetear clases y modos
     body.classList.remove('theme-christmas', 'theme-halloween', 'theme-love', 'theme-colombia');
+    particleMode = 'circle';
+    particleEmoji = '';
 
     // LÓGICA DE FECHAS
     // 1. Diciembre (Navidad)
     if (month === 11) { 
         body.classList.add('theme-christmas');
         currentThemeColor = 'rgba(239, 68, 68, 0.2)'; // Rojo
+        particleMode = 'emoji';
+        particleEmoji = '❄️'; // Copo de nieve
         mostrarBadge("Modo Navidad", "fas fa-snowflake", "text-red-400");
     }
     // 2. Octubre (Halloween)
     else if (month === 9) { 
         body.classList.add('theme-halloween');
         currentThemeColor = 'rgba(249, 115, 22, 0.2)'; // Naranja
+        particleMode = 'emoji';
+        particleEmoji = '🎃'; // Calabaza
         mostrarBadge("Modo Halloween", "fas fa-ghost", "text-orange-400");
     }
     // 3. Septiembre (Amor y Amistad COL) o Febrero (San Valentin)
     else if (month === 8 || month === 1) { 
         body.classList.add('theme-love');
         currentThemeColor = 'rgba(236, 72, 153, 0.2)'; // Rosa
+        particleMode = 'emoji';
+        particleEmoji = '❤️'; // Corazón
         mostrarBadge("Modo Amor", "fas fa-heart", "text-pink-400");
     }
     // 4. Independencia Colombia (20 Julio) - Margen del 15 al 25 de Julio
     else if (month === 6 && (day >= 15 && day <= 25)) { 
         body.classList.add('theme-colombia');
-        currentThemeColor = 'rgba(234, 179, 8, 0.2)'; // Amarillo
+        currentThemeColor = 'rgba(234, 179, 8, 0.2)'; // Amarillo base
+        particleMode = 'colombia';
         mostrarBadge("¡Viva Colombia!", "fas fa-flag", "text-yellow-400");
     }
     
-    // DEBUG: Descomenta la siguiente línea para probar el modo Navidad hoy mismo:
-    // body.classList.add('theme-christmas'); currentThemeColor = 'rgba(239, 68, 68, 0.2)'; mostrarBadge("Modo Navidad", "fas fa-snowflake", "text-red-400");
+    // DEBUG: Descomenta UNA de estas líneas para probar los modos hoy mismo:
+    // MODO NAVIDAD:
+    // body.classList.add('theme-christmas'); currentThemeColor = 'rgba(239, 68, 68, 0.2)'; particleMode = 'emoji'; particleEmoji = '❄️'; mostrarBadge("Modo Navidad", "fas fa-snowflake", "text-red-400");
+    // MODO COLOMBIA:
+    // body.classList.add('theme-colombia'); particleMode = 'colombia'; mostrarBadge("¡Viva Colombia!", "fas fa-flag", "text-yellow-400");
 }
 
 function mostrarBadge(texto, icono, claseColor) {
@@ -116,20 +130,27 @@ window.addEventListener('resize', resize);
 function createParticles() {
     particles = [];
     const count = window.innerWidth < 768 ? 40 : 80; 
+    
+    // Colores de la bandera para modo Colombia
+    const colombiaColors = ['#FCD116', '#003893', '#CE1126']; // Amarillo, Azul, Rojo
+
     for(let i=0; i<count; i++) {
         particles.push({
             x: Math.random() * width,
             y: Math.random() * height,
             vx: (Math.random() - 0.5) * 0.5,
             vy: (Math.random() - 0.5) * 0.5,
-            size: Math.random() * 2
+            size: Math.random() * 2,
+            // Asignar color aleatorio si es modo Colombia
+            colombiaColor: particleMode === 'colombia' ? colombiaColors[Math.floor(Math.random() * colombiaColors.length)] : null
         });
     }
 }
 
 function animateParticles() {
     ctx.clearRect(0, 0, width, height);
-    // Usamos el color dinámico detectado por la temporada
+    
+    // Configuración base de líneas
     ctx.strokeStyle = currentThemeColor; 
     ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
 
@@ -137,30 +158,56 @@ function animateParticles() {
         p.x += p.vx;
         p.y += p.vy;
 
+        // Rebote en bordes (loop infinito)
         if(p.x < 0) p.x = width;
         if(p.x > width) p.x = 0;
         if(p.y < 0) p.y = height;
         if(p.y > height) p.y = 0;
 
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
-        ctx.fill();
+        // DIBUJAR PARTÍCULA SEGÚN MODO
+        if (particleMode === 'emoji') {
+            // Modo Emojis (Navidad, Halloween, Amor)
+            ctx.font = "20px serif";
+            ctx.fillText(particleEmoji, p.x, p.y);
+        } 
+        else if (particleMode === 'colombia') {
+            // Modo Colombia (Confeti Tricolor)
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size * 2, 0, Math.PI*2); // Un poco más grandes
+            ctx.fillStyle = p.colombiaColor; // Usar el color asignado (Amarillo, Azul o Rojo)
+            ctx.fill();
+        } 
+        else {
+            // Modo Normal (Círculos)
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+            ctx.fill();
+        }
 
-        for(let j=i+1; j<particles.length; j++) {
-            const p2 = particles[j];
-            const dx = p.x - p2.x;
-            const dy = p.y - p2.y;
-            const dist = Math.sqrt(dx*dx + dy*dy);
-            if(dist < 150) {
-                ctx.beginPath();
-                ctx.moveTo(p.x, p.y);
-                ctx.lineTo(p2.x, p2.y);
-                ctx.stroke();
+        // DIBUJAR LÍNEAS DE CONEXIÓN (Solo en modo normal o sutilmente en Colombia)
+        // En modo Emoji desactivamos las líneas para que no se vea sucio
+        if (particleMode !== 'emoji') {
+            for(let j=i+1; j<particles.length; j++) {
+                const p2 = particles[j];
+                const dx = p.x - p2.x;
+                const dy = p.y - p2.y;
+                const dist = Math.sqrt(dx*dx + dy*dy);
+                
+                if(dist < 150) {
+                    ctx.beginPath();
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(p2.x, p2.y);
+                    // Si es Colombia, línea sutil gris, si no, color del tema
+                    ctx.strokeStyle = particleMode === 'colombia' ? 'rgba(255,255,255,0.1)' : currentThemeColor;
+                    ctx.stroke();
+                }
             }
         }
     });
     requestAnimationFrame(animateParticles);
 }
+// Aseguramos iniciar después de definir todo
 resize();
 animateParticles();
 
