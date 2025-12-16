@@ -1,0 +1,103 @@
+body { 
+    background-color: #050505; 
+    color: #ffffff; 
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+#particles-canvas {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.6;
+}
+
+.bg-blend-image {
+    position: absolute; inset: 0; background-size: cover; background-position: center; mix-blend-mode: screen; pointer-events: none; z-index: 0; filter: contrast(1.2) brightness(0.8);
+}
+
+.text-gradient {
+    background: linear-gradient(to right, #60a5fa, #c084fc);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+
+.glass {
+    background: rgba(20, 20, 30, 0.6); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.15); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;
+}
+.glass:hover {
+    border-color: rgba(59, 130, 246, 0.6); transform: translateY(-5px); background: rgba(30, 30, 45, 0.8); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+}
+
+/* 3D Container Desktop */
+.hero-image-container { position: relative; z-index: 10; transform-style: preserve-3d; transition: transform 0.1s ease-out; }
+.hero-image-container::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 20%; background: linear-gradient(to top, #050505, transparent); pointer-events: none; z-index: 30; }
+
+/* Chips Desktop (Flotantes) */
+.tech-chip {
+    position: absolute; background: rgba(10, 15, 25, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 14px; padding: 12px 16px; display: flex; align-items: center; gap: 12px; box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.9); z-index: 20; transition: all 0.3s ease; min-width: 170px;
+}
+.tech-chip:hover { transform: scale(1.1) translateZ(40px); border-color: rgba(59, 130, 246, 0.8); box-shadow: 0 0 30px rgba(59, 130, 246, 0.4); z-index: 40; background: #0f172a; }
+.chip-icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+
+/* Chips Mobile (Carrusel "Belt") */
+.mobile-belt-container {
+    width: 200%; /* Doble ancho para loop */
+    display: flex;
+    gap: 1rem;
+    animation: scrollBelt 25s linear infinite;
+}
+.mobile-chip {
+    background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; padding: 8px 16px; display: flex; items-center; gap: 10px; white-space: nowrap; backdrop-filter: blur(8px);
+}
+
+/* ANIMACIÓN CRUCIAL PARA EL CINTURÓN */
+@keyframes scrollBelt {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.holo-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.15); backdrop-filter: blur(20px); transform-style: preserve-3d; transition: transform 0.1s ease-out; position: relative; overflow: hidden;
+}
+
+.marquee-container { overflow: hidden; white-space: nowrap; position: relative; }
+.marquee-content { display: inline-block; animation: marquee 30s linear infinite; }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+::-webkit-scrollbar { width: 6px; background: #050505; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
+
+.ai-loader { width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.1); border-top-color: #3b82f6; border-radius: 50%; animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.timeline-line { position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, transparent, #3b82f6, transparent); transform: translateX(-50%); z-index: 0; }
+
+/* Menú Móvil Fullscreen */
+#mobile-menu {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+}
+#mobile-menu.open {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+}
+
+/* Estilos para módulos dinámicos */
+.ai-suggested {
+    border-color: #a855f7; /* Purple for AI */
+    background: rgba(168, 85, 247, 0.05);
+}
+.ai-badge {
+    font-size: 0.6rem;
+    background: #a855f7;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
