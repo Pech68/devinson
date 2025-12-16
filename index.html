@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- =========================================
-         SEO AVANZADO (Google Search Ready)
+          SEO AVANZADO (Google Search Ready)
     ========================================== -->
     <title>Devinson Rodriguez | Experto en E-commerce & Automatización IA</title>
     <meta name="description" content="Potencia tu negocio con Devinson Rodriguez. Desarrollo Web Full Stack, Integración de Mercado Pago, Pasarelas de Pago y Chatbots con Inteligencia Artificial en Colombia.">
@@ -101,7 +101,8 @@
                         'float-slow': 'float 8s ease-in-out 1s infinite',
                         'float-reverse': 'floatReverse 7s ease-in-out infinite',
                         'breathe': 'breathe 8s ease-in-out infinite',
-                        'scroll-belt': 'scrollBelt 20s linear infinite', /* Animación nueva para el cinturón */
+                        'scroll-belt': 'scrollBelt 20s linear infinite',
+                        'cursor-blink': 'blink 1s step-end infinite',
                     },
                     keyframes: {
                         float: {
@@ -119,6 +120,10 @@
                         scrollBelt: {
                             '0%': { transform: 'translateX(0)' },
                             '100%': { transform: 'translateX(-50%)' }, 
+                        },
+                        blink: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0' },
                         }
                     }
                 }
@@ -176,12 +181,6 @@
             background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; padding: 8px 16px; display: flex; items-center; gap: 10px; white-space: nowrap; backdrop-filter: blur(8px);
         }
 
-        /* ANIMACIÓN CRUCIAL PARA EL CINTURÓN */
-        @keyframes scrollBelt {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
         .holo-card {
             background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.15); backdrop-filter: blur(20px); transform-style: preserve-3d; transition: transform 0.1s ease-out; position: relative; overflow: hidden;
         }
@@ -230,9 +229,103 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
+
+        /* --- ESTILOS FESTIVOS AVANZADOS --- */
+        
+        /* 1. Nieve Animada (CSS Puro) */
+        .snow-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 40; display: none;
+        }
+        .snowflake {
+            position: absolute; width: 10px; height: 10px; background: white; border-radius: 50%; opacity: 0.8;
+            animation: snowfall linear infinite;
+        }
+        @keyframes snowfall {
+            to { transform: translateY(100vh); }
+        }
+
+        /* 2. Muñeco de Nieve (CSS Puro) */
+        .snowman-container {
+            position: fixed; bottom: 20px; right: 20px; z-index: 60; display: none; transform: scale(0.6); pointer-events: none;
+        }
+        .snowman { position: relative; }
+        .snowman-body {
+            width: 80px; height: 80px; background: white; border-radius: 50%; position: absolute; bottom: 0; left: 0;
+            box-shadow: inset -5px -5px 15px rgba(0,0,0,0.1);
+        }
+        .snowman-head {
+            width: 50px; height: 50px; background: white; border-radius: 50%; position: absolute; bottom: 70px; left: 15px;
+            box-shadow: inset -3px -3px 10px rgba(0,0,0,0.1);
+        }
+        .snowman-eye {
+            width: 6px; height: 6px; background: #333; border-radius: 50%; position: absolute; top: 18px;
+        }
+        .snowman-eye.left { left: 14px; }
+        .snowman-eye.right { right: 14px; }
+        .snowman-nose {
+            width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 15px solid orange;
+            position: absolute; top: 25px; left: 22px;
+        }
+        .snowman-arm {
+            width: 40px; height: 4px; background: #8B4513; position: absolute; top: 40px;
+        }
+        .snowman-arm.left { left: -30px; transform: rotate(20deg); }
+        .snowman-arm.right { right: -30px; transform: rotate(-20deg); }
+        .snowman-anim { animation: bounceSnowman 2s infinite ease-in-out; }
+        @keyframes bounceSnowman { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+
+        /* 3. Araña Halloween (CSS) */
+        .spider-container {
+            position: fixed; top: -100px; left: 10%; z-index: 60; display: none; animation: spiderDrop 3s ease-in-out infinite alternate; pointer-events: none;
+        }
+        .spider-thread { width: 2px; height: 100px; background: white; margin: 0 auto; }
+        .spider-body { width: 40px; height: 30px; background: #333; border-radius: 50%; margin: 0 auto; position: relative; }
+        .spider-leg { position: absolute; width: 30px; height: 2px; background: #333; top: 50%; }
+        .spider-leg.left { right: 50%; transform-origin: right; transform: rotate(30deg); }
+        .spider-leg.right { left: 50%; transform-origin: left; transform: rotate(-30deg); }
+        @keyframes spiderDrop { 0% { top: -80px; } 100% { top: -20px; } }
+
+        /* 4. Gorro de Santa en Logo */
+        .santa-hat-icon {
+            position: absolute; top: -12px; left: -10px; width: 24px; height: 24px; z-index: 60;
+            background: url('https://cdn-icons-png.flaticon.com/512/744/744546.png') no-repeat center center/contain;
+            transform: rotate(-15deg); display: none; pointer-events: none;
+        }
+
+        /* Cursor Parpadeante */
+        .cursor-blink::after {
+            content: '|';
+            animation: blink 1s step-start infinite;
+            color: #3b82f6;
+            margin-left: 2px;
+        }
     </style>
 </head>
 <body class="antialiased font-sans bg-black selection:bg-blue-500 selection:text-white">
+
+    <!-- CONTENEDORES FESTIVOS (Ocultos por defecto) -->
+    <div id="snow-effect" class="snow-container"></div>
+    <div id="snowman-effect" class="snowman-container snowman-anim">
+        <div class="snowman">
+            <div class="snowman-body"></div>
+            <div class="snowman-head">
+                <div class="snowman-eye left"></div>
+                <div class="snowman-eye right"></div>
+                <div class="snowman-nose"></div>
+            </div>
+            <div class="snowman-arm left"></div>
+            <div class="snowman-arm right"></div>
+        </div>
+    </div>
+    <div id="spider-effect" class="spider-container">
+        <div class="spider-thread"></div>
+        <div class="spider-body">
+            <div class="spider-leg left" style="transform: rotate(30deg)"></div>
+            <div class="spider-leg left" style="transform: rotate(10deg); top:40%"></div>
+            <div class="spider-leg right" style="transform: rotate(-30deg)"></div>
+            <div class="spider-leg right" style="transform: rotate(-10deg); top:40%"></div>
+        </div>
+    </div>
 
     <!-- CANVAS DE PARTÍCULAS -->
     <canvas id="particles-canvas"></canvas>
@@ -240,10 +333,13 @@
     <!-- NAVEGACIÓN -->
     <nav class="fixed w-full z-50 top-0 left-0 border-b border-white/5 bg-black/80 backdrop-blur-xl transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center relative z-50">
-            <!-- Logo -->
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center font-bold text-white shadow-[0_0_15px_rgba(59,130,246,0.5)]">D</div>
-                <span class="font-display font-bold text-lg tracking-tight">DEVINSON<span class="text-white/40">.CO</span></span>
+            <!-- Logo Interactivo -->
+            <div class="flex items-center gap-2 cursor-pointer group" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center font-bold text-white shadow-[0_0_15px_rgba(59,130,246,0.5)] relative transition-transform group-hover:rotate-12">
+                    D
+                    <div id="santa-hat" class="santa-hat-icon"></div> <!-- Gorro Dinámico -->
+                </div>
+                <span class="font-display font-bold text-lg tracking-tight group-hover:text-blue-400 transition-colors">DEVINSON<span class="text-white/40 group-hover:text-purple-400">.GITHUB</span></span>
             </div>
             
             <!-- Desktop Menu -->
@@ -299,7 +395,8 @@
                 
                 <h1 class="text-5xl md:text-7xl font-display font-bold leading-none mb-6 pointer-events-auto tracking-tight">
                     Arquitectura <br>
-                    <span class="text-gradient">Digital Avanzada</span>
+                    <!-- Typewriter Effect -->
+                    <span class="text-gradient" id="typewriter-text"></span><span class="cursor-blink"></span>
                 </h1>
                 
                 <p class="text-lg md:text-xl text-gray-300 max-w-lg mb-8 font-light pointer-events-auto mx-auto md:mx-0 leading-relaxed">
@@ -511,7 +608,8 @@
                 <div class="bg-gray-900/80 rounded-[22px] p-6 md:p-10 backdrop-blur-md border border-white/5">
                     <div class="flex flex-col gap-4">
                         <label class="text-sm text-gray-400 font-mono ml-1">TU VISIÓN / REQUERIMIENTO:</label>
-                        <textarea id="ai-input" rows="2" class="w-full bg-black/50 border border-white/10 rounded-xl p-4 text-white placeholder-gray-600 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all resize-none text-lg font-mono" placeholder="Ej: Quiero una app tipo delivery para mi pizzería, con pagos online y rastreo básico..."></textarea>
+                        <!-- ID ai-input usado para autocompletado -->
+                        <textarea id="ai-input" rows="2" class="w-full bg-black/50 border border-white/10 rounded-xl p-4 text-white placeholder-gray-500 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all resize-none text-lg font-mono" placeholder="Esperando input neural..."></textarea>
                         
                         <div class="flex justify-end">
                             <button onclick="consultarIA()" id="ai-btn" class="w-full md:w-auto px-6 py-3 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-all flex items-center justify-center gap-2">
@@ -638,7 +736,129 @@
 
         let aiSummaryForWhatsapp = ""; // Variable para guardar el resumen corto
 
-        // 1. MENU HAMBURGUESA LOGIC
+        // ============================================
+        // 1. MOTOR DE FESTIVIDADES (Holidays Engine)
+        // ============================================
+        function checkHoliday() {
+            const date = new Date();
+            const month = date.getMonth(); // 0-11
+            const day = date.getDate();
+
+            // Elementos
+            const snow = document.getElementById('snow-effect');
+            const snowman = document.getElementById('snowman-effect');
+            const spider = document.getElementById('spider-effect');
+            const santaHat = document.getElementById('santa-hat');
+
+            // NAVIDAD: Diciembre (11) o Enero (0) primeros días
+            if (month === 11 || (month === 0 && day <= 7)) {
+                snow.style.display = 'block';
+                snowman.style.display = 'block';
+                santaHat.style.display = 'block';
+                createSnowflakes();
+            }
+            // HALLOWEEN: Octubre (9)
+            else if (month === 9) {
+                spider.style.display = 'block';
+            }
+            // INDEPENDENCIA COLOMBIA: Julio (6) dia 20
+            else if (month === 6 && day === 20) {
+                // Podríamos agregar bandera aquí
+                console.log("¡Feliz Día de la Independencia!");
+            }
+            // AMOR Y AMISTAD: Septiembre (8)
+            else if (month === 8) {
+                // Podríamos agregar corazones
+                console.log("Modo Amor y Amistad Activo");
+            }
+        }
+
+        // Generador de Nieve CSS
+        function createSnowflakes() {
+            const container = document.getElementById('snow-effect');
+            const count = 50;
+            for (let i = 0; i < count; i++) {
+                const flake = document.createElement('div');
+                flake.classList.add('snowflake');
+                flake.style.left = Math.random() * 100 + 'vw';
+                flake.style.animationDuration = (Math.random() * 3 + 2) + 's'; // 2-5s
+                flake.style.opacity = Math.random();
+                flake.style.width = flake.style.height = (Math.random() * 5 + 5) + 'px';
+                container.appendChild(flake);
+            }
+        }
+
+        // ============================================
+        // 2. TYPEWRITER EFFECT (Máquina de escribir)
+        // ============================================
+        const phrases = ["Digital Avanzada", "E-commerce Real", "Potenciada por IA", "Full Stack"];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typeSpeed = 100;
+        const deleteSpeed = 50;
+        const delayBetween = 2000;
+
+        function typeWriterEffect() {
+            const currentPhrase = phrases[phraseIndex];
+            const element = document.getElementById('typewriter-text');
+            
+            if (isDeleting) {
+                element.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                element.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                setTimeout(typeWriterEffect, delayBetween); // Pausa al terminar frase
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                setTimeout(typeWriterEffect, 500); // Pausa antes de nueva frase
+            } else {
+                setTimeout(typeWriterEffect, isDeleting ? deleteSpeed : typeSpeed);
+            }
+        }
+
+        // ============================================
+        // 3. IA AUTOCOMPLETE SIMULATION
+        // ============================================
+        let hasSimulatedAI = false;
+        function initAIPlaceholder() {
+            const input = document.getElementById('ai-input');
+            const textToType = "Hola, quiero vender zapatos y necesito pagos online...";
+            let i = 0;
+            
+            // Observer para detectar cuando la sección es visible
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting && !hasSimulatedAI) {
+                    hasSimulatedAI = true;
+                    // Limpiar y enfocar visualmente (opcional)
+                    input.placeholder = "";
+                    
+                    const typingInterval = setInterval(() => {
+                        input.placeholder += textToType.charAt(i);
+                        i++;
+                        if (i >= textToType.length) {
+                            clearInterval(typingInterval);
+                            setTimeout(() => {
+                                // Dejar el texto un momento y luego permitir escribir
+                                // Opcional: convertir placeholder a value si quisieras
+                            }, 1000);
+                        }
+                    }, 50); // Velocidad de escritura
+                }
+            }, { threshold: 0.5 });
+            
+            observer.observe(document.getElementById('ia-lab'));
+        }
+
+        // ============================================
+        // MENU HAMBURGUESA LOGIC
+        // ============================================
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = menuBtn.querySelector('i');
@@ -659,7 +879,9 @@
             }
         }
 
-        // 2. PARTICLES NETWORK (Canvas Dinámico)
+        // ============================================
+        // PARTICLES NETWORK (Canvas Dinámico)
+        // ============================================
         const canvas = document.getElementById('particles-canvas');
         const ctx = canvas.getContext('2d');
         let width, height;
@@ -719,10 +941,10 @@
             });
             requestAnimationFrame(animateParticles);
         }
-        resize();
-        animateParticles();
-
-        // 3. SCROLL REVEAL (Observer)
+        
+        // ============================================
+        // SCROLL REVEAL (Observer)
+        // ============================================
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if(entry.isIntersecting) {
@@ -732,7 +954,9 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // 4. TILT EFFECT 3D
+        // ============================================
+        // TILT EFFECT 3D
+        // ============================================
         const heroSection = document.getElementById('hero');
         const heroImgContainer = document.getElementById('hero-img-container');
         if (heroSection && heroImgContainer && window.innerWidth > 768) {
@@ -765,7 +989,9 @@
             });
         }
 
-        // 5. IA CONSULTANT
+        // ============================================
+        // IA CONSULTANT
+        // ============================================
         async function consultarIA() {
             const input = document.getElementById('ai-input').value;
             const btn = document.getElementById('ai-btn');
@@ -902,7 +1128,9 @@
             }
         }
 
+        // ============================================
         // 6. COTIZADOR INTELIGENTE (Actualizado)
+        // ============================================
         function calculateTotal() {
             let total = 0;
             let selectedItems = [];
@@ -937,8 +1165,13 @@
             btn.href = `https://wa.me/573215203354?text=${encodeURIComponent(message)}`;
         }
         
-        // Ejecutar al inicio para sumar la base
+        // Ejecuciones Iniciales
         calculateTotal();
+        resize();
+        animateParticles();
+        checkHoliday();      // Iniciar detección de fechas
+        typeWriterEffect();  // Iniciar título animado
+        initAIPlaceholder(); // Iniciar observer del input
     </script>
 </body>
 </html>
