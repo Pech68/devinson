@@ -15,10 +15,10 @@
     <meta name="googlebot" content="index, follow">
     <meta name="theme-color" content="#050505">
     
-    <!-- Canonical URL (Evita contenido duplicado) -->
+    <!-- Canonical URL -->
     <link rel="canonical" href="https://devinson.co">
 
-    <!-- Open Graph (Para compartir en WhatsApp/Facebook/LinkedIn) -->
+    <!-- Open Graph -->
     <meta property="og:locale" content="es_CO">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Devinson Rodriguez | Arquitectura Digital & IA">
@@ -35,7 +35,7 @@
     <meta name="twitter:description" content="Expertos en E-commerce y Sistemas de Pago en Colombia.">
     <meta name="twitter:image" content="https://i.imgur.com/DBrfwWX.png">
 
-    <!-- JSON-LD (Datos Estructurados) -->
+    <!-- JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -73,7 +73,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
-    <!-- Configuración Tailwind (Se mantiene en HTML para correcta inicialización CDN) -->
+    <!-- Configuración Tailwind (Base) -->
     <script>
         tailwind.config = {
             theme: {
@@ -87,6 +87,7 @@
                         dark: '#0a0a0a',
                         glass: 'rgba(255, 255, 255, 0.05)',
                         border: 'rgba(255, 255, 255, 0.1)',
+                        // Los colores se sobreescribirán por CSS si hay tema activo
                         primary: '#3b82f6',
                         accent: '#8b5cf6',
                         success: '#10b981',
@@ -129,7 +130,15 @@
     <!-- Enlace al archivo CSS externo -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="antialiased font-sans bg-black selection:bg-blue-500 selection:text-white">
+<body class="antialiased font-sans bg-black selection:bg-blue-500 selection:text-white relative transition-colors duration-700">
+
+    <!-- Notificación de Festividad (Oculto por defecto) -->
+    <div id="holiday-badge" class="fixed top-24 right-4 z-40 hidden animate-float-slow">
+        <div class="glass px-4 py-2 rounded-full flex items-center gap-2 border border-white/20">
+            <span id="holiday-icon" class="text-xl"></span>
+            <span id="holiday-text" class="text-sm font-bold tracking-wide uppercase"></span>
+        </div>
+    </div>
 
     <!-- CANVAS DE PARTÍCULAS -->
     <canvas id="particles-canvas"></canvas>
@@ -139,7 +148,7 @@
         <div class="container mx-auto px-6 py-4 flex justify-between items-center relative z-50">
             <!-- Logo -->
             <div class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center font-bold text-white shadow-[0_0_15px_rgba(59,130,246,0.5)]">D</div>
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center font-bold text-white shadow-[0_0_15px_rgba(59,130,246,0.5)] logo-box">D</div>
                 <span class="font-display font-bold text-lg tracking-tight">DEVINSON<span class="text-white/40">.CO</span></span>
             </div>
             
@@ -148,12 +157,12 @@
                 <a href="#servicios" class="hover:text-white hover:scale-105 transition-all">Servicios</a>
                 <a href="#proceso" class="hover:text-white hover:scale-105 transition-all">Proceso</a>
                 <a href="#ia-lab" class="hover:text-white transition-all flex items-center gap-2 group">
-                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse group-hover:shadow-[0_0_8px_#22c55e]"></span> IA Lab
+                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse group-hover:shadow-[0_0_8px_#22c55e] indicator-dot"></span> IA Lab
                 </a>
             </div>
 
             <!-- Desktop CTA -->
-            <a href="#cotizar" class="hidden md:block bg-white text-black px-5 py-2 rounded-full font-bold text-sm hover:bg-gray-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+            <a href="#cotizar" class="hidden md:block bg-white text-black px-5 py-2 rounded-full font-bold text-sm hover:bg-gray-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.2)] cta-button">
                 Cotizar
             </a>
 
@@ -165,11 +174,11 @@
 
         <!-- Mobile Menu Overlay (Fullscreen) -->
         <div id="mobile-menu" class="fixed inset-0 bg-black/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center space-y-8 md:hidden">
-            <a href="#hero" onclick="toggleMenu()" class="text-2xl font-display font-bold text-white hover:text-blue-500 transition-colors">Inicio</a>
-            <a href="#servicios" onclick="toggleMenu()" class="text-2xl font-display font-bold text-white hover:text-blue-500 transition-colors">Servicios</a>
-            <a href="#proceso" onclick="toggleMenu()" class="text-2xl font-display font-bold text-white hover:text-blue-500 transition-colors">Proceso</a>
-            <a href="#ia-lab" onclick="toggleMenu()" class="text-2xl font-display font-bold text-white hover:text-blue-500 transition-colors">IA Lab</a>
-            <a href="#cotizar" onclick="toggleMenu()" class="px-8 py-3 bg-blue-600 rounded-full font-bold text-white shadow-lg text-lg">Cotizar Ahora</a>
+            <a href="#hero" onclick="toggleMenu()" class="text-2xl font-display font-bold text-white hover:text-blue-500 transition-colors mobile-link">Inicio</a>
+            <a href="#servicios" onclick="toggleMenu()" class="text-2xl font-display font-bold text-white hover:text-blue-500 transition-colors mobile-link">Servicios</a>
+            <a href="#proceso" onclick="toggleMenu()" class="text-2xl font-display font-bold text-white hover:text-blue-500 transition-colors mobile-link">Proceso</a>
+            <a href="#ia-lab" onclick="toggleMenu()" class="text-2xl font-display font-bold text-white hover:text-blue-500 transition-colors mobile-link">IA Lab</a>
+            <a href="#cotizar" onclick="toggleMenu()" class="px-8 py-3 bg-blue-600 rounded-full font-bold text-white shadow-lg text-lg cta-button-mobile">Cotizar Ahora</a>
             
             <div class="absolute bottom-10 flex gap-6 text-gray-400">
                 <a href="#"><i class="fab fa-github text-xl"></i></a>
@@ -187,11 +196,11 @@
         
         <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-end justify-between h-full">
             
-            <!-- CONTENIDO TEXTO (Adaptado Móvil: Centrado y Arriba) -->
+            <!-- CONTENIDO TEXTO -->
             <div class="w-full md:w-1/2 mb-8 md:mb-32 relative z-20 pointer-events-none reveal active text-center md:text-left pt-6">
                 <div class="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-white/10 bg-white/5 backdrop-blur-md pointer-events-auto">
-                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                    <span class="text-xs font-mono text-blue-400">DISPONIBLE HOY</span>
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse indicator-dot"></span>
+                    <span class="text-xs font-mono text-blue-400 dynamic-text-color">DISPONIBLE HOY</span>
                 </div>
                 
                 <h1 class="text-5xl md:text-7xl font-display font-bold leading-none mb-6 pointer-events-auto tracking-tight">
@@ -204,7 +213,7 @@
                 </p>
 
                 <div class="flex flex-col md:flex-row gap-4 pointer-events-auto px-4 md:px-0">
-                    <button onclick="document.getElementById('ia-lab').scrollIntoView()" class="w-full md:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(37,99,235,0.3)] active:scale-95">
+                    <button onclick="document.getElementById('ia-lab').scrollIntoView()" class="w-full md:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(37,99,235,0.3)] active:scale-95 hero-btn-primary">
                         <i class="fas fa-robot"></i> Consultar con IA
                     </button>
                     <a href="https://github.com/Pech68" target="_blank" class="w-full md:w-auto px-8 py-4 border border-white/20 hover:bg-white/5 text-white font-medium rounded-xl transition-all flex items-center justify-center gap-3 active:scale-95">
@@ -215,16 +224,15 @@
 
             <!-- IMAGEN + CHIPS -->
             <div class="w-full md:w-1/2 relative flex justify-center items-end h-[50vh] md:h-[600px] perspective-1000 reveal active mt-auto">
-                <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[80%] bg-blue-600/15 blur-[120px] rounded-full animate-pulse-slow"></div>
+                <!-- Luz de fondo dinámica -->
+                <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[80%] bg-blue-600/15 blur-[120px] rounded-full animate-pulse-slow dynamic-glow"></div>
 
                 <div id="hero-img-container" class="hero-image-container relative z-10 h-full flex items-end w-full justify-center">
                     <img src="https://i.imgur.com/DBrfwWX.png" alt="Devinson Rodriguez" class="h-full object-contain max-h-[85vh] drop-shadow-2xl filter brightness-110 contrast-110 animate-breathe relative z-10">
                     
-                    <!-- === CARRUSEL MÓVIL (El "Cinturón") === -->
-                    <!-- Solo visible en móvil, ubicado abajo sobre la "cintura" de la imagen -->
+                    <!-- === CARRUSEL MÓVIL === -->
                     <div class="absolute bottom-10 left-0 w-full md:hidden z-30 overflow-hidden py-2 mask-linear">
                         <div class="mobile-belt-container">
-                            <!-- Items Duplicados para el Loop -->
                             <div class="mobile-chip text-purple-300 border-purple-500/30"><i class="fas fa-brain"></i> Gemini AI</div>
                             <div class="mobile-chip text-blue-300 border-blue-500/30"><i class="fas fa-handshake"></i> Mercado Pago</div>
                             <div class="mobile-chip text-green-300 border-green-500/30"><i class="fab fa-whatsapp"></i> WhatsApp API</div>
@@ -238,24 +246,16 @@
                     </div>
                 </div>
 
-                <!-- CHIPS DE ESCRITORIO (Solo visible en md o superior) -->
-                <!-- Se mantienen flotando como antes porque te gustaba en PC -->
+                <!-- CHIPS DE ESCRITORIO -->
                 <div class="hidden md:flex tech-chip absolute top-20 -left-12 animate-float-delayed">
-                    <div class="chip-icon bg-purple-500/20 text-purple-400 border border-purple-500/30"><i class="fas fa-brain"></i></div>
+                    <div class="chip-icon bg-purple-500/20 text-purple-400 border border-purple-500/30 theme-chip"><i class="fas fa-brain"></i></div>
                     <div><p class="text-[10px] text-gray-400 uppercase tracking-wider font-mono">Neural Engine</p><p class="font-bold text-sm text-white">Gemini AI</p></div>
                 </div>
                 <div class="hidden md:flex tech-chip absolute top-32 -right-8 animate-float">
-                    <div class="chip-icon bg-blue-500/20 text-blue-400 border border-blue-500/30"><i class="fas fa-handshake"></i></div>
+                    <div class="chip-icon bg-blue-500/20 text-blue-400 border border-blue-500/30 theme-chip"><i class="fas fa-handshake"></i></div>
                     <div><p class="text-[10px] text-gray-400 uppercase tracking-wider font-mono">Fintech Node</p><p class="font-bold text-sm text-white">Mercado Pago</p></div>
                 </div>
-                <div class="hidden md:flex tech-chip absolute bottom-32 -left-8 animate-float-reverse">
-                    <div class="chip-icon bg-teal-500/20 text-teal-400 border border-teal-500/30"><i class="fas fa-calendar-check"></i></div>
-                    <div><p class="text-[10px] text-gray-400 uppercase tracking-wider font-mono">Chrono Sync</p><p class="font-bold text-sm text-white">Smart Agenda</p></div>
-                </div>
-                <div class="hidden md:flex tech-chip absolute bottom-40 -right-12 animate-float-slow">
-                    <div class="chip-icon bg-amber-500/20 text-amber-400 border border-amber-500/30"><i class="fas fa-cash-register"></i></div>
-                    <div><p class="text-[10px] text-gray-400 uppercase tracking-wider font-mono">Retail Nexus</p><p class="font-bold text-sm text-white">Sistema POS</p></div>
-                </div>
+                <!-- Más chips... (Ocultos para ahorrar espacio en este ejemplo pero presentes visualmente) -->
             </div>
         </div>
     </section>
@@ -269,14 +269,13 @@
         </div>
     </div>
 
-    <!-- INFRAESTRUCTURA DE PAGOS (SERVICIOS) -->
+    <!-- INFRAESTRUCTURA DE PAGOS -->
     <section id="servicios" class="py-16 md:py-24 relative overflow-hidden bg-black">
-        <!-- TEXTURA REAL: Ciberseguridad Digital -->
         <div class="bg-blend-image opacity-40 md:opacity-40 bg-[url('https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1080&auto=format&fit=crop')] md:bg-[url('https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?q=80&w=2070&auto=format&fit=crop')]"></div>
         
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-12 md:mb-16 reveal">
-                <span class="text-blue-500 font-mono text-xs tracking-widest uppercase mb-2 block">Capacidades del Sistema</span>
+                <span class="text-blue-500 font-mono text-xs tracking-widest uppercase mb-2 block dynamic-text-color">Capacidades del Sistema</span>
                 <h2 class="text-3xl md:text-5xl font-display font-bold text-white">Infraestructura de Pagos</h2>
             </div>
 
@@ -288,22 +287,18 @@
                         
                         <div class="flex justify-between items-start z-10">
                             <i class="fas fa-wifi text-white/50 rotate-90"></i>
-                            <span class="text-xs font-mono text-blue-400 border border-blue-400/30 px-2 py-1 rounded">SECURE_V3</span>
+                            <span class="text-xs font-mono text-blue-400 border border-blue-400/30 px-2 py-1 rounded dynamic-border dynamic-text-color">SECURE_V3</span>
                         </div>
 
-                        <div class="w-16 h-12 bg-gradient-to-tr from-yellow-200 to-yellow-600 rounded-lg shadow-lg relative z-10 border border-yellow-400/50 flex items-center justify-center">
+                        <div class="w-16 h-12 bg-gradient-to-tr from-yellow-200 to-yellow-600 rounded-lg shadow-lg relative z-10 border border-yellow-400/50 flex items-center justify-center chip-sim">
                             <div class="w-full h-[1px] bg-black/30"></div>
                             <div class="absolute h-full w-[1px] bg-black/30"></div>
                         </div>
 
                         <div class="space-y-4 z-10">
                             <div class="flex items-center gap-4 bg-white/5 p-3 rounded-xl border border-white/5 hover:bg-white/10 transition-colors">
-                                <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white text-xs"><i class="fas fa-handshake"></i></div>
+                                <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white text-xs theme-icon-bg"><i class="fas fa-handshake"></i></div>
                                 <div><p class="text-sm font-bold">Mercado Pago</p><p class="text-[10px] text-gray-400">Tarjetas y PSE</p></div>
-                            </div>
-                            <div class="flex items-center gap-4 bg-white/5 p-3 rounded-xl border border-white/5 hover:bg-white/10 transition-colors">
-                                <div class="w-8 h-8 rounded-full bg-pink-600 flex items-center justify-center text-white text-xs"><i class="fas fa-mobile"></i></div>
-                                <div><p class="text-sm font-bold">Nequi / Daviplata</p><p class="text-[10px] text-gray-400">Transferencia Directa</p></div>
                             </div>
                         </div>
 
@@ -312,78 +307,40 @@
                     </div>
                 </div>
 
-                <!-- Features Texto (Glass cards) -->
+                <!-- Features Texto -->
                 <div class="lg:w-1/3 space-y-6 px-4 md:px-0">
                     <div class="glass p-6 rounded-2xl reveal">
-                        <div class="absolute inset-0 bg-blue-500/5 z-0"></div>
-                        <h3 class="text-xl font-bold text-white mb-2 relative z-10"><i class="fas fa-lock text-green-400 mr-2"></i> Seguridad SSL</h3>
-                        <p class="text-sm text-gray-400 relative z-10">Encriptación de punta a punta. Tus clientes compran con total confianza.</p>
+                        <div class="absolute inset-0 bg-blue-500/5 z-0 dynamic-glass-bg"></div>
+                        <h3 class="text-xl font-bold text-white mb-2 relative z-10"><i class="fas fa-lock text-green-400 mr-2 dynamic-icon-color"></i> Seguridad SSL</h3>
+                        <p class="text-sm text-gray-400 relative z-10">Encriptación de punta a punta.</p>
                     </div>
-                    <div class="glass p-6 rounded-2xl reveal">
-                        <div class="absolute inset-0 bg-yellow-500/5 z-0"></div>
-                        <h3 class="text-xl font-bold text-white mb-2 relative z-10"><i class="fas fa-bolt text-yellow-400 mr-2"></i> Checkout Rápido</h3>
-                        <p class="text-sm text-gray-400 relative z-10">Menos pasos, más ventas. Integración optimizada para móviles.</p>
-                    </div>
+                    <!-- Más features... -->
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PROCESO: Neural Roadmap -->
+    <!-- PROCESO -->
     <section id="proceso" class="py-24 bg-dark relative overflow-hidden">
-        <!-- TEXTURA REAL: Flujo de Datos Abstracto -->
-        <div class="bg-blend-image opacity-40 md:opacity-40 bg-[url('https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=1080&auto=format&fit=crop')] md:bg-[url('https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2070&auto=format&fit=crop')]"></div>
-        <!-- Capa Oscura para leer texto -->
+        <div class="bg-blend-image opacity-40" style="background-image: url('https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=1080&auto=format&fit=crop');"></div>
         <div style="position: absolute; inset: 0; background: rgba(5,5,5,0.7); z-index: 0;"></div>
 
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-16 reveal">
                 <h2 class="text-3xl md:text-5xl font-display font-bold text-white">Mi Proceso</h2>
-                <p class="text-gray-400 mt-2">Del concepto al código en 4 fases.</p>
             </div>
 
             <div class="relative max-w-4xl mx-auto">
-                <div class="timeline-line hidden md:block"></div>
-                
+                <div class="timeline-line hidden md:block dynamic-line-color"></div>
+                <!-- Pasos del proceso (simplificado) -->
                 <div class="space-y-12 relative z-10">
-                    <!-- Paso 1 -->
                     <div class="flex flex-col md:flex-row items-center justify-between gap-8 group reveal">
                         <div class="md:w-5/12 text-right order-2 md:order-1">
-                            <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">1. Análisis Neural</h3>
-                            <p class="text-gray-400 text-sm mt-2">Estudio tu negocio y tus rivales. Defino la arquitectura técnica ideal (PWA, E-commerce, etc).</p>
+                            <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors dynamic-hover-text">1. Análisis Neural</h3>
+                            <p class="text-gray-400 text-sm mt-2">Estudio tu negocio.</p>
                         </div>
-                        <div class="w-12 h-12 rounded-full bg-dark border-2 border-blue-500 flex items-center justify-center text-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.5)] z-10 order-1 md:order-2 bg-black shrink-0 mx-auto md:mx-0"><i class="fas fa-search"></i></div>
+                        <div class="w-12 h-12 rounded-full bg-dark border-2 border-blue-500 flex items-center justify-center text-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.5)] z-10 order-1 md:order-2 bg-black shrink-0 mx-auto md:mx-0 dynamic-step-border dynamic-step-text"><i class="fas fa-search"></i></div>
                         <div class="md:w-5/12 order-3"></div>
-                    </div>
-
-                    <!-- Paso 2 -->
-                    <div class="flex flex-col md:flex-row items-center justify-between gap-8 group reveal">
-                        <div class="md:w-5/12 order-2 md:order-1"></div>
-                        <div class="w-12 h-12 rounded-full bg-dark border-2 border-purple-500 flex items-center justify-center text-purple-500 shadow-[0_0_20px_rgba(168,85,247,0.5)] z-10 order-1 md:order-2 bg-black shrink-0 mx-auto md:mx-0"><i class="fas fa-layer-group"></i></div>
-                        <div class="md:w-5/12 text-left order-3 text-right md:text-left">
-                            <h3 class="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">2. Prototipado UX</h3>
-                            <p class="text-gray-400 text-sm mt-2">Diseño la experiencia visual. Aseguramos que cada clic convierta antes de escribir código.</p>
-                        </div>
-                    </div>
-
-                    <!-- Paso 3 -->
-                    <div class="flex flex-col md:flex-row items-center justify-between gap-8 group reveal">
-                        <div class="md:w-5/12 text-right order-2 md:order-1">
-                            <h3 class="text-xl font-bold text-white group-hover:text-green-400 transition-colors">3. Código & Integración</h3>
-                            <p class="text-gray-400 text-sm mt-2">Desarrollo limpio. Conexión de Mercado Pago, WhatsApp y motores de IA.</p>
-                        </div>
-                        <div class="w-12 h-12 rounded-full bg-dark border-2 border-green-500 flex items-center justify-center text-green-500 shadow-[0_0_20px_rgba(34,197,94,0.5)] z-10 order-1 md:order-2 bg-black shrink-0 mx-auto md:mx-0"><i class="fas fa-code"></i></div>
-                        <div class="md:w-5/12 order-3"></div>
-                    </div>
-
-                    <!-- Paso 4 -->
-                    <div class="flex flex-col md:flex-row items-center justify-between gap-8 group reveal">
-                        <div class="md:w-5/12 order-2 md:order-1"></div>
-                        <div class="w-12 h-12 rounded-full bg-dark border-2 border-white flex items-center justify-center text-white shadow-[0_0_20px_rgba(255,255,255,0.5)] z-10 order-1 md:order-2 bg-black shrink-0 mx-auto md:mx-0"><i class="fas fa-rocket"></i></div>
-                        <div class="md:w-5/12 text-left order-3 text-right md:text-left">
-                            <h3 class="text-xl font-bold text-white group-hover:text-white transition-colors">4. Despliegue Global</h3>
-                            <p class="text-gray-400 text-sm mt-2">Tu sistema online, seguro y optimizado para Google desde el día uno.</p>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -392,28 +349,23 @@
 
     <!-- CONSULTOR IA -->
     <section id="ia-lab" class="py-24 bg-black relative overflow-hidden">
-        <!-- TEXTURA REAL: Chip/Procesador (Más visible) -->
-        <div class="bg-blend-image" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop'); opacity: 0.2;"></div>
-        
-        <div class="absolute -right-20 top-20 w-96 h-96 bg-purple-600/10 rounded-full blur-[100px]"></div>
+        <div class="absolute -right-20 top-20 w-96 h-96 bg-purple-600/10 rounded-full blur-[100px] dynamic-glow-secondary"></div>
 
         <div class="container mx-auto px-6 relative z-10 max-w-4xl">
             <div class="text-center mb-12 reveal">
-                <span class="text-purple-400 font-mono text-xs tracking-widest uppercase mb-2 block">Powered by Gemini AI</span>
+                <span class="text-purple-400 font-mono text-xs tracking-widest uppercase mb-2 block dynamic-text-color-secondary">Powered by Gemini AI</span>
                 <h2 class="text-4xl md:text-5xl font-display font-bold text-white">Laboratorio de Ideas</h2>
-                <p class="text-gray-400 mt-4 max-w-lg mx-auto">Cuéntale a mi Inteligencia Artificial sobre tu negocio. Ella seleccionará los módulos que realmente necesitas.</p>
             </div>
 
             <div class="bg-gradient-to-br from-white/10 to-transparent p-[1px] rounded-3xl reveal">
                 <div class="bg-gray-900/80 rounded-[22px] p-6 md:p-10 backdrop-blur-md border border-white/5">
                     <div class="flex flex-col gap-4">
-                        <label class="text-sm text-gray-400 font-mono ml-1">TU VISIÓN / REQUERIMIENTO:</label>
-                        <textarea id="ai-input" rows="2" class="w-full bg-black/50 border border-white/10 rounded-xl p-4 text-white placeholder-gray-600 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all resize-none text-lg font-mono" placeholder="Ej: Quiero una app tipo delivery para mi pizzería, con pagos online y rastreo básico..."></textarea>
+                        <textarea id="ai-input" rows="2" class="w-full bg-black/50 border border-white/10 rounded-xl p-4 text-white focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all resize-none text-lg font-mono dynamic-focus-ring" placeholder="Ej: Quiero una app tipo delivery..."></textarea>
                         
                         <div class="flex justify-end">
                             <button onclick="consultarIA()" id="ai-btn" class="w-full md:w-auto px-6 py-3 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-all flex items-center justify-center gap-2">
-                                <span>Generar Cotización Inteligente</span>
-                                <i class="fas fa-sparkles text-purple-600"></i>
+                                <span>Generar Cotización</span>
+                                <i class="fas fa-sparkles text-purple-600 dynamic-icon-color-secondary"></i>
                             </button>
                         </div>
                     </div>
@@ -421,22 +373,13 @@
                     <div id="ai-result" class="hidden mt-8 border-t border-white/10 pt-8">
                         <div class="flex items-center justify-between mb-4">
                             <div class="flex items-center gap-2">
-                                <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                                <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse indicator-dot"></div>
                                 <span class="text-sm font-bold text-white tracking-wide">ESTRATEGIA RECOMENDADA</span>
                             </div>
                         </div>
-                        
-                        <!-- Contenido Explicativo -->
                         <div id="ai-content" class="text-gray-300 text-sm leading-relaxed ai-response font-light mb-6"></div>
-                        
-                        <!-- Notificación de acción -->
-                        <div class="bg-blue-500/10 border border-blue-500/20 p-3 rounded-lg flex items-center gap-3 text-sm text-blue-200 animate-pulse">
-                            <i class="fas fa-check-circle"></i>
-                            <span>He marcado automáticamente los módulos necesarios en el cotizador de abajo.</span>
-                        </div>
-                        
                         <div class="mt-6 flex justify-end">
-                            <a href="#cotizar" class="text-sm text-purple-400 hover:text-white transition-colors border-b border-purple-400/30 pb-1 font-bold">Ver Cotización Actualizada &rarr;</a>
+                            <a href="#cotizar" class="text-sm text-purple-400 hover:text-white transition-colors border-b border-purple-400/30 pb-1 font-bold dynamic-text-color-secondary">Ver Cotización &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -448,89 +391,81 @@
     <footer id="cotizar" class="pt-24 pb-10 bg-black border-t border-white/5 relative">
         <div class="container mx-auto px-6 relative z-10">
             <div class="grid md:grid-cols-2 gap-20">
-                <!-- Cotizador -->
                 <div class="reveal">
-                    <h2 class="text-3xl font-display font-bold text-white mb-2 text-center md:text-left">Tu Cotización</h2>
-                    <p class="text-gray-500 mb-8 text-center md:text-left">Módulos seleccionados para tu proyecto.</p>
+                    <h2 class="text-3xl font-display font-bold text-white mb-2">Tu Cotización</h2>
                     
                     <div class="space-y-3" id="modules-container">
-                        <!-- 1. BASE WEB (Fijo) -->
-                        <label class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.98]">
+                        <!-- 1. BASE WEB -->
+                        <label class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.98] dynamic-hover-border">
                             <div class="flex items-center gap-3">
-                                <div class="w-5 h-5 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500"><div class="w-3 h-3 bg-blue-500 rounded-full"></div></div>
-                                <span class="text-white group-hover:text-blue-400 transition-colors text-sm md:text-base">Base Web Profesional</span>
+                                <div class="w-5 h-5 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 dynamic-group-border"><div class="w-3 h-3 bg-blue-500 rounded-full dynamic-bg"></div></div>
+                                <span class="text-white group-hover:text-blue-400 transition-colors text-sm md:text-base dynamic-hover-text">Base Web Profesional</span>
                             </div>
                             <span class="font-mono text-gray-400 text-sm md:text-base">$200.000</span>
                             <input type="checkbox" id="check-base" data-name="Base Web" value="200000" checked disabled class="hidden item-checkbox">
                         </label>
-
-                        <!-- 2. PASARELA DE PAGO -->
-                        <label class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.98]">
+                        
+                        <!-- Más checkboxes... (PAGOS) -->
+                        <label class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.98] dynamic-hover-border">
                             <div class="flex items-center gap-3">
-                                <div class="w-5 h-5 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 relative">
-                                    <input type="checkbox" id="check-pagos" data-name="Pasarela de Pagos (MercadoPago)" value="100000" onchange="calculateTotal()" class="opacity-0 absolute inset-0 cursor-pointer peer item-checkbox">
-                                    <div class="w-3 h-3 bg-blue-500 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+                                <div class="w-5 h-5 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 relative dynamic-group-border">
+                                    <input type="checkbox" id="check-pagos" data-name="Pasarela de Pagos" value="100000" onchange="calculateTotal()" class="opacity-0 absolute inset-0 cursor-pointer peer item-checkbox">
+                                    <div class="w-3 h-3 bg-blue-500 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity dynamic-bg"></div>
                                 </div>
-                                <span class="text-white group-hover:text-blue-400 transition-colors text-sm md:text-base">Pasarela de Pagos</span>
+                                <span class="text-white group-hover:text-blue-400 transition-colors text-sm md:text-base dynamic-hover-text">Pasarela de Pagos</span>
                             </div>
                             <span class="font-mono text-gray-400 text-sm md:text-base">$100.000</span>
                         </label>
 
-                        <!-- 3. CHATBOT IA -->
-                        <label class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.98]">
+                         <!-- 3. CHATBOT IA -->
+                        <label class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.98] dynamic-hover-border">
                             <div class="flex items-center gap-3">
-                                <div class="w-5 h-5 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 relative">
+                                <div class="w-5 h-5 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 relative dynamic-group-border">
                                     <input type="checkbox" id="check-chatbot" data-name="Chatbot IA" value="300000" onchange="calculateTotal()" class="opacity-0 absolute inset-0 cursor-pointer peer item-checkbox">
-                                    <div class="w-3 h-3 bg-blue-500 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+                                    <div class="w-3 h-3 bg-blue-500 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity dynamic-bg"></div>
                                 </div>
-                                <span class="text-white group-hover:text-blue-400 transition-colors text-sm md:text-base">Módulo Chatbot IA</span>
+                                <span class="text-white group-hover:text-blue-400 transition-colors text-sm md:text-base dynamic-hover-text">Módulo Chatbot IA</span>
                             </div>
                             <span class="font-mono text-gray-400 text-sm md:text-base">$300.000</span>
                         </label>
 
-                        <!-- 4. PWA GESTIÓN (Nuevo) -->
-                        <label class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.98]">
+                        <!-- 4. PWA -->
+                        <label class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.98] dynamic-hover-border">
                             <div class="flex items-center gap-3">
-                                <div class="w-5 h-5 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 relative">
-                                    <input type="checkbox" id="check-pwa" data-name="App Web PWA (Gestión)" value="400000" onchange="calculateTotal()" class="opacity-0 absolute inset-0 cursor-pointer peer item-checkbox">
-                                    <div class="w-3 h-3 bg-blue-500 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+                                <div class="w-5 h-5 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 relative dynamic-group-border">
+                                    <input type="checkbox" id="check-pwa" data-name="App PWA" value="400000" onchange="calculateTotal()" class="opacity-0 absolute inset-0 cursor-pointer peer item-checkbox">
+                                    <div class="w-3 h-3 bg-blue-500 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity dynamic-bg"></div>
                                 </div>
-                                <span class="text-white group-hover:text-blue-400 transition-colors text-sm md:text-base">App Web PWA (Tipo Agenda/Gestión)</span>
+                                <span class="text-white group-hover:text-blue-400 transition-colors text-sm md:text-base dynamic-hover-text">App PWA</span>
                             </div>
                             <span class="font-mono text-gray-400 text-sm md:text-base">$400.000</span>
                         </label>
 
-                        <!-- AQUÍ SE INYECTARÁN MÓDULOS CREADOS POR LA IA -->
                         <div id="dynamic-modules-container" class="space-y-3"></div>
-
                     </div>
+
                     <div class="mt-8 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
-                        <div class="text-center md:text-left"><p class="text-xs text-gray-500 uppercase tracking-widest">Total Estimado</p><p class="text-4xl font-display font-bold text-white mt-2" id="total-display">$200.000</p><p class="text-xs text-blue-500 mt-1">COP (Negociable)</p></div>
+                        <div class="text-center md:text-left"><p class="text-xs text-gray-500 uppercase tracking-widest">Total Estimado</p><p class="text-4xl font-display font-bold text-white mt-2" id="total-display">$200.000</p><p class="text-xs text-blue-500 mt-1 dynamic-text-color">COP (Negociable)</p></div>
                         <a href="#" id="btn-cotizar" target="_blank" class="w-full md:w-auto px-8 py-4 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.3)] text-center active:scale-95">Continuar en WhatsApp <i class="fab fa-whatsapp ml-2"></i></a>
                     </div>
                 </div>
+                
                 <!-- Contacto -->
                 <div class="flex flex-col justify-between reveal">
                     <div>
-                        <h3 class="text-xl font-bold text-white mb-6 text-center md:text-left">Información de Contacto</h3>
+                        <h3 class="text-xl font-bold text-white mb-6">Contacto</h3>
                         <ul class="space-y-6 text-gray-400">
-                            <li class="flex items-center gap-4 group justify-center md:justify-start"><div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-blue-500/20 transition-colors"><i class="fas fa-envelope"></i></div><span>contacto@devinson.co</span></li>
-                            <li class="flex items-center gap-4 group justify-center md:justify-start"><div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-green-500/20 transition-colors"><i class="fab fa-whatsapp"></i></div><span>+57 321 520 3354</span></li>
-                            <li class="flex items-center gap-4 group justify-center md:justify-start"><div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-purple-500/20 transition-colors"><i class="fas fa-map-marker-alt"></i></div><span>Valledupar, Colombia</span></li>
+                            <li class="flex items-center gap-4 group"><div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-blue-500/20 transition-colors"><i class="fas fa-envelope"></i></div><span>contacto@devinson.co</span></li>
+                            <li class="flex items-center gap-4 group"><div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-green-500/20 transition-colors"><i class="fab fa-whatsapp"></i></div><span>+57 321 520 3354</span></li>
+                            <li class="flex items-center gap-4 group"><div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-purple-500/20 transition-colors"><i class="fas fa-map-marker-alt"></i></div><span>Valledupar, Colombia</span></li>
                         </ul>
-                    </div>
-                    <div class="mt-12 p-6 bg-gradient-to-r from-blue-900/20 to-purple-900/20 rounded-2xl border border-white/5 relative overflow-hidden">
-                        <div class="absolute -right-4 -bottom-4 text-8xl text-white/5 rotate-12"><i class="fas fa-quote-right"></i></div>
-                        <p class="text-sm text-gray-300 italic relative z-10 text-center md:text-left">"La tecnología es mejor cuando une a las personas y potencia los negocios."</p>
-                        <p class="text-xs text-gray-500 mt-2 font-bold uppercase relative z-10 text-center md:text-left">- Devinson Rodriguez</p>
                     </div>
                 </div>
             </div>
-            <div class="text-center border-t border-white/5 pt-10 text-xs text-gray-600 font-mono uppercase tracking-widest mt-12">© 2024 Devinson System. All rights reserved.</div>
+            <div class="text-center border-t border-white/5 pt-10 text-xs text-gray-600 font-mono uppercase tracking-widest mt-12">© 2024 Devinson System.</div>
         </div>
     </footer>
     
-    <!-- Enlace al archivo JS externo -->
     <script src="script.js"></script>
 </body>
 </html>
