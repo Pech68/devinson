@@ -216,6 +216,7 @@
             opacity: 0;
             pointer-events: none;
             transform: translateY(-20px);
+            z-index: 200; /* Asegurar que esté encima de TODO */
         }
         #mobile-menu.open {
             opacity: 1;
@@ -257,13 +258,17 @@
 
         /* 2. Muñeco de Nieve (Mejorado y Visible) */
         .snowman-container {
-            /* Ajustado: Más lejos de la esquina (bottom 50px, right 80px) */
+            /* Desktop: posición normal */
             position: fixed; bottom: 50px; right: 80px; z-index: 100; display: none; transform: scale(0.9); pointer-events: none; filter: drop-shadow(0 10px 10px rgba(0,0,0,0.5));
         }
-        /* Ajuste para que se vea en móvil sin tapar */
+        
+        /* Ajuste Mobile CRÍTICO */
         @media (max-width: 768px) {
-            /* Ajustado móvil: Más arriba para librar botones flotantes y más a la izquierda */
-            .snowman-container { bottom: 110px; right: 30px; transform: scale(0.7); }
+            .snowman-container { 
+                bottom: 110px; 
+                right: 60px; /* Movido más a la izquierda para no cortarse */
+                transform: scale(0.7); 
+            }
         }
 
         .snowman { position: relative; }
@@ -294,8 +299,11 @@
         .snowman-scarf::after {
             content: ''; position: absolute; right: 5px; top: 5px; width: 12px; height: 25px; background: #ef4444; transform: rotate(10deg); border-radius: 4px;
         }
+        /* CORRECCIÓN BRAZOS */
         .snowman-arm {
-            width: 40px; height: 4px; background: #8B4513; position: absolute; top: 40px; z-index: 1;
+            width: 40px; height: 4px; background: #8B4513; position: absolute; 
+            top: 25px; /* Subido (Antes 40px) para salir de los hombros */
+            z-index: 1;
         }
         .snowman-arm.left { left: -25px; transform: rotate(20deg); }
         .snowman-arm.right { right: -25px; transform: rotate(-20deg); }
@@ -403,17 +411,17 @@
         </div>
 
         <!-- Mobile Menu Overlay (Fullscreen) -->
-        <div id="mobile-menu" class="fixed inset-0 bg-black/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center space-y-8 md:hidden">
-            <a href="#hero" onclick="toggleMenu()" class="text-2xl font-display font-bold text-white hover:text-blue-500 transition-colors">Inicio</a>
-            <a href="#servicios" onclick="toggleMenu()" class="text-2xl font-display font-bold text-white hover:text-blue-500 transition-colors">Servicios</a>
-            <a href="#proceso" onclick="toggleMenu()" class="text-2xl font-display font-bold text-white hover:text-blue-500 transition-colors">Proceso</a>
-            <a href="#ia-lab" onclick="toggleMenu()" class="text-2xl font-display font-bold text-white hover:text-blue-500 transition-colors">IA Lab</a>
-            <a href="#cotizar" onclick="toggleMenu()" class="px-8 py-3 bg-blue-600 rounded-full font-bold text-white shadow-lg text-lg">Cotizar Ahora</a>
+        <div id="mobile-menu" class="fixed inset-0 bg-black z-50 flex flex-col items-center justify-center space-y-10 md:hidden">
+            <a href="#hero" onclick="toggleMenu()" class="text-3xl font-display font-bold text-white hover:text-blue-500 transition-colors">Inicio</a>
+            <a href="#servicios" onclick="toggleMenu()" class="text-3xl font-display font-bold text-white hover:text-blue-500 transition-colors">Servicios</a>
+            <a href="#proceso" onclick="toggleMenu()" class="text-3xl font-display font-bold text-white hover:text-blue-500 transition-colors">Proceso</a>
+            <a href="#ia-lab" onclick="toggleMenu()" class="text-3xl font-display font-bold text-white hover:text-blue-500 transition-colors">IA Lab</a>
+            <a href="#cotizar" onclick="toggleMenu()" class="px-8 py-4 bg-blue-600 rounded-full font-bold text-white shadow-lg text-xl mt-4">Cotizar Ahora</a>
             
-            <div class="absolute bottom-10 flex gap-6 text-gray-400">
-                <a href="#"><i class="fab fa-github text-xl"></i></a>
-                <a href="#"><i class="fab fa-linkedin text-xl"></i></a>
-                <a href="#"><i class="fab fa-whatsapp text-xl"></i></a>
+            <div class="absolute bottom-10 flex gap-8 text-gray-400">
+                <a href="#"><i class="fab fa-github text-2xl"></i></a>
+                <a href="#"><i class="fab fa-linkedin text-2xl"></i></a>
+                <a href="#"><i class="fab fa-whatsapp text-2xl"></i></a>
             </div>
         </div>
     </nav>
