@@ -101,8 +101,9 @@
                         'float-slow': 'float 8s ease-in-out 1s infinite',
                         'float-reverse': 'floatReverse 7s ease-in-out infinite',
                         'breathe': 'breathe 8s ease-in-out infinite',
-                        'scroll-belt': 'scrollBelt 20s linear infinite',
+                        'scroll-belt': 'scrollBelt 20s linear infinite', /* Ajustado para cinturón */
                         'cursor-blink': 'blink 1s step-end infinite',
+                        'lights': 'lights 2s infinite alternate',
                     },
                     keyframes: {
                         float: {
@@ -124,6 +125,10 @@
                         blink: {
                             '0%, 100%': { opacity: '1' },
                             '50%': { opacity: '0' },
+                        },
+                        lights: {
+                            '0%': { opacity: '0.5' },
+                            '100%': { opacity: '1' },
                         }
                     }
                 }
@@ -170,15 +175,19 @@
         .tech-chip:hover { transform: scale(1.1) translateZ(40px); border-color: rgba(59, 130, 246, 0.8); box-shadow: 0 0 30px rgba(59, 130, 246, 0.4); z-index: 40; background: #0f172a; }
         .chip-icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
 
-        /* Chips Mobile (Carrusel "Belt") */
+        /* Chips Mobile (Carrusel "Belt" FIXED) */
+        .mask-linear {
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
         .mobile-belt-container {
-            width: 200%; /* Doble ancho para loop */
             display: flex;
             gap: 1rem;
-            animation: scrollBelt 25s linear infinite;
+            animation: scrollBelt 20s linear infinite;
+            width: max-content; /* Critical Fix for infinite scroll */
         }
         .mobile-chip {
-            background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; padding: 8px 16px; display: flex; items-center; gap: 10px; white-space: nowrap; backdrop-filter: blur(8px);
+            background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(255,255,255,0.15); border-radius: 50px; padding: 8px 18px; display: flex; align-items: center; gap: 10px; white-space: nowrap; backdrop-filter: blur(10px); box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-size: 0.85rem; font-weight: 600;
         }
 
         .holo-card {
@@ -230,32 +239,45 @@
             letter-spacing: 0.5px;
         }
 
-        /* --- ESTILOS FESTIVOS AVANZADOS --- */
+        /* --- ESTILOS FESTIVOS AVANZADOS (MEJORADO) --- */
         
-        /* 1. Nieve Animada (CSS Puro) */
+        /* 1. Nieve Realista */
         .snow-container {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 40; display: none;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 50; display: none;
         }
         .snowflake {
-            position: absolute; width: 10px; height: 10px; background: white; border-radius: 50%; opacity: 0.8;
+            position: absolute; color: #fff; font-size: 1rem; opacity: 0.8; user-select: none;
             animation: snowfall linear infinite;
+            text-shadow: 0 0 5px rgba(255,255,255,0.8);
         }
         @keyframes snowfall {
-            to { transform: translateY(100vh); }
+            0% { transform: translateY(-10vh) translateX(0) rotate(0deg); }
+            100% { transform: translateY(100vh) translateX(20px) rotate(360deg); }
         }
 
-        /* 2. Muñeco de Nieve (CSS Puro) */
+        /* 2. Muñeco de Nieve (Mejorado y Visible) */
         .snowman-container {
-            position: fixed; bottom: 20px; right: 20px; z-index: 60; display: none; transform: scale(0.6); pointer-events: none;
+            /* Ajustado: Más lejos de la esquina (bottom 50px, right 80px) */
+            position: fixed; bottom: 50px; right: 80px; z-index: 100; display: none; transform: scale(0.9); pointer-events: none; filter: drop-shadow(0 10px 10px rgba(0,0,0,0.5));
         }
+        /* Ajuste para que se vea en móvil sin tapar */
+        @media (max-width: 768px) {
+            /* Ajustado móvil: Más arriba para librar botones flotantes y más a la izquierda */
+            .snowman-container { bottom: 110px; right: 30px; transform: scale(0.7); }
+        }
+
         .snowman { position: relative; }
         .snowman-body {
-            width: 80px; height: 80px; background: white; border-radius: 50%; position: absolute; bottom: 0; left: 0;
+            width: 80px; height: 80px; background: radial-gradient(circle at 30% 30%, #ffffff, #e6e6e6); border-radius: 50%; position: absolute; bottom: 0; left: 0;
             box-shadow: inset -5px -5px 15px rgba(0,0,0,0.1);
         }
+        .snowman-buttons {
+            position: absolute; width: 6px; height: 6px; background: #333; border-radius: 50%; left: 50%; transform: translateX(-50%);
+            bottom: 45px; box-shadow: 0 15px 0 #333;
+        }
         .snowman-head {
-            width: 50px; height: 50px; background: white; border-radius: 50%; position: absolute; bottom: 70px; left: 15px;
-            box-shadow: inset -3px -3px 10px rgba(0,0,0,0.1);
+            width: 50px; height: 50px; background: radial-gradient(circle at 30% 30%, #ffffff, #e6e6e6); border-radius: 50%; position: absolute; bottom: 70px; left: 15px;
+            box-shadow: inset -3px -3px 10px rgba(0,0,0,0.1); z-index: 2;
         }
         .snowman-eye {
             width: 6px; height: 6px; background: #333; border-radius: 50%; position: absolute; top: 18px;
@@ -263,18 +285,24 @@
         .snowman-eye.left { left: 14px; }
         .snowman-eye.right { right: 14px; }
         .snowman-nose {
-            width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 15px solid orange;
-            position: absolute; top: 25px; left: 22px;
+            width: 0; height: 0; border-top: 4px solid transparent; border-bottom: 4px solid transparent; border-left: 14px solid #ff7b00;
+            position: absolute; top: 24px; left: 22px;
+        }
+        .snowman-scarf {
+            width: 50px; height: 12px; background: #ef4444; position: absolute; bottom: 65px; left: 15px; border-radius: 10px; z-index: 3;
+        }
+        .snowman-scarf::after {
+            content: ''; position: absolute; right: 5px; top: 5px; width: 12px; height: 25px; background: #ef4444; transform: rotate(10deg); border-radius: 4px;
         }
         .snowman-arm {
-            width: 40px; height: 4px; background: #8B4513; position: absolute; top: 40px;
+            width: 40px; height: 4px; background: #8B4513; position: absolute; top: 40px; z-index: 1;
         }
-        .snowman-arm.left { left: -30px; transform: rotate(20deg); }
-        .snowman-arm.right { right: -30px; transform: rotate(-20deg); }
-        .snowman-anim { animation: bounceSnowman 2s infinite ease-in-out; }
-        @keyframes bounceSnowman { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+        .snowman-arm.left { left: -25px; transform: rotate(20deg); }
+        .snowman-arm.right { right: -25px; transform: rotate(-20deg); }
+        .snowman-anim { animation: bounceSnowman 3s infinite ease-in-out; }
+        @keyframes bounceSnowman { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-5px) rotate(2deg); } }
 
-        /* 3. Araña Halloween (CSS) */
+        /* 3. Araña & Murciélago Halloween (CSS) */
         .spider-container {
             position: fixed; top: -100px; left: 10%; z-index: 60; display: none; animation: spiderDrop 3s ease-in-out infinite alternate; pointer-events: none;
         }
@@ -285,11 +313,19 @@
         .spider-leg.right { left: 50%; transform-origin: left; transform: rotate(-30deg); }
         @keyframes spiderDrop { 0% { top: -80px; } 100% { top: -20px; } }
 
+        /* 4. Luces de Navidad */
+        .christmas-lights {
+            position: fixed; top: 0; left: 0; width: 100%; height: 20px; display: none; z-index: 45; pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='5' fill='%23ff0000' /%3E%3Ccircle cx='35' cy='10' r='5' fill='%2300ff00' /%3E%3Ccircle cx='60' cy='10' r='5' fill='%230000ff' /%3E%3Ccircle cx='85' cy='10' r='5' fill='%23ffff00' /%3E%3Cpath d='M0 0 Q 50 20 100 0' stroke='%23333' fill='none'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
+            animation: lights 1s infinite alternate;
+        }
+
         /* 4. Gorro de Santa en Logo */
         .santa-hat-icon {
-            position: absolute; top: -12px; left: -10px; width: 24px; height: 24px; z-index: 60;
+            position: absolute; top: -14px; left: -12px; width: 26px; height: 26px; z-index: 60;
             background: url('https://cdn-icons-png.flaticon.com/512/744/744546.png') no-repeat center center/contain;
-            transform: rotate(-15deg); display: none; pointer-events: none;
+            transform: rotate(-15deg); display: none; pointer-events: none; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
         }
 
         /* Cursor Parpadeante */
@@ -303,16 +339,20 @@
 </head>
 <body class="antialiased font-sans bg-black selection:bg-blue-500 selection:text-white">
 
-    <!-- CONTENEDORES FESTIVOS (Ocultos por defecto) -->
+    <!-- CONTENEDORES FESTIVOS -->
+    <div id="christmas-lights" class="christmas-lights"></div>
     <div id="snow-effect" class="snow-container"></div>
     <div id="snowman-effect" class="snowman-container snowman-anim">
         <div class="snowman">
-            <div class="snowman-body"></div>
+            <div class="snowman-body">
+                <div class="snowman-buttons"></div>
+            </div>
             <div class="snowman-head">
                 <div class="snowman-eye left"></div>
                 <div class="snowman-eye right"></div>
                 <div class="snowman-nose"></div>
             </div>
+            <div class="snowman-scarf"></div>
             <div class="snowman-arm left"></div>
             <div class="snowman-arm right"></div>
         </div>
@@ -420,7 +460,7 @@
                 <div id="hero-img-container" class="hero-image-container relative z-10 h-full flex items-end w-full justify-center">
                     <img src="https://i.imgur.com/DBrfwWX.png" alt="Devinson Rodriguez" class="h-full object-contain max-h-[85vh] drop-shadow-2xl filter brightness-110 contrast-110 animate-breathe relative z-10">
                     
-                    <!-- === CARRUSEL MÓVIL (El "Cinturón") === -->
+                    <!-- === CARRUSEL MÓVIL (El "Cinturón") FIXED === -->
                     <!-- Solo visible en móvil, ubicado abajo sobre la "cintura" de la imagen -->
                     <div class="absolute bottom-10 left-0 w-full md:hidden z-30 overflow-hidden py-2 mask-linear">
                         <div class="mobile-belt-container">
@@ -434,12 +474,14 @@
                             <div class="mobile-chip text-blue-300 border-blue-500/30"><i class="fas fa-handshake"></i> Mercado Pago</div>
                             <div class="mobile-chip text-green-300 border-green-500/30"><i class="fab fa-whatsapp"></i> WhatsApp API</div>
                             <div class="mobile-chip text-amber-300 border-amber-500/30"><i class="fas fa-bolt"></i> Fast PWA</div>
+                            <!-- Repetición Extra para Loop Fluido -->
+                            <div class="mobile-chip text-purple-300 border-purple-500/30"><i class="fas fa-brain"></i> Gemini AI</div>
+                            <div class="mobile-chip text-blue-300 border-blue-500/30"><i class="fas fa-handshake"></i> Mercado Pago</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- CHIPS DE ESCRITORIO (Solo visible en md o superior) -->
-                <!-- Se mantienen flotando como antes porque te gustaba en PC -->
                 <div class="hidden md:flex tech-chip absolute top-20 -left-12 animate-float-delayed">
                     <div class="chip-icon bg-purple-500/20 text-purple-400 border border-purple-500/30"><i class="fas fa-brain"></i></div>
                     <div><p class="text-[10px] text-gray-400 uppercase tracking-wider font-mono">Neural Engine</p><p class="font-bold text-sm text-white">Gemini AI</p></div>
@@ -749,12 +791,21 @@
             const snowman = document.getElementById('snowman-effect');
             const spider = document.getElementById('spider-effect');
             const santaHat = document.getElementById('santa-hat');
+            const lights = document.getElementById('christmas-lights');
 
-            // NAVIDAD: Diciembre (11) o Enero (0) primeros días
-            if (month === 11 || (month === 0 && day <= 7)) {
+            // NAVIDAD: Diciembre (11)
+            if (month === 11) {
                 snow.style.display = 'block';
                 snowman.style.display = 'block';
                 santaHat.style.display = 'block';
+                lights.style.display = 'block';
+                createSnowflakes();
+            }
+            // AÑO NUEVO: Enero (0) primeros días
+            else if (month === 0 && day <= 7) {
+                lights.style.display = 'block'; // Luces se quedan
+                // Podríamos cambiar nieve por confeti
+                snow.style.display = 'block'; 
                 createSnowflakes();
             }
             // HALLOWEEN: Octubre (9)
@@ -773,17 +824,20 @@
             }
         }
 
-        // Generador de Nieve CSS
+        // Generador de Nieve CSS (MEJORADO)
         function createSnowflakes() {
             const container = document.getElementById('snow-effect');
-            const count = 50;
+            const count = 30; // Menos cantidad pero mejores
+            const symbols = ['❄', '❅', '❆'];
+            
             for (let i = 0; i < count; i++) {
                 const flake = document.createElement('div');
                 flake.classList.add('snowflake');
+                flake.innerText = symbols[Math.floor(Math.random() * symbols.length)];
                 flake.style.left = Math.random() * 100 + 'vw';
-                flake.style.animationDuration = (Math.random() * 3 + 2) + 's'; // 2-5s
-                flake.style.opacity = Math.random();
-                flake.style.width = flake.style.height = (Math.random() * 5 + 5) + 'px';
+                flake.style.animationDuration = (Math.random() * 5 + 5) + 's'; // 5-10s (más lento)
+                flake.style.opacity = Math.random() * 0.5 + 0.3;
+                flake.style.fontSize = (Math.random() * 1.5 + 0.5) + 'rem';
                 container.appendChild(flake);
             }
         }
