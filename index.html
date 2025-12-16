@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- =========================================
-         SEO AVANZADO (Google Search Ready)
+          SEO AVANZADO (Google Search Ready)
     ========================================== -->
     <title>Devinson Rodriguez | Experto en E-commerce & Automatización IA</title>
     <meta name="description" content="Potencia tu negocio con Devinson Rodriguez. Desarrollo Web Full Stack, Integración de Mercado Pago, Pasarelas de Pago y Chatbots con Inteligencia Artificial en Colombia.">
@@ -18,14 +18,14 @@
     <!-- Canonical URL (Evita contenido duplicado) -->
     <link rel="canonical" href="https://devinson.co">
 
-    <!-- Open Graph (Para compartir en WhatsApp/Facebook/LinkedIn) -->
+    <!-- Open Graph -->
     <meta property="og:locale" content="es_CO">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Devinson Rodriguez | Arquitectura Digital & IA">
     <meta property="og:description" content="Transformo negocios con E-commerce, Pagos Digitales y Automatización IA. Cotiza tu proyecto hoy.">
     <meta property="og:url" content="https://devinson.co">
     <meta property="og:site_name" content="Devinson Rodriguez Portafolio">
-    <meta property="og:image" content="https://i.imgur.com/DBrfwWX.png"> <!-- Tu imagen para previews -->
+    <meta property="og:image" content="https://i.imgur.com/DBrfwWX.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
@@ -35,7 +35,7 @@
     <meta name="twitter:description" content="Expertos en E-commerce y Sistemas de Pago en Colombia.">
     <meta name="twitter:image" content="https://i.imgur.com/DBrfwWX.png">
 
-    <!-- JSON-LD (Datos Estructurados para Google Rich Snippets) -->
+    <!-- JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -56,13 +56,7 @@
       "priceRange": "$$$",
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday"
-        ],
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
         "opens": "08:00",
         "closes": "18:00"
       },
@@ -93,13 +87,12 @@
                         dark: '#0a0a0a',
                         glass: 'rgba(255, 255, 255, 0.05)',
                         border: 'rgba(255, 255, 255, 0.1)',
-                        primary: '#3b82f6', /* Azul Tech */
-                        accent: '#8b5cf6', /* Violeta */
+                        primary: '#3b82f6',
+                        accent: '#8b5cf6',
                         success: '#10b981',
                     },
                     backgroundImage: {
                         'hero-gradient': 'radial-gradient(circle at 50% 0%, #1e1b4b 0%, #050505 50%)',
-                        'noise': "url('https://grainy-gradients.vercel.app/noise.svg')", 
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
@@ -107,7 +100,7 @@
                         'float-slow': 'float 8s ease-in-out 1s infinite',
                         'float-reverse': 'floatReverse 7s ease-in-out infinite',
                         'breathe': 'breathe 8s ease-in-out infinite',
-                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                     },
                     keyframes: {
                         float: {
@@ -121,10 +114,6 @@
                         breathe: {
                             '0%, 100%': { transform: 'scale(1) translateY(0)', filter: 'brightness(100%)' },
                             '50%': { transform: 'scale(1.02) translateY(-15px)', filter: 'brightness(115%)' },
-                        },
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
                         }
                     }
                 }
@@ -140,156 +129,77 @@
             scroll-behavior: smooth;
         }
 
-        /* FONDO ANIMADO DE PARTÍCULAS */
         #particles-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-            opacity: 0.6; /* Aumentado para visibilidad */
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0; pointer-events: none; opacity: 0.6;
         }
 
-        /* TEXTURAS BLENDED (Mejora de visibilidad) */
         .bg-blend-image {
-            position: absolute;
-            inset: 0;
-            background-size: cover;
-            background-position: center;
-            opacity: 0.4; /* Aumentado drásticamente */
-            mix-blend-mode: screen; /* Cambiado a SCREEN para que brille sobre negro */
-            pointer-events: none;
-            z-index: 0;
-            filter: contrast(1.2) brightness(0.8); /* Ajuste de color */
+            position: absolute; inset: 0; background-size: cover; background-position: center;
+            opacity: 0.4; mix-blend-mode: screen; pointer-events: none; z-index: 0;
+            filter: contrast(1.2) brightness(0.8);
         }
 
-        /* 1. TEXTO GRADIENTE PREMIUM */
         .text-gradient {
             background: linear-gradient(to right, #60a5fa, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
 
-        /* 2. GLASSMORPHISM AVANZADO */
         .glass {
-            background: rgba(20, 20, 30, 0.6); /* Más opaco */
-            backdrop-filter: blur(16px);
+            background: rgba(20, 20, 30, 0.6); backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
+            position: relative; overflow: hidden;
         }
         .glass:hover {
-            border-color: rgba(59, 130, 246, 0.6);
-            transform: translateY(-5px);
-            background: rgba(30, 30, 45, 0.8);
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
-        }
-        /* Brillo al pasar el mouse */
-        .glass::after {
-            content: "";
-            position: absolute;
-            top: 0; left: -100%;
-            width: 50%; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
-            transform: skewX(-25deg);
-            transition: 0.5s;
-        }
-        .glass:hover::after {
-            left: 150%;
-            transition: 0.7s;
+            border-color: rgba(59, 130, 246, 0.6); transform: translateY(-5px);
+            background: rgba(30, 30, 45, 0.8); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
         }
 
-        /* 3. HERO IMAGE STYLING */
         .hero-image-container {
-            position: relative;
-            z-index: 10;
-            transform-style: preserve-3d;
-            transition: transform 0.1s ease-out;
+            position: relative; z-index: 10; transform-style: preserve-3d; transition: transform 0.1s ease-out;
         }
-        
         .hero-image-container::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 20%;
-            background: linear-gradient(to top, #050505, transparent);
-            pointer-events: none;
-            z-index: 30;
+            content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 20%;
+            background: linear-gradient(to top, #050505, transparent); pointer-events: none; z-index: 30;
         }
 
-        /* 4. CHIPS FLOTANTES */
         .tech-chip {
-            position: absolute;
-            background: rgba(10, 15, 25, 0.95);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 14px;
-            padding: 12px 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.9);
-            z-index: 20;
-            transition: all 0.3s ease;
+            position: absolute; background: rgba(10, 15, 25, 0.95); backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 14px; padding: 12px 16px;
+            display: flex; align-items: center; gap: 12px;
+            box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.9); z-index: 20; transition: all 0.3s ease;
             min-width: 170px;
         }
         .tech-chip:hover {
-            transform: scale(1.1) translateZ(40px);
-            border-color: rgba(59, 130, 246, 0.8);
-            box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
-            z-index: 40;
-            background: #0f172a;
+            transform: scale(1.1) translateZ(40px); border-color: rgba(59, 130, 246, 0.8);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.4); z-index: 40; background: #0f172a;
         }
-        
         .chip-icon {
-            width: 38px; height: 38px;
-            border-radius: 10px;
-            display: flex; align-items: center; justify-content: center;
+            width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center;
             font-size: 1.1rem; flex-shrink: 0;
         }
 
-        /* 5. TARJETA HOLOGRÁFICA */
         .holo-card {
             background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-            border: 1px solid rgba(255,255,255,0.15);
-            backdrop-filter: blur(20px);
-            transform-style: preserve-3d;
-            transition: transform 0.1s ease-out;
-            position: relative;
-            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.15); backdrop-filter: blur(20px);
+            transform-style: preserve-3d; transition: transform 0.1s ease-out; position: relative; overflow: hidden;
         }
-        
-        /* 6. MARQUEE */
+
         .marquee-container { overflow: hidden; white-space: nowrap; position: relative; }
         .marquee-content { display: inline-block; animation: marquee 30s linear infinite; }
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* SCROLL REVEAL (Animación de entrada) */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* Scrollbar */
         ::-webkit-scrollbar { width: 6px; background: #050505; }
         ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
-        
+
         .ai-loader {
             width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.1);
-            border-top-color: #3b82f6; border-radius: 50%;
-            animation: spin 0.8s linear infinite;
+            border-top-color: #3b82f6; border-radius: 50%; animation: spin 0.8s linear infinite;
         }
         @keyframes spin { to { transform: rotate(360deg); } }
 
@@ -308,85 +218,93 @@
     <!-- NAVEGACIÓN -->
     <nav class="fixed w-full z-50 top-0 left-0 border-b border-white/5 bg-black/80 backdrop-blur-xl transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-2" onclick="window.scrollTo(0,0)">
                 <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center font-bold text-white shadow-[0_0_15px_rgba(59,130,246,0.5)]">D</div>
                 <span class="font-display font-bold text-lg tracking-tight">DEVINSON<span class="text-white/40">.GITHUB</span></span>
             </div>
             
+            <!-- Desktop Menu -->
             <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-white/70">
                 <a href="#servicios" class="hover:text-white hover:scale-105 transition-all">Servicios</a>
                 <a href="#proceso" class="hover:text-white hover:scale-105 transition-all">Proceso</a>
                 <a href="#ia-lab" class="hover:text-white transition-all flex items-center gap-2 group">
                     <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse group-hover:shadow-[0_0_8px_#22c55e]"></span> IA Lab
                 </a>
+                <a href="#cotizar" class="bg-white text-black px-5 py-2 rounded-full font-bold text-sm hover:bg-gray-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+                    Cotizar
+                </a>
             </div>
 
-            <a href="#cotizar" class="bg-white text-black px-5 py-2 rounded-full font-bold text-sm hover:bg-gray-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.2)]">
-                Cotizar
-            </a>
+            <!-- Mobile Menu Toggle (Agregado para funcionalidad en celular) -->
+            <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-white/10 absolute w-full left-0 top-full">
+            <div class="flex flex-col p-6 space-y-4 text-center">
+                <a href="#servicios" class="text-white hover:text-blue-400" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Servicios</a>
+                <a href="#proceso" class="text-white hover:text-blue-400" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Proceso</a>
+                <a href="#ia-lab" class="text-white hover:text-blue-400" onclick="document.getElementById('mobile-menu').classList.add('hidden')">IA Lab</a>
+                <a href="#cotizar" class="bg-blue-600 text-white py-3 rounded-lg font-bold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Cotizar Ahora</a>
+            </div>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
+    <!-- FIX: "flex-col-reverse" para que en móvil la foto quede arriba y el texto abajo -->
     <section id="hero" class="relative min-h-screen pt-32 pb-0 flex flex-col justify-end overflow-hidden bg-hero-gradient perspective-1000">
         
-        <!-- TEXTURA REAL VISIBLE: Red Global -->
         <div class="bg-blend-image" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop'); opacity: 0.3;"></div>
         
-        <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-end justify-between h-full">
+        <div class="container mx-auto px-6 relative z-10 flex flex-col-reverse md:flex-row items-end justify-between h-full gap-8 md:gap-0">
             <!-- Texto Izquierda -->
-            <div class="md:w-1/2 mb-10 md:mb-32 relative z-20 pointer-events-none reveal active">
+            <div class="w-full md:w-1/2 mb-20 md:mb-32 relative z-20 pointer-events-none reveal active text-center md:text-left">
                 <div class="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-white/10 bg-white/5 backdrop-blur-md pointer-events-auto">
                     <span class="text-xs font-mono text-blue-400">● DISPONIBLE PARA PROYECTOS</span>
                 </div>
                 
-                <h1 class="text-4xl md:text-7xl font-display font-bold leading-tight mb-6 pointer-events-auto">
+                <h1 class="text-5xl md:text-7xl font-display font-bold leading-tight mb-6 pointer-events-auto">
                     Arquitectura <br>
                     <span class="text-gradient">Digital Avanzada</span>
                 </h1>
                 
-                <p class="text-md md:text-xl text-gray-400 max-w-lg mb-8 font-light pointer-events-auto">
+                <p class="text-gray-400 text-lg md:text-xl max-w-lg mb-8 font-light pointer-events-auto mx-auto md:mx-0">
                     No vendo simples páginas web. Construyo ecosistemas de venta automatizados con <strong class="text-white">Pagos Nativos</strong> e <strong class="text-white">Inteligencia Artificial</strong>.
                 </p>
 
-                <div class="flex flex-wrap gap-4 pointer-events-auto">
-                    <button onclick="document.getElementById('ia-lab').scrollIntoView()" class="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg transition-all flex items-center gap-3 shadow-[0_10px_30px_rgba(37,99,235,0.3)] hover:translate-y-[-2px]">
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pointer-events-auto">
+                    <button onclick="document.getElementById('ia-lab').scrollIntoView()" class="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg transition-all flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(37,99,235,0.3)] hover:translate-y-[-2px]">
                         <i class="fas fa-robot"></i> Consultar con IA
                     </button>
-                    <a href="https://github.com/Pech68" target="_blank" class="px-8 py-4 border border-white/20 hover:bg-white/5 text-white font-medium rounded-lg transition-all flex items-center gap-3">
+                    <a href="https://github.com/Pech68" target="_blank" class="px-8 py-4 border border-white/20 hover:bg-white/5 text-white font-medium rounded-lg transition-all flex items-center justify-center gap-3">
                         <i class="fab fa-github"></i> GitHub
                     </a>
                 </div>
             </div>
 
-            <!-- IMAGEN + CHIPS (Ajuste de altura responsive) -->
-            <div class="md:w-1/2 relative flex justify-center items-end h-[400px] md:h-[600px] w-full perspective-1000 reveal active">
+            <!-- IMAGEN + CHIPS -->
+            <!-- FIX: h-[50vh] en móvil para que no ocupe toda la pantalla y permita ver el texto abajo -->
+            <div class="w-full md:w-1/2 relative flex justify-center items-end h-[50vh] md:h-[600px] perspective-1000 reveal active">
                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[80%] bg-blue-600/15 blur-[120px] rounded-full animate-pulse-slow"></div>
 
                 <div id="hero-img-container" class="hero-image-container relative z-10 h-full flex items-end">
                     <img src="https://i.imgur.com/DBrfwWX.png" alt="Devinson Rodriguez" class="h-full object-contain max-h-[85vh] drop-shadow-2xl filter brightness-110 contrast-110 animate-breathe relative z-10">
                 </div>
 
-                <!-- Chips Flotantes (Posición ajustada para móvil para NO tapar la cara) -->
-                <!-- Chip 1 (Arriba Izquierda - Movido más hacia arriba) -->
-                <div class="tech-chip absolute top-0 left-4 md:top-20 md:-left-12 animate-float-delayed">
+                <!-- Chips Flotantes (Ocultos en móviles muy pequeños para limpiar la vista) -->
+                <div class="hidden sm:flex tech-chip absolute top-20 -left-4 md:-left-12 animate-float-delayed">
                     <div class="chip-icon bg-purple-500/20 text-purple-400 border border-purple-500/30"><i class="fas fa-brain"></i></div>
                     <div><p class="text-[10px] text-gray-400 uppercase tracking-wider font-mono">Neural Engine</p><p class="font-bold text-sm text-white">Gemini AI</p></div>
                 </div>
-                <!-- Chip 2 (Arriba Derecha - Movido más hacia arriba) -->
-                <div class="tech-chip absolute top-0 right-4 md:top-32 md:-right-8 animate-float">
+                <div class="hidden sm:flex tech-chip absolute top-32 -right-4 md:-right-8 animate-float">
                     <div class="chip-icon bg-blue-500/20 text-blue-400 border border-blue-500/30"><i class="fas fa-handshake"></i></div>
                     <div><p class="text-[10px] text-gray-400 uppercase tracking-wider font-mono">Fintech Node</p><p class="font-bold text-sm text-white">Mercado Pago</p></div>
                 </div>
-                <!-- Chip 3 (Abajo Izquierda - Movido MÁS abajo en móvil) -->
-                <div class="tech-chip absolute bottom-0 left-4 md:bottom-32 md:-left-8 animate-float-reverse">
+                <div class="hidden sm:flex tech-chip absolute bottom-32 left-0 md:-left-8 animate-float-reverse">
                     <div class="chip-icon bg-teal-500/20 text-teal-400 border border-teal-500/30"><i class="fas fa-calendar-check"></i></div>
                     <div><p class="text-[10px] text-gray-400 uppercase tracking-wider font-mono">Chrono Sync</p><p class="font-bold text-sm text-white">Smart Agenda</p></div>
-                </div>
-                <!-- Chip 4 (Abajo Derecha - Movido MÁS abajo en móvil) -->
-                <div class="tech-chip absolute bottom-0 right-4 md:bottom-40 md:-right-12 animate-float-slow">
-                    <div class="chip-icon bg-amber-500/20 text-amber-400 border border-amber-500/30"><i class="fas fa-cash-register"></i></div>
-                    <div><p class="text-[10px] text-gray-400 uppercase tracking-wider font-mono">Retail Nexus</p><p class="font-bold text-sm text-white">Sistema POS</p></div>
                 </div>
             </div>
         </div>
@@ -403,7 +321,6 @@
 
     <!-- INFRAESTRUCTURA DE PAGOS (SERVICIOS) -->
     <section id="servicios" class="py-24 relative overflow-hidden bg-black">
-        <!-- TEXTURA REAL: Fibra óptica abstracta (Más visible) -->
         <div class="bg-blend-image" style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?q=80&w=2070&auto=format&fit=crop'); opacity: 0.2;"></div>
         
         <div class="container mx-auto px-6 relative z-10">
@@ -463,9 +380,7 @@
 
     <!-- PROCESO: Neural Roadmap -->
     <section id="proceso" class="py-24 bg-dark relative overflow-hidden">
-        <!-- TEXTURA REAL: Chip Luces Amarillas (Visibilidad Forzada) -->
         <div style="position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1563770094211-72f3e4eb042a?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center; opacity: 0.5; filter: sepia(1) hue-rotate(10deg) saturate(2); z-index: 0;"></div>
-        <!-- Capa Oscura para leer texto -->
         <div style="position: absolute; inset: 0; background: rgba(5,5,5,0.7); z-index: 0;"></div>
 
         <div class="container mx-auto px-6 relative z-10">
