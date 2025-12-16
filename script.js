@@ -79,16 +79,15 @@ function toggleMenu() {
     isMenuOpen = !isMenuOpen;
     if(isMenuOpen) {
         mobileMenu.classList.add('open');
-        menuBtn.classList.add('active'); // Animación de X
-        document.body.style.overflow = 'hidden'; // Evitar scroll
+        menuBtn.classList.add('active'); 
+        document.body.style.overflow = 'hidden'; 
     } else {
         mobileMenu.classList.remove('open');
         menuBtn.classList.remove('active');
-        document.body.style.overflow = ''; // Restaurar scroll
+        document.body.style.overflow = ''; 
     }
 }
 
-// Cerrar menú al clickear enlace
 document.querySelectorAll('.mobile-link').forEach(link => {
     link.addEventListener('click', () => {
         if(isMenuOpen) toggleMenu();
@@ -178,7 +177,7 @@ resize();
 animateParticles();
 
 // ============================================
-// 3. EFECTO TYPEWRITER (NUEVO)
+// 3. EFECTO TYPEWRITER
 // ============================================
 const typeWriterElement = document.getElementById('typewriter-text');
 const phrases = ["Inteligencia Artificial", "Automatización", "Chatbots Avanzados", "E-commerce Global"];
@@ -200,7 +199,7 @@ function typeWriterEffect() {
     }
 
     if (!isDeleting && charIndex === currentPhrase.length) {
-        setTimeout(() => isDeleting = true, 2000); // Esperar antes de borrar
+        setTimeout(() => isDeleting = true, 2000); 
     } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         phraseIndex = (phraseIndex + 1) % phrases.length;
@@ -210,7 +209,6 @@ function typeWriterEffect() {
     setTimeout(typeWriterEffect, speed);
 }
 
-// Iniciar efecto de escritura
 document.addEventListener('DOMContentLoaded', typeWriterEffect);
 
 
@@ -393,6 +391,62 @@ function calculateTotal() {
     }
     const btn = document.getElementById('btn-cotizar');
     btn.href = `https://wa.me/573215203354?text=${encodeURIComponent(message)}`;
+}
+
+// ============================================
+// 6. HERRAMIENTAS GRATUITAS (WhatsApp Link)
+// ============================================
+function generateWhatsAppLink() {
+    const phoneInput = document.getElementById('wa-number');
+    const messageInput = document.getElementById('wa-message');
+    const outputInput = document.getElementById('wa-output');
+    const resultDiv = document.getElementById('wa-result');
+    const testBtn = document.getElementById('wa-test-btn');
+
+    // Limpiar número (solo dígitos)
+    let phone = phoneInput.value.replace(/\D/g, '');
+    let message = encodeURIComponent(messageInput.value);
+
+    if (!phone) {
+        // Validación visual simple si está vacío
+        phoneInput.parentElement.style.border = "1px solid red";
+        setTimeout(() => phoneInput.parentElement.style.border = "1px solid rgba(255,255,255,0.1)", 2000);
+        return;
+    }
+
+    // Crear Link
+    const link = `https://wa.me/${phone}?text=${message}`;
+    
+    // Mostrar resultados
+    outputInput.value = link;
+    testBtn.href = link;
+    
+    resultDiv.classList.remove('hidden');
+    resultDiv.classList.add('flex', 'flex-col', 'animate-pulse');
+    setTimeout(() => resultDiv.classList.remove('animate-pulse'), 500); // Quitar pulso
+}
+
+function copyToClipboard() {
+    const copyText = document.getElementById("wa-output");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); // Para móviles
+
+    try {
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(copyText.value);
+        } else {
+            // Fallback antiguo
+            document.execCommand('copy');
+        }
+        
+        const feedback = document.getElementById('copy-feedback');
+        feedback.style.opacity = '1';
+        setTimeout(() => {
+            feedback.style.opacity = '0';
+        }, 2000);
+    } catch (err) {
+        console.error('Error al copiar', err);
+    }
 }
 
 calculateTotal();
