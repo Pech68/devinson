@@ -125,42 +125,66 @@ body.theme-colombia .dynamic-bg { background-color: #facc15; }
 @keyframes floatSlow { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 .animate-float-slow { animation: floatSlow 6s ease-in-out infinite; }
 
-/* --- MOBILE MENU STYLES (CORREGIDO Y MEJORADO) --- */
+/* --- MOBILE MENU STYLES (CORREGIDO Y REFORZADO) --- */
 #mobile-menu {
-    transition: opacity 0.4s ease-in-out, transform 0.4s cubic-bezier(0.2, 1, 0.3, 1);
-    /* Aseguramos fondo oscuro sólido para legibilidad */
-    background-color: rgba(5, 5, 5, 0.98) !important;
-    z-index: 60 !important; /* Encima de todo */
+    /* Forzamos posición y propiedades críticas */
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    
+    /* Estado inicial: Invisible y no interactivó */
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    
+    /* Estilos visuales */
+    background-color: rgba(5, 5, 5, 0.98) !important; /* Fondo casi negro sólido */
+    backdrop-filter: blur(20px);
+    z-index: 90 !important; /* Capa MUY alta, debajo solo del botón */
+    
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    
+    /* Centrado */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #mobile-menu.open {
+    /* Estado abierto: Visible e interactivo */
     opacity: 1 !important;
-    pointer-events: all !important;
+    pointer-events: auto !important;
     transform: translateY(0) !important;
 }
 
-/* Estilos específicos para los enlaces del menú móvil para asegurar visibilidad */
+/* Enlaces del menú más grandes y fáciles de tocar */
 #mobile-menu .mobile-link {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #ffffff; /* Blanco puro por defecto */
-    text-align: center;
-    opacity: 0.9;
-    padding: 10px;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    padding: 15px 0;
     display: block;
+    transition: all 0.3s ease;
 }
 
-#mobile-menu .mobile-link:hover {
-    color: #3b82f6; /* Azul al hover */
-    opacity: 1;
-    transform: scale(1.05);
+#mobile-menu .mobile-link:hover,
+#mobile-menu .mobile-link:active {
+    color: #ffffff;
+    transform: scale(1.1);
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
 }
 
-/* Botón Hamburger Animado */
+/* Botón Hamburger (Z-Index Extremo para que nunca se tape) */
 #menu-btn {
-    z-index: 70; /* Encima del menú abierto */
     position: relative;
+    z-index: 100 !important; /* Siempre encima del menú */
 }
+
+/* Animación de la X */
 #menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); background-color: #ef4444; }
 #menu-btn.active span:nth-child(2) { opacity: 0; }
 #menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); background-color: #ef4444; }
