@@ -1,8 +1,10 @@
+/* --- ESTILOS BASE --- */
 body { 
     background-color: #050505; 
     color: #ffffff; 
     overflow-x: hidden;
     scroll-behavior: smooth;
+    transition: background-color 0.7s ease, color 0.7s ease;
 }
 
 #particles-canvas {
@@ -18,6 +20,68 @@ body {
     -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
 
+/* --- CLASES DE UTILIDAD PARA TEMAS (Temporadas) --- */
+/* Estas clases permiten que los colores cambien forzosamente cuando se activa un tema */
+
+/* NAVIDAD (Diciembre) */
+body.theme-christmas { background-color: #020c04; } /* Fondo verde muy oscuro */
+body.theme-christmas .text-gradient { background: linear-gradient(to right, #ef4444, #22c55e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+body.theme-christmas .dynamic-text-color { color: #ef4444 !important; } /* Rojo */
+body.theme-christmas .dynamic-text-color-secondary { color: #22c55e !important; } /* Verde */
+body.theme-christmas .logo-box { background: linear-gradient(to br, #ef4444, #15803d); box-shadow: 0 0 15px rgba(239, 68, 68, 0.5); }
+body.theme-christmas .indicator-dot { background-color: #ef4444; }
+body.theme-christmas .hero-btn-primary { background-color: #ef4444; }
+body.theme-christmas .hero-btn-primary:hover { background-color: #dc2626; box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3); }
+body.theme-christmas .cta-button { background-color: #22c55e; color: white; }
+body.theme-christmas .cta-button-mobile { background-color: #ef4444; }
+body.theme-christmas .dynamic-glow { background-color: rgba(239, 68, 68, 0.15); }
+body.theme-christmas .dynamic-border { border-color: rgba(22, 163, 74, 0.3); color: #22c55e; }
+body.theme-christmas .theme-icon-bg { background-color: #ef4444; }
+body.theme-christmas .dynamic-hover-text:hover { color: #ef4444; }
+body.theme-christmas .dynamic-step-border { border-color: #ef4444; color: #ef4444; }
+body.theme-christmas .dynamic-bg { background-color: #ef4444; }
+body.theme-christmas .dynamic-group-border:hover { border-color: #ef4444; }
+body.theme-christmas .theme-chip { background-color: rgba(239, 68, 68, 0.2); color: #fca5a5; border-color: rgba(239, 68, 68, 0.3); }
+
+/* HALLOWEEN (Octubre) */
+body.theme-halloween { background-color: #0f0505; }
+body.theme-halloween .text-gradient { background: linear-gradient(to right, #f97316, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+body.theme-halloween .dynamic-text-color { color: #f97316 !important; } /* Naranja */
+body.theme-halloween .logo-box { background: linear-gradient(to br, #f97316, #6b21a8); box-shadow: 0 0 15px rgba(249, 115, 22, 0.5); }
+body.theme-halloween .indicator-dot { background-color: #f97316; }
+body.theme-halloween .hero-btn-primary { background-color: #f97316; }
+body.theme-halloween .hero-btn-primary:hover { background-color: #ea580c; box-shadow: 0 10px 30px rgba(234, 88, 12, 0.3); }
+body.theme-halloween .dynamic-glow { background-color: rgba(249, 115, 22, 0.15); }
+body.theme-halloween .theme-icon-bg { background-color: #f97316; }
+body.theme-halloween .dynamic-bg { background-color: #f97316; }
+body.theme-halloween .dynamic-hover-text:hover { color: #f97316; }
+body.theme-halloween .theme-chip { background-color: rgba(249, 115, 22, 0.2); color: #fdba74; border-color: rgba(249, 115, 22, 0.3); }
+
+/* AMOR Y AMISTAD (Septiembre - Colombia) / SAN VALENTIN */
+body.theme-love { background-color: #0f050a; }
+body.theme-love .text-gradient { background: linear-gradient(to right, #ec4899, #ef4444); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+body.theme-love .dynamic-text-color { color: #ec4899 !important; } /* Rosa */
+body.theme-love .logo-box { background: linear-gradient(to br, #ec4899, #ef4444); box-shadow: 0 0 15px rgba(236, 72, 153, 0.5); }
+body.theme-love .indicator-dot { background-color: #ec4899; }
+body.theme-love .hero-btn-primary { background-color: #ec4899; }
+body.theme-love .hero-btn-primary:hover { background-color: #db2777; box-shadow: 0 10px 30px rgba(219, 39, 119, 0.3); }
+body.theme-love .dynamic-glow { background-color: rgba(236, 72, 153, 0.15); }
+body.theme-love .dynamic-bg { background-color: #ec4899; }
+body.theme-love .theme-chip { background-color: rgba(236, 72, 153, 0.2); color: #fbcfe8; border-color: rgba(236, 72, 153, 0.3); }
+
+/* INDEPENDENCIA COLOMBIA (20 Julio) */
+body.theme-colombia { background-color: #050505; }
+body.theme-colombia .text-gradient { background: linear-gradient(to right, #eab308, #3b82f6, #ef4444); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+body.theme-colombia .dynamic-text-color { color: #eab308 !important; } /* Amarillo */
+body.theme-colombia .logo-box { background: linear-gradient(to br, #eab308, #3b82f6); }
+body.theme-colombia .hero-btn-primary { background-color: #eab308; color: black; }
+body.theme-colombia .hero-btn-primary:hover { background-color: #ca8a04; }
+body.theme-colombia .indicator-dot { background-color: #eab308; }
+body.theme-colombia .dynamic-bg { background-color: #eab308; }
+body.theme-colombia .theme-chip { background-color: rgba(234, 179, 8, 0.2); color: #fde047; border-color: rgba(234, 179, 8, 0.3); }
+
+
+/* --- ESTILOS GENERALES (Glassmorphism, Chips, etc) --- */
 .glass {
     background: rgba(20, 20, 30, 0.6); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.15); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;
 }
@@ -25,37 +89,20 @@ body {
     border-color: rgba(59, 130, 246, 0.6); transform: translateY(-5px); background: rgba(30, 30, 45, 0.8); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
 }
 
-/* 3D Container Desktop */
 .hero-image-container { position: relative; z-index: 10; transform-style: preserve-3d; transition: transform 0.1s ease-out; }
 .hero-image-container::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 20%; background: linear-gradient(to top, #050505, transparent); pointer-events: none; z-index: 30; }
 
-/* Chips Desktop (Flotantes) */
 .tech-chip {
     position: absolute; background: rgba(10, 15, 25, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 14px; padding: 12px 16px; display: flex; align-items: center; gap: 12px; box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.9); z-index: 20; transition: all 0.3s ease; min-width: 170px;
 }
 .tech-chip:hover { transform: scale(1.1) translateZ(40px); border-color: rgba(59, 130, 246, 0.8); box-shadow: 0 0 30px rgba(59, 130, 246, 0.4); z-index: 40; background: #0f172a; }
 .chip-icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
 
-/* Chips Mobile (Carrusel "Belt") */
-.mobile-belt-container {
-    width: 200%; /* Doble ancho para loop */
-    display: flex;
-    gap: 1rem;
-    animation: scrollBelt 25s linear infinite;
-}
-.mobile-chip {
-    background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; padding: 8px 16px; display: flex; items-center; gap: 10px; white-space: nowrap; backdrop-filter: blur(8px);
-}
+.mobile-belt-container { width: 200%; display: flex; gap: 1rem; animation: scrollBelt 25s linear infinite; }
+.mobile-chip { background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; padding: 8px 16px; display: flex; items-center; gap: 10px; white-space: nowrap; backdrop-filter: blur(8px); }
+@keyframes scrollBelt { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-/* ANIMACIÓN CRUCIAL PARA EL CINTURÓN */
-@keyframes scrollBelt {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-.holo-card {
-    background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.15); backdrop-filter: blur(20px); transform-style: preserve-3d; transition: transform 0.1s ease-out; position: relative; overflow: hidden;
-}
+.holo-card { background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.15); backdrop-filter: blur(20px); transform-style: preserve-3d; transition: transform 0.1s ease-out; position: relative; overflow: hidden; }
 
 .marquee-container { overflow: hidden; white-space: nowrap; position: relative; }
 .marquee-content { display: inline-block; animation: marquee 30s linear infinite; }
@@ -73,31 +120,17 @@ body {
 
 .timeline-line { position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, transparent, #3b82f6, transparent); transform: translateX(-50%); z-index: 0; }
 
-/* Menú Móvil Fullscreen */
-#mobile-menu {
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-20px);
-}
-#mobile-menu.open {
-    opacity: 1;
-    pointer-events: all;
-    transform: translateY(0);
-}
+#mobile-menu { transition: opacity 0.3s ease, transform 0.3s ease; opacity: 0; pointer-events: none; transform: translateY(-20px); }
+#mobile-menu.open { opacity: 1; pointer-events: all; transform: translateY(0); }
 
-/* Estilos para módulos dinámicos */
-.ai-suggested {
-    border-color: #a855f7; /* Purple for AI */
-    background: rgba(168, 85, 247, 0.05);
+.ai-suggested { border-color: #a855f7; background: rgba(168, 85, 247, 0.05); }
+.ai-badge { font-size: 0.6rem; background: #a855f7; color: white; padding: 2px 6px; border-radius: 4px; margin-left: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* Animación Flotar Lenta */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
-.ai-badge {
-    font-size: 0.6rem;
-    background: #a855f7;
-    color: white;
-    padding: 2px 6px;
-    border-radius: 4px;
-    margin-left: 8px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
 }
