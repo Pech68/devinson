@@ -118,7 +118,7 @@
                         },
                         scrollBelt: {
                             '0%': { transform: 'translateX(0)' },
-                            '100%': { transform: 'translateX(-50%)' }, /* Mueve la mitad para loop infinito */
+                            '100%': { transform: 'translateX(-50%)' }, 
                         }
                     }
                 }
@@ -139,7 +139,7 @@
         }
 
         .bg-blend-image {
-            position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.4; mix-blend-mode: screen; pointer-events: none; z-index: 0; filter: contrast(1.2) brightness(0.8);
+            position: absolute; inset: 0; background-size: cover; background-position: center; mix-blend-mode: screen; pointer-events: none; z-index: 0; filter: contrast(1.2) brightness(0.8);
         }
 
         .text-gradient {
@@ -174,6 +174,12 @@
         }
         .mobile-chip {
             background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; padding: 8px 16px; display: flex; items-center; gap: 10px; white-space: nowrap; backdrop-filter: blur(8px);
+        }
+
+        /* ANIMACIÓN CRUCIAL PARA EL CINTURÓN */
+        @keyframes scrollBelt {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         .holo-card {
@@ -352,8 +358,8 @@
 
     <!-- INFRAESTRUCTURA DE PAGOS (SERVICIOS) -->
     <section id="servicios" class="py-16 md:py-24 relative overflow-hidden bg-black">
-        <!-- TEXTURA REAL: Fibra óptica abstracta (Más visible) -->
-        <div class="bg-blend-image" style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?q=80&w=2070&auto=format&fit=crop'); opacity: 0.2;"></div>
+        <!-- TEXTURA REAL: Ciberseguridad Digital (Responsive) -->
+        <div class="bg-blend-image opacity-40 md:opacity-20 bg-[url('https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1080&auto=format&fit=crop')] md:bg-[url('https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?q=80&w=2070&auto=format&fit=crop')]"></div>
         
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-12 md:mb-16 reveal">
@@ -412,8 +418,8 @@
 
     <!-- PROCESO: Neural Roadmap -->
     <section id="proceso" class="py-24 bg-dark relative overflow-hidden">
-        <!-- TEXTURA REAL: Chip Luces Amarillas (Visibilidad Forzada) -->
-        <div style="position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1563770094211-72f3e4eb042a?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center; opacity: 0.5; filter: sepia(1) hue-rotate(10deg) saturate(2); z-index: 0;"></div>
+        <!-- TEXTURA REAL: Flujo de Datos Abstracto (Responsive) -->
+        <div class="bg-blend-image opacity-40 md:opacity-20 bg-[url('https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=1080&auto=format&fit=crop')] md:bg-[url('https://images.unsplash.com/photo-1563770094211-72f3e4eb042a?q=80&w=2070&auto=format&fit=crop')]"></div>
         <!-- Capa Oscura para leer texto -->
         <div style="position: absolute; inset: 0; background: rgba(5,5,5,0.7); z-index: 0;"></div>
 
