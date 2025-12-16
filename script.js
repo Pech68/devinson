@@ -1,14 +1,81 @@
-const apiKey = "AIzaSyBdaivnoeGHO4gM8V2HGckDu6T2XApKlZM"; // <--- AQUÍ VA TU LLAVE
+const apiKey = "AIzaSyBdaivnoeGHO4gM8V2HGckDu6T2XApKlZM"; // <--- TU LLAVE (Asegúrate de que sea válida)
 
-let aiSummaryForWhatsapp = ""; // Variable para guardar el resumen corto
+// ============================================
+// 0. LÓGICA DE TEMPORADAS INTELIGENTES
+// ============================================
+let currentThemeColor = 'rgba(59, 130, 246, 0.15)'; // Azul por defecto
 
-// 1. MENU HAMBURGUESA LOGIC
+function detectarTemporada() {
+    const date = new Date();
+    const month = date.getMonth(); // 0 = Enero, 11 = Diciembre
+    const day = date.getDate();
+    const body = document.body;
+    
+    // Elementos de la notificación
+    const badge = document.getElementById('holiday-badge');
+    const badgeText = document.getElementById('holiday-text');
+    const badgeIcon = document.getElementById('holiday-icon');
+
+    // Resetear clases por si acaso
+    body.classList.remove('theme-christmas', 'theme-halloween', 'theme-love', 'theme-colombia');
+
+    // LÓGICA DE FECHAS
+    // 1. Diciembre (Navidad)
+    if (month === 11) { 
+        body.classList.add('theme-christmas');
+        currentThemeColor = 'rgba(239, 68, 68, 0.2)'; // Rojo
+        mostrarBadge("Modo Navidad", "fas fa-snowflake", "text-red-400");
+    }
+    // 2. Octubre (Halloween)
+    else if (month === 9) { 
+        body.classList.add('theme-halloween');
+        currentThemeColor = 'rgba(249, 115, 22, 0.2)'; // Naranja
+        mostrarBadge("Modo Halloween", "fas fa-ghost", "text-orange-400");
+    }
+    // 3. Septiembre (Amor y Amistad COL) o Febrero (San Valentin)
+    else if (month === 8 || month === 1) { 
+        body.classList.add('theme-love');
+        currentThemeColor = 'rgba(236, 72, 153, 0.2)'; // Rosa
+        mostrarBadge("Modo Amor", "fas fa-heart", "text-pink-400");
+    }
+    // 4. Independencia Colombia (20 Julio) - Margen del 15 al 25 de Julio
+    else if (month === 6 && (day >= 15 && day <= 25)) { 
+        body.classList.add('theme-colombia');
+        currentThemeColor = 'rgba(234, 179, 8, 0.2)'; // Amarillo
+        mostrarBadge("¡Viva Colombia!", "fas fa-flag", "text-yellow-400");
+    }
+    
+    // DEBUG: Descomenta la siguiente línea para probar el modo Navidad hoy mismo:
+    // body.classList.add('theme-christmas'); currentThemeColor = 'rgba(239, 68, 68, 0.2)'; mostrarBadge("Modo Navidad", "fas fa-snowflake", "text-red-400");
+}
+
+function mostrarBadge(texto, icono, claseColor) {
+    const badge = document.getElementById('holiday-badge');
+    const badgeText = document.getElementById('holiday-text');
+    const badgeIcon = document.getElementById('holiday-icon');
+    
+    if(badge && badgeText && badgeIcon) {
+        badgeText.innerText = texto;
+        badgeIcon.className = `${icono} ${claseColor}`;
+        badge.classList.remove('hidden');
+    }
+}
+
+// Ejecutar detección al inicio
+detectarTemporada();
+
+
+// ============================================
+// 1. MENU HAMBURGUESA
+// ============================================
 const menuBtn = document.getElementById('menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
-const menuIcon = menuBtn.querySelector('i');
+const menuIcon = menuBtn ? menuBtn.querySelector('i') : null;
 let isMenuOpen = false;
 
-menuBtn.addEventListener('click', toggleMenu);
+if (menuBtn) {
+    menuBtn.addEventListener('click', toggleMenu);
+}
 
 function toggleMenu() {
     isMenuOpen = !isMenuOpen;
@@ -23,7 +90,17 @@ function toggleMenu() {
     }
 }
 
-// 2. PARTICLES NETWORK (Canvas Dinámico)
+// Cerrar menú al hacer clic en un enlace (Móvil)
+document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+        if(isMenuOpen) toggleMenu();
+    });
+});
+
+
+// ============================================
+// 2. PARTICLES NETWORK (Adaptado al tema)
+// ============================================
 const canvas = document.getElementById('particles-canvas');
 const ctx = canvas.getContext('2d');
 let width, height;
@@ -52,7 +129,8 @@ function createParticles() {
 
 function animateParticles() {
     ctx.clearRect(0, 0, width, height);
-    ctx.strokeStyle = 'rgba(59, 130, 246, 0.15)'; 
+    // Usamos el color dinámico detectado por la temporada
+    ctx.strokeStyle = currentThemeColor; 
     ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
 
     particles.forEach((p, i) => {
@@ -86,7 +164,10 @@ function animateParticles() {
 resize();
 animateParticles();
 
-// 3. SCROLL REVEAL (Observer)
+
+// ============================================
+// 3. SCROLL REVEAL & 3D
+// ============================================
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if(entry.isIntersecting) {
@@ -96,7 +177,6 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// 4. TILT EFFECT 3D
 const heroSection = document.getElementById('hero');
 const heroImgContainer = document.getElementById('hero-img-container');
 if (heroSection && heroImgContainer && window.innerWidth > 768) {
@@ -109,6 +189,7 @@ if (heroSection && heroImgContainer && window.innerWidth > 768) {
         heroImgContainer.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)';
     });
 }
+
 const card = document.getElementById('payment-card');
 const shine = document.getElementById('card-shine');
 if(card && window.innerWidth > 768) {
@@ -121,15 +202,24 @@ if(card && window.innerWidth > 768) {
         const rotateX = ((y - centerY) / centerY) * -15; 
         const rotateY = ((x - centerX) / centerX) * 15;  
         card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-        shine.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.25) 0%, transparent 80%)`;
+        if(shine) {
+            shine.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.25) 0%, transparent 80%)`;
+        }
     });
     card.addEventListener('mouseleave', () => {
         card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1,1,1)';
-        shine.style.background = 'transparent';
+        if(shine) {
+            shine.style.background = 'transparent';
+        }
     });
 }
 
-// 5. IA CONSULTANT
+
+// ============================================
+// 4. COTIZADOR & IA
+// ============================================
+let aiSummaryForWhatsapp = "";
+
 async function consultarIA() {
     const input = document.getElementById('ai-input').value;
     const btn = document.getElementById('ai-btn');
@@ -146,16 +236,15 @@ async function consultarIA() {
     
     // Limpiar módulos dinámicos previos
     dynamicContainer.innerHTML = '';
-    aiSummaryForWhatsapp = ""; // Reset summary
+    aiSummaryForWhatsapp = "";
 
     // Resetear checkboxes (menos base)
     document.getElementById('check-pagos').checked = false;
     document.getElementById('check-chatbot').checked = false;
     document.getElementById('check-pwa').checked = false;
 
-
+    // Fallback si no hay API Key real
     if (!apiKey || apiKey === "PEGAR_TU_API_KEY_AQUI") {
-        // Fallback Simulado
         setTimeout(() => {
             const mockExplanation = `He detectado que necesitas una solución de comercio electrónico completa. He activado los módulos de **Pagos** y **PWA** para ti.`;
             contentDiv.innerHTML = marked.parse(mockExplanation);
@@ -170,10 +259,8 @@ async function consultarIA() {
     }
 
     try {
-        // Prompt estructurado para JSON
         const systemPrompt = `
         Eres el motor de ventas inteligente de Devinson Rodriguez.
-        
         Tus Módulos Estándar son:
         1. "pagos": Pasarela de Pago ($100.000 COP)
         2. "chatbot": Chatbot IA ($300.000 COP)
@@ -183,17 +270,15 @@ async function consultarIA() {
         Tu tarea:
         1. Analiza el requerimiento del usuario: "${input}".
         2. Selecciona qué módulos estándar necesita (pagos, chatbot, pwa).
-        3. SI el usuario pide algo complejo que NO está en los módulos estándar (ej: GPS en tiempo real, Sistema de reservas complejo, Dashboard de analítica avanzada), CREA un módulo personalizado.
-        4. Genera un resumen MUY BREVE y directo para WhatsApp (primera persona del cliente).
+        3. SI el usuario pide algo complejo que NO está en los módulos estándar, CREA un módulo personalizado.
+        4. Genera un resumen MUY BREVE y directo para WhatsApp.
         
         Responde SOLO en formato JSON válido:
         {
-            "explanation": "Texto breve explicando tu estrategia al usuario (usa Markdown).",
+            "explanation": "Texto breve explicando tu estrategia (Markdown).",
             "whatsapp_summary": "Hola Devinson, necesito: [Resumen ultra corto].",
-            "select_modules": ["pagos", "pwa"], // Array con los IDs que apliquen
-            "custom_modules": [ // Opcional, solo si es necesario
-                {"name": "Nombre Módulo Extra", "price": 500000} 
-            ]
+            "select_modules": ["pagos", "pwa"],
+            "custom_modules": [ {"name": "Nombre Módulo Extra", "price": 500000} ]
         }
         `;
 
@@ -201,12 +286,9 @@ async function consultarIA() {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                contents: [{
-                    parts: [{ text: systemPrompt }]
-                }],
-                generationConfig: {
-                    responseMimeType: "application/json"
-                }
+                contents: [{ parts: [{ text: input }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+                generationConfig: { responseMimeType: "application/json" }
             })
         });
         
@@ -216,13 +298,13 @@ async function consultarIA() {
 
         const aiResponse = JSON.parse(data.candidates[0].content.parts[0].text);
 
-        // 1. Mostrar explicación visual
+        // 1. Mostrar explicación
         contentDiv.innerHTML = marked.parse(aiResponse.explanation);
         
-        // 2. Guardar resumen para WhatsApp
+        // 2. Guardar resumen
         aiSummaryForWhatsapp = aiResponse.whatsapp_summary;
 
-        // 3. Marcar checkboxes automáticamente
+        // 3. Marcar checkboxes
         if(aiResponse.select_modules) {
             aiResponse.select_modules.forEach(modId => {
                 const checkbox = document.getElementById(`check-${modId}`);
@@ -230,11 +312,10 @@ async function consultarIA() {
             });
         }
 
-        // 4. Crear módulos dinámicos si existen
+        // 4. Crear módulos personalizados
         if(aiResponse.custom_modules && aiResponse.custom_modules.length > 0) {
-            aiResponse.custom_modules.forEach((mod, index) => {
+            aiResponse.custom_modules.forEach((mod) => {
                 const div = document.createElement('div');
-                // HTML del nuevo módulo
                 div.innerHTML = `
                 <label class="flex items-center justify-between p-4 rounded-xl bg-purple-900/10 border border-purple-500/30 hover:border-purple-500/50 cursor-pointer transition-all group active:scale-[0.98] ai-suggested animate-pulse">
                     <div class="flex items-center gap-3">
@@ -254,24 +335,23 @@ async function consultarIA() {
             });
         }
 
-        // 5. Recalcular total
         calculateTotal();
         
     } catch (error) {
         console.error(error);
-        contentDiv.innerHTML = `<span class="text-red-400">Error de conexión. Intenta de nuevo.</span>`;
+        contentDiv.innerHTML = `<span class="text-red-400">Error de conexión con Gemini. Intenta de nuevo.</span>`;
     } finally {
         btn.innerHTML = originalContent;
         btn.disabled = false;
     }
 }
 
-// 6. COTIZADOR INTELIGENTE (Actualizado)
+// Recalcular total del cotizador
 function calculateTotal() {
     let total = 0;
     let selectedItems = [];
     
-    // Buscar TODOS los checkboxes (incluyendo los dinámicos creados por IA)
+    // Buscar TODOS los checkboxes (incluyendo los dinámicos)
     const allCheckboxes = document.querySelectorAll('.item-checkbox');
     
     allCheckboxes.forEach(box => {
@@ -289,12 +369,10 @@ function calculateTotal() {
     let message = "";
     
     if (aiSummaryForWhatsapp && aiSummaryForWhatsapp.length > 5) {
-        // Si la IA generó un resumen, usar ese como base
-        message = `${aiSummaryForWhatsapp}\n\n*Detalle Técnico Seleccionado:*\n${selectedItems.map(i => `• ${i}`).join('\n')}\n\n*Presupuesto Estimado:* ${fmt}`;
+        message = `${aiSummaryForWhatsapp}\n\n*Detalle Técnico:*\n${selectedItems.map(i => `• ${i}`).join('\n')}\n\n*Presupuesto:* ${fmt}`;
     } else {
-        // Fallback manual
         const itemsString = selectedItems.join(' + ');
-        message = `Hola Devinson, me interesa cotizar: [ ${itemsString} ]. El presupuesto estimado en web es ${fmt}.`;
+        message = `Hola Devinson, me interesa cotizar: [ ${itemsString} ]. El presupuesto es ${fmt}.`;
     }
     
     const btn = document.getElementById('btn-cotizar');
