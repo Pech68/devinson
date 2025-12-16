@@ -1,11 +1,11 @@
-const apiKey = "AIzaSyBdaivnoeGHO4gM8V2HGckDu6T2XApKlZM"; // <--- TU LLAVE (Asegúrate de que sea válida)
+const apiKey = "AIzaSyBdaivnoeGHO4gM8V2HGckDu6T2XApKlZM"; // <--- TU LLAVE
 
 // ============================================
 // 0. LÓGICA DE TEMPORADAS INTELIGENTES
 // ============================================
-let currentThemeColor = 'rgba(59, 130, 246, 0.15)'; // Azul por defecto
-let particleMode = 'circle'; // 'circle', 'emoji', 'colombia'
-let particleEmoji = ''; // Para guardar el emoji de la temporada
+let currentThemeColor = 'rgba(59, 130, 246, 0.15)'; 
+let particleMode = 'circle'; 
+let particleEmoji = ''; 
 
 function detectarTemporada() {
     const date = new Date();
@@ -14,56 +14,45 @@ function detectarTemporada() {
     const body = document.body;
     const originalTitle = "Devinson Rodriguez | Experto en E-commerce & Automatización IA";
     
-    // Elementos de la notificación
-    const badge = document.getElementById('holiday-badge');
-    const badgeText = document.getElementById('holiday-text');
-    const badgeIcon = document.getElementById('holiday-icon');
-    
-    // Resetear clases, modos y título
+    // Resetear clases y título
     body.classList.remove('theme-christmas', 'theme-halloween', 'theme-love', 'theme-colombia');
     document.title = originalTitle; 
     particleMode = 'circle';
     particleEmoji = '';
 
     // LÓGICA DE FECHAS
-    // 1. Diciembre (Navidad)
     if (month === 11) { 
+        // Diciembre: Navidad
         body.classList.add('theme-christmas');
         currentThemeColor = 'rgba(239, 68, 68, 0.2)'; // Rojo
         particleMode = 'emoji';
         particleEmoji = '❄️';
-        document.title = "🎄 Devinson | Edición Navideña"; // TÍTULO DINÁMICO
+        document.title = "🎄 Devinson | Edición Navideña";
         mostrarBadge("Modo Navidad", "fas fa-snowflake", "text-red-400");
-    }
-    // 2. Octubre (Halloween)
-    else if (month === 9) { 
+    } else if (month === 9) { 
+        // Octubre: Halloween
         body.classList.add('theme-halloween');
         currentThemeColor = 'rgba(249, 115, 22, 0.2)'; // Naranja
         particleMode = 'emoji';
         particleEmoji = '🎃';
-        document.title = "👻 Devinson | ¿Dulce o Truco?"; // TÍTULO DINÁMICO
+        document.title = "👻 Devinson | ¿Dulce o Truco?";
         mostrarBadge("Modo Halloween", "fas fa-ghost", "text-orange-400");
-    }
-    // 3. Septiembre (Amor y Amistad COL) o Febrero (San Valentin)
-    else if (month === 8 || month === 1) { 
+    } else if (month === 8 || month === 1) { 
+        // Septiembre/Febrero: Amor
         body.classList.add('theme-love');
         currentThemeColor = 'rgba(236, 72, 153, 0.2)'; // Rosa
         particleMode = 'emoji';
         particleEmoji = '❤️';
-        document.title = "❤️ Devinson | Hecho con Pasión"; // TÍTULO DINÁMICO
+        document.title = "❤️ Devinson | Hecho con Pasión";
         mostrarBadge("Modo Amor", "fas fa-heart", "text-pink-400");
-    }
-    // 4. Independencia Colombia (20 Julio) - Margen del 15 al 25 de Julio
-    else if (month === 6 && (day >= 15 && day <= 25)) { 
+    } else if (month === 6 && (day >= 15 && day <= 25)) { 
+        // Julio: Independencia Colombia
         body.classList.add('theme-colombia');
-        currentThemeColor = 'rgba(234, 179, 8, 0.2)'; // Amarillo base
+        currentThemeColor = 'rgba(234, 179, 8, 0.2)'; // Amarillo
         particleMode = 'colombia';
-        document.title = "🇨🇴 Devinson | Orgullo Colombiano"; // TÍTULO DINÁMICO
+        document.title = "🇨🇴 Devinson | Orgullo Colombiano";
         mostrarBadge("¡Viva Colombia!", "fas fa-flag", "text-yellow-400");
     }
-    
-    // DEBUG: Descomenta UNA de estas líneas para probar hoy mismo:
-    // body.classList.add('theme-christmas'); currentThemeColor = 'rgba(239, 68, 68, 0.2)'; particleMode = 'emoji'; particleEmoji = '❄️'; document.title = "🎄 Prueba Navidad"; mostrarBadge("Modo Navidad", "fas fa-snowflake", "text-red-400");
 }
 
 function mostrarBadge(texto, icono, claseColor) {
@@ -78,16 +67,15 @@ function mostrarBadge(texto, icono, claseColor) {
     }
 }
 
-// Ejecutar detección al inicio
+// Ejecutar al inicio
 detectarTemporada();
 
 
 // ============================================
-// 1. MENU HAMBURGUESA
+// 1. MENU HAMBURGUESA MEJORADO
 // ============================================
 const menuBtn = document.getElementById('menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
-const menuIcon = menuBtn ? menuBtn.querySelector('i') : null;
 let isMenuOpen = false;
 
 if (menuBtn) {
@@ -98,16 +86,16 @@ function toggleMenu() {
     isMenuOpen = !isMenuOpen;
     if(isMenuOpen) {
         mobileMenu.classList.add('open');
-        menuIcon.classList.remove('fa-bars');
-        menuIcon.classList.add('fa-times');
+        menuBtn.classList.add('active'); // Animación de X
+        document.body.style.overflow = 'hidden'; // Evitar scroll
     } else {
         mobileMenu.classList.remove('open');
-        menuIcon.classList.remove('fa-times');
-        menuIcon.classList.add('fa-bars');
+        menuBtn.classList.remove('active');
+        document.body.style.overflow = ''; // Restaurar scroll
     }
 }
 
-// Cerrar menú al hacer clic en un enlace (Móvil)
+// Cerrar menú al clickear enlace
 document.querySelectorAll('.mobile-link').forEach(link => {
     link.addEventListener('click', () => {
         if(isMenuOpen) toggleMenu();
@@ -133,9 +121,7 @@ window.addEventListener('resize', resize);
 function createParticles() {
     particles = [];
     const count = window.innerWidth < 768 ? 40 : 80; 
-    
-    // Colores de la bandera para modo Colombia
-    const colombiaColors = ['#FCD116', '#003893', '#CE1126']; // Amarillo, Azul, Rojo
+    const colombiaColors = ['#FCD116', '#003893', '#CE1126'];
 
     for(let i=0; i<count; i++) {
         particles.push({
@@ -144,7 +130,7 @@ function createParticles() {
             vx: (Math.random() - 0.5) * 0.5,
             vy: (Math.random() - 0.5) * 0.5,
             size: Math.random() * 2,
-            // Asignar color aleatorio si es modo Colombia
+            // Color especial solo para modo Colombia
             colombiaColor: particleMode === 'colombia' ? colombiaColors[Math.floor(Math.random() * colombiaColors.length)] : null
         });
     }
@@ -161,35 +147,32 @@ function animateParticles() {
         p.x += p.vx;
         p.y += p.vy;
 
-        // Rebote en bordes (loop infinito)
+        // Rebote infinito
         if(p.x < 0) p.x = width;
         if(p.x > width) p.x = 0;
         if(p.y < 0) p.y = height;
         if(p.y > height) p.y = 0;
 
-        // DIBUJAR PARTÍCULA SEGÚN MODO
+        // --- DIBUJAR SEGÚN MODO ---
         if (particleMode === 'emoji') {
-            // Modo Emojis (Navidad, Halloween, Amor)
             ctx.font = "20px serif";
             ctx.fillText(particleEmoji, p.x, p.y);
         } 
         else if (particleMode === 'colombia') {
-            // Modo Colombia (Confeti Tricolor)
             ctx.beginPath();
-            ctx.arc(p.x, p.y, p.size * 2, 0, Math.PI*2); // Un poco más grandes
-            ctx.fillStyle = p.colombiaColor; // Usar el color asignado (Amarillo, Azul o Rojo)
+            ctx.arc(p.x, p.y, p.size * 2, 0, Math.PI*2);
+            ctx.fillStyle = p.colombiaColor;
             ctx.fill();
         } 
         else {
-            // Modo Normal (Círculos)
             ctx.beginPath();
             ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
             ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
             ctx.fill();
         }
 
-        // DIBUJAR LÍNEAS DE CONEXIÓN (Solo en modo normal o sutilmente en Colombia)
-        // En modo Emoji desactivamos las líneas para que no se vea sucio
+        // --- LÍNEAS DE CONEXIÓN ---
+        // (Desactivadas en modo emoji para limpieza)
         if (particleMode !== 'emoji') {
             for(let j=i+1; j<particles.length; j++) {
                 const p2 = particles[j];
@@ -201,7 +184,7 @@ function animateParticles() {
                     ctx.beginPath();
                     ctx.moveTo(p.x, p.y);
                     ctx.lineTo(p2.x, p2.y);
-                    // Si es Colombia, línea sutil gris, si no, color del tema
+                    // Línea gris sutil si es Colombia, color del tema si no
                     ctx.strokeStyle = particleMode === 'colombia' ? 'rgba(255,255,255,0.1)' : currentThemeColor;
                     ctx.stroke();
                 }
@@ -210,13 +193,12 @@ function animateParticles() {
     });
     requestAnimationFrame(animateParticles);
 }
-// Aseguramos iniciar después de definir todo
 resize();
 animateParticles();
 
 
 // ============================================
-// 3. SCROLL REVEAL & 3D
+// 3. SCROLL REVEAL & 3D TILT
 // ============================================
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -227,6 +209,7 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+// Efecto 3D en Imagen Hero (Solo PC)
 const heroSection = document.getElementById('hero');
 const heroImgContainer = document.getElementById('hero-img-container');
 if (heroSection && heroImgContainer && window.innerWidth > 768) {
@@ -240,6 +223,7 @@ if (heroSection && heroImgContainer && window.innerWidth > 768) {
     });
 }
 
+// Efecto 3D en Tarjeta de Pagos
 const card = document.getElementById('payment-card');
 const shine = document.getElementById('card-shine');
 if(card && window.innerWidth > 768) {
@@ -284,7 +268,7 @@ async function consultarIA() {
     resultDiv.classList.remove('hidden');
     contentDiv.innerHTML = '<span class="animate-pulse text-gray-500">Analizando estructura de costos y módulos...</span>';
     
-    // Limpiar módulos dinámicos previos
+    // Limpiar módulos previos
     dynamicContainer.innerHTML = '';
     aiSummaryForWhatsapp = "";
 
@@ -315,18 +299,18 @@ async function consultarIA() {
         1. "pagos": Pasarela de Pago ($100.000 COP)
         2. "chatbot": Chatbot IA ($300.000 COP)
         3. "pwa": App Web PWA Gestión ($400.000 COP)
-        (La "Base Web" de 200.000 es obligatoria, ignórala en tu selección).
+        (La "Base Web" de 200.000 es obligatoria).
 
         Tu tarea:
         1. Analiza el requerimiento del usuario: "${input}".
-        2. Selecciona qué módulos estándar necesita (pagos, chatbot, pwa).
-        3. SI el usuario pide algo complejo que NO está en los módulos estándar, CREA un módulo personalizado.
-        4. Genera un resumen MUY BREVE y directo para WhatsApp.
+        2. Selecciona qué módulos estándar necesita.
+        3. CREA un módulo personalizado si es necesario.
+        4. Genera un resumen MUY BREVE para WhatsApp.
         
         Responde SOLO en formato JSON válido:
         {
-            "explanation": "Texto breve explicando tu estrategia (Markdown).",
-            "whatsapp_summary": "Hola Devinson, necesito: [Resumen ultra corto].",
+            "explanation": "Texto breve explicando estrategia (Markdown).",
+            "whatsapp_summary": "Hola Devinson, necesito: [Resumen corto].",
             "select_modules": ["pagos", "pwa"],
             "custom_modules": [ {"name": "Nombre Módulo Extra", "price": 500000} ]
         }
@@ -367,19 +351,19 @@ async function consultarIA() {
             aiResponse.custom_modules.forEach((mod) => {
                 const div = document.createElement('div');
                 div.innerHTML = `
-                <label class="flex items-center justify-between p-4 rounded-xl bg-purple-900/10 border border-purple-500/30 hover:border-purple-500/50 cursor-pointer transition-all group active:scale-[0.98] ai-suggested animate-pulse">
-                    <div class="flex items-center gap-3">
-                        <div class="w-5 h-5 rounded-full border border-purple-500 flex items-center justify-center relative">
+                <label class="flex items-center justify-between p-5 rounded-2xl bg-purple-900/10 border border-purple-500/30 hover:border-purple-500/50 cursor-pointer transition-all group active:scale-[0.99] ai-suggested animate-pulse">
+                    <div class="flex items-center gap-4">
+                        <div class="w-6 h-6 rounded-full border border-purple-500 flex items-center justify-center relative">
                             <input type="checkbox" checked data-name="${mod.name} (IA)" value="${mod.price}" onchange="calculateTotal()" class="opacity-0 absolute inset-0 cursor-pointer peer item-checkbox">
                             <div class="w-3 h-3 bg-purple-500 rounded-full opacity-100 transition-opacity"></div>
                         </div>
-                        <div class="flex flex-col">
-                            <span class="text-white group-hover:text-purple-400 transition-colors text-sm md:text-base flex items-center">
+                        <div>
+                            <span class="text-white font-medium group-hover:text-purple-400 transition-colors block">
                                 ${mod.name} <span class="ai-badge">SUGERIDO IA</span>
                             </span>
                         </div>
                     </div>
-                    <span class="font-mono text-purple-300 text-sm md:text-base">$${new Intl.NumberFormat('es-CO').format(mod.price)}</span>
+                    <span class="font-mono text-purple-300">$${new Intl.NumberFormat('es-CO').format(mod.price)}</span>
                 </label>`;
                 dynamicContainer.appendChild(div);
             });
@@ -401,7 +385,6 @@ function calculateTotal() {
     let total = 0;
     let selectedItems = [];
     
-    // Buscar TODOS los checkboxes (incluyendo los dinámicos)
     const allCheckboxes = document.querySelectorAll('.item-checkbox');
     
     allCheckboxes.forEach(box => {
