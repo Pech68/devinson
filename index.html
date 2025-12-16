@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- =========================================
-          SEO AVANZADO (Google Search Ready)
+         SEO AVANZADO (Google Search Ready)
     ========================================== -->
     <title>Devinson Rodriguez | Experto en E-commerce & Automatización IA</title>
     <meta name="description" content="Potencia tu negocio con Devinson Rodriguez. Desarrollo Web Full Stack, Integración de Mercado Pago, Pasarelas de Pago y Chatbots con Inteligencia Artificial en Colombia.">
@@ -18,7 +18,7 @@
     <!-- Canonical URL (Evita contenido duplicado) -->
     <link rel="canonical" href="https://devinson.co">
 
-    <!-- Open Graph -->
+    <!-- Open Graph (Para compartir en WhatsApp/Facebook/LinkedIn) -->
     <meta property="og:locale" content="es_CO">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Devinson Rodriguez | Arquitectura Digital & IA">
@@ -35,7 +35,7 @@
     <meta name="twitter:description" content="Expertos en E-commerce y Sistemas de Pago en Colombia.">
     <meta name="twitter:image" content="https://i.imgur.com/DBrfwWX.png">
 
-    <!-- JSON-LD -->
+    <!-- JSON-LD (Datos Estructurados) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -93,6 +93,7 @@
                     },
                     backgroundImage: {
                         'hero-gradient': 'radial-gradient(circle at 50% 0%, #1e1b4b 0%, #050505 50%)',
+                        'noise': "url('https://grainy-gradients.vercel.app/noise.svg')", 
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
@@ -100,7 +101,7 @@
                         'float-slow': 'float 8s ease-in-out 1s infinite',
                         'float-reverse': 'floatReverse 7s ease-in-out infinite',
                         'breathe': 'breathe 8s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'scroll-belt': 'scrollBelt 20s linear infinite', /* Animación nueva para el cinturón */
                     },
                     keyframes: {
                         float: {
@@ -114,6 +115,10 @@
                         breathe: {
                             '0%, 100%': { transform: 'scale(1) translateY(0)', filter: 'brightness(100%)' },
                             '50%': { transform: 'scale(1.02) translateY(-15px)', filter: 'brightness(115%)' },
+                        },
+                        scrollBelt: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' }, /* Mueve la mitad para loop infinito */
                         }
                     }
                 }
@@ -130,14 +135,11 @@
         }
 
         #particles-canvas {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 0; pointer-events: none; opacity: 0.6;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.6;
         }
 
         .bg-blend-image {
-            position: absolute; inset: 0; background-size: cover; background-position: center;
-            opacity: 0.4; mix-blend-mode: screen; pointer-events: none; z-index: 0;
-            filter: contrast(1.2) brightness(0.8);
+            position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.4; mix-blend-mode: screen; pointer-events: none; z-index: 0; filter: contrast(1.2) brightness(0.8);
         }
 
         .text-gradient {
@@ -146,44 +148,38 @@
         }
 
         .glass {
-            background: rgba(20, 20, 30, 0.6); backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative; overflow: hidden;
+            background: rgba(20, 20, 30, 0.6); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.15); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;
         }
         .glass:hover {
-            border-color: rgba(59, 130, 246, 0.6); transform: translateY(-5px);
-            background: rgba(30, 30, 45, 0.8); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+            border-color: rgba(59, 130, 246, 0.6); transform: translateY(-5px); background: rgba(30, 30, 45, 0.8); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
         }
 
-        .hero-image-container {
-            position: relative; z-index: 10; transform-style: preserve-3d; transition: transform 0.1s ease-out;
-        }
-        /* ELIMINADO EL GRADIENTE OSCURO (CUADRO NEGRO) DE LA PARTE INFERIOR DE LA IMAGEN */
-        /* .hero-image-container::after { ... } */
+        /* 3D Container Desktop */
+        .hero-image-container { position: relative; z-index: 10; transform-style: preserve-3d; transition: transform 0.1s ease-out; }
+        .hero-image-container::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 20%; background: linear-gradient(to top, #050505, transparent); pointer-events: none; z-index: 30; }
 
+        /* Chips Desktop (Flotantes) */
         .tech-chip {
-            position: absolute; background: rgba(10, 15, 25, 0.95); backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 14px; padding: 12px 16px;
-            display: flex; align-items: center; gap: 12px;
-            box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.9); z-index: 20; transition: all 0.3s ease;
-            min-width: 170px;
+            position: absolute; background: rgba(10, 15, 25, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 14px; padding: 12px 16px; display: flex; align-items: center; gap: 12px; box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.9); z-index: 20; transition: all 0.3s ease; min-width: 170px;
         }
-        .tech-chip:hover {
-            transform: scale(1.1) translateZ(40px); border-color: rgba(59, 130, 246, 0.8);
-            box-shadow: 0 0 30px rgba(59, 130, 246, 0.4); z-index: 40; background: #0f172a;
+        .tech-chip:hover { transform: scale(1.1) translateZ(40px); border-color: rgba(59, 130, 246, 0.8); box-shadow: 0 0 30px rgba(59, 130, 246, 0.4); z-index: 40; background: #0f172a; }
+        .chip-icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+
+        /* Chips Mobile (Carrusel "Belt") */
+        .mobile-belt-container {
+            width: 200%; /* Doble ancho para loop */
+            display: flex;
+            gap: 1rem;
+            animation: scrollBelt 25s linear infinite;
         }
-        .chip-icon {
-            width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center;
-            font-size: 1.1rem; flex-shrink: 0;
+        .mobile-chip {
+            background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; padding: 8px 16px; display: flex; items-center; gap: 10px; white-space: nowrap; backdrop-filter: blur(8px);
         }
 
         .holo-card {
-            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-            border: 1px solid rgba(255,255,255,0.15); backdrop-filter: blur(20px);
-            transform-style: preserve-3d; transition: transform 0.1s ease-out; position: relative; overflow: hidden;
+            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.15); backdrop-filter: blur(20px); transform-style: preserve-3d; transition: transform 0.1s ease-out; position: relative; overflow: hidden;
         }
-
+        
         .marquee-container { overflow: hidden; white-space: nowrap; position: relative; }
         .marquee-content { display: inline-block; animation: marquee 30s linear infinite; }
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
@@ -194,31 +190,38 @@
         ::-webkit-scrollbar { width: 6px; background: #050505; }
         ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
-
-        .ai-loader {
-            width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.1);
-            border-top-color: #3b82f6; border-radius: 50%; animation: spin 0.8s linear infinite;
-        }
+        
+        .ai-loader { width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.1); border-top-color: #3b82f6; border-radius: 50%; animation: spin 0.8s linear infinite; }
         @keyframes spin { to { transform: rotate(360deg); } }
 
-        .timeline-line {
-            position: absolute; left: 50%; top: 0; bottom: 0; width: 1px;
-            background: linear-gradient(to bottom, transparent, #3b82f6, transparent);
-            transform: translateX(-50%); z-index: 0;
+        .timeline-line { position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, transparent, #3b82f6, transparent); transform: translateX(-50%); z-index: 0; }
+
+        /* Menú Móvil Fullscreen */
+        #mobile-menu {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-20px);
+        }
+        #mobile-menu.open {
+            opacity: 1;
+            pointer-events: all;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body class="antialiased font-sans bg-black selection:bg-blue-500 selection:text-white">
 
-    <!-- CANVAS DE PARTÍCULAS (FONDO VIVO) -->
+    <!-- CANVAS DE PARTÍCULAS -->
     <canvas id="particles-canvas"></canvas>
 
     <!-- NAVEGACIÓN -->
     <nav class="fixed w-full z-50 top-0 left-0 border-b border-white/5 bg-black/80 backdrop-blur-xl transition-all duration-300">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-2" onclick="window.scrollTo(0,0)">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center relative z-50">
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
                 <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center font-bold text-white shadow-[0_0_15px_rgba(59,130,246,0.5)]">D</div>
-                <span class="font-display font-bold text-lg tracking-tight">DEVINSON<span class="text-white/40">.GITHUB</span></span>
+                <span class="font-display font-bold text-lg tracking-tight">DEVINSON<span class="text-white/40">.CO</span></span>
             </div>
             
             <!-- Desktop Menu -->
@@ -228,111 +231,140 @@
                 <a href="#ia-lab" class="hover:text-white transition-all flex items-center gap-2 group">
                     <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse group-hover:shadow-[0_0_8px_#22c55e]"></span> IA Lab
                 </a>
-                <a href="#cotizar" class="bg-white text-black px-5 py-2 rounded-full font-bold text-sm hover:bg-gray-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.2)]">
-                    Cotizar
-                </a>
             </div>
 
-            <!-- Mobile Menu Toggle -->
-            <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden text-white focus:outline-none">
+            <!-- Desktop CTA -->
+            <a href="#cotizar" class="hidden md:block bg-white text-black px-5 py-2 rounded-full font-bold text-sm hover:bg-gray-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+                Cotizar
+            </a>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none z-50 p-2">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
         </div>
 
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-white/10 absolute w-full left-0 top-full">
-            <div class="flex flex-col p-6 space-y-4 text-center">
-                <a href="#servicios" class="text-white hover:text-blue-400" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Servicios</a>
-                <a href="#proceso" class="text-white hover:text-blue-400" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Proceso</a>
-                <a href="#ia-lab" class="text-white hover:text-blue-400" onclick="document.getElementById('mobile-menu').classList.add('hidden')">IA Lab</a>
-                <a href="#cotizar" class="bg-blue-600 text-white py-3 rounded-lg font-bold" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Cotizar Ahora</a>
+        <!-- Mobile Menu Overlay (Fullscreen) -->
+        <div id="mobile-menu" class="fixed inset-0 bg-black/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center space-y-8 md:hidden">
+            <a href="#hero" onclick="toggleMenu()" class="text-2xl font-display font-bold text-white hover:text-blue-500 transition-colors">Inicio</a>
+            <a href="#servicios" onclick="toggleMenu()" class="text-2xl font-display font-bold text-white hover:text-blue-500 transition-colors">Servicios</a>
+            <a href="#proceso" onclick="toggleMenu()" class="text-2xl font-display font-bold text-white hover:text-blue-500 transition-colors">Proceso</a>
+            <a href="#ia-lab" onclick="toggleMenu()" class="text-2xl font-display font-bold text-white hover:text-blue-500 transition-colors">IA Lab</a>
+            <a href="#cotizar" onclick="toggleMenu()" class="px-8 py-3 bg-blue-600 rounded-full font-bold text-white shadow-lg text-lg">Cotizar Ahora</a>
+            
+            <div class="absolute bottom-10 flex gap-6 text-gray-400">
+                <a href="#"><i class="fab fa-github text-xl"></i></a>
+                <a href="#"><i class="fab fa-linkedin text-xl"></i></a>
+                <a href="#"><i class="fab fa-whatsapp text-xl"></i></a>
             </div>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <!-- FIX: Usamos "flex-col" normal para que el texto vaya PRIMERO y la imagen SEGUNDO en móvil -->
-    <section id="hero" class="relative min-h-screen pt-32 pb-0 flex flex-col justify-end overflow-hidden bg-hero-gradient perspective-1000">
+    <section id="hero" class="relative min-h-screen pt-28 pb-0 flex flex-col justify-end overflow-hidden bg-hero-gradient perspective-1000">
         
+        <!-- TEXTURA REAL -->
         <div class="bg-blend-image" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop'); opacity: 0.3;"></div>
         
-        <!-- Contenedor principal: flex-col (Texto arriba, Imagen abajo en móvil) -->
-        <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center md:items-end justify-between h-full gap-12 md:gap-0">
+        <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-end justify-between h-full">
             
-            <!-- Texto Izquierda (Primero en móvil) -->
-            <div class="w-full md:w-1/2 mb-8 md:mb-32 relative z-20 pointer-events-none reveal active text-center md:text-left">
+            <!-- CONTENIDO TEXTO (Adaptado Móvil: Centrado y Arriba) -->
+            <div class="w-full md:w-1/2 mb-8 md:mb-32 relative z-20 pointer-events-none reveal active text-center md:text-left pt-6">
                 <div class="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-white/10 bg-white/5 backdrop-blur-md pointer-events-auto">
-                    <span class="text-xs font-mono text-blue-400">● DISPONIBLE PARA PROYECTOS</span>
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    <span class="text-xs font-mono text-blue-400">DISPONIBLE HOY</span>
                 </div>
                 
-                <h1 class="text-5xl md:text-7xl font-display font-bold leading-tight mb-6 pointer-events-auto">
+                <h1 class="text-5xl md:text-7xl font-display font-bold leading-none mb-6 pointer-events-auto tracking-tight">
                     Arquitectura <br>
                     <span class="text-gradient">Digital Avanzada</span>
                 </h1>
                 
-                <p class="text-gray-400 text-lg md:text-xl max-w-lg mb-8 font-light pointer-events-auto mx-auto md:mx-0">
-                    No vendo simples páginas web. Construyo ecosistemas de venta automatizados con <strong class="text-white">Pagos Nativos</strong> e <strong class="text-white">Inteligencia Artificial</strong>.
+                <p class="text-lg md:text-xl text-gray-300 max-w-lg mb-8 font-light pointer-events-auto mx-auto md:mx-0 leading-relaxed">
+                    Ecosistemas de venta automatizados con <strong class="text-white font-medium">Pagos Nativos</strong> e <strong class="text-white font-medium">IA</strong>. No vendo webs, vendo resultados.
                 </p>
 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pointer-events-auto">
-                    <button onclick="document.getElementById('ia-lab').scrollIntoView()" class="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg transition-all flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(37,99,235,0.3)] hover:translate-y-[-2px]">
+                <div class="flex flex-col md:flex-row gap-4 pointer-events-auto px-4 md:px-0">
+                    <button onclick="document.getElementById('ia-lab').scrollIntoView()" class="w-full md:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(37,99,235,0.3)] active:scale-95">
                         <i class="fas fa-robot"></i> Consultar con IA
                     </button>
-                    <a href="https://github.com/Pech68" target="_blank" class="px-8 py-4 border border-white/20 hover:bg-white/5 text-white font-medium rounded-lg transition-all flex items-center justify-center gap-3">
+                    <a href="https://github.com/Pech68" target="_blank" class="w-full md:w-auto px-8 py-4 border border-white/20 hover:bg-white/5 text-white font-medium rounded-xl transition-all flex items-center justify-center gap-3 active:scale-95">
                         <i class="fab fa-github"></i> GitHub
                     </a>
                 </div>
             </div>
 
-            <!-- IMAGEN + CHIPS (Segundo en móvil) -->
-            <div class="w-full md:w-1/2 relative flex justify-center items-end h-[50vh] md:h-[600px] perspective-1000 reveal active">
+            <!-- IMAGEN + CHIPS -->
+            <div class="w-full md:w-1/2 relative flex justify-center items-end h-[50vh] md:h-[600px] perspective-1000 reveal active mt-auto">
                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[80%] bg-blue-600/15 blur-[120px] rounded-full animate-pulse-slow"></div>
 
-                <div id="hero-img-container" class="hero-image-container relative z-10 h-full flex items-end">
-                    <!-- Imagen limpia, sin cuadros oscuros -->
+                <div id="hero-img-container" class="hero-image-container relative z-10 h-full flex items-end w-full justify-center">
                     <img src="https://i.imgur.com/DBrfwWX.png" alt="Devinson Rodriguez" class="h-full object-contain max-h-[85vh] drop-shadow-2xl filter brightness-110 contrast-110 animate-breathe relative z-10">
+                    
+                    <!-- === CARRUSEL MÓVIL (El "Cinturón") === -->
+                    <!-- Solo visible en móvil, ubicado abajo sobre la "cintura" de la imagen -->
+                    <div class="absolute bottom-10 left-0 w-full md:hidden z-30 overflow-hidden py-2 mask-linear">
+                        <div class="mobile-belt-container">
+                            <!-- Items Duplicados para el Loop -->
+                            <div class="mobile-chip text-purple-300 border-purple-500/30"><i class="fas fa-brain"></i> Gemini AI</div>
+                            <div class="mobile-chip text-blue-300 border-blue-500/30"><i class="fas fa-handshake"></i> Mercado Pago</div>
+                            <div class="mobile-chip text-green-300 border-green-500/30"><i class="fab fa-whatsapp"></i> WhatsApp API</div>
+                            <div class="mobile-chip text-amber-300 border-amber-500/30"><i class="fas fa-bolt"></i> Fast PWA</div>
+                            <!-- Repetición -->
+                            <div class="mobile-chip text-purple-300 border-purple-500/30"><i class="fas fa-brain"></i> Gemini AI</div>
+                            <div class="mobile-chip text-blue-300 border-blue-500/30"><i class="fas fa-handshake"></i> Mercado Pago</div>
+                            <div class="mobile-chip text-green-300 border-green-500/30"><i class="fab fa-whatsapp"></i> WhatsApp API</div>
+                            <div class="mobile-chip text-amber-300 border-amber-500/30"><i class="fas fa-bolt"></i> Fast PWA</div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Chips Flotantes -->
-                <div class="hidden sm:flex tech-chip absolute top-20 -left-4 md:-left-12 animate-float-delayed">
+                <!-- CHIPS DE ESCRITORIO (Solo visible en md o superior) -->
+                <!-- Se mantienen flotando como antes porque te gustaba en PC -->
+                <div class="hidden md:flex tech-chip absolute top-20 -left-12 animate-float-delayed">
                     <div class="chip-icon bg-purple-500/20 text-purple-400 border border-purple-500/30"><i class="fas fa-brain"></i></div>
                     <div><p class="text-[10px] text-gray-400 uppercase tracking-wider font-mono">Neural Engine</p><p class="font-bold text-sm text-white">Gemini AI</p></div>
                 </div>
-                <div class="hidden sm:flex tech-chip absolute top-32 -right-4 md:-right-8 animate-float">
+                <div class="hidden md:flex tech-chip absolute top-32 -right-8 animate-float">
                     <div class="chip-icon bg-blue-500/20 text-blue-400 border border-blue-500/30"><i class="fas fa-handshake"></i></div>
                     <div><p class="text-[10px] text-gray-400 uppercase tracking-wider font-mono">Fintech Node</p><p class="font-bold text-sm text-white">Mercado Pago</p></div>
                 </div>
-                <div class="hidden sm:flex tech-chip absolute bottom-32 left-0 md:-left-8 animate-float-reverse">
+                <div class="hidden md:flex tech-chip absolute bottom-32 -left-8 animate-float-reverse">
                     <div class="chip-icon bg-teal-500/20 text-teal-400 border border-teal-500/30"><i class="fas fa-calendar-check"></i></div>
                     <div><p class="text-[10px] text-gray-400 uppercase tracking-wider font-mono">Chrono Sync</p><p class="font-bold text-sm text-white">Smart Agenda</p></div>
+                </div>
+                <div class="hidden md:flex tech-chip absolute bottom-40 -right-12 animate-float-slow">
+                    <div class="chip-icon bg-amber-500/20 text-amber-400 border border-amber-500/30"><i class="fas fa-cash-register"></i></div>
+                    <div><p class="text-[10px] text-gray-400 uppercase tracking-wider font-mono">Retail Nexus</p><p class="font-bold text-sm text-white">Sistema POS</p></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CINTA MARQUEE -->
-    <div class="border-y border-white/5 bg-black py-6 relative z-20">
+    <div class="border-y border-white/5 bg-black py-4 md:py-6 relative z-20">
         <div class="marquee-container">
-            <div class="marquee-content font-display font-bold text-4xl text-white/5 uppercase tracking-tighter flex gap-12">
+            <div class="marquee-content font-display font-bold text-2xl md:text-4xl text-white/5 uppercase tracking-tighter flex gap-8 md:gap-12">
                 <span>E-COMMERCE</span> <span>•</span> <span>REACT</span> <span>•</span> <span>NODE.JS</span> <span>•</span> <span>AUTOMATIZACIÓN</span> <span>•</span> <span>MERCADOPAGO</span> <span>•</span> <span>WHATSAPP API</span> <span>•</span> <span>GEMINI AI</span> <span>•</span> <span>PWA</span> <span>•</span> <span>STRIPE</span> <span>•</span> <span>NEQUI</span> <span>•</span>
             </div>
         </div>
     </div>
 
     <!-- INFRAESTRUCTURA DE PAGOS (SERVICIOS) -->
-    <section id="servicios" class="py-24 relative overflow-hidden bg-black">
+    <section id="servicios" class="py-16 md:py-24 relative overflow-hidden bg-black">
+        <!-- TEXTURA REAL: Fibra óptica abstracta (Más visible) -->
         <div class="bg-blend-image" style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?q=80&w=2070&auto=format&fit=crop'); opacity: 0.2;"></div>
         
         <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-16 reveal">
+            <div class="text-center mb-12 md:mb-16 reveal">
                 <span class="text-blue-500 font-mono text-xs tracking-widest uppercase mb-2 block">Capacidades del Sistema</span>
                 <h2 class="text-3xl md:text-5xl font-display font-bold text-white">Infraestructura de Pagos</h2>
             </div>
 
-            <div class="flex flex-col lg:flex-row items-center justify-center gap-16">
+            <div class="flex flex-col lg:flex-row items-center justify-center gap-12 md:gap-16">
                 <!-- Tarjeta Holográfica -->
                 <div class="relative group perspective-1000 reveal">
-                    <div id="payment-card" class="holo-card w-[340px] h-[500px] rounded-3xl p-8 flex flex-col justify-between relative shadow-2xl overflow-hidden cursor-pointer transform transition-transform duration-75">
+                    <div id="payment-card" class="holo-card w-[300px] md:w-[340px] h-[450px] md:h-[500px] rounded-3xl p-6 md:p-8 flex flex-col justify-between relative shadow-2xl overflow-hidden cursor-pointer transform transition-transform duration-75 mx-auto">
                         <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M54.627 0l.83.828-1.415 1.415-.828-.828-.828.828-1.415-1.415.828-.828-.828-.828 1.415-1.415.828.828.828-.828 1.415 1.415-.828.828zM22.485 0l.83.828-1.415 1.415-.828-.828-.828.828-1.415-1.415.828-.828-.828-.828 1.415-1.415.828.828.828-.828 1.415 1.415-.828.828z\' fill=\'%23ffffff\' fill-opacity=\'1\' fill-rule=\'evenodd\'/%3E%3C/svg%3E');"></div>
                         
                         <div class="flex justify-between items-start z-10">
@@ -362,7 +394,7 @@
                 </div>
 
                 <!-- Features Texto (Glass cards) -->
-                <div class="lg:w-1/3 space-y-6">
+                <div class="lg:w-1/3 space-y-6 px-4 md:px-0">
                     <div class="glass p-6 rounded-2xl reveal">
                         <div class="absolute inset-0 bg-blue-500/5 z-0"></div>
                         <h3 class="text-xl font-bold text-white mb-2 relative z-10"><i class="fas fa-lock text-green-400 mr-2"></i> Seguridad SSL</h3>
@@ -380,7 +412,9 @@
 
     <!-- PROCESO: Neural Roadmap -->
     <section id="proceso" class="py-24 bg-dark relative overflow-hidden">
+        <!-- TEXTURA REAL: Chip Luces Amarillas (Visibilidad Forzada) -->
         <div style="position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1563770094211-72f3e4eb042a?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center; opacity: 0.5; filter: sepia(1) hue-rotate(10deg) saturate(2); z-index: 0;"></div>
+        <!-- Capa Oscura para leer texto -->
         <div style="position: absolute; inset: 0; background: rgba(5,5,5,0.7); z-index: 0;"></div>
 
         <div class="container mx-auto px-6 relative z-10">
@@ -399,15 +433,15 @@
                             <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">1. Análisis Neural</h3>
                             <p class="text-gray-400 text-sm mt-2">Estudio tu negocio y tus rivales. Defino la arquitectura técnica ideal (PWA, E-commerce, etc).</p>
                         </div>
-                        <div class="w-12 h-12 rounded-full bg-dark border-2 border-blue-500 flex items-center justify-center text-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.5)] z-10 order-1 md:order-2 bg-black"><i class="fas fa-search"></i></div>
+                        <div class="w-12 h-12 rounded-full bg-dark border-2 border-blue-500 flex items-center justify-center text-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.5)] z-10 order-1 md:order-2 bg-black shrink-0 mx-auto md:mx-0"><i class="fas fa-search"></i></div>
                         <div class="md:w-5/12 order-3"></div>
                     </div>
 
                     <!-- Paso 2 -->
                     <div class="flex flex-col md:flex-row items-center justify-between gap-8 group reveal">
                         <div class="md:w-5/12 order-2 md:order-1"></div>
-                        <div class="w-12 h-12 rounded-full bg-dark border-2 border-purple-500 flex items-center justify-center text-purple-500 shadow-[0_0_20px_rgba(168,85,247,0.5)] z-10 order-1 md:order-2 bg-black"><i class="fas fa-layer-group"></i></div>
-                        <div class="md:w-5/12 text-left order-3">
+                        <div class="w-12 h-12 rounded-full bg-dark border-2 border-purple-500 flex items-center justify-center text-purple-500 shadow-[0_0_20px_rgba(168,85,247,0.5)] z-10 order-1 md:order-2 bg-black shrink-0 mx-auto md:mx-0"><i class="fas fa-layer-group"></i></div>
+                        <div class="md:w-5/12 text-left order-3 text-right md:text-left">
                             <h3 class="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">2. Prototipado UX</h3>
                             <p class="text-gray-400 text-sm mt-2">Diseño la experiencia visual. Aseguramos que cada clic convierta antes de escribir código.</p>
                         </div>
@@ -419,15 +453,15 @@
                             <h3 class="text-xl font-bold text-white group-hover:text-green-400 transition-colors">3. Código & Integración</h3>
                             <p class="text-gray-400 text-sm mt-2">Desarrollo limpio. Conexión de Mercado Pago, WhatsApp y motores de IA.</p>
                         </div>
-                        <div class="w-12 h-12 rounded-full bg-dark border-2 border-green-500 flex items-center justify-center text-green-500 shadow-[0_0_20px_rgba(34,197,94,0.5)] z-10 order-1 md:order-2 bg-black"><i class="fas fa-code"></i></div>
+                        <div class="w-12 h-12 rounded-full bg-dark border-2 border-green-500 flex items-center justify-center text-green-500 shadow-[0_0_20px_rgba(34,197,94,0.5)] z-10 order-1 md:order-2 bg-black shrink-0 mx-auto md:mx-0"><i class="fas fa-code"></i></div>
                         <div class="md:w-5/12 order-3"></div>
                     </div>
 
                     <!-- Paso 4 -->
                     <div class="flex flex-col md:flex-row items-center justify-between gap-8 group reveal">
                         <div class="md:w-5/12 order-2 md:order-1"></div>
-                        <div class="w-12 h-12 rounded-full bg-dark border-2 border-white flex items-center justify-center text-white shadow-[0_0_20px_rgba(255,255,255,0.5)] z-10 order-1 md:order-2 bg-black"><i class="fas fa-rocket"></i></div>
-                        <div class="md:w-5/12 text-left order-3">
+                        <div class="w-12 h-12 rounded-full bg-dark border-2 border-white flex items-center justify-center text-white shadow-[0_0_20px_rgba(255,255,255,0.5)] z-10 order-1 md:order-2 bg-black shrink-0 mx-auto md:mx-0"><i class="fas fa-rocket"></i></div>
+                        <div class="md:w-5/12 text-left order-3 text-right md:text-left">
                             <h3 class="text-xl font-bold text-white group-hover:text-white transition-colors">4. Despliegue Global</h3>
                             <p class="text-gray-400 text-sm mt-2">Tu sistema online, seguro y optimizado para Google desde el día uno.</p>
                         </div>
@@ -458,7 +492,7 @@
                         <textarea id="ai-input" rows="2" class="w-full bg-black/50 border border-white/10 rounded-xl p-4 text-white placeholder-gray-600 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all resize-none text-lg font-mono" placeholder="Ej: Vendo ropa de bebé y quiero automatizar los pedidos por WhatsApp..."></textarea>
                         
                         <div class="flex justify-end">
-                            <button onclick="consultarIA()" id="ai-btn" class="px-6 py-3 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-all flex items-center gap-2">
+                            <button onclick="consultarIA()" id="ai-btn" class="w-full md:w-auto px-6 py-3 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-all flex items-center justify-center gap-2">
                                 <span>Generar Plan</span>
                                 <i class="fas fa-sparkles text-purple-600"></i>
                             </button>
@@ -486,57 +520,57 @@
             <div class="grid md:grid-cols-2 gap-20">
                 <!-- Cotizador -->
                 <div class="reveal">
-                    <h2 class="text-3xl font-display font-bold text-white mb-2">Inicia el Proyecto</h2>
-                    <p class="text-gray-500 mb-8">Selecciona tus módulos. Precios transparentes.</p>
+                    <h2 class="text-3xl font-display font-bold text-white mb-2 text-center md:text-left">Inicia el Proyecto</h2>
+                    <p class="text-gray-500 mb-8 text-center md:text-left">Selecciona tus módulos. Precios transparentes.</p>
                     <div class="space-y-3">
-                        <label class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group">
+                        <label class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.98]">
                             <div class="flex items-center gap-3">
                                 <div class="w-5 h-5 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500"><div class="w-3 h-3 bg-blue-500 rounded-full"></div></div>
-                                <span class="text-white group-hover:text-blue-400 transition-colors">Base Web Profesional</span>
+                                <span class="text-white group-hover:text-blue-400 transition-colors text-sm md:text-base">Base Web Profesional</span>
                             </div>
-                            <span class="font-mono text-gray-400">$200.000</span>
+                            <span class="font-mono text-gray-400 text-sm md:text-base">$200.000</span>
                             <input type="checkbox" data-name="Base Web" value="200000" checked disabled class="hidden item-checkbox">
                         </label>
-                        <label class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group">
+                        <label class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.98]">
                             <div class="flex items-center gap-3">
                                 <div class="w-5 h-5 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 relative">
                                     <input type="checkbox" data-name="Pack Mercado Pago" value="250000" onchange="calculateTotal()" class="opacity-0 absolute inset-0 cursor-pointer peer item-checkbox">
                                     <div class="w-3 h-3 bg-blue-500 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity"></div>
                                 </div>
-                                <span class="text-white group-hover:text-blue-400 transition-colors">Pack Mercado Pago</span>
+                                <span class="text-white group-hover:text-blue-400 transition-colors text-sm md:text-base">Pack Mercado Pago</span>
                             </div>
-                            <span class="font-mono text-gray-400">$250.000</span>
+                            <span class="font-mono text-gray-400 text-sm md:text-base">$250.000</span>
                         </label>
-                        <label class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group">
+                        <label class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.98]">
                             <div class="flex items-center gap-3">
                                 <div class="w-5 h-5 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 relative">
                                     <input type="checkbox" data-name="Chatbot IA" value="400000" onchange="calculateTotal()" class="opacity-0 absolute inset-0 cursor-pointer peer item-checkbox">
                                     <div class="w-3 h-3 bg-blue-500 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity"></div>
                                 </div>
-                                <span class="text-white group-hover:text-blue-400 transition-colors">Módulo IA (Chatbot)</span>
+                                <span class="text-white group-hover:text-blue-400 transition-colors text-sm md:text-base">Módulo IA (Chatbot)</span>
                             </div>
-                            <span class="font-mono text-gray-400">$400.000</span>
+                            <span class="font-mono text-gray-400 text-sm md:text-base">$400.000</span>
                         </label>
                     </div>
                     <div class="mt-8 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
-                        <div><p class="text-xs text-gray-500 uppercase tracking-widest">Total Estimado</p><p class="text-4xl font-display font-bold text-white mt-2" id="total-display">$200.000</p><p class="text-xs text-blue-500 mt-1">COP</p></div>
-                        <a href="#" id="btn-cotizar" target="_blank" class="px-8 py-4 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.3)] w-full md:w-auto text-center">Continuar en WhatsApp <i class="fab fa-whatsapp ml-2"></i></a>
+                        <div class="text-center md:text-left"><p class="text-xs text-gray-500 uppercase tracking-widest">Total Estimado</p><p class="text-4xl font-display font-bold text-white mt-2" id="total-display">$200.000</p><p class="text-xs text-blue-500 mt-1">COP</p></div>
+                        <a href="#" id="btn-cotizar" target="_blank" class="w-full md:w-auto px-8 py-4 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.3)] text-center active:scale-95">Continuar en WhatsApp <i class="fab fa-whatsapp ml-2"></i></a>
                     </div>
                 </div>
                 <!-- Contacto -->
                 <div class="flex flex-col justify-between reveal">
                     <div>
-                        <h3 class="text-xl font-bold text-white mb-6">Información de Contacto</h3>
+                        <h3 class="text-xl font-bold text-white mb-6 text-center md:text-left">Información de Contacto</h3>
                         <ul class="space-y-6 text-gray-400">
-                            <li class="flex items-center gap-4 group"><div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-blue-500/20 transition-colors"><i class="fas fa-envelope"></i></div><span>contacto@devinson.co</span></li>
-                            <li class="flex items-center gap-4 group"><div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-green-500/20 transition-colors"><i class="fab fa-whatsapp"></i></div><span>+57 321 520 3354</span></li>
-                            <li class="flex items-center gap-4 group"><div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-purple-500/20 transition-colors"><i class="fas fa-map-marker-alt"></i></div><span>Valledupar, Colombia</span></li>
+                            <li class="flex items-center gap-4 group justify-center md:justify-start"><div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-blue-500/20 transition-colors"><i class="fas fa-envelope"></i></div><span>contacto@devinson.co</span></li>
+                            <li class="flex items-center gap-4 group justify-center md:justify-start"><div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-green-500/20 transition-colors"><i class="fab fa-whatsapp"></i></div><span>+57 321 520 3354</span></li>
+                            <li class="flex items-center gap-4 group justify-center md:justify-start"><div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-purple-500/20 transition-colors"><i class="fas fa-map-marker-alt"></i></div><span>Valledupar, Colombia</span></li>
                         </ul>
                     </div>
                     <div class="mt-12 p-6 bg-gradient-to-r from-blue-900/20 to-purple-900/20 rounded-2xl border border-white/5 relative overflow-hidden">
                         <div class="absolute -right-4 -bottom-4 text-8xl text-white/5 rotate-12"><i class="fas fa-quote-right"></i></div>
-                        <p class="text-sm text-gray-300 italic relative z-10">"La tecnología es mejor cuando une a las personas y potencia los negocios."</p>
-                        <p class="text-xs text-gray-500 mt-2 font-bold uppercase relative z-10">- Devinson Rodriguez</p>
+                        <p class="text-sm text-gray-300 italic relative z-10 text-center md:text-left">"La tecnología es mejor cuando une a las personas y potencia los negocios."</p>
+                        <p class="text-xs text-gray-500 mt-2 font-bold uppercase relative z-10 text-center md:text-left">- Devinson Rodriguez</p>
                     </div>
                 </div>
             </div>
@@ -547,7 +581,28 @@
     <script>
         const apiKey = ""; 
 
-        // 1. PARTICLES NETWORK (Canvas Dinámico)
+        // 1. MENU HAMBURGUESA LOGIC
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = menuBtn.querySelector('i');
+        let isMenuOpen = false;
+
+        menuBtn.addEventListener('click', toggleMenu);
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            if(isMenuOpen) {
+                mobileMenu.classList.add('open');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            } else {
+                mobileMenu.classList.remove('open');
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            }
+        }
+
+        // 2. PARTICLES NETWORK (Canvas Dinámico)
         const canvas = document.getElementById('particles-canvas');
         const ctx = canvas.getContext('2d');
         let width, height;
@@ -562,7 +617,7 @@
 
         function createParticles() {
             particles = [];
-            const count = window.innerWidth < 768 ? 40 : 80; // Menos partículas en móvil
+            const count = window.innerWidth < 768 ? 40 : 80; 
             for(let i=0; i<count; i++) {
                 particles.push({
                     x: Math.random() * width,
@@ -576,7 +631,7 @@
 
         function animateParticles() {
             ctx.clearRect(0, 0, width, height);
-            ctx.strokeStyle = 'rgba(59, 130, 246, 0.15)'; // Azul tech muy sutil
+            ctx.strokeStyle = 'rgba(59, 130, 246, 0.15)'; 
             ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
 
             particles.forEach((p, i) => {
@@ -592,13 +647,11 @@
                 ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
                 ctx.fill();
 
-                // Conectar líneas si están cerca
                 for(let j=i+1; j<particles.length; j++) {
                     const p2 = particles[j];
                     const dx = p.x - p2.x;
                     const dy = p.y - p2.y;
                     const dist = Math.sqrt(dx*dx + dy*dy);
-                    
                     if(dist < 150) {
                         ctx.beginPath();
                         ctx.moveTo(p.x, p.y);
@@ -612,8 +665,7 @@
         resize();
         animateParticles();
 
-
-        // 2. SCROLL REVEAL (Observer)
+        // 3. SCROLL REVEAL (Observer)
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if(entry.isIntersecting) {
@@ -621,37 +673,32 @@
                 }
             });
         }, { threshold: 0.1 });
-
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-
-        // 3. TILT EFFECT 3D REALISTA (Imagen Hero - SENSIBILIDAD AUMENTADA)
+        // 4. TILT EFFECT 3D
         const heroSection = document.getElementById('hero');
         const heroImgContainer = document.getElementById('hero-img-container');
-        if (heroSection && heroImgContainer) {
+        if (heroSection && heroImgContainer && window.innerWidth > 768) {
             heroSection.addEventListener('mousemove', (e) => {
                 const xPos = (e.clientX / window.innerWidth - 0.5) * 2;
                 const yPos = (e.clientY / window.innerHeight - 0.5) * 2;
-                // AUMENTO DE SENSIBILIDAD: De 5 a 15
                 heroImgContainer.style.transform = `perspective(1000px) rotateY(${xPos * 15}deg) rotateX(${yPos * -15}deg)`;
             });
             heroSection.addEventListener('mouseleave', () => {
                 heroImgContainer.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)';
             });
         }
-
-        // 4. TILT EFFECT (Tarjeta de Pago)
         const card = document.getElementById('payment-card');
         const shine = document.getElementById('card-shine');
-        if(card) {
+        if(card && window.innerWidth > 768) {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
-                const rotateX = ((y - centerY) / centerY) * -15; // AUMENTADO
-                const rotateY = ((x - centerX) / centerX) * 15;  // AUMENTADO
+                const rotateX = ((y - centerY) / centerY) * -15; 
+                const rotateY = ((x - centerX) / centerX) * 15;  
                 card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
                 shine.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.25) 0%, transparent 80%)`;
             });
