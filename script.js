@@ -12,14 +12,16 @@ function detectarTemporada() {
     const month = date.getMonth(); // 0 = Enero, 11 = Diciembre
     const day = date.getDate();
     const body = document.body;
+    const originalTitle = "Devinson Rodriguez | Experto en E-commerce & Automatización IA";
     
     // Elementos de la notificación
     const badge = document.getElementById('holiday-badge');
     const badgeText = document.getElementById('holiday-text');
     const badgeIcon = document.getElementById('holiday-icon');
     
-    // Resetear clases y modos
+    // Resetear clases, modos y título
     body.classList.remove('theme-christmas', 'theme-halloween', 'theme-love', 'theme-colombia');
+    document.title = originalTitle; 
     particleMode = 'circle';
     particleEmoji = '';
 
@@ -29,7 +31,8 @@ function detectarTemporada() {
         body.classList.add('theme-christmas');
         currentThemeColor = 'rgba(239, 68, 68, 0.2)'; // Rojo
         particleMode = 'emoji';
-        particleEmoji = '❄️'; // Copo de nieve
+        particleEmoji = '❄️';
+        document.title = "🎄 Devinson | Edición Navideña"; // TÍTULO DINÁMICO
         mostrarBadge("Modo Navidad", "fas fa-snowflake", "text-red-400");
     }
     // 2. Octubre (Halloween)
@@ -37,7 +40,8 @@ function detectarTemporada() {
         body.classList.add('theme-halloween');
         currentThemeColor = 'rgba(249, 115, 22, 0.2)'; // Naranja
         particleMode = 'emoji';
-        particleEmoji = '🎃'; // Calabaza
+        particleEmoji = '🎃';
+        document.title = "👻 Devinson | ¿Dulce o Truco?"; // TÍTULO DINÁMICO
         mostrarBadge("Modo Halloween", "fas fa-ghost", "text-orange-400");
     }
     // 3. Septiembre (Amor y Amistad COL) o Febrero (San Valentin)
@@ -45,7 +49,8 @@ function detectarTemporada() {
         body.classList.add('theme-love');
         currentThemeColor = 'rgba(236, 72, 153, 0.2)'; // Rosa
         particleMode = 'emoji';
-        particleEmoji = '❤️'; // Corazón
+        particleEmoji = '❤️';
+        document.title = "❤️ Devinson | Hecho con Pasión"; // TÍTULO DINÁMICO
         mostrarBadge("Modo Amor", "fas fa-heart", "text-pink-400");
     }
     // 4. Independencia Colombia (20 Julio) - Margen del 15 al 25 de Julio
@@ -53,14 +58,12 @@ function detectarTemporada() {
         body.classList.add('theme-colombia');
         currentThemeColor = 'rgba(234, 179, 8, 0.2)'; // Amarillo base
         particleMode = 'colombia';
+        document.title = "🇨🇴 Devinson | Orgullo Colombiano"; // TÍTULO DINÁMICO
         mostrarBadge("¡Viva Colombia!", "fas fa-flag", "text-yellow-400");
     }
     
-    // DEBUG: Descomenta UNA de estas líneas para probar los modos hoy mismo:
-    // MODO NAVIDAD:
-    // body.classList.add('theme-christmas'); currentThemeColor = 'rgba(239, 68, 68, 0.2)'; particleMode = 'emoji'; particleEmoji = '❄️'; mostrarBadge("Modo Navidad", "fas fa-snowflake", "text-red-400");
-    // MODO COLOMBIA:
-    // body.classList.add('theme-colombia'); particleMode = 'colombia'; mostrarBadge("¡Viva Colombia!", "fas fa-flag", "text-yellow-400");
+    // DEBUG: Descomenta UNA de estas líneas para probar hoy mismo:
+    // body.classList.add('theme-christmas'); currentThemeColor = 'rgba(239, 68, 68, 0.2)'; particleMode = 'emoji'; particleEmoji = '❄️'; document.title = "🎄 Prueba Navidad"; mostrarBadge("Modo Navidad", "fas fa-snowflake", "text-red-400");
 }
 
 function mostrarBadge(texto, icono, claseColor) {
