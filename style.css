@@ -5,7 +5,29 @@ body {
     color: #ffffff; 
     overflow-x: hidden;
     transition: background-color 0.7s ease, color 0.7s ease;
+    position: relative;
 }
+
+/* MEJORA 1: Textura de Ruido (Noise) para acabado Premium */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 50; /* Por encima del fondo, debajo del contenido interactivo */
+    opacity: 0.04; /* Muy sutil */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* MEJORA 3: Selección de Texto Temática */
+::selection { background: #3b82f6; color: #ffffff; } /* Default */
+body.theme-christmas ::selection { background: #ef4444; color: white; }
+body.theme-halloween ::selection { background: #f97316; color: black; }
+body.theme-love ::selection { background: #ec4899; color: white; }
+body.theme-colombia ::selection { background: #facc15; color: black; }
 
 /* Scrollbar Personalizado */
 ::-webkit-scrollbar { width: 8px; background: #050505; }
@@ -119,6 +141,28 @@ body.theme-colombia .dynamic-bg { background-color: #facc15; }
 /* Animations */
 .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
 .reveal.active { opacity: 1; transform: translateY(0); }
+
+/* MEJORA 2: Efecto Shine en Botones Principales */
+.hero-btn-primary, .cta-button, .cta-button-mobile {
+    position: relative;
+    overflow: hidden;
+}
+.hero-btn-primary::after, .cta-button::after, .cta-button-mobile::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+    transform: skewX(-25deg);
+    transition: 0.5s;
+    pointer-events: none;
+}
+.hero-btn-primary:hover::after, .cta-button:hover::after, .cta-button-mobile:hover::after {
+    left: 125%;
+    transition: 0.7s ease-in-out;
+}
 
 @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 @keyframes scrollBelt { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
