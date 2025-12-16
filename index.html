@@ -4,155 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- =========================================
-          SEO AVANZADO (Google Search Ready)
-    ========================================== -->
-    <title>Devinson Rodriguez | Experto en E-commerce & Automatización IA</title>
-    <meta name="description" content="Potencia tu negocio con Devinson Rodriguez. Desarrollo Web Full Stack, Integración de Mercado Pago, Pasarelas de Pago y Chatbots con Inteligencia Artificial en Colombia.">
-    <meta name="keywords" content="Desarrollador Web Colombia, E-commerce, Mercado Pago, Automatización IA, Chatbots WhatsApp, Diseño Web Valledupar, Programador Full Stack">
-    <meta name="author" content="Devinson Rodriguez">
-    <meta name="robots" content="index, follow">
-    <meta name="googlebot" content="index, follow">
+    <!-- SEO & Meta Tags -->
+    <title>Devinson Rodriguez | Arquitectura Digital & IA</title>
+    <meta name="description" content="Desarrollo Web Full Stack de alto nivel. E-commerce, Mercado Pago, Automatización IA y Chatbots en Colombia.">
     <meta name="theme-color" content="#050505">
-    
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://devinson.co">
 
-    <!-- Open Graph -->
-    <meta property="og:locale" content="es_CO">
+    <!-- Open Graph / Social -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Devinson Rodriguez | Arquitectura Digital & IA">
-    <meta property="og:description" content="Transformo negocios con E-commerce, Pagos Digitales y Automatización IA. Cotiza tu proyecto hoy.">
-    <meta property="og:url" content="https://devinson.co">
-    <meta property="og:site_name" content="Devinson Rodriguez Portafolio">
+    <meta property="og:title" content="Devinson Rodriguez | Digital Architect">
     <meta property="og:image" content="https://i.imgur.com/DBrfwWX.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Devinson Rodriguez | Desarrollador Web & IA">
-    <meta name="twitter:description" content="Expertos en E-commerce y Sistemas de Pago en Colombia.">
-    <meta name="twitter:image" content="https://i.imgur.com/DBrfwWX.png">
-
-    <!-- JSON-LD -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Devinson Rodriguez",
-      "image": "https://i.imgur.com/DBrfwWX.png",
-      "@id": "https://devinson.co",
-      "url": "https://devinson.co",
-      "telephone": "+57 321 520 3354",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Valledupar",
-        "addressLocality": "Valledupar",
-        "addressRegion": "Cesar",
-        "postalCode": "200001",
-        "addressCountry": "CO"
-      },
-      "priceRange": "$$$",
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "08:00",
-        "closes": "18:00"
-      },
-      "sameAs": [
-        "https://github.com/Pech68",
-        "https://www.linkedin.com/in/devinson-rodriguez"
-      ]
-    }
-    </script>
-
-    <!-- Librerías -->
+    <!-- Styles & Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
-    <!-- Configuración Tailwind (Base) -->
+    
+    <!-- Configuración Tailwind -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                    },
-                    colors: {
-                        black: '#050505',
-                        dark: '#0a0a0a',
-                        glass: 'rgba(255, 255, 255, 0.05)',
-                        border: 'rgba(255, 255, 255, 0.1)',
-                        // Los colores se sobreescribirán por CSS si hay tema activo
-                        primary: '#3b82f6',
-                        accent: '#8b5cf6',
-                        success: '#10b981',
-                    },
-                    backgroundImage: {
-                        'hero-gradient': 'radial-gradient(circle at 50% 0%, #1e1b4b 0%, #050505 50%)',
-                        'noise': "url('https://grainy-gradients.vercel.app/noise.svg')", 
-                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Space Grotesk', 'sans-serif'] },
+                    colors: { black: '#050505', dark: '#0a0a0a' },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
                         'float-delayed': 'float 7s ease-in-out 2s infinite',
                         'float-slow': 'float 8s ease-in-out 1s infinite',
-                        'float-reverse': 'floatReverse 7s ease-in-out infinite',
                         'breathe': 'breathe 8s ease-in-out infinite',
                         'scroll-belt': 'scrollBelt 20s linear infinite',
                     },
                     keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-15px)' },
-                        },
-                        floatReverse: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(15px)' },
-                        },
-                        breathe: {
-                            '0%, 100%': { transform: 'scale(1) translateY(0)', filter: 'brightness(100%)' },
-                            '50%': { transform: 'scale(1.02) translateY(-15px)', filter: 'brightness(115%)' },
-                        },
-                        scrollBelt: {
-                            '0%': { transform: 'translateX(0)' },
-                            '100%': { transform: 'translateX(-50%)' }, 
-                        }
+                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-15px)' } },
+                        breathe: { '0%, 100%': { transform: 'scale(1)' }, '50%': { transform: 'scale(1.02)' } },
+                        scrollBelt: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } }
                     }
                 }
             }
         }
     </script>
-
-    <!-- Enlace al archivo CSS externo -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="antialiased font-sans bg-black selection:bg-blue-500 selection:text-white relative transition-colors duration-700">
+<body class="antialiased font-sans bg-black text-white selection:bg-blue-500 selection:text-white transition-colors duration-700">
 
-    <!-- Notificación de Festividad (Oculto por defecto) -->
-    <div id="holiday-badge" class="fixed top-24 right-4 z-40 hidden animate-float-slow">
-        <div class="glass px-4 py-2 rounded-full flex items-center gap-2 border border-white/20">
+    <!-- Badge Festividad -->
+    <div id="holiday-badge" class="fixed top-24 right-4 z-40 hidden animate-float-slow group cursor-pointer">
+        <div class="glass px-4 py-2 rounded-full flex items-center gap-2 border border-white/20 transition-all group-hover:scale-105">
             <span id="holiday-icon" class="text-xl"></span>
             <span id="holiday-text" class="text-sm font-bold tracking-wide uppercase"></span>
         </div>
     </div>
 
-    <!-- CANVAS DE PARTÍCULAS -->
     <canvas id="particles-canvas"></canvas>
 
     <!-- NAVEGACIÓN -->
     <nav class="fixed w-full z-50 top-0 left-0 border-b border-white/5 bg-black/80 backdrop-blur-xl transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center relative z-50">
-            <!-- Logo -->
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
                 <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center font-bold text-white shadow-[0_0_15px_rgba(59,130,246,0.5)] logo-box">D</div>
                 <span class="font-display font-bold text-lg tracking-tight">DEVINSON<span class="text-white/40">.CO</span></span>
             </div>
             
-            <!-- Desktop Menu -->
+            <!-- Desktop Links -->
             <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-white/70">
                 <a href="#servicios" class="hover:text-white hover:scale-105 transition-all">Servicios</a>
                 <a href="#proceso" class="hover:text-white hover:scale-105 transition-all">Proceso</a>
@@ -161,83 +75,86 @@
                 </a>
             </div>
 
-            <!-- Desktop CTA -->
-            <a href="#cotizar" class="hidden md:block bg-white text-black px-5 py-2 rounded-full font-bold text-sm hover:bg-gray-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.2)] cta-button">
+            <a href="#cotizar" class="hidden md:block bg-white text-black px-5 py-2 rounded-full font-bold text-sm hover:bg-gray-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] active:scale-95 cta-button">
                 Cotizar
             </a>
 
-            <!-- Mobile Hamburger Button -->
-            <button id="menu-btn" class="md:hidden text-white focus:outline-none z-50 p-2">
-                <i class="fas fa-bars text-2xl"></i>
+            <!-- Mobile Hamburger -->
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none z-50 p-2 relative w-8 h-8 flex flex-col justify-center items-center gap-1.5 group">
+                <span class="w-6 h-0.5 bg-white rounded-full transition-all duration-300 origin-center"></span>
+                <span class="w-6 h-0.5 bg-white rounded-full transition-all duration-300 origin-center"></span>
+                <span class="w-6 h-0.5 bg-white rounded-full transition-all duration-300 origin-center"></span>
             </button>
         </div>
 
-        <!-- Mobile Menu Overlay (Fullscreen) -->
-        <div id="mobile-menu" class="fixed inset-0 bg-black/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center space-y-8 md:hidden">
-            <a href="#hero" onclick="toggleMenu()" class="text-2xl font-display font-bold text-white hover:text-blue-500 transition-colors mobile-link">Inicio</a>
-            <a href="#servicios" onclick="toggleMenu()" class="text-2xl font-display font-bold text-white hover:text-blue-500 transition-colors mobile-link">Servicios</a>
-            <a href="#proceso" onclick="toggleMenu()" class="text-2xl font-display font-bold text-white hover:text-blue-500 transition-colors mobile-link">Proceso</a>
-            <a href="#ia-lab" onclick="toggleMenu()" class="text-2xl font-display font-bold text-white hover:text-blue-500 transition-colors mobile-link">IA Lab</a>
-            <a href="#cotizar" onclick="toggleMenu()" class="px-8 py-3 bg-blue-600 rounded-full font-bold text-white shadow-lg text-lg cta-button-mobile">Cotizar Ahora</a>
+        <!-- Mobile Menu Fullscreen Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-black/90 backdrop-blur-2xl z-40 flex flex-col items-center justify-center transition-all duration-500 opacity-0 pointer-events-none translate-y-4">
+            <!-- Background Decoration -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 rounded-full blur-[100px]"></div>
+            <div class="absolute bottom-0 left-0 w-64 h-64 bg-purple-600/10 rounded-full blur-[100px]"></div>
+
+            <nav class="flex flex-col items-center space-y-8 relative z-10">
+                <a href="#hero" class="text-3xl font-display font-bold text-white/50 hover:text-white transition-colors hover:scale-110 duration-300 mobile-link">Inicio</a>
+                <a href="#servicios" class="text-3xl font-display font-bold text-white/50 hover:text-white transition-colors hover:scale-110 duration-300 mobile-link">Servicios</a>
+                <a href="#proceso" class="text-3xl font-display font-bold text-white/50 hover:text-white transition-colors hover:scale-110 duration-300 mobile-link">Proceso</a>
+                <a href="#ia-lab" class="text-3xl font-display font-bold text-white/50 hover:text-purple-400 transition-colors hover:scale-110 duration-300 mobile-link flex items-center gap-3"><i class="fas fa-sparkles text-xl"></i> IA Lab</a>
+                
+                <div class="w-16 h-[1px] bg-white/10 my-4"></div>
+                
+                <a href="#cotizar" class="px-8 py-4 bg-white text-black rounded-full font-bold text-xl shadow-xl hover:bg-gray-200 transition-transform active:scale-95 mobile-link cta-button-mobile">Cotizar Proyecto</a>
+            </nav>
             
-            <div class="absolute bottom-10 flex gap-6 text-gray-400">
-                <a href="#"><i class="fab fa-github text-xl"></i></a>
-                <a href="#"><i class="fab fa-linkedin text-xl"></i></a>
-                <a href="#"><i class="fab fa-whatsapp text-xl"></i></a>
+            <div class="absolute bottom-12 flex gap-8 text-gray-400">
+                <a href="#" class="hover:text-white transition-colors hover:-translate-y-1"><i class="fab fa-github text-2xl"></i></a>
+                <a href="#" class="hover:text-white transition-colors hover:-translate-y-1"><i class="fab fa-linkedin text-2xl"></i></a>
+                <a href="#" class="hover:text-white transition-colors hover:-translate-y-1"><i class="fab fa-whatsapp text-2xl"></i></a>
             </div>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <section id="hero" class="relative min-h-screen pt-28 pb-0 flex flex-col justify-end overflow-hidden bg-hero-gradient perspective-1000">
-        
-        <!-- TEXTURA REAL -->
         <div class="bg-blend-image" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop'); opacity: 0.3;"></div>
         
         <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-end justify-between h-full">
-            
-            <!-- CONTENIDO TEXTO -->
-            <div class="w-full md:w-1/2 mb-8 md:mb-32 relative z-20 pointer-events-none reveal active text-center md:text-left pt-6">
-                <div class="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-white/10 bg-white/5 backdrop-blur-md pointer-events-auto">
+            <div class="w-full md:w-1/2 mb-12 md:mb-32 relative z-20 pointer-events-none reveal active text-center md:text-left pt-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-white/10 bg-white/5 backdrop-blur-md pointer-events-auto hover:bg-white/10 transition-colors cursor-default">
                     <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse indicator-dot"></span>
-                    <span class="text-xs font-mono text-blue-400 dynamic-text-color">DISPONIBLE HOY</span>
+                    <span class="text-xs font-mono text-blue-400 dynamic-text-color font-bold">AGENDA ABIERTA 2025</span>
                 </div>
                 
-                <h1 class="text-5xl md:text-7xl font-display font-bold leading-none mb-6 pointer-events-auto tracking-tight">
+                <h1 class="text-5xl md:text-7xl font-display font-bold leading-tight mb-6 pointer-events-auto tracking-tight">
                     Arquitectura <br>
                     <span class="text-gradient">Digital Avanzada</span>
                 </h1>
                 
                 <p class="text-lg md:text-xl text-gray-300 max-w-lg mb-8 font-light pointer-events-auto mx-auto md:mx-0 leading-relaxed">
-                    Ecosistemas de venta automatizados con <strong class="text-white font-medium">Pagos Nativos</strong> e <strong class="text-white font-medium">IA</strong>. No vendo webs, vendo resultados.
+                    Creo ecosistemas de venta automatizados donde convergen <strong class="text-white font-medium">Pagos Nativos</strong> e <strong class="text-white font-medium">Inteligencia Artificial</strong>. Deja de vender webs, empieza a vender resultados.
                 </p>
 
                 <div class="flex flex-col md:flex-row gap-4 pointer-events-auto px-4 md:px-0">
-                    <button onclick="document.getElementById('ia-lab').scrollIntoView()" class="w-full md:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(37,99,235,0.3)] active:scale-95 hero-btn-primary">
-                        <i class="fas fa-robot"></i> Consultar con IA
+                    <button onclick="document.getElementById('ia-lab').scrollIntoView()" class="w-full md:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(37,99,235,0.3)] active:scale-95 hero-btn-primary group">
+                        <i class="fas fa-robot group-hover:rotate-12 transition-transform"></i> Consultar con IA
                     </button>
-                    <a href="https://github.com/Pech68" target="_blank" class="w-full md:w-auto px-8 py-4 border border-white/20 hover:bg-white/5 text-white font-medium rounded-xl transition-all flex items-center justify-center gap-3 active:scale-95">
-                        <i class="fab fa-github"></i> GitHub
+                    <a href="https://github.com/Pech68" target="_blank" class="w-full md:w-auto px-8 py-4 border border-white/20 hover:bg-white/5 text-white font-medium rounded-xl transition-all flex items-center justify-center gap-3 active:scale-95 hover:border-white/40">
+                        <i class="fab fa-github"></i> Ver Código
                     </a>
                 </div>
             </div>
 
-            <!-- IMAGEN + CHIPS -->
             <div class="w-full md:w-1/2 relative flex justify-center items-end h-[50vh] md:h-[600px] perspective-1000 reveal active mt-auto">
-                <!-- Luz de fondo dinámica -->
                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[80%] bg-blue-600/15 blur-[120px] rounded-full animate-pulse-slow dynamic-glow"></div>
-
+                
                 <div id="hero-img-container" class="hero-image-container relative z-10 h-full flex items-end w-full justify-center">
-                    <img src="https://i.imgur.com/DBrfwWX.png" alt="Devinson Rodriguez" class="h-full object-contain max-h-[85vh] drop-shadow-2xl filter brightness-110 contrast-110 animate-breathe relative z-10">
+                    <img src="https://i.imgur.com/DBrfwWX.png" alt="Devinson Rodriguez" class="h-full object-contain max-h-[85vh] drop-shadow-2xl filter brightness-110 contrast-110 animate-breathe relative z-10 pointer-events-none">
                     
-                    <!-- === CARRUSEL MÓVIL === -->
                     <div class="absolute bottom-10 left-0 w-full md:hidden z-30 overflow-hidden py-2 mask-linear">
                         <div class="mobile-belt-container">
                             <div class="mobile-chip text-purple-300 border-purple-500/30"><i class="fas fa-brain"></i> Gemini AI</div>
                             <div class="mobile-chip text-blue-300 border-blue-500/30"><i class="fas fa-handshake"></i> Mercado Pago</div>
                             <div class="mobile-chip text-green-300 border-green-500/30"><i class="fab fa-whatsapp"></i> WhatsApp API</div>
                             <div class="mobile-chip text-amber-300 border-amber-500/30"><i class="fas fa-bolt"></i> Fast PWA</div>
-                            <!-- Repetición -->
+                            <!-- Repeats -->
                             <div class="mobile-chip text-purple-300 border-purple-500/30"><i class="fas fa-brain"></i> Gemini AI</div>
                             <div class="mobile-chip text-blue-300 border-blue-500/30"><i class="fas fa-handshake"></i> Mercado Pago</div>
                             <div class="mobile-chip text-green-300 border-green-500/30"><i class="fab fa-whatsapp"></i> WhatsApp API</div>
@@ -246,21 +163,23 @@
                     </div>
                 </div>
 
-                <!-- CHIPS DE ESCRITORIO -->
-                <div class="hidden md:flex tech-chip absolute top-20 -left-12 animate-float-delayed">
-                    <div class="chip-icon bg-purple-500/20 text-purple-400 border border-purple-500/30 theme-chip"><i class="fas fa-brain"></i></div>
+                <div class="hidden md:flex tech-chip absolute top-20 -left-12 animate-float-delayed theme-chip">
+                    <div class="chip-icon bg-purple-500/20 text-purple-400 border border-purple-500/30 theme-icon-bg-subtle"><i class="fas fa-brain"></i></div>
                     <div><p class="text-[10px] text-gray-400 uppercase tracking-wider font-mono">Neural Engine</p><p class="font-bold text-sm text-white">Gemini AI</p></div>
                 </div>
-                <div class="hidden md:flex tech-chip absolute top-32 -right-8 animate-float">
-                    <div class="chip-icon bg-blue-500/20 text-blue-400 border border-blue-500/30 theme-chip"><i class="fas fa-handshake"></i></div>
+                <div class="hidden md:flex tech-chip absolute top-32 -right-8 animate-float theme-chip">
+                    <div class="chip-icon bg-blue-500/20 text-blue-400 border border-blue-500/30 theme-icon-bg-subtle"><i class="fas fa-handshake"></i></div>
                     <div><p class="text-[10px] text-gray-400 uppercase tracking-wider font-mono">Fintech Node</p><p class="font-bold text-sm text-white">Mercado Pago</p></div>
                 </div>
-                <!-- Más chips... (Ocultos para ahorrar espacio en este ejemplo pero presentes visualmente) -->
+                <div class="hidden md:flex tech-chip absolute bottom-40 -right-12 animate-float-slow theme-chip">
+                    <div class="chip-icon bg-amber-500/20 text-amber-400 border border-amber-500/30 theme-icon-bg-subtle"><i class="fas fa-cash-register"></i></div>
+                    <div><p class="text-[10px] text-gray-400 uppercase tracking-wider font-mono">Retail Nexus</p><p class="font-bold text-sm text-white">Sistema POS</p></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- CINTA MARQUEE -->
+    <!-- MARQUEE -->
     <div class="border-y border-white/5 bg-black py-4 md:py-6 relative z-20">
         <div class="marquee-container">
             <div class="marquee-content font-display font-bold text-2xl md:text-4xl text-white/5 uppercase tracking-tighter flex gap-8 md:gap-12">
@@ -269,25 +188,27 @@
         </div>
     </div>
 
-    <!-- INFRAESTRUCTURA DE PAGOS -->
-    <section id="servicios" class="py-16 md:py-24 relative overflow-hidden bg-black">
-        <div class="bg-blend-image opacity-40 md:opacity-40 bg-[url('https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1080&auto=format&fit=crop')] md:bg-[url('https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?q=80&w=2070&auto=format&fit=crop')]"></div>
+    <!-- SERVICIOS / CAPACIDADES -->
+    <section id="servicios" class="py-20 md:py-24 relative overflow-hidden bg-black">
+        <div class="bg-blend-image opacity-40" style="background-image: url('https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1080&auto=format&fit=crop');"></div>
         
         <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-12 md:mb-16 reveal">
-                <span class="text-blue-500 font-mono text-xs tracking-widest uppercase mb-2 block dynamic-text-color">Capacidades del Sistema</span>
-                <h2 class="text-3xl md:text-5xl font-display font-bold text-white">Infraestructura de Pagos</h2>
+            <div class="text-center mb-16 reveal">
+                <span class="text-blue-500 font-mono text-xs tracking-widest uppercase mb-2 block dynamic-text-color font-bold">Capacidades del Sistema</span>
+                <h2 class="text-3xl md:text-5xl font-display font-bold text-white">Infraestructura Robusta</h2>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Tecnología diseñada para escalar. Seguridad bancaria y velocidad instantánea.</p>
             </div>
 
-            <div class="flex flex-col lg:flex-row items-center justify-center gap-12 md:gap-16">
-                <!-- Tarjeta Holográfica -->
-                <div class="relative group perspective-1000 reveal">
-                    <div id="payment-card" class="holo-card w-[300px] md:w-[340px] h-[450px] md:h-[500px] rounded-3xl p-6 md:p-8 flex flex-col justify-between relative shadow-2xl overflow-hidden cursor-pointer transform transition-transform duration-75 mx-auto">
+            <div class="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20">
+                
+                <!-- Tarjeta Holográfica Central -->
+                <div class="relative group perspective-1000 reveal order-1 lg:order-2">
+                    <div id="payment-card" class="holo-card w-[300px] md:w-[340px] h-[480px] rounded-3xl p-8 flex flex-col justify-between relative shadow-2xl overflow-hidden cursor-pointer transform transition-transform duration-75 mx-auto border border-white/10 group-hover:border-blue-500/30 dynamic-hover-border">
                         <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M54.627 0l.83.828-1.415 1.415-.828-.828-.828.828-1.415-1.415.828-.828-.828-.828 1.415-1.415.828.828.828-.828 1.415 1.415-.828.828zM22.485 0l.83.828-1.415 1.415-.828-.828-.828.828-1.415-1.415.828-.828-.828-.828 1.415-1.415.828.828.828-.828 1.415 1.415-.828.828z\' fill=\'%23ffffff\' fill-opacity=\'1\' fill-rule=\'evenodd\'/%3E%3C/svg%3E');"></div>
                         
                         <div class="flex justify-between items-start z-10">
-                            <i class="fas fa-wifi text-white/50 rotate-90"></i>
-                            <span class="text-xs font-mono text-blue-400 border border-blue-400/30 px-2 py-1 rounded dynamic-border dynamic-text-color">SECURE_V3</span>
+                            <i class="fas fa-wifi text-white/50 rotate-90 text-xl"></i>
+                            <span class="text-xs font-mono text-blue-400 border border-blue-400/30 px-2 py-1 rounded dynamic-border dynamic-text-color shadow-[0_0_10px_rgba(59,130,246,0.2)]">SECURE_V3</span>
                         </div>
 
                         <div class="w-16 h-12 bg-gradient-to-tr from-yellow-200 to-yellow-600 rounded-lg shadow-lg relative z-10 border border-yellow-400/50 flex items-center justify-center chip-sim">
@@ -295,53 +216,120 @@
                             <div class="absolute h-full w-[1px] bg-black/30"></div>
                         </div>
 
-                        <div class="space-y-4 z-10">
-                            <div class="flex items-center gap-4 bg-white/5 p-3 rounded-xl border border-white/5 hover:bg-white/10 transition-colors">
-                                <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white text-xs theme-icon-bg"><i class="fas fa-handshake"></i></div>
-                                <div><p class="text-sm font-bold">Mercado Pago</p><p class="text-[10px] text-gray-400">Tarjetas y PSE</p></div>
+                        <div class="space-y-4 z-10 mt-auto mb-8">
+                            <div class="flex items-center gap-4 bg-white/5 p-3 rounded-xl border border-white/5 hover:bg-white/10 transition-colors backdrop-blur-sm">
+                                <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white text-xs theme-icon-bg shadow-lg"><i class="fas fa-handshake"></i></div>
+                                <div><p class="text-sm font-bold text-white">Mercado Pago</p><p class="text-[10px] text-gray-300">Tarjetas, PSE y Efecty</p></div>
+                            </div>
+                            <div class="flex items-center gap-4 bg-white/5 p-3 rounded-xl border border-white/5 hover:bg-white/10 transition-colors backdrop-blur-sm">
+                                <div class="w-8 h-8 rounded-full bg-pink-600 flex items-center justify-center text-white text-xs shadow-lg"><i class="fas fa-mobile-alt"></i></div>
+                                <div><p class="text-sm font-bold text-white">Nequi / Daviplata</p><p class="text-[10px] text-gray-300">Transferencia QR Automática</p></div>
                             </div>
                         </div>
 
-                        <div class="z-10 mt-4 pt-4 border-t border-white/10 flex justify-between items-center text-xs text-gray-500 font-mono"><span>ID: DEV-8832</span><span>ACTIVE</span></div>
+                        <div class="z-10 pt-4 border-t border-white/10 flex justify-between items-center text-xs text-gray-500 font-mono"><span>ID: DEV-8832</span><span class="text-green-500 animate-pulse">● ONLINE</span></div>
                         <div id="card-shine" class="absolute inset-0 pointer-events-none opacity-50 mix-blend-overlay"></div>
                     </div>
                 </div>
 
-                <!-- Features Texto -->
-                <div class="lg:w-1/3 space-y-6 px-4 md:px-0">
-                    <div class="glass p-6 rounded-2xl reveal">
-                        <div class="absolute inset-0 bg-blue-500/5 z-0 dynamic-glass-bg"></div>
-                        <h3 class="text-xl font-bold text-white mb-2 relative z-10"><i class="fas fa-lock text-green-400 mr-2 dynamic-icon-color"></i> Seguridad SSL</h3>
-                        <p class="text-sm text-gray-400 relative z-10">Encriptación de punta a punta.</p>
+                <!-- Features Texto Izquierda -->
+                <div class="lg:w-1/3 space-y-6 order-2 lg:order-1 px-4 md:px-0">
+                    <div class="glass p-6 rounded-2xl reveal group hover:border-blue-500/40 transition-colors">
+                        <div class="absolute inset-0 bg-blue-500/5 z-0 dynamic-glass-bg opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <h3 class="text-xl font-bold text-white mb-3 relative z-10 flex items-center gap-3"><i class="fas fa-shield-alt text-blue-400 dynamic-icon-color text-2xl"></i> Seguridad Militar</h3>
+                        <p class="text-sm text-gray-400 relative z-10 leading-relaxed">Encriptación de punta a punta (E2EE) y certificados SSL Wildcard. Tus clientes compran con la misma confianza que en un banco.</p>
                     </div>
-                    <!-- Más features... -->
+                    <div class="glass p-6 rounded-2xl reveal group hover:border-yellow-500/40 transition-colors">
+                        <div class="absolute inset-0 bg-yellow-500/5 z-0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <h3 class="text-xl font-bold text-white mb-3 relative z-10 flex items-center gap-3"><i class="fas fa-bolt text-yellow-400 text-2xl"></i> Ultra Fast PWA</h3>
+                        <p class="text-sm text-gray-400 relative z-10 leading-relaxed">Aplicaciones Web Progresivas que cargan en menos de 1 segundo. Funcionan offline y se sienten como apps nativas.</p>
+                    </div>
                 </div>
+
+                <!-- Features Texto Derecha -->
+                <div class="lg:w-1/3 space-y-6 order-3 px-4 md:px-0">
+                    <div class="glass p-6 rounded-2xl reveal group hover:border-purple-500/40 transition-colors">
+                        <div class="absolute inset-0 bg-purple-500/5 z-0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <h3 class="text-xl font-bold text-white mb-3 relative z-10 flex items-center gap-3"><i class="fas fa-brain text-purple-400 text-2xl"></i> Dashboard IA</h3>
+                        <p class="text-sm text-gray-400 relative z-10 leading-relaxed">Panel administrativo que no solo muestra datos, sino que predice tendencias de venta usando algoritmos de Machine Learning.</p>
+                    </div>
+                    <div class="glass p-6 rounded-2xl reveal group hover:border-green-500/40 transition-colors">
+                        <div class="absolute inset-0 bg-green-500/5 z-0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <h3 class="text-xl font-bold text-white mb-3 relative z-10 flex items-center gap-3"><i class="fab fa-whatsapp text-green-400 text-2xl"></i> Bots Conversacionales</h3>
+                        <p class="text-sm text-gray-400 relative z-10 leading-relaxed">Agentes inteligentes en WhatsApp que cierran ventas, agendan citas y resuelven dudas 24/7 sin intervención humana.</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- PROCESO -->
+    <!-- PROCESO DETALLADO -->
     <section id="proceso" class="py-24 bg-dark relative overflow-hidden">
-        <div class="bg-blend-image opacity-40" style="background-image: url('https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=1080&auto=format&fit=crop');"></div>
-        <div style="position: absolute; inset: 0; background: rgba(5,5,5,0.7); z-index: 0;"></div>
+        <div class="bg-blend-image opacity-30" style="background-image: url('https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=1080&auto=format&fit=crop');"></div>
+        <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, #050505, rgba(10,10,10,0.8), #050505); z-index: 0;"></div>
 
         <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-3xl md:text-5xl font-display font-bold text-white">Mi Proceso</h2>
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-3xl md:text-5xl font-display font-bold text-white">Mi Proceso de Ingeniería</h2>
+                <p class="text-gray-400 mt-4 max-w-xl mx-auto">Metodología ágil dividida en sprints de alto impacto.</p>
             </div>
 
-            <div class="relative max-w-4xl mx-auto">
-                <div class="timeline-line hidden md:block dynamic-line-color"></div>
-                <!-- Pasos del proceso (simplificado) -->
-                <div class="space-y-12 relative z-10">
-                    <div class="flex flex-col md:flex-row items-center justify-between gap-8 group reveal">
-                        <div class="md:w-5/12 text-right order-2 md:order-1">
-                            <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors dynamic-hover-text">1. Análisis Neural</h3>
-                            <p class="text-gray-400 text-sm mt-2">Estudio tu negocio.</p>
+            <div class="relative max-w-5xl mx-auto">
+                <!-- Línea Central -->
+                <div class="timeline-line hidden md:block dynamic-line-color h-full absolute left-1/2 w-0.5 bg-gradient-to-b from-transparent via-blue-500 to-transparent transform -translate-x-1/2 opacity-30"></div>
+                
+                <div class="space-y-16 relative z-10">
+                    
+                    <!-- Paso 1 -->
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-8 group reveal hover-trigger">
+                        <div class="md:w-5/12 text-right order-2 md:order-1 pr-4">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors dynamic-hover-text mb-3">1. Análisis Neural & Estrategia</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Auditoría profunda de tu modelo de negocio. Identificamos cuellos de botella y definimos el stack tecnológico (React, Node, Python) que garantiza escalabilidad a largo plazo.</p>
                         </div>
-                        <div class="w-12 h-12 rounded-full bg-dark border-2 border-blue-500 flex items-center justify-center text-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.5)] z-10 order-1 md:order-2 bg-black shrink-0 mx-auto md:mx-0 dynamic-step-border dynamic-step-text"><i class="fas fa-search"></i></div>
-                        <div class="md:w-5/12 order-3"></div>
+                        <div class="w-16 h-16 rounded-full bg-dark border border-white/10 flex items-center justify-center text-blue-500 shadow-[0_0_30px_rgba(59,130,246,0.3)] z-10 order-1 md:order-2 bg-black shrink-0 mx-auto md:mx-0 dynamic-step-border relative transition-transform group-hover:scale-110">
+                            <div class="absolute inset-0 rounded-full border-2 border-blue-500/50 animate-ping opacity-20"></div>
+                            <i class="fas fa-search text-xl"></i>
+                        </div>
+                        <div class="md:w-5/12 order-3 pl-4 hidden md:block"><span class="text-xs font-mono text-gray-600">SEM 1</span></div>
                     </div>
+
+                    <!-- Paso 2 -->
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-8 group reveal hover-trigger">
+                        <div class="md:w-5/12 order-2 md:order-1 pr-4 hidden md:block text-right"><span class="text-xs font-mono text-gray-600">SEM 2</span></div>
+                        <div class="w-16 h-16 rounded-full bg-dark border border-white/10 flex items-center justify-center text-purple-500 shadow-[0_0_30px_rgba(168,85,247,0.3)] z-10 order-1 md:order-2 bg-black shrink-0 mx-auto md:mx-0 dynamic-step-border relative transition-transform group-hover:scale-110">
+                            <i class="fas fa-layer-group text-xl"></i>
+                        </div>
+                        <div class="md:w-5/12 text-left order-3 text-right md:text-left pl-4">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-purple-400 transition-colors dynamic-hover-text mb-3">2. UX/UI & Prototipado</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Diseño centrado en la conversión. Creamos wireframes interactivos y maquetas de alta fidelidad para validar la experiencia de usuario antes de escribir una sola línea de código.</p>
+                        </div>
+                    </div>
+
+                    <!-- Paso 3 -->
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-8 group reveal hover-trigger">
+                        <div class="md:w-5/12 text-right order-2 md:order-1 pr-4">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-green-400 transition-colors dynamic-hover-text mb-3">3. Desarrollo & Integración</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Programación modular y limpia ("Clean Code"). Integración robusta de APIs bancarias, sistemas de inventario y entrenamiento de modelos de IA personalizados.</p>
+                        </div>
+                        <div class="w-16 h-16 rounded-full bg-dark border border-white/10 flex items-center justify-center text-green-500 shadow-[0_0_30px_rgba(34,197,94,0.3)] z-10 order-1 md:order-2 bg-black shrink-0 mx-auto md:mx-0 dynamic-step-border relative transition-transform group-hover:scale-110">
+                            <i class="fas fa-code text-xl"></i>
+                        </div>
+                        <div class="md:w-5/12 order-3 pl-4 hidden md:block"><span class="text-xs font-mono text-gray-600">SEM 3-4</span></div>
+                    </div>
+
+                    <!-- Paso 4 -->
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-8 group reveal hover-trigger">
+                        <div class="md:w-5/12 order-2 md:order-1 pr-4 hidden md:block text-right"><span class="text-xs font-mono text-gray-600">LANZAMIENTO</span></div>
+                        <div class="w-16 h-16 rounded-full bg-dark border border-white/10 flex items-center justify-center text-white shadow-[0_0_30px_rgba(255,255,255,0.3)] z-10 order-1 md:order-2 bg-black shrink-0 mx-auto md:mx-0 dynamic-step-border relative transition-transform group-hover:scale-110">
+                            <i class="fas fa-rocket text-xl"></i>
+                        </div>
+                        <div class="md:w-5/12 text-left order-3 text-right md:text-left pl-4">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-white transition-colors dynamic-hover-text mb-3">4. Despliegue & Escala</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Lanzamiento en infraestructura cloud global (Vercel/AWS). Optimización técnica de SEO para Google y tests de carga para asegurar estabilidad bajo tráfico masivo.</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -349,37 +337,45 @@
 
     <!-- CONSULTOR IA -->
     <section id="ia-lab" class="py-24 bg-black relative overflow-hidden">
-        <div class="absolute -right-20 top-20 w-96 h-96 bg-purple-600/10 rounded-full blur-[100px] dynamic-glow-secondary"></div>
+        <div class="absolute -right-20 top-20 w-96 h-96 bg-purple-600/10 rounded-full blur-[120px] dynamic-glow-secondary"></div>
+        <div class="absolute -left-20 bottom-20 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px]"></div>
 
         <div class="container mx-auto px-6 relative z-10 max-w-4xl">
             <div class="text-center mb-12 reveal">
-                <span class="text-purple-400 font-mono text-xs tracking-widest uppercase mb-2 block dynamic-text-color-secondary">Powered by Gemini AI</span>
+                <span class="text-purple-400 font-mono text-xs tracking-widest uppercase mb-2 block dynamic-text-color-secondary font-bold">Powered by Gemini AI</span>
                 <h2 class="text-4xl md:text-5xl font-display font-bold text-white">Laboratorio de Ideas</h2>
+                <p class="text-gray-400 mt-4">Cuéntale a mi IA sobre tu negocio y recibe una estrategia técnica al instante.</p>
             </div>
 
-            <div class="bg-gradient-to-br from-white/10 to-transparent p-[1px] rounded-3xl reveal">
-                <div class="bg-gray-900/80 rounded-[22px] p-6 md:p-10 backdrop-blur-md border border-white/5">
-                    <div class="flex flex-col gap-4">
-                        <textarea id="ai-input" rows="2" class="w-full bg-black/50 border border-white/10 rounded-xl p-4 text-white focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all resize-none text-lg font-mono dynamic-focus-ring" placeholder="Ej: Quiero una app tipo delivery..."></textarea>
+            <div class="bg-gradient-to-br from-white/10 to-transparent p-[1px] rounded-3xl reveal shadow-2xl">
+                <div class="bg-gray-900/90 rounded-[22px] p-6 md:p-10 backdrop-blur-xl border border-white/5 relative overflow-hidden">
+                    <!-- Decoración interna -->
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-50"></div>
+
+                    <div class="flex flex-col gap-6">
+                        <div>
+                            <label class="text-xs text-gray-400 font-mono ml-1 mb-2 block uppercase tracking-wider">Describe tu proyecto:</label>
+                            <textarea id="ai-input" rows="3" class="w-full bg-black/60 border border-white/10 rounded-xl p-4 text-white focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all resize-none text-lg font-mono dynamic-focus-ring placeholder-gray-600" placeholder="Ej: Tengo una tienda de ropa en Instagram y quiero automatizar los pedidos y pagos..."></textarea>
+                        </div>
                         
                         <div class="flex justify-end">
-                            <button onclick="consultarIA()" id="ai-btn" class="w-full md:w-auto px-6 py-3 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-all flex items-center justify-center gap-2">
-                                <span>Generar Cotización</span>
-                                <i class="fas fa-sparkles text-purple-600 dynamic-icon-color-secondary"></i>
+                            <button onclick="consultarIA()" id="ai-btn" class="w-full md:w-auto px-8 py-4 bg-white text-black font-bold rounded-xl hover:bg-gray-100 transition-all flex items-center justify-center gap-3 shadow-lg hover:shadow-purple-500/20 active:scale-95 group">
+                                <span>Generar Estrategia</span>
+                                <i class="fas fa-sparkles text-purple-600 dynamic-icon-color-secondary group-hover:rotate-12 transition-transform"></i>
                             </button>
                         </div>
                     </div>
 
-                    <div id="ai-result" class="hidden mt-8 border-t border-white/10 pt-8">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center gap-2">
+                    <div id="ai-result" class="hidden mt-8 border-t border-white/10 pt-8 animation-fade-in">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center gap-3 bg-green-500/10 px-3 py-1 rounded-full border border-green-500/20">
                                 <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse indicator-dot"></div>
-                                <span class="text-sm font-bold text-white tracking-wide">ESTRATEGIA RECOMENDADA</span>
+                                <span class="text-xs font-bold text-green-300 tracking-wide">ANÁLISIS COMPLETADO</span>
                             </div>
                         </div>
-                        <div id="ai-content" class="text-gray-300 text-sm leading-relaxed ai-response font-light mb-6"></div>
-                        <div class="mt-6 flex justify-end">
-                            <a href="#cotizar" class="text-sm text-purple-400 hover:text-white transition-colors border-b border-purple-400/30 pb-1 font-bold dynamic-text-color-secondary">Ver Cotización &rarr;</a>
+                        <div id="ai-content" class="text-gray-300 text-sm leading-loose ai-response font-light mb-8 p-4 bg-black/40 rounded-lg border border-white/5"></div>
+                        <div class="flex justify-end">
+                            <a href="#cotizar" class="text-sm text-purple-400 hover:text-white transition-colors border-b border-purple-400/30 pb-1 font-bold dynamic-text-color-secondary hover:border-white">Ver Presupuesto Desglosado &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -392,77 +388,120 @@
         <div class="container mx-auto px-6 relative z-10">
             <div class="grid md:grid-cols-2 gap-20">
                 <div class="reveal">
-                    <h2 class="text-3xl font-display font-bold text-white mb-2">Tu Cotización</h2>
+                    <h2 class="text-3xl font-display font-bold text-white mb-2">Cotizador Dinámico</h2>
+                    <p class="text-gray-500 mb-8 text-sm">Selecciona los módulos que necesitas.</p>
                     
-                    <div class="space-y-3" id="modules-container">
-                        <!-- 1. BASE WEB -->
-                        <label class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.98] dynamic-hover-border">
-                            <div class="flex items-center gap-3">
-                                <div class="w-5 h-5 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 dynamic-group-border"><div class="w-3 h-3 bg-blue-500 rounded-full dynamic-bg"></div></div>
-                                <span class="text-white group-hover:text-blue-400 transition-colors text-sm md:text-base dynamic-hover-text">Base Web Profesional</span>
+                    <div class="space-y-4" id="modules-container">
+                        <!-- Items del cotizador (Misma lógica, mejor estilo) -->
+                        <label class="flex items-center justify-between p-5 rounded-2xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.99] dynamic-hover-border">
+                            <div class="flex items-center gap-4">
+                                <div class="w-6 h-6 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 dynamic-group-border transition-colors"><div class="w-3 h-3 bg-blue-500 rounded-full dynamic-bg"></div></div>
+                                <div>
+                                    <span class="text-white font-medium group-hover:text-blue-400 transition-colors block dynamic-hover-text">Base Web Profesional</span>
+                                    <span class="text-xs text-gray-500">Hosting, Dominio, SSL, UX/UI</span>
+                                </div>
                             </div>
-                            <span class="font-mono text-gray-400 text-sm md:text-base">$200.000</span>
+                            <span class="font-mono text-gray-400">$200.000</span>
                             <input type="checkbox" id="check-base" data-name="Base Web" value="200000" checked disabled class="hidden item-checkbox">
                         </label>
                         
-                        <!-- Más checkboxes... (PAGOS) -->
-                        <label class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.98] dynamic-hover-border">
-                            <div class="flex items-center gap-3">
-                                <div class="w-5 h-5 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 relative dynamic-group-border">
+                        <!-- PAGO -->
+                        <label class="flex items-center justify-between p-5 rounded-2xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.99] dynamic-hover-border">
+                            <div class="flex items-center gap-4">
+                                <div class="w-6 h-6 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 relative dynamic-group-border transition-colors">
                                     <input type="checkbox" id="check-pagos" data-name="Pasarela de Pagos" value="100000" onchange="calculateTotal()" class="opacity-0 absolute inset-0 cursor-pointer peer item-checkbox">
                                     <div class="w-3 h-3 bg-blue-500 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity dynamic-bg"></div>
                                 </div>
-                                <span class="text-white group-hover:text-blue-400 transition-colors text-sm md:text-base dynamic-hover-text">Pasarela de Pagos</span>
+                                <div>
+                                    <span class="text-white font-medium group-hover:text-blue-400 transition-colors block dynamic-hover-text">Pasarela de Pagos</span>
+                                    <span class="text-xs text-gray-500">MercadoPago / Wompi / Stripe</span>
+                                </div>
                             </div>
-                            <span class="font-mono text-gray-400 text-sm md:text-base">$100.000</span>
+                            <span class="font-mono text-gray-400">$100.000</span>
                         </label>
 
-                         <!-- 3. CHATBOT IA -->
-                        <label class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.98] dynamic-hover-border">
-                            <div class="flex items-center gap-3">
-                                <div class="w-5 h-5 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 relative dynamic-group-border">
+                         <!-- CHATBOT -->
+                        <label class="flex items-center justify-between p-5 rounded-2xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.99] dynamic-hover-border">
+                            <div class="flex items-center gap-4">
+                                <div class="w-6 h-6 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 relative dynamic-group-border transition-colors">
                                     <input type="checkbox" id="check-chatbot" data-name="Chatbot IA" value="300000" onchange="calculateTotal()" class="opacity-0 absolute inset-0 cursor-pointer peer item-checkbox">
                                     <div class="w-3 h-3 bg-blue-500 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity dynamic-bg"></div>
                                 </div>
-                                <span class="text-white group-hover:text-blue-400 transition-colors text-sm md:text-base dynamic-hover-text">Módulo Chatbot IA</span>
+                                <div>
+                                    <span class="text-white font-medium group-hover:text-blue-400 transition-colors block dynamic-hover-text">Chatbot IA</span>
+                                    <span class="text-xs text-gray-500">Respuestas automáticas 24/7</span>
+                                </div>
                             </div>
-                            <span class="font-mono text-gray-400 text-sm md:text-base">$300.000</span>
+                            <span class="font-mono text-gray-400">$300.000</span>
                         </label>
 
-                        <!-- 4. PWA -->
-                        <label class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.98] dynamic-hover-border">
-                            <div class="flex items-center gap-3">
-                                <div class="w-5 h-5 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 relative dynamic-group-border">
+                        <!-- PWA -->
+                        <label class="flex items-center justify-between p-5 rounded-2xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.99] dynamic-hover-border">
+                            <div class="flex items-center gap-4">
+                                <div class="w-6 h-6 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 relative dynamic-group-border transition-colors">
                                     <input type="checkbox" id="check-pwa" data-name="App PWA" value="400000" onchange="calculateTotal()" class="opacity-0 absolute inset-0 cursor-pointer peer item-checkbox">
                                     <div class="w-3 h-3 bg-blue-500 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity dynamic-bg"></div>
                                 </div>
-                                <span class="text-white group-hover:text-blue-400 transition-colors text-sm md:text-base dynamic-hover-text">App PWA</span>
+                                <div>
+                                    <span class="text-white font-medium group-hover:text-blue-400 transition-colors block dynamic-hover-text">App Móvil (PWA)</span>
+                                    <span class="text-xs text-gray-500">Instalable en iOS y Android</span>
+                                </div>
                             </div>
-                            <span class="font-mono text-gray-400 text-sm md:text-base">$400.000</span>
+                            <span class="font-mono text-gray-400">$400.000</span>
                         </label>
 
-                        <div id="dynamic-modules-container" class="space-y-3"></div>
+                        <div id="dynamic-modules-container" class="space-y-4"></div>
                     </div>
 
-                    <div class="mt-8 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
-                        <div class="text-center md:text-left"><p class="text-xs text-gray-500 uppercase tracking-widest">Total Estimado</p><p class="text-4xl font-display font-bold text-white mt-2" id="total-display">$200.000</p><p class="text-xs text-blue-500 mt-1 dynamic-text-color">COP (Negociable)</p></div>
-                        <a href="#" id="btn-cotizar" target="_blank" class="w-full md:w-auto px-8 py-4 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.3)] text-center active:scale-95">Continuar en WhatsApp <i class="fab fa-whatsapp ml-2"></i></a>
+                    <div class="mt-10 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
+                        <div class="text-center md:text-left">
+                            <p class="text-xs text-gray-500 uppercase tracking-widest mb-1">Inversión Estimada</p>
+                            <p class="text-5xl font-display font-bold text-white tracking-tight" id="total-display">$200.000</p>
+                            <p class="text-xs text-blue-500 mt-2 dynamic-text-color font-mono">*Precios en COP (Negociable)</p>
+                        </div>
+                        <a href="#" id="btn-cotizar" target="_blank" class="w-full md:w-auto px-10 py-5 bg-white text-black font-bold rounded-xl hover:bg-gray-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] text-center active:scale-95 flex items-center justify-center gap-3 group">
+                            <span>Finalizar en WhatsApp</span> 
+                            <i class="fab fa-whatsapp text-xl group-hover:scale-110 transition-transform text-green-600"></i>
+                        </a>
                     </div>
                 </div>
                 
-                <!-- Contacto -->
+                <!-- Contacto & Footer Right -->
                 <div class="flex flex-col justify-between reveal">
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-6">Contacto</h3>
-                        <ul class="space-y-6 text-gray-400">
-                            <li class="flex items-center gap-4 group"><div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-blue-500/20 transition-colors"><i class="fas fa-envelope"></i></div><span>contacto@devinson.co</span></li>
-                            <li class="flex items-center gap-4 group"><div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-green-500/20 transition-colors"><i class="fab fa-whatsapp"></i></div><span>+57 321 520 3354</span></li>
-                            <li class="flex items-center gap-4 group"><div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-purple-500/20 transition-colors"><i class="fas fa-map-marker-alt"></i></div><span>Valledupar, Colombia</span></li>
+                    <div class="bg-white/5 p-8 rounded-3xl border border-white/5 backdrop-blur-sm">
+                        <h3 class="text-2xl font-bold text-white mb-8">Hablemos de negocios</h3>
+                        <ul class="space-y-8 text-gray-400">
+                            <li class="flex items-center gap-5 group">
+                                <div class="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center group-hover:border-blue-500/50 transition-colors"><i class="fas fa-envelope text-lg group-hover:text-white transition-colors"></i></div>
+                                <div><span class="block text-xs uppercase tracking-wider text-gray-600">Email</span><span class="text-white">contacto@devinson.co</span></div>
+                            </li>
+                            <li class="flex items-center gap-5 group">
+                                <div class="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center group-hover:border-green-500/50 transition-colors"><i class="fab fa-whatsapp text-lg group-hover:text-white transition-colors"></i></div>
+                                <div><span class="block text-xs uppercase tracking-wider text-gray-600">WhatsApp</span><span class="text-white">+57 321 520 3354</span></div>
+                            </li>
+                            <li class="flex items-center gap-5 group">
+                                <div class="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center group-hover:border-purple-500/50 transition-colors"><i class="fas fa-map-marker-alt text-lg group-hover:text-white transition-colors"></i></div>
+                                <div><span class="block text-xs uppercase tracking-wider text-gray-600">Ubicación</span><span class="text-white">Valledupar, Colombia</span></div>
+                            </li>
                         </ul>
+                    </div>
+                    
+                    <div class="mt-12 text-center md:text-right">
+                        <div class="inline-block p-4 border border-white/5 rounded-2xl bg-black/50 backdrop-blur-md">
+                            <p class="text-sm text-gray-400 italic">"El código es poesía, la IA es el pincel."</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="text-center border-t border-white/5 pt-10 text-xs text-gray-600 font-mono uppercase tracking-widest mt-12">© 2024 Devinson System.</div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center border-t border-white/5 pt-10 mt-16 text-xs text-gray-600 font-mono uppercase tracking-widest gap-4">
+                <span>© 2024 Devinson System.</span>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                    <span>•</span>
+                    <a href="#" class="hover:text-white transition-colors">Terms</a>
+                </div>
+            </div>
         </div>
     </footer>
     
