@@ -125,21 +125,45 @@ body.theme-colombia .dynamic-bg { background-color: #facc15; }
 @keyframes floatSlow { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 .animate-float-slow { animation: floatSlow 6s ease-in-out infinite; }
 
-/* MOBILE MENU STYLES */
+/* --- MOBILE MENU STYLES (CORREGIDO Y MEJORADO) --- */
 #mobile-menu {
-    /* Base styles set in HTML classes via Tailwind, these handle specific transitions */
     transition: opacity 0.4s ease-in-out, transform 0.4s cubic-bezier(0.2, 1, 0.3, 1);
-}
-#mobile-menu.open {
-    opacity: 1;
-    pointer-events: all;
-    transform: translateY(0);
+    /* Aseguramos fondo oscuro sólido para legibilidad */
+    background-color: rgba(5, 5, 5, 0.98) !important;
+    z-index: 60 !important; /* Encima de todo */
 }
 
-/* Hamburger Button Animation */
-#menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+#mobile-menu.open {
+    opacity: 1 !important;
+    pointer-events: all !important;
+    transform: translateY(0) !important;
+}
+
+/* Estilos específicos para los enlaces del menú móvil para asegurar visibilidad */
+#mobile-menu .mobile-link {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff; /* Blanco puro por defecto */
+    text-align: center;
+    opacity: 0.9;
+    padding: 10px;
+    display: block;
+}
+
+#mobile-menu .mobile-link:hover {
+    color: #3b82f6; /* Azul al hover */
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Botón Hamburger Animado */
+#menu-btn {
+    z-index: 70; /* Encima del menú abierto */
+    position: relative;
+}
+#menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); background-color: #ef4444; }
 #menu-btn.active span:nth-child(2) { opacity: 0; }
-#menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+#menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); background-color: #ef4444; }
 
 .ai-loader { width: 24px; height: 24px; border: 3px solid rgba(255,255,255,0.1); border-top-color: currentColor; border-radius: 50%; animation: spin 0.8s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
