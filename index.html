@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- =========================================
-          SEO AVANZADO (Google Search Ready)
+         SEO AVANZADO (Google Search Ready)
     ========================================== -->
     <title>Devinson Rodriguez | Experto en E-commerce & Automatización IA</title>
     <meta name="description" content="Potencia tu negocio con Devinson Rodriguez. Desarrollo Web Full Stack, Integración de Mercado Pago, Pasarelas de Pago y Chatbots con Inteligencia Artificial en Colombia.">
@@ -101,9 +101,7 @@
                         'float-slow': 'float 8s ease-in-out 1s infinite',
                         'float-reverse': 'floatReverse 7s ease-in-out infinite',
                         'breathe': 'breathe 8s ease-in-out infinite',
-                        'scroll-belt': 'scrollBelt 20s linear infinite', /* Ajustado para cinturón */
-                        'cursor-blink': 'blink 1s step-end infinite',
-                        'lights': 'lights 2s infinite alternate',
+                        'scroll-belt': 'scrollBelt 20s linear infinite', /* Animación nueva para el cinturón */
                     },
                     keyframes: {
                         float: {
@@ -121,14 +119,6 @@
                         scrollBelt: {
                             '0%': { transform: 'translateX(0)' },
                             '100%': { transform: 'translateX(-50%)' }, 
-                        },
-                        blink: {
-                            '0%, 100%': { opacity: '1' },
-                            '50%': { opacity: '0' },
-                        },
-                        lights: {
-                            '0%': { opacity: '0.5' },
-                            '100%': { opacity: '1' },
                         }
                     }
                 }
@@ -175,19 +165,21 @@
         .tech-chip:hover { transform: scale(1.1) translateZ(40px); border-color: rgba(59, 130, 246, 0.8); box-shadow: 0 0 30px rgba(59, 130, 246, 0.4); z-index: 40; background: #0f172a; }
         .chip-icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
 
-        /* Chips Mobile (Carrusel "Belt" FIXED) */
-        .mask-linear {
-            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-        }
+        /* Chips Mobile (Carrusel "Belt") */
         .mobile-belt-container {
+            width: 200%; /* Doble ancho para loop */
             display: flex;
             gap: 1rem;
-            animation: scrollBelt 20s linear infinite;
-            width: max-content; /* Critical Fix for infinite scroll */
+            animation: scrollBelt 25s linear infinite;
         }
         .mobile-chip {
-            background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(255,255,255,0.15); border-radius: 50px; padding: 8px 18px; display: flex; align-items: center; gap: 10px; white-space: nowrap; backdrop-filter: blur(10px); box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-size: 0.85rem; font-weight: 600;
+            background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; padding: 8px 16px; display: flex; items-center; gap: 10px; white-space: nowrap; backdrop-filter: blur(8px);
+        }
+
+        /* ANIMACIÓN CRUCIAL PARA EL CINTURÓN */
+        @keyframes scrollBelt {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         .holo-card {
@@ -216,7 +208,6 @@
             opacity: 0;
             pointer-events: none;
             transform: translateY(-20px);
-            z-index: 200; /* Asegurar que esté encima de TODO */
         }
         #mobile-menu.open {
             opacity: 1;
@@ -239,141 +230,9 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-
-        /* --- ESTILOS FESTIVOS AVANZADOS (MEJORADO) --- */
-        
-        /* 1. Nieve Realista */
-        .snow-container {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 50; display: none;
-        }
-        .snowflake {
-            position: absolute; color: #fff; font-size: 1rem; opacity: 0.8; user-select: none;
-            animation: snowfall linear infinite;
-            text-shadow: 0 0 5px rgba(255,255,255,0.8);
-        }
-        @keyframes snowfall {
-            0% { transform: translateY(-10vh) translateX(0) rotate(0deg); }
-            100% { transform: translateY(100vh) translateX(20px) rotate(360deg); }
-        }
-
-        /* 2. Muñeco de Nieve (Mejorado y Visible) */
-        .snowman-container {
-            /* Desktop: posición normal */
-            position: fixed; bottom: 50px; right: 80px; z-index: 100; display: none; transform: scale(0.9); pointer-events: none; filter: drop-shadow(0 10px 10px rgba(0,0,0,0.5));
-        }
-        
-        /* Ajuste Mobile CRÍTICO */
-        @media (max-width: 768px) {
-            .snowman-container { 
-                bottom: 110px; 
-                right: 60px; /* Movido más a la izquierda para no cortarse */
-                transform: scale(0.7); 
-            }
-        }
-
-        .snowman { position: relative; }
-        .snowman-body {
-            width: 80px; height: 80px; background: radial-gradient(circle at 30% 30%, #ffffff, #e6e6e6); border-radius: 50%; position: absolute; bottom: 0; left: 0;
-            box-shadow: inset -5px -5px 15px rgba(0,0,0,0.1);
-        }
-        .snowman-buttons {
-            position: absolute; width: 6px; height: 6px; background: #333; border-radius: 50%; left: 50%; transform: translateX(-50%);
-            bottom: 45px; box-shadow: 0 15px 0 #333;
-        }
-        .snowman-head {
-            width: 50px; height: 50px; background: radial-gradient(circle at 30% 30%, #ffffff, #e6e6e6); border-radius: 50%; position: absolute; bottom: 70px; left: 15px;
-            box-shadow: inset -3px -3px 10px rgba(0,0,0,0.1); z-index: 2;
-        }
-        .snowman-eye {
-            width: 6px; height: 6px; background: #333; border-radius: 50%; position: absolute; top: 18px;
-        }
-        .snowman-eye.left { left: 14px; }
-        .snowman-eye.right { right: 14px; }
-        .snowman-nose {
-            width: 0; height: 0; border-top: 4px solid transparent; border-bottom: 4px solid transparent; border-left: 14px solid #ff7b00;
-            position: absolute; top: 24px; left: 22px;
-        }
-        .snowman-scarf {
-            width: 50px; height: 12px; background: #ef4444; position: absolute; bottom: 65px; left: 15px; border-radius: 10px; z-index: 3;
-        }
-        .snowman-scarf::after {
-            content: ''; position: absolute; right: 5px; top: 5px; width: 12px; height: 25px; background: #ef4444; transform: rotate(10deg); border-radius: 4px;
-        }
-        /* CORRECCIÓN BRAZOS */
-        .snowman-arm {
-            width: 40px; height: 4px; background: #8B4513; position: absolute; 
-            top: 25px; /* Subido (Antes 40px) para salir de los hombros */
-            z-index: 1;
-        }
-        .snowman-arm.left { left: -25px; transform: rotate(20deg); }
-        .snowman-arm.right { right: -25px; transform: rotate(-20deg); }
-        .snowman-anim { animation: bounceSnowman 3s infinite ease-in-out; }
-        @keyframes bounceSnowman { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-5px) rotate(2deg); } }
-
-        /* 3. Araña & Murciélago Halloween (CSS) */
-        .spider-container {
-            position: fixed; top: -100px; left: 10%; z-index: 60; display: none; animation: spiderDrop 3s ease-in-out infinite alternate; pointer-events: none;
-        }
-        .spider-thread { width: 2px; height: 100px; background: white; margin: 0 auto; }
-        .spider-body { width: 40px; height: 30px; background: #333; border-radius: 50%; margin: 0 auto; position: relative; }
-        .spider-leg { position: absolute; width: 30px; height: 2px; background: #333; top: 50%; }
-        .spider-leg.left { right: 50%; transform-origin: right; transform: rotate(30deg); }
-        .spider-leg.right { left: 50%; transform-origin: left; transform: rotate(-30deg); }
-        @keyframes spiderDrop { 0% { top: -80px; } 100% { top: -20px; } }
-
-        /* 4. Luces de Navidad */
-        .christmas-lights {
-            position: fixed; top: 0; left: 0; width: 100%; height: 20px; display: none; z-index: 45; pointer-events: none;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='5' fill='%23ff0000' /%3E%3Ccircle cx='35' cy='10' r='5' fill='%2300ff00' /%3E%3Ccircle cx='60' cy='10' r='5' fill='%230000ff' /%3E%3Ccircle cx='85' cy='10' r='5' fill='%23ffff00' /%3E%3Cpath d='M0 0 Q 50 20 100 0' stroke='%23333' fill='none'/%3E%3C/svg%3E");
-            background-repeat: repeat-x;
-            animation: lights 1s infinite alternate;
-        }
-
-        /* 4. Gorro de Santa en Logo */
-        .santa-hat-icon {
-            position: absolute; top: -14px; left: -12px; width: 26px; height: 26px; z-index: 60;
-            background: url('https://cdn-icons-png.flaticon.com/512/744/744546.png') no-repeat center center/contain;
-            transform: rotate(-15deg); display: none; pointer-events: none; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
-        }
-
-        /* Cursor Parpadeante */
-        .cursor-blink::after {
-            content: '|';
-            animation: blink 1s step-start infinite;
-            color: #3b82f6;
-            margin-left: 2px;
-        }
     </style>
 </head>
 <body class="antialiased font-sans bg-black selection:bg-blue-500 selection:text-white">
-
-    <!-- CONTENEDORES FESTIVOS -->
-    <div id="christmas-lights" class="christmas-lights"></div>
-    <div id="snow-effect" class="snow-container"></div>
-    <div id="snowman-effect" class="snowman-container snowman-anim">
-        <div class="snowman">
-            <div class="snowman-body">
-                <div class="snowman-buttons"></div>
-            </div>
-            <div class="snowman-head">
-                <div class="snowman-eye left"></div>
-                <div class="snowman-eye right"></div>
-                <div class="snowman-nose"></div>
-            </div>
-            <div class="snowman-scarf"></div>
-            <div class="snowman-arm left"></div>
-            <div class="snowman-arm right"></div>
-        </div>
-    </div>
-    <div id="spider-effect" class="spider-container">
-        <div class="spider-thread"></div>
-        <div class="spider-body">
-            <div class="spider-leg left" style="transform: rotate(30deg)"></div>
-            <div class="spider-leg left" style="transform: rotate(10deg); top:40%"></div>
-            <div class="spider-leg right" style="transform: rotate(-30deg)"></div>
-            <div class="spider-leg right" style="transform: rotate(-10deg); top:40%"></div>
-        </div>
-    </div>
 
     <!-- CANVAS DE PARTÍCULAS -->
     <canvas id="particles-canvas"></canvas>
@@ -381,13 +240,10 @@
     <!-- NAVEGACIÓN -->
     <nav class="fixed w-full z-50 top-0 left-0 border-b border-white/5 bg-black/80 backdrop-blur-xl transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center relative z-50">
-            <!-- Logo Interactivo -->
-            <div class="flex items-center gap-2 cursor-pointer group" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center font-bold text-white shadow-[0_0_15px_rgba(59,130,246,0.5)] relative transition-transform group-hover:rotate-12">
-                    D
-                    <div id="santa-hat" class="santa-hat-icon"></div> <!-- Gorro Dinámico -->
-                </div>
-                <span class="font-display font-bold text-lg tracking-tight group-hover:text-blue-400 transition-colors">DEVINSON<span class="text-white/40 group-hover:text-purple-400">.GITHUB</span></span>
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center font-bold text-white shadow-[0_0_15px_rgba(59,130,246,0.5)]">D</div>
+                <span class="font-display font-bold text-lg tracking-tight">DEVINSON<span class="text-white/40">.CO</span></span>
             </div>
             
             <!-- Desktop Menu -->
@@ -411,17 +267,17 @@
         </div>
 
         <!-- Mobile Menu Overlay (Fullscreen) -->
-        <div id="mobile-menu" class="fixed inset-0 bg-black z-50 flex flex-col items-center justify-center space-y-10 md:hidden">
-            <a href="#hero" onclick="toggleMenu()" class="text-3xl font-display font-bold text-white hover:text-blue-500 transition-colors">Inicio</a>
-            <a href="#servicios" onclick="toggleMenu()" class="text-3xl font-display font-bold text-white hover:text-blue-500 transition-colors">Servicios</a>
-            <a href="#proceso" onclick="toggleMenu()" class="text-3xl font-display font-bold text-white hover:text-blue-500 transition-colors">Proceso</a>
-            <a href="#ia-lab" onclick="toggleMenu()" class="text-3xl font-display font-bold text-white hover:text-blue-500 transition-colors">IA Lab</a>
-            <a href="#cotizar" onclick="toggleMenu()" class="px-8 py-4 bg-blue-600 rounded-full font-bold text-white shadow-lg text-xl mt-4">Cotizar Ahora</a>
+        <div id="mobile-menu" class="fixed inset-0 bg-black/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center space-y-8 md:hidden">
+            <a href="#hero" onclick="toggleMenu()" class="text-2xl font-display font-bold text-white hover:text-blue-500 transition-colors">Inicio</a>
+            <a href="#servicios" onclick="toggleMenu()" class="text-2xl font-display font-bold text-white hover:text-blue-500 transition-colors">Servicios</a>
+            <a href="#proceso" onclick="toggleMenu()" class="text-2xl font-display font-bold text-white hover:text-blue-500 transition-colors">Proceso</a>
+            <a href="#ia-lab" onclick="toggleMenu()" class="text-2xl font-display font-bold text-white hover:text-blue-500 transition-colors">IA Lab</a>
+            <a href="#cotizar" onclick="toggleMenu()" class="px-8 py-3 bg-blue-600 rounded-full font-bold text-white shadow-lg text-lg">Cotizar Ahora</a>
             
-            <div class="absolute bottom-10 flex gap-8 text-gray-400">
-                <a href="#"><i class="fab fa-github text-2xl"></i></a>
-                <a href="#"><i class="fab fa-linkedin text-2xl"></i></a>
-                <a href="#"><i class="fab fa-whatsapp text-2xl"></i></a>
+            <div class="absolute bottom-10 flex gap-6 text-gray-400">
+                <a href="#"><i class="fab fa-github text-xl"></i></a>
+                <a href="#"><i class="fab fa-linkedin text-xl"></i></a>
+                <a href="#"><i class="fab fa-whatsapp text-xl"></i></a>
             </div>
         </div>
     </nav>
@@ -443,8 +299,7 @@
                 
                 <h1 class="text-5xl md:text-7xl font-display font-bold leading-none mb-6 pointer-events-auto tracking-tight">
                     Arquitectura <br>
-                    <!-- Typewriter Effect -->
-                    <span class="text-gradient" id="typewriter-text"></span><span class="cursor-blink"></span>
+                    <span class="text-gradient">Digital Avanzada</span>
                 </h1>
                 
                 <p class="text-lg md:text-xl text-gray-300 max-w-lg mb-8 font-light pointer-events-auto mx-auto md:mx-0 leading-relaxed">
@@ -468,7 +323,7 @@
                 <div id="hero-img-container" class="hero-image-container relative z-10 h-full flex items-end w-full justify-center">
                     <img src="https://i.imgur.com/DBrfwWX.png" alt="Devinson Rodriguez" class="h-full object-contain max-h-[85vh] drop-shadow-2xl filter brightness-110 contrast-110 animate-breathe relative z-10">
                     
-                    <!-- === CARRUSEL MÓVIL (El "Cinturón") FIXED === -->
+                    <!-- === CARRUSEL MÓVIL (El "Cinturón") === -->
                     <!-- Solo visible en móvil, ubicado abajo sobre la "cintura" de la imagen -->
                     <div class="absolute bottom-10 left-0 w-full md:hidden z-30 overflow-hidden py-2 mask-linear">
                         <div class="mobile-belt-container">
@@ -482,14 +337,12 @@
                             <div class="mobile-chip text-blue-300 border-blue-500/30"><i class="fas fa-handshake"></i> Mercado Pago</div>
                             <div class="mobile-chip text-green-300 border-green-500/30"><i class="fab fa-whatsapp"></i> WhatsApp API</div>
                             <div class="mobile-chip text-amber-300 border-amber-500/30"><i class="fas fa-bolt"></i> Fast PWA</div>
-                            <!-- Repetición Extra para Loop Fluido -->
-                            <div class="mobile-chip text-purple-300 border-purple-500/30"><i class="fas fa-brain"></i> Gemini AI</div>
-                            <div class="mobile-chip text-blue-300 border-blue-500/30"><i class="fas fa-handshake"></i> Mercado Pago</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- CHIPS DE ESCRITORIO (Solo visible en md o superior) -->
+                <!-- Se mantienen flotando como antes porque te gustaba en PC -->
                 <div class="hidden md:flex tech-chip absolute top-20 -left-12 animate-float-delayed">
                     <div class="chip-icon bg-purple-500/20 text-purple-400 border border-purple-500/30"><i class="fas fa-brain"></i></div>
                     <div><p class="text-[10px] text-gray-400 uppercase tracking-wider font-mono">Neural Engine</p><p class="font-bold text-sm text-white">Gemini AI</p></div>
@@ -658,8 +511,7 @@
                 <div class="bg-gray-900/80 rounded-[22px] p-6 md:p-10 backdrop-blur-md border border-white/5">
                     <div class="flex flex-col gap-4">
                         <label class="text-sm text-gray-400 font-mono ml-1">TU VISIÓN / REQUERIMIENTO:</label>
-                        <!-- ID ai-input usado para autocompletado -->
-                        <textarea id="ai-input" rows="2" class="w-full bg-black/50 border border-white/10 rounded-xl p-4 text-white placeholder-gray-500 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all resize-none text-lg font-mono" placeholder="Esperando input neural..."></textarea>
+                        <textarea id="ai-input" rows="2" class="w-full bg-black/50 border border-white/10 rounded-xl p-4 text-white placeholder-gray-600 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all resize-none text-lg font-mono" placeholder="Ej: Quiero una app tipo delivery para mi pizzería, con pagos online y rastreo básico..."></textarea>
                         
                         <div class="flex justify-end">
                             <button onclick="consultarIA()" id="ai-btn" class="w-full md:w-auto px-6 py-3 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-all flex items-center justify-center gap-2">
@@ -786,141 +638,7 @@
 
         let aiSummaryForWhatsapp = ""; // Variable para guardar el resumen corto
 
-        // ============================================
-        // 1. MOTOR DE FESTIVIDADES (Holidays Engine)
-        // ============================================
-        function checkHoliday() {
-            const date = new Date();
-            const month = date.getMonth(); // 0-11
-            const day = date.getDate();
-
-            // Elementos
-            const snow = document.getElementById('snow-effect');
-            const snowman = document.getElementById('snowman-effect');
-            const spider = document.getElementById('spider-effect');
-            const santaHat = document.getElementById('santa-hat');
-            const lights = document.getElementById('christmas-lights');
-
-            // NAVIDAD: Diciembre (11)
-            if (month === 11) {
-                snow.style.display = 'block';
-                snowman.style.display = 'block';
-                santaHat.style.display = 'block';
-                lights.style.display = 'block';
-                createSnowflakes();
-            }
-            // AÑO NUEVO: Enero (0) primeros días
-            else if (month === 0 && day <= 7) {
-                lights.style.display = 'block'; // Luces se quedan
-                // Podríamos cambiar nieve por confeti
-                snow.style.display = 'block'; 
-                createSnowflakes();
-            }
-            // HALLOWEEN: Octubre (9)
-            else if (month === 9) {
-                spider.style.display = 'block';
-            }
-            // INDEPENDENCIA COLOMBIA: Julio (6) dia 20
-            else if (month === 6 && day === 20) {
-                // Podríamos agregar bandera aquí
-                console.log("¡Feliz Día de la Independencia!");
-            }
-            // AMOR Y AMISTAD: Septiembre (8)
-            else if (month === 8) {
-                // Podríamos agregar corazones
-                console.log("Modo Amor y Amistad Activo");
-            }
-        }
-
-        // Generador de Nieve CSS (MEJORADO)
-        function createSnowflakes() {
-            const container = document.getElementById('snow-effect');
-            const count = 30; // Menos cantidad pero mejores
-            const symbols = ['❄', '❅', '❆'];
-            
-            for (let i = 0; i < count; i++) {
-                const flake = document.createElement('div');
-                flake.classList.add('snowflake');
-                flake.innerText = symbols[Math.floor(Math.random() * symbols.length)];
-                flake.style.left = Math.random() * 100 + 'vw';
-                flake.style.animationDuration = (Math.random() * 5 + 5) + 's'; // 5-10s (más lento)
-                flake.style.opacity = Math.random() * 0.5 + 0.3;
-                flake.style.fontSize = (Math.random() * 1.5 + 0.5) + 'rem';
-                container.appendChild(flake);
-            }
-        }
-
-        // ============================================
-        // 2. TYPEWRITER EFFECT (Máquina de escribir)
-        // ============================================
-        const phrases = ["Digital Avanzada", "E-commerce Real", "Potenciada por IA", "Full Stack"];
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typeSpeed = 100;
-        const deleteSpeed = 50;
-        const delayBetween = 2000;
-
-        function typeWriterEffect() {
-            const currentPhrase = phrases[phraseIndex];
-            const element = document.getElementById('typewriter-text');
-            
-            if (isDeleting) {
-                element.textContent = currentPhrase.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                element.textContent = currentPhrase.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            if (!isDeleting && charIndex === currentPhrase.length) {
-                isDeleting = true;
-                setTimeout(typeWriterEffect, delayBetween); // Pausa al terminar frase
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                setTimeout(typeWriterEffect, 500); // Pausa antes de nueva frase
-            } else {
-                setTimeout(typeWriterEffect, isDeleting ? deleteSpeed : typeSpeed);
-            }
-        }
-
-        // ============================================
-        // 3. IA AUTOCOMPLETE SIMULATION
-        // ============================================
-        let hasSimulatedAI = false;
-        function initAIPlaceholder() {
-            const input = document.getElementById('ai-input');
-            const textToType = "Hola, quiero vender zapatos y necesito pagos online...";
-            let i = 0;
-            
-            // Observer para detectar cuando la sección es visible
-            const observer = new IntersectionObserver((entries) => {
-                if (entries[0].isIntersecting && !hasSimulatedAI) {
-                    hasSimulatedAI = true;
-                    // Limpiar y enfocar visualmente (opcional)
-                    input.placeholder = "";
-                    
-                    const typingInterval = setInterval(() => {
-                        input.placeholder += textToType.charAt(i);
-                        i++;
-                        if (i >= textToType.length) {
-                            clearInterval(typingInterval);
-                            setTimeout(() => {
-                                // Dejar el texto un momento y luego permitir escribir
-                                // Opcional: convertir placeholder a value si quisieras
-                            }, 1000);
-                        }
-                    }, 50); // Velocidad de escritura
-                }
-            }, { threshold: 0.5 });
-            
-            observer.observe(document.getElementById('ia-lab'));
-        }
-
-        // ============================================
-        // MENU HAMBURGUESA LOGIC
-        // ============================================
+        // 1. MENU HAMBURGUESA LOGIC
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = menuBtn.querySelector('i');
@@ -941,9 +659,7 @@
             }
         }
 
-        // ============================================
-        // PARTICLES NETWORK (Canvas Dinámico)
-        // ============================================
+        // 2. PARTICLES NETWORK (Canvas Dinámico)
         const canvas = document.getElementById('particles-canvas');
         const ctx = canvas.getContext('2d');
         let width, height;
@@ -1003,10 +719,10 @@
             });
             requestAnimationFrame(animateParticles);
         }
-        
-        // ============================================
-        // SCROLL REVEAL (Observer)
-        // ============================================
+        resize();
+        animateParticles();
+
+        // 3. SCROLL REVEAL (Observer)
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if(entry.isIntersecting) {
@@ -1016,9 +732,7 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // ============================================
-        // TILT EFFECT 3D
-        // ============================================
+        // 4. TILT EFFECT 3D
         const heroSection = document.getElementById('hero');
         const heroImgContainer = document.getElementById('hero-img-container');
         if (heroSection && heroImgContainer && window.innerWidth > 768) {
@@ -1051,9 +765,7 @@
             });
         }
 
-        // ============================================
-        // IA CONSULTANT
-        // ============================================
+        // 5. IA CONSULTANT
         async function consultarIA() {
             const input = document.getElementById('ai-input').value;
             const btn = document.getElementById('ai-btn');
@@ -1190,9 +902,7 @@
             }
         }
 
-        // ============================================
         // 6. COTIZADOR INTELIGENTE (Actualizado)
-        // ============================================
         function calculateTotal() {
             let total = 0;
             let selectedItems = [];
@@ -1227,13 +937,8 @@
             btn.href = `https://wa.me/573215203354?text=${encodeURIComponent(message)}`;
         }
         
-        // Ejecuciones Iniciales
+        // Ejecutar al inicio para sumar la base
         calculateTotal();
-        resize();
-        animateParticles();
-        checkHoliday();      // Iniciar detección de fechas
-        typeWriterEffect();  // Iniciar título animado
-        initAIPlaceholder(); // Iniciar observer del input
     </script>
 </body>
 </html>
