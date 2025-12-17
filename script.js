@@ -1,4 +1,4 @@
-const apiKey = "AIzaSyBdaivnoeGHO4gM8V2HGckDu6T2XApKlZM"; // <--- TU LLAVE
+const apiKey = "AIzaSyCaIV7q-l45_bJGDG4G0ktt8mJNrO-6z6Y"; // <--- TU LLAVE
 
 // ============================================
 // 0. LÓGICA DE TEMPORADAS INTELIGENTES
