@@ -4,86 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO & Meta Tags -->
-    <title>Devinson Rodriguez | Experto en E-commerce & Automatización IA</title>
-    <meta name="description" content="Desarrollo Web Full Stack de alto nivel. E-commerce, Mercado Pago, Automatización IA y Chatbots en Colombia.">
-    <meta name="theme-color" content="#050505">
+    <!-- SEO & Meta Tags (Enfoque B2B) -->
+    <title>Devinson Rodriguez | Arquitectura de Software & Soluciones Fintech</title>
+    <meta name="description" content="Consultoría técnica en infraestructura digital. Especialistas en integración de pasarelas de pago, PWA de alto rendimiento y automatización IA para empresas.">
+    <meta name="theme-color" content="#0f172a"> <!-- Color Slate-900 -->
     <link rel="canonical" href="https://devinson.lat">
 
     <!-- Open Graph / Social -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Devinson Rodriguez | Digital Architect">
-    <meta property="og:description" content="Transformo negocios con E-commerce, Pagos Digitales y Automatización IA. Cotiza tu proyecto hoy.">
+    <meta property="og:type" content="business.business">
+    <meta property="og:title" content="Devinson Rodriguez | Enterprise Solutions">
+    <meta property="og:description" content="Ingeniería de software para negocios escalables. Pagos, IA y Cloud.">
     <meta property="og:url" content="https://devinson.lat">
-    <meta property="og:site_name" content="Devinson Rodriguez Portafolio">
-    <!-- ACTUALIZADO: Tu nuevo logo para WhatsApp -->
+    <meta property="og:site_name" content="Devinson Rodriguez Solutions">
     <meta property="og:image" content="https://i.imgur.com/ksFVp9V.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Devinson Rodriguez | Desarrollador Web & IA">
-    <meta name="twitter:description" content="Expertos en E-commerce y Sistemas de Pago en Colombia.">
-    <!-- ACTUALIZADO: Tu nuevo logo para Twitter/X -->
-    <meta name="twitter:image" content="https://i.imgur.com/xCyUZMm.jpeg">
-
-    <!-- JSON-LD (Datos Estructurados) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Devinson Rodriguez",
-      "image": "https://i.imgur.com/xCyUZMm.jpeg",
-      "@id": "https://devinson.lat",
-      "url": "https://devinson.lat",
-      "telephone": "+57 321 520 3354",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Valledupar",
-        "addressLocality": "Valledupar",
-        "addressRegion": "Cesar",
-        "postalCode": "200001",
-        "addressCountry": "CO"
-      },
-      "priceRange": "$$$",
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "08:00",
-        "closes": "18:00"
-      },
-      "sameAs": [
-        "https://github.com/Pech68",
-        "https://www.linkedin.com/in/devinson-rodriguez"
-      ]
-    }
-    </script>
 
     <!-- Librerías -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Fuente Mono para el código -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"> 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     
-    <!-- Configuración Tailwind -->
+    <!-- Configuración Tailwind (Extensión de Colores B2B) -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Space Grotesk', 'sans-serif'] },
-                    colors: { black: '#050505', dark: '#0a0a0a' },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'float-delayed': 'float 7s ease-in-out 2s infinite',
-                        'float-slow': 'float 8s ease-in-out 1s infinite',
-                        'breathe': 'breathe 8s ease-in-out infinite',
-                        'scroll-belt': 'scrollBelt 20s linear infinite',
+                    fontFamily: { 
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'] 
                     },
-                    keyframes: {
-                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-15px)' } },
-                        breathe: { '0%, 100%': { transform: 'scale(1)' }, '50%': { transform: 'scale(1.02)' } },
-                        scrollBelt: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } }
+                    colors: { 
+                        slate: { 850: '#1e293b', 900: '#0f172a', 950: '#020617' },
+                        blue: { 600: '#2563eb', 700: '#1d4ed8' }
                     }
                 }
             }
@@ -91,524 +45,440 @@
     </script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="antialiased font-sans bg-black text-white selection:bg-blue-500 selection:text-white transition-colors duration-700">
+<body class="antialiased font-sans bg-slate-900 text-slate-50 selection:bg-blue-600 selection:text-white">
 
-    <!-- Badge Festividad -->
-    <div id="holiday-badge" class="fixed top-24 right-4 z-40 hidden animate-float-slow group cursor-pointer">
-        <div class="glass px-4 py-2 rounded-full flex items-center gap-2 border border-white/20 transition-all group-hover:scale-105">
-            <span id="holiday-icon" class="text-xl"></span>
-            <span id="holiday-text" class="text-sm font-bold tracking-wide uppercase"></span>
-        </div>
-    </div>
-
+    <!-- Canvas de Red Neuronal -->
     <canvas id="particles-canvas"></canvas>
 
     <!-- NAVEGACIÓN -->
-    <nav class="fixed w-full z-50 top-0 left-0 border-b border-white/5 bg-black/80 backdrop-blur-xl transition-all duration-300">
+    <nav class="fixed w-full z-50 top-0 left-0 border-b border-slate-700/50 bg-slate-900/90 backdrop-blur-md transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center relative z-50">
-            <div class="flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
-                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center font-bold text-white shadow-[0_0_15px_rgba(59,130,246,0.5)] logo-box">D</div>
-                <span class="font-display font-bold text-lg tracking-tight">DEVINSON<span class="text-white/40">.LAT</span></span>
+            <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                <!-- Logo Minimalista -->
+                <div class="w-8 h-8 rounded bg-blue-600 flex items-center justify-center font-bold text-white shadow-lg text-sm">DR</div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-sm tracking-wide text-white leading-none">DEVINSON</span>
+                    <span class="text-[10px] text-slate-400 font-mono tracking-widest uppercase leading-none mt-1">Systems</span>
+                </div>
             </div>
             
             <!-- Desktop Links -->
-            <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-white/70">
-                <a href="#servicios" class="hover:text-white hover:scale-105 transition-all">Servicios</a>
-                <a href="#proceso" class="hover:text-white hover:scale-105 transition-all">Proceso</a>
-                <a href="#ia-lab" class="hover:text-white transition-all flex items-center gap-2 group">
-                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse group-hover:shadow-[0_0_8px_#22c55e] indicator-dot"></span> IA Lab
+            <div class="hidden md:flex items-center space-x-10 text-sm font-medium text-slate-300">
+                <a href="#architecture" class="hover:text-white transition-colors">Tecnología</a>
+                <a href="#servicios" class="hover:text-white transition-colors">Soluciones</a>
+                <a href="#proceso" class="hover:text-white transition-colors">Metodología</a>
+                <a href="#ia-lab" class="hover:text-blue-400 transition-colors flex items-center gap-2">
+                    IA Consultant <span class="text-[10px] px-1.5 py-0.5 bg-blue-900/50 text-blue-300 rounded border border-blue-500/20">BETA</span>
                 </a>
             </div>
 
-            <a href="#cotizar" class="hidden md:block bg-white text-black px-5 py-2 rounded-full font-bold text-sm hover:bg-gray-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] active:scale-95 cta-button">
-                Cotizar
+            <a href="#cotizar" class="hidden md:block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded text-sm font-semibold transition-all shadow-lg hover:shadow-blue-500/20 cta-button">
+                Propuesta Técnica
             </a>
 
             <!-- Mobile Hamburger -->
-            <button id="menu-btn" class="md:hidden text-white focus:outline-none z-50 p-2 relative w-8 h-8 flex flex-col justify-center items-center gap-1.5 group">
-                <span class="w-6 h-0.5 bg-white rounded-full transition-all duration-300 origin-center"></span>
-                <span class="w-6 h-0.5 bg-white rounded-full transition-all duration-300 origin-center"></span>
-                <span class="w-6 h-0.5 bg-white rounded-full transition-all duration-300 origin-center"></span>
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none z-50 p-2 relative w-8 h-8 flex flex-col justify-center items-center gap-1.5">
+                <span class="w-5 h-0.5 bg-slate-200 rounded-full transition-all duration-300"></span>
+                <span class="w-5 h-0.5 bg-slate-200 rounded-full transition-all duration-300"></span>
+                <span class="w-5 h-0.5 bg-slate-200 rounded-full transition-all duration-300"></span>
             </button>
         </div>
 
-        <!-- Mobile Menu Fullscreen Overlay -->
-        <div id="mobile-menu" class="fixed inset-0 bg-black/90 backdrop-blur-2xl z-40 flex flex-col items-center justify-center transition-all duration-500 opacity-0 pointer-events-none translate-y-4">
-            <!-- Background Decoration -->
-            <div class="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 rounded-full blur-[100px]"></div>
-            <div class="absolute bottom-0 left-0 w-64 h-64 bg-purple-600/10 rounded-full blur-[100px]"></div>
-
-            <nav class="flex flex-col items-center space-y-8 relative z-10">
-                <a href="#hero" class="text-3xl font-display font-bold text-white/50 hover:text-white transition-colors hover:scale-110 duration-300 mobile-link">Inicio</a>
-                <a href="#servicios" class="text-3xl font-display font-bold text-white/50 hover:text-white transition-colors hover:scale-110 duration-300 mobile-link">Servicios</a>
-                <a href="#proceso" class="text-3xl font-display font-bold text-white/50 hover:text-white transition-colors hover:scale-110 duration-300 mobile-link">Proceso</a>
-                <a href="#ia-lab" class="text-3xl font-display font-bold text-white/50 hover:text-purple-400 transition-colors hover:scale-110 duration-300 mobile-link flex items-center gap-3"><i class="fas fa-sparkles text-xl"></i> IA Lab</a>
-                
-                <div class="w-16 h-[1px] bg-white/10 my-4"></div>
-                
-                <a href="#cotizar" class="px-8 py-4 bg-white text-black rounded-full font-bold text-xl shadow-xl hover:bg-gray-200 transition-transform active:scale-95 mobile-link cta-button-mobile">Cotizar Proyecto</a>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu">
+            <nav class="flex flex-col items-center space-y-6 text-center">
+                <a href="#hero" class="mobile-link">Inicio</a>
+                <a href="#architecture" class="mobile-link">Tecnología</a>
+                <a href="#servicios" class="mobile-link">Soluciones</a>
+                <a href="#ia-lab" class="mobile-link text-blue-400">IA Consultant</a>
+                <a href="#cotizar" class="cta-button-mobile bg-blue-600 px-8 py-3 rounded text-white font-bold mt-4">Solicitar Propuesta</a>
             </nav>
-            
-            <div class="absolute bottom-12 flex gap-8 text-gray-400">
-                <a href="#" class="hover:text-white transition-colors hover:-translate-y-1"><i class="fab fa-github text-2xl"></i></a>
-                <a href="#" class="hover:text-white transition-colors hover:-translate-y-1"><i class="fab fa-linkedin text-2xl"></i></a>
-                <a href="#" class="hover:text-white transition-colors hover:-translate-y-1"><i class="fab fa-whatsapp text-2xl"></i></a>
-            </div>
         </div>
     </nav>
 
-    <!-- HERO -->
-    <section id="hero" class="relative min-h-screen pt-28 pb-0 flex flex-col justify-end overflow-hidden bg-hero-gradient perspective-1000">
-        <div class="bg-blend-image" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop'); opacity: 0.3;"></div>
+    <!-- HERO SECTION (Corporativa) -->
+    <section id="hero" class="relative min-h-[90vh] pt-32 pb-20 flex flex-col justify-center overflow-hidden">
+        <!-- Fondo Sutil -->
+        <div class="absolute inset-0 bg-gradient-to-b from-blue-900/10 to-transparent pointer-events-none"></div>
         
-        <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-end justify-between h-full">
-            <div class="w-full md:w-1/2 mb-12 md:mb-32 relative z-20 pointer-events-none reveal active text-center md:text-left pt-6">
-                <div class="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-white/10 bg-white/5 backdrop-blur-md pointer-events-auto hover:bg-white/10 transition-colors cursor-default">
-                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse indicator-dot"></span>
-                    <span class="text-xs font-mono text-blue-400 dynamic-text-color font-bold">AGENDA ABIERTA 2025</span>
+        <div class="container mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center gap-16">
+            
+            <div class="w-full lg:w-1/2 text-center lg:text-left reveal active">
+                <div class="inline-flex items-center gap-2 px-3 py-1 mb-8 rounded border border-blue-500/30 bg-blue-500/10 backdrop-blur-sm">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
+                    <span class="text-xs font-mono text-blue-300 font-semibold tracking-wide uppercase">Disponible para Consultoría Q1 2025</span>
                 </div>
                 
-                <h1 class="text-5xl md:text-7xl font-display font-bold leading-tight mb-6 pointer-events-auto tracking-tight">
-                    Arquitectura <br>
-                    <span class="glitch-wrapper">
-                        <span class="text-gradient glitch" data-text="Digital Avanzada">Digital Avanzada</span>
-                    </span>
+                <h1 class="text-4xl lg:text-6xl font-bold leading-tight mb-6 text-white tracking-tight">
+                    Infraestructura Digital <br>
+                    para <span class="text-gradient">Negocios Escalables</span>
                 </h1>
                 
-                <p class="text-lg md:text-xl text-gray-300 max-w-lg mb-8 font-light pointer-events-auto mx-auto md:mx-0 leading-relaxed">
-                    Creo ecosistemas donde convergen <strong class="text-white font-medium">Pagos Nativos</strong> e <span id="typewriter-text" class="text-white font-medium typing-cursor">Inteligencia Artificial</span>. Deja de vender webs, empieza a vender resultados.
+                <p class="text-lg text-slate-400 max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed font-light">
+                    Diseñamos ecosistemas transaccionales seguros donde convergen <strong class="text-white font-medium">Pagos Fintech</strong>, <span id="typewriter-text" class="text-blue-400 font-medium typing-cursor"></span> y arquitecturas Cloud Native.
                 </p>
 
-                <div class="flex flex-col md:flex-row gap-4 pointer-events-auto px-4 md:px-0">
-                    <button onclick="document.getElementById('ia-lab').scrollIntoView()" class="w-full md:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(37,99,235,0.3)] active:scale-95 hero-btn-primary group">
-                        <i class="fas fa-robot group-hover:rotate-12 transition-transform"></i> Consultar con IA
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <button onclick="document.getElementById('ia-lab').scrollIntoView()" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded transition-all shadow-lg hover:shadow-blue-600/25 flex items-center justify-center gap-2 hero-btn-primary">
+                        <i class="fas fa-search-dollar"></i> Diagnóstico Gratuito
                     </button>
-                    <a href="https://github.com/Pech68" target="_blank" class="w-full md:w-auto px-8 py-4 border border-white/20 hover:bg-white/5 text-white font-medium rounded-xl transition-all flex items-center justify-center gap-3 active:scale-95 hover:border-white/40">
-                        <i class="fab fa-github"></i> Ver Código
+                    <a href="#architecture" class="px-8 py-4 border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white font-medium rounded transition-all flex items-center justify-center gap-2 btn-secondary">
+                        Ver Arquitectura
                     </a>
+                </div>
+                
+                <!-- Social Proof Sutil -->
+                <div class="mt-12 flex items-center justify-center lg:justify-start gap-6 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                    <i class="fab fa-aws text-2xl" title="AWS Cloud"></i>
+                    <i class="fab fa-stripe text-3xl" title="Stripe Payments"></i>
+                    <i class="fab fa-google text-2xl" title="Google Cloud AI"></i>
+                    <i class="fab fa-react text-2xl" title="React Enterprise"></i>
                 </div>
             </div>
 
-            <div class="w-full md:w-1/2 relative flex justify-center items-end h-[50vh] md:h-[600px] perspective-1000 reveal active mt-auto">
-                <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[80%] bg-blue-600/15 blur-[120px] rounded-full animate-pulse-slow dynamic-glow"></div>
-                
-                <div id="hero-img-container" class="hero-image-container relative z-10 h-full flex items-end w-full justify-center">
-                    <img src="https://i.imgur.com/DBrfwWX.png" alt="Devinson Rodriguez" class="h-full object-contain max-h-[85vh] drop-shadow-2xl filter brightness-110 contrast-110 animate-breathe relative z-10 pointer-events-none">
-                    
-                    <div class="absolute bottom-10 left-0 w-full md:hidden z-30 overflow-hidden py-2 mask-linear">
-                        <div class="mobile-belt-container">
-                            <div class="mobile-chip text-purple-300 border-purple-500/30"><i class="fas fa-brain"></i> Gemini AI</div>
-                            <div class="mobile-chip text-blue-300 border-blue-500/30"><i class="fas fa-handshake"></i> Mercado Pago</div>
-                            <div class="mobile-chip text-green-300 border-green-500/30"><i class="fab fa-whatsapp"></i> WhatsApp API</div>
-                            <div class="mobile-chip text-amber-300 border-amber-500/30"><i class="fas fa-bolt"></i> Fast PWA</div>
-                            <!-- Repeats -->
-                            <div class="mobile-chip text-purple-300 border-purple-500/30"><i class="fas fa-brain"></i> Gemini AI</div>
-                            <div class="mobile-chip text-blue-300 border-blue-500/30"><i class="fas fa-handshake"></i> Mercado Pago</div>
-                            <div class="mobile-chip text-green-300 border-green-500/30"><i class="fab fa-whatsapp"></i> WhatsApp API</div>
-                            <div class="mobile-chip text-amber-300 border-amber-500/30"><i class="fas fa-bolt"></i> Fast PWA</div>
+            <!-- Imagen / Dashboard Abstracto -->
+            <div class="w-full lg:w-1/2 relative perspective-1000 reveal">
+                <div id="hero-img-container" class="relative z-10 transition-transform duration-200 ease-out">
+                    <div class="holo-card rounded-xl p-1 bg-slate-800/50 backdrop-blur-xl border border-slate-700/50 shadow-2xl">
+                         <img src="https://i.imgur.com/DBrfwWX.png" alt="Devinson Rodriguez Architecture" class="rounded-lg shadow-inner w-full object-cover opacity-90 filter brightness-110 saturate-0 hover:saturate-100 transition-all duration-700">
+                    </div>
+                    <div class="tech-chip absolute -top-6 -left-6 animate-pulse-slow bg-slate-900 border-blue-500/30">
+                        <div class="chip-icon bg-blue-500/10 text-blue-400"><i class="fas fa-shield-alt"></i></div>
+                        <div>
+                            <p class="text-[10px] text-slate-400 uppercase tracking-wider font-mono">Security Level</p>
+                            <p class="font-bold text-sm text-white">Bank Grade (SSL)</p>
                         </div>
                     </div>
-                </div>
-
-                <div class="hidden md:flex tech-chip absolute top-20 -left-12 animate-float-delayed theme-chip">
-                    <div class="chip-icon bg-purple-500/20 text-purple-400 border border-purple-500/30 theme-icon-bg-subtle"><i class="fas fa-brain"></i></div>
-                    <div><p class="text-[10px] text-gray-400 uppercase tracking-wider font-mono">Neural Engine</p><p class="font-bold text-sm text-white">Gemini AI</p></div>
-                </div>
-                <div class="hidden md:flex tech-chip absolute top-32 -right-8 animate-float theme-chip">
-                    <div class="chip-icon bg-blue-500/20 text-blue-400 border border-blue-500/30 theme-icon-bg-subtle"><i class="fas fa-handshake"></i></div>
-                    <div><p class="text-[10px] text-gray-400 uppercase tracking-wider font-mono">Fintech Node</p><p class="font-bold text-sm text-white">Mercado Pago</p></div>
-                </div>
-                <div class="hidden md:flex tech-chip absolute bottom-40 -right-12 animate-float-slow theme-chip">
-                    <div class="chip-icon bg-amber-500/20 text-amber-400 border border-amber-500/30 theme-icon-bg-subtle"><i class="fas fa-cash-register"></i></div>
-                    <div><p class="text-[10px] text-gray-400 uppercase tracking-wider font-mono">Retail Nexus</p><p class="font-bold text-sm text-white">Sistema POS</p></div>
+                    <div class="tech-chip absolute bottom-10 -right-6 bg-slate-900 border-green-500/30">
+                        <div class="chip-icon bg-green-500/10 text-green-400"><i class="fas fa-bolt"></i></div>
+                        <div>
+                            <p class="text-[10px] text-slate-400 uppercase tracking-wider font-mono">Uptime</p>
+                            <p class="font-bold text-sm text-white">99.9% Guaranteed</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- MARQUEE -->
-    <div class="border-y border-white/5 bg-black py-4 md:py-6 relative z-20">
-        <div class="marquee-container">
-            <div class="marquee-content font-display font-bold text-2xl md:text-4xl text-white/5 uppercase tracking-tighter flex gap-8 md:gap-12">
-                <span>E-COMMERCE</span> <span>•</span> <span>REACT</span> <span>•</span> <span>NODE.JS</span> <span>•</span> <span>AUTOMATIZACIÓN</span> <span>•</span> <span>MERCADOPAGO</span> <span>•</span> <span>WHATSAPP API</span> <span>•</span> <span>GEMINI AI</span> <span>•</span> <span>PWA</span> <span>•</span> <span>STRIPE</span> <span>•</span> <span>NEQUI</span> <span>•</span>
-            </div>
+    <!-- CINTA DE TECNOLOGÍAS (Marquee) -->
+    <div class="marquee-container py-4">
+        <div class="marquee-content">
+            CLOUD ARCHITECTURE • REACT ENTERPRISE • NODE.JS SCALABLE • MERCADOPAGO INTEGRATION • WHATSAPP BUSINESS API • GOOGLE GEMINI AI • PWA STANDARDS • PCI DSS COMPLIANCE • 
+            CLOUD ARCHITECTURE • REACT ENTERPRISE • NODE.JS SCALABLE • MERCADOPAGO INTEGRATION • WHATSAPP BUSINESS API • GOOGLE GEMINI AI • PWA STANDARDS • PCI DSS COMPLIANCE •
         </div>
     </div>
 
-    <!-- SERVICIOS / CAPACIDADES -->
-    <section id="servicios" class="py-20 md:py-24 relative overflow-hidden bg-black">
-        <div class="bg-blend-image opacity-40" style="background-image: url('https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1080&auto=format&fit=crop');"></div>
-        
+    <!-- NUEVA SECCIÓN: ARQUITECTURA TRANSPARENTE (LIVE CODE) -->
+    <section id="architecture" class="py-24 bg-slate-900 relative">
         <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-16 reveal">
-                <span class="text-blue-500 font-mono text-xs tracking-widest uppercase mb-2 block dynamic-text-color font-bold">Capacidades del Sistema</span>
-                <h2 class="text-3xl md:text-5xl font-display font-bold text-white">Infraestructura Robusta</h2>
-                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Tecnología diseñada para escalar. Seguridad bancaria y velocidad instantánea.</p>
-            </div>
-
-            <div class="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20">
+            <div class="flex flex-col lg:flex-row gap-12 items-center">
                 
-                <!-- Tarjeta Holográfica Central -->
-                <div class="relative group perspective-1000 reveal order-1 lg:order-2">
-                    <div id="payment-card" class="holo-card w-[300px] md:w-[340px] h-[480px] rounded-3xl p-8 flex flex-col justify-between relative shadow-2xl overflow-hidden cursor-pointer transform transition-transform duration-75 mx-auto border border-white/10 group-hover:border-blue-500/30 dynamic-hover-border">
-                        <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M54.627 0l.83.828-1.415 1.415-.828-.828-.828.828-1.415-1.415.828-.828-.828-.828 1.415-1.415.828.828.828-.828 1.415 1.415-.828.828zM22.485 0l.83.828-1.415 1.415-.828-.828-.828.828-1.415-1.415.828-.828-.828-.828 1.415-1.415.828.828.828-.828 1.415 1.415-.828.828z\' fill=\'%23ffffff\' fill-opacity=\'1\' fill-rule=\'evenodd\'/%3E%3C/svg%3E');"></div>
-                        
-                        <div class="flex justify-between items-start z-10">
-                            <i class="fas fa-wifi text-white/50 rotate-90 text-xl"></i>
-                            <span class="text-xs font-mono text-blue-400 border border-blue-400/30 px-2 py-1 rounded dynamic-border dynamic-text-color shadow-[0_0_10px_rgba(59,130,246,0.2)]">SECURE_V3</span>
-                        </div>
-
-                        <div class="w-16 h-12 bg-gradient-to-tr from-yellow-200 to-yellow-600 rounded-lg shadow-lg relative z-10 border border-yellow-400/50 flex items-center justify-center chip-sim">
-                            <div class="w-full h-[1px] bg-black/30"></div>
-                            <div class="absolute h-full w-[1px] bg-black/30"></div>
-                        </div>
-
-                        <div class="space-y-4 z-10 mt-auto mb-8">
-                            <div class="flex items-center gap-4 bg-white/5 p-3 rounded-xl border border-white/5 hover:bg-white/10 transition-colors backdrop-blur-sm">
-                                <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white text-xs theme-icon-bg shadow-lg"><i class="fas fa-handshake"></i></div>
-                                <div><p class="text-sm font-bold text-white">Mercado Pago</p><p class="text-[10px] text-gray-300">Tarjetas, PSE y Efecty</p></div>
+                <!-- Columna Izquierda: Explicación -->
+                <div class="lg:w-1/2 reveal">
+                    <span class="text-blue-500 font-mono text-xs tracking-widest uppercase mb-3 block font-bold">Nuestro ADN Técnico</span>
+                    <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">Ingeniería Limpia, <br>Resultados Sólidos.</h2>
+                    <p class="text-slate-400 leading-relaxed mb-8">
+                        No ocultamos cómo trabajamos. Utilizamos un stack tecnológico moderno diseñado para velocidad, SEO y escalabilidad. Mientras otros usan plantillas lentas, nosotros escribimos el futuro de su negocio.
+                    </p>
+                    
+                    <!-- Botones de selección de capa -->
+                    <div class="space-y-4">
+                        <button class="stack-selector active w-full text-left p-4 rounded-lg bg-slate-800 border border-blue-500/50 hover:bg-slate-700 transition-all group flex items-center justify-between" onclick="updateCodeView('frontend', this)">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-blue-500/10 rounded flex items-center justify-center text-blue-400"><i class="fab fa-react text-xl"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-white group-hover:text-blue-400 transition-colors">Frontend Interactivo</h4>
+                                    <p class="text-xs text-slate-500">React + Tailwind + Framer Motion</p>
+                                </div>
                             </div>
-                            <div class="flex items-center gap-4 bg-white/5 p-3 rounded-xl border border-white/5 hover:bg-white/10 transition-colors backdrop-blur-sm">
-                                <div class="w-8 h-8 rounded-full bg-pink-600 flex items-center justify-center text-white text-xs shadow-lg"><i class="fas fa-mobile-alt"></i></div>
-                                <div><p class="text-sm font-bold text-white">Nequi / Daviplata</p><p class="text-[10px] text-gray-300">Transferencia QR Automática</p></div>
-                            </div>
-                        </div>
+                            <i class="fas fa-chevron-right text-slate-600"></i>
+                        </button>
 
-                        <div class="z-10 pt-4 border-t border-white/10 flex justify-between items-center text-xs text-gray-500 font-mono"><span>ID: DEV-8832</span><span class="text-green-500 animate-pulse">● ONLINE</span></div>
-                        <div id="card-shine" class="absolute inset-0 pointer-events-none opacity-50 mix-blend-overlay"></div>
+                        <button class="stack-selector w-full text-left p-4 rounded-lg bg-slate-800/50 border border-slate-700 hover:bg-slate-700 transition-all group flex items-center justify-between" onclick="updateCodeView('backend', this)">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-green-500/10 rounded flex items-center justify-center text-green-400"><i class="fab fa-node text-xl"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-slate-300 group-hover:text-green-400 transition-colors">Backend Seguro</h4>
+                                    <p class="text-xs text-slate-500">Node.js + Express + JWT Auth</p>
+                                </div>
+                            </div>
+                            <i class="fas fa-chevron-right text-slate-600"></i>
+                        </button>
+
+                        <button class="stack-selector w-full text-left p-4 rounded-lg bg-slate-800/50 border border-slate-700 hover:bg-slate-700 transition-all group flex items-center justify-between" onclick="updateCodeView('ai', this)">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-purple-500/10 rounded flex items-center justify-center text-purple-400"><i class="fas fa-brain text-xl"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-slate-300 group-hover:text-purple-400 transition-colors">Inteligencia Artificial</h4>
+                                    <p class="text-xs text-slate-500">Gemini API + Vector Database</p>
+                                </div>
+                            </div>
+                            <i class="fas fa-chevron-right text-slate-600"></i>
+                        </button>
                     </div>
                 </div>
 
-                <!-- Features Texto Izquierda -->
-                <div class="lg:w-1/3 space-y-6 order-2 lg:order-1 px-4 md:px-0">
-                    <div class="glass p-6 rounded-2xl reveal group hover:border-blue-500/40 transition-colors">
-                        <div class="absolute inset-0 bg-blue-500/5 z-0 dynamic-glass-bg opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        <h3 class="text-xl font-bold text-white mb-3 relative z-10 flex items-center gap-3"><i class="fas fa-shield-alt text-blue-400 dynamic-icon-color text-2xl"></i> Seguridad Militar</h3>
-                        <p class="text-sm text-gray-400 relative z-10 leading-relaxed">Encriptación de punta a punta (E2EE) y certificados SSL Wildcard. Tus clientes compran con la misma confianza que en un banco.</p>
-                    </div>
-                    <div class="glass p-6 rounded-2xl reveal group hover:border-yellow-500/40 transition-colors">
-                        <div class="absolute inset-0 bg-yellow-500/5 z-0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        <h3 class="text-xl font-bold text-white mb-3 relative z-10 flex items-center gap-3"><i class="fas fa-bolt text-yellow-400 text-2xl"></i> Ultra Fast PWA</h3>
-                        <p class="text-sm text-gray-400 relative z-10 leading-relaxed">Aplicaciones Web Progresivas que cargan en menos de 1 segundo. Funcionan offline y se sienten como apps nativas.</p>
-                    </div>
-                </div>
+                <!-- Columna Derecha: Ventana de Código Interactiva -->
+                <div class="lg:w-1/2 w-full reveal" style="transition-delay: 200ms;">
+                    <div class="rounded-xl overflow-hidden bg-[#1e1e1e] shadow-2xl border border-slate-700 relative group">
+                        <!-- Barra de título estilo VS Code -->
+                        <div class="bg-[#252526] px-4 py-2 flex items-center justify-between border-b border-[#333]">
+                            <div class="flex gap-2">
+                                <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                                <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                                <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                            </div>
+                            <div class="text-xs text-slate-400 font-mono" id="code-filename">ProductCard.jsx</div>
+                            <div class="text-xs text-slate-500"><i class="fas fa-code"></i></div>
+                        </div>
 
-                <!-- Features Texto Derecha -->
-                <div class="lg:w-1/3 space-y-6 order-3 px-4 md:px-0">
-                    <div class="glass p-6 rounded-2xl reveal group hover:border-purple-500/40 transition-colors">
-                        <div class="absolute inset-0 bg-purple-500/5 z-0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        <h3 class="text-xl font-bold text-white mb-3 relative z-10 flex items-center gap-3"><i class="fas fa-brain text-purple-400 text-2xl"></i> Dashboard IA</h3>
-                        <p class="text-sm text-gray-400 relative z-10 leading-relaxed">Panel administrativo que no solo muestra datos, sino que predice tendencias de venta usando algoritmos de Machine Learning.</p>
+                        <!-- Área de Código -->
+                        <div class="p-6 overflow-x-auto custom-scrollbar relative">
+                            <pre class="font-mono text-sm leading-relaxed"><code id="code-display" class="language-javascript text-gray-300">
+<span class="text-purple-400">import</span> { <span class="text-yellow-300">motion</span> } <span class="text-purple-400">from</span> <span class="text-green-300">'framer-motion'</span>;
+
+<span class="text-blue-400">export const</span> <span class="text-yellow-300">ProductCard</span> = ({ <span class="text-red-300">data</span> }) => {
+  <span class="text-purple-400">return</span> (
+    &lt;<span class="text-yellow-300">motion.div</span> 
+      <span class="text-green-300">whileHover</span>={{ <span class="text-blue-300">scale</span>: <span class="text-orange-300">1.05</span> }}
+      <span class="text-green-300">className</span>=<span class="text-green-300">"bg-white rounded-xl shadow-lg p-4"</span>
+    &gt;
+      &lt;<span class="text-yellow-300">h3</span>&gt;{<span class="text-red-300">data</span>.title}&lt;/<span class="text-yellow-300">h3</span>&gt;
+      &lt;<span class="text-yellow-300">PriceTag</span> <span class="text-green-300">value</span>={<span class="text-red-300">data</span>.price} /&gt;
+      &lt;<span class="text-yellow-300">BuyButton</span> <span class="text-green-300">onClick</span>={<span class="text-blue-300">addToCart</span>} /&gt;
+    &lt;/<span class="text-yellow-300">motion.div</span>&gt;
+  );
+};
+                            </code></pre>
+                            
+                            <!-- Cursor Parpadeante -->
+                            <div class="absolute bottom-6 right-6 w-2 h-4 bg-blue-500 animate-pulse"></div>
+                        </div>
                     </div>
-                    <div class="glass p-6 rounded-2xl reveal group hover:border-green-500/40 transition-colors">
-                        <div class="absolute inset-0 bg-green-500/5 z-0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        <h3 class="text-xl font-bold text-white mb-3 relative z-10 flex items-center gap-3"><i class="fab fa-whatsapp text-green-400 text-2xl"></i> Bots Conversacionales</h3>
-                        <p class="text-sm text-gray-400 relative z-10 leading-relaxed">Agentes inteligentes en WhatsApp que cierran ventas, agendan citas y resuelven dudas 24/7 sin intervención humana.</p>
-                    </div>
+                    
+                    <!-- Decoración detrás del código -->
+                    <div class="absolute -z-10 top-10 -right-10 w-72 h-72 bg-blue-600/20 rounded-full blur-[100px]"></div>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- PROCESO DETALLADO -->
-    <section id="proceso" class="py-24 bg-dark relative overflow-hidden">
-        <div class="bg-blend-image opacity-30" style="background-image: url('https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=1080&auto=format&fit=crop');"></div>
-        <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, #050505, rgba(10,10,10,0.8), #050505); z-index: 0;"></div>
-
+    <!-- SOLUCIONES (Servicios) -->
+    <section id="servicios" class="py-24 bg-slate-950 relative">
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-20 reveal">
-                <h2 class="text-3xl md:text-5xl font-display font-bold text-white">Mi Proceso de Ingeniería</h2>
-                <p class="text-gray-400 mt-4 max-w-xl mx-auto">Metodología ágil dividida en sprints de alto impacto.</p>
+                <span class="text-blue-500 font-mono text-xs tracking-widest uppercase mb-3 block font-bold">Nuestras Capacidades</span>
+                <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">Soluciones Empresariales Integrales</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto font-light">Desarrollamos tecnología que se integra directamente con sus objetivos de facturación y operación.</p>
             </div>
 
-            <div class="relative max-w-5xl mx-auto">
-                <!-- Línea Central -->
-                <div class="timeline-line hidden md:block dynamic-line-color h-full absolute left-1/2 w-0.5 bg-gradient-to-b from-transparent via-blue-500 to-transparent transform -translate-x-1/2 opacity-30"></div>
-                
-                <div class="space-y-16 relative z-10">
-                    
-                    <!-- Paso 1 -->
-                    <div class="flex flex-col md:flex-row items-center justify-between gap-8 group reveal hover-trigger">
-                        <div class="md:w-5/12 text-right order-2 md:order-1 pr-4">
-                            <h3 class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors dynamic-hover-text mb-3">1. Análisis Neural & Estrategia</h3>
-                            <p class="text-gray-400 text-sm leading-relaxed">Auditoría profunda de tu modelo de negocio. Identificamos cuellos de botella y definimos el stack tecnológico (React, Node, Python) que garantiza escalabilidad a largo plazo.</p>
-                        </div>
-                        <div class="w-16 h-16 rounded-full bg-dark border border-white/10 flex items-center justify-center text-blue-500 shadow-[0_0_30px_rgba(59,130,246,0.3)] z-10 order-1 md:order-2 bg-black shrink-0 mx-auto md:mx-0 dynamic-step-border relative transition-transform group-hover:scale-110">
-                            <div class="absolute inset-0 rounded-full border-2 border-blue-500/50 animate-ping opacity-20"></div>
-                            <i class="fas fa-search text-xl"></i>
-                        </div>
-                        <div class="md:w-5/12 order-3 pl-4 hidden md:block"><span class="text-xs font-mono text-gray-600">SEM 1</span></div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass p-8 rounded-xl reveal hover:bg-slate-800/50 group cursor-default">
+                    <div class="w-12 h-12 bg-blue-600/10 rounded-lg flex items-center justify-center text-blue-500 mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        <i class="fas fa-credit-card text-xl"></i>
                     </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Infraestructura de Pagos</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-6">Integración certificada de pasarelas (Stripe, MercadoPago, Wompi). Manejo de webhooks, conciliación automática y seguridad antifraude.</p>
+                    <ul class="text-xs text-slate-500 space-y-2 font-mono">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-blue-500"></i> Cobros Recurrentes (SaaS)</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-blue-500"></i> Split de Pagos (Marketplace)</li>
+                    </ul>
+                </div>
 
-                    <!-- Paso 2 -->
-                    <div class="flex flex-col md:flex-row items-center justify-between gap-8 group reveal hover-trigger">
-                        <div class="md:w-5/12 order-2 md:order-1 pr-4 hidden md:block text-right"><span class="text-xs font-mono text-gray-600">SEM 2</span></div>
-                        <div class="w-16 h-16 rounded-full bg-dark border border-white/10 flex items-center justify-center text-purple-500 shadow-[0_0_30px_rgba(168,85,247,0.3)] z-10 order-1 md:order-2 bg-black shrink-0 mx-auto md:mx-0 dynamic-step-border relative transition-transform group-hover:scale-110">
-                            <i class="fas fa-layer-group text-xl"></i>
-                        </div>
-                        <div class="md:w-5/12 text-left order-3 text-right md:text-left pl-4">
-                            <h3 class="text-2xl font-bold text-white group-hover:text-purple-400 transition-colors dynamic-hover-text mb-3">2. UX/UI & Prototipado</h3>
-                            <p class="text-gray-400 text-sm leading-relaxed">Diseño centrado en la conversión. Creamos wireframes interactivos y maquetas de alta fidelidad para validar la experiencia de usuario antes de escribir una sola línea de código.</p>
-                        </div>
+                <!-- Card 2 -->
+                <div class="glass p-8 rounded-xl reveal hover:bg-slate-800/50 group cursor-default" style="transition-delay: 100ms;">
+                    <div class="w-12 h-12 bg-purple-600/10 rounded-lg flex items-center justify-center text-purple-500 mb-6 group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                        <i class="fas fa-brain text-xl"></i>
                     </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Inteligencia Artificial (B2B)</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-6">Implementación de LLMs (Modelos de Lenguaje) para atención al cliente automatizada, análisis de datos predictivo y optimización de procesos internos.</p>
+                    <ul class="text-xs text-slate-500 space-y-2 font-mono">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-purple-500"></i> Chatbots RAG (Contexto Propio)</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-purple-500"></i> Automatización de Leads</li>
+                    </ul>
+                </div>
 
-                    <!-- Paso 3 -->
-                    <div class="flex flex-col md:flex-row items-center justify-between gap-8 group reveal hover-trigger">
-                        <div class="md:w-5/12 text-right order-2 md:order-1 pr-4">
-                            <h3 class="text-2xl font-bold text-white group-hover:text-green-400 transition-colors dynamic-hover-text mb-3">3. Desarrollo & Integración</h3>
-                            <p class="text-gray-400 text-sm leading-relaxed">Programación modular y limpia ("Clean Code"). Integración robusta de APIs bancarias, sistemas de inventario y entrenamiento de modelos de IA personalizados.</p>
-                        </div>
-                        <div class="w-16 h-16 rounded-full bg-dark border border-white/10 flex items-center justify-center text-green-500 shadow-[0_0_30px_rgba(34,197,94,0.3)] z-10 order-1 md:order-2 bg-black shrink-0 mx-auto md:mx-0 dynamic-step-border relative transition-transform group-hover:scale-110">
-                            <i class="fas fa-code text-xl"></i>
-                        </div>
-                        <div class="md:w-5/12 order-3 pl-4 hidden md:block"><span class="text-xs font-mono text-gray-600">SEM 3-4</span></div>
+                <!-- Card 3 -->
+                <div class="glass p-8 rounded-xl reveal hover:bg-slate-800/50 group cursor-default" style="transition-delay: 200ms;">
+                    <div class="w-12 h-12 bg-green-600/10 rounded-lg flex items-center justify-center text-green-500 mb-6 group-hover:bg-green-600 group-hover:text-white transition-colors">
+                        <i class="fas fa-mobile-screen text-xl"></i>
                     </div>
-
-                    <!-- Paso 4 -->
-                    <div class="flex flex-col md:flex-row items-center justify-between gap-8 group reveal hover-trigger">
-                        <div class="md:w-5/12 order-2 md:order-1 pr-4 hidden md:block text-right"><span class="text-xs font-mono text-gray-600">LANZAMIENTO</span></div>
-                        <div class="w-16 h-16 rounded-full bg-dark border border-white/10 flex items-center justify-center text-white shadow-[0_0_30px_rgba(255,255,255,0.3)] z-10 order-1 md:order-2 bg-black shrink-0 mx-auto md:mx-0 dynamic-step-border relative transition-transform group-hover:scale-110">
-                            <i class="fas fa-rocket text-xl"></i>
-                        </div>
-                        <div class="md:w-5/12 text-left order-3 text-right md:text-left pl-4">
-                            <h3 class="text-2xl font-bold text-white group-hover:text-white transition-colors dynamic-hover-text mb-3">4. Despliegue & Escala</h3>
-                            <p class="text-gray-400 text-sm leading-relaxed">Lanzamiento en infraestructura cloud global (Vercel/AWS). Optimización técnica de SEO para Google y tests de carga para asegurar estabilidad bajo tráfico masivo.</p>
-                        </div>
-                    </div>
-
+                    <h3 class="text-xl font-bold text-white mb-3">Plataformas Omnicanal</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-6">Desarrollo de PWAs (Progressive Web Apps) que funcionan como aplicaciones nativas sin necesidad de descargas, optimizadas para conversión móvil.</p>
+                    <ul class="text-xs text-slate-500 space-y-2 font-mono">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Modo Offline & Sync</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Dashboard Administrativo</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CONSULTOR IA -->
-    <section id="ia-lab" class="py-24 bg-black relative overflow-hidden">
-        <div class="absolute -right-20 top-20 w-96 h-96 bg-purple-600/10 rounded-full blur-[120px] dynamic-glow-secondary"></div>
-        <div class="absolute -left-20 bottom-20 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px]"></div>
+    <section id="ia-lab" class="py-24 bg-slate-900 border-y border-slate-800 relative overflow-hidden">
+        <!-- Decoración de Fondo (Sutil) -->
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-blue-900/5 to-transparent"></div>
 
-        <div class="container mx-auto px-6 relative z-10 max-w-4xl">
-            <div class="text-center mb-12 reveal">
-                <span class="text-purple-400 font-mono text-xs tracking-widest uppercase mb-2 block dynamic-text-color-secondary font-bold">Powered by Gemini AI</span>
-                <h2 class="text-4xl md:text-5xl font-display font-bold text-white">Laboratorio de Ideas</h2>
-                <p class="text-gray-400 mt-4">Cuéntale a mi IA sobre tu negocio y recibe una estrategia técnica al instante.</p>
-            </div>
-
-            <div class="bg-gradient-to-br from-white/10 to-transparent p-[1px] rounded-3xl reveal shadow-2xl">
-                <div class="bg-gray-900/90 rounded-[22px] p-6 md:p-10 backdrop-blur-xl border border-white/5 relative overflow-hidden neon-pulse">
-                    <!-- Decoración interna -->
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-50"></div>
-
-                    <div class="flex flex-col gap-6">
-                        <div>
-                            <label class="text-xs text-gray-400 font-mono ml-1 mb-2 block uppercase tracking-wider">Describe tu proyecto:</label>
-                            <textarea id="ai-input" rows="3" class="w-full bg-black/60 border border-white/10 rounded-xl p-4 text-white focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all resize-none text-lg font-mono dynamic-focus-ring placeholder-gray-600" placeholder="Ej: Tengo una tienda de ropa en Instagram y quiero automatizar los pedidos y pagos..."></textarea>
-                        </div>
-                        
-                        <div class="flex justify-end">
-                            <button onclick="consultarIA()" id="ai-btn" class="w-full md:w-auto px-8 py-4 bg-white text-black font-bold rounded-xl hover:bg-gray-100 transition-all flex items-center justify-center gap-3 shadow-lg hover:shadow-purple-500/20 active:scale-95 group">
-                                <span>Generar Estrategia</span>
-                                <i class="fas fa-sparkles text-purple-600 dynamic-icon-color-secondary group-hover:rotate-12 transition-transform"></i>
-                            </button>
-                        </div>
+        <div class="container mx-auto px-6 relative z-10 max-w-5xl">
+            <div class="flex flex-col md:flex-row gap-12 items-start">
+                
+                <div class="w-full md:w-1/3 reveal">
+                    <span class="text-blue-400 font-mono text-xs font-bold tracking-widest uppercase mb-2 block">AI Consultant Beta</span>
+                    <h2 class="text-3xl font-bold text-white mb-4">¿Tiene un desafío técnico?</h2>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Nuestro motor de IA, entrenado con arquitectura de software empresarial, puede ofrecerle un análisis preliminar de infraestructura en segundos.</p>
+                    <div class="p-4 bg-slate-800/50 rounded border border-slate-700">
+                        <p class="text-xs text-slate-500 italic">"Ejemplo: Necesito un sistema para gestionar inventario de 5 bodegas y facturar electrónicamente en Colombia."</p>
                     </div>
+                </div>
 
-                    <div id="ai-result" class="hidden mt-8 border-t border-white/10 pt-8 animation-fade-in">
-                        <div class="flex items-center justify-between mb-6">
-                            <div class="flex items-center gap-3 bg-green-500/10 px-3 py-1 rounded-full border border-green-500/20">
-                                <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse indicator-dot"></div>
-                                <span class="text-xs font-bold text-green-300 tracking-wide">ANÁLISIS COMPLETADO</span>
+                <div class="w-full md:w-2/3 reveal">
+                    <div class="bg-slate-800 rounded-xl p-1 shadow-2xl border border-slate-700">
+                        <div class="bg-slate-900 rounded-lg p-6 md:p-8 relative overflow-hidden">
+                            <div class="flex flex-col gap-4">
+                                <label class="text-xs text-slate-400 font-mono font-semibold uppercase">Descripción del Requerimiento</label>
+                                <textarea id="ai-input" rows="3" class="w-full bg-slate-950 border border-slate-700 rounded p-4 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all resize-none text-sm font-mono placeholder-slate-600" placeholder="Describa su necesidad operativa aquí..."></textarea>
+                                
+                                <div class="flex justify-between items-center mt-2">
+                                    <span class="text-[10px] text-slate-600 font-mono flex items-center gap-1"><span class="w-2 h-2 bg-green-500 rounded-full"></span> SYSTEM ONLINE</span>
+                                    <button onclick="consultarIA()" id="ai-btn" class="px-6 py-3 bg-white text-slate-900 font-bold rounded hover:bg-slate-200 transition-all text-sm flex items-center gap-2">
+                                        <i class="fas fa-microchip"></i> Generar Análisis
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                        <div id="ai-content" class="text-gray-300 text-sm leading-loose ai-response font-light mb-8 p-4 bg-black/40 rounded-lg border border-white/5"></div>
-                        <div class="flex justify-end">
-                            <a href="#cotizar" class="text-sm text-purple-400 hover:text-white transition-colors border-b border-purple-400/30 pb-1 font-bold dynamic-text-color-secondary hover:border-white">Ver Presupuesto Desglosado &rarr;</a>
+
+                            <div id="ai-result" class="hidden mt-8 border-t border-slate-800 pt-6">
+                                <h4 class="text-sm font-bold text-blue-400 mb-4 flex items-center gap-2"><i class="fas fa-file-contract"></i> REPORTE TÉCNICO PRELIMINAR</h4>
+                                <div id="ai-content" class="text-slate-300 text-sm leading-relaxed ai-response font-light mb-6 p-4 bg-slate-950/50 rounded border border-slate-800/50"></div>
+                                <div class="flex justify-end">
+                                    <a href="#cotizar" class="text-xs text-white hover:text-blue-400 transition-colors border-b border-slate-700 pb-1 font-mono uppercase tracking-wide">Proceder a Configuración &rarr;</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- NUEVA SECCIÓN: HERRAMIENTAS GRATUITAS (LEAD MAGNET) -->
-    <section id="herramientas" class="py-20 bg-dark relative border-t border-white/5 overflow-hidden">
-        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+    <!-- CONFIGURADOR (Cotizador B2B) -->
+    <footer id="cotizar" class="pt-24 pb-12 bg-slate-950 border-t border-slate-800 relative">
         <div class="container mx-auto px-6 relative z-10">
-            
-            <div class="flex flex-col lg:flex-row items-center gap-12">
-                <!-- Texto de Venta -->
-                <div class="lg:w-1/2 reveal">
-                    <span class="text-green-400 font-mono text-xs tracking-widest uppercase mb-2 block font-bold">Herramienta Gratuita</span>
-                    <h2 class="text-3xl md:text-5xl font-display font-bold text-white mb-6">Generador de Links <span class="text-green-500">WhatsApp</span></h2>
-                    <p class="text-gray-400 text-lg mb-6">Crea enlaces personalizados para tu Instagram o Facebook en segundos. Tus clientes te contactarán con un clic.</p>
-                    
-                    <div class="bg-blue-500/10 border-l-4 border-blue-500 p-4 rounded-r-lg mb-8">
-                        <p class="text-sm text-blue-200">
-                            <strong class="block text-white mb-1"><i class="fas fa-lightbulb text-yellow-400 mr-1"></i> Consejo Pro:</strong>
-                            "Una vez tengas el link, la clave es responder rápido. ¿Sabías que el 70% de las ventas se pierden por demoras en responder? Mi <strong>Chatbot IA</strong> responde en 0.5 segundos."
-                        </p>
-                    </div>
-                </div>
-
-                <!-- La Herramienta -->
-                <div class="lg:w-1/2 w-full reveal">
-                    <div class="glass p-8 rounded-3xl border border-white/10 shadow-2xl relative">
-                        <div class="absolute -top-4 -right-4 w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white text-xl shadow-lg animate-bounce">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-
-                        <div class="space-y-5">
-                            <div>
-                                <label class="text-xs text-gray-400 uppercase font-bold tracking-wider mb-2 block">Tu Número (Sin +)</label>
-                                <div class="flex items-center bg-black/50 rounded-xl border border-white/10 overflow-hidden focus-within:border-green-500 transition-colors">
-                                    <span class="pl-4 text-gray-500 select-none"><i class="fas fa-phone-alt"></i></span>
-                                    <input type="number" id="wa-number" class="w-full bg-transparent p-4 text-white focus:outline-none font-mono" placeholder="Ej: 573001234567">
-                                </div>
-                            </div>
-                            
-                            <div>
-                                <label class="text-xs text-gray-400 uppercase font-bold tracking-wider mb-2 block">Mensaje Predefinido</label>
-                                <textarea id="wa-message" rows="2" class="w-full bg-black/50 border border-white/10 rounded-xl p-4 text-white focus:border-green-500 focus:outline-none transition-colors resize-none" placeholder="Hola, quiero más información sobre sus servicios..."></textarea>
-                            </div>
-
-                            <button onclick="generateWhatsAppLink()" class="w-full py-4 bg-green-600 hover:bg-green-500 text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-green-500/30 flex items-center justify-center gap-2 group">
-                                Generar Link Mágico <i class="fas fa-magic group-hover:rotate-12 transition-transform"></i>
-                            </button>
-
-                            <!-- Resultado (Oculto al inicio) -->
-                            <div id="wa-result" class="hidden pt-4 border-t border-white/10 mt-4">
-                                <p class="text-xs text-center text-gray-400 mb-2">Tu Enlace Personalizado:</p>
-                                <div class="flex gap-2">
-                                    <input type="text" id="wa-output" readonly class="w-full bg-black/80 text-green-400 text-xs p-3 rounded-lg border border-green-500/30 font-mono truncate">
-                                    <button onclick="copyToClipboard()" class="bg-white/10 hover:bg-white/20 text-white p-3 rounded-lg transition-colors" title="Copiar"><i class="fas fa-copy"></i></button>
-                                    <a id="wa-test-btn" href="#" target="_blank" class="bg-green-500/20 hover:bg-green-500/30 text-green-400 p-3 rounded-lg transition-colors border border-green-500/30" title="Probar"><i class="fas fa-external-link-alt"></i></a>
-                                </div>
-                                <p id="copy-feedback" class="text-center text-xs text-green-400 mt-2 opacity-0 transition-opacity">¡Copiado al portapapeles!</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- COTIZADOR & FOOTER -->
-    <footer id="cotizar" class="pt-24 pb-10 bg-black border-t border-white/5 relative">
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="grid md:grid-cols-2 gap-20">
+            <div class="grid lg:grid-cols-2 gap-16">
+                
+                <!-- Columna Izquierda: Configurador -->
                 <div class="reveal">
-                    <h2 class="text-3xl font-display font-bold text-white mb-2">Cotizador Dinámico</h2>
-                    <p class="text-gray-500 mb-8 text-sm">Selecciona los módulos que necesitas.</p>
+                    <h2 class="text-2xl font-bold text-white mb-2">Configurador de Infraestructura</h2>
+                    <p class="text-slate-500 mb-8 text-sm">Seleccione los módulos requeridos para su proyecto.</p>
                     
-                    <div class="space-y-4" id="modules-container">
-                        <!-- Items del cotizador (Misma lógica, mejor estilo) -->
-                        <label class="flex items-center justify-between p-5 rounded-2xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.99] dynamic-hover-border">
+                    <div class="space-y-3" id="modules-container">
+                        <!-- Módulo Base (Siempre visible) -->
+                        <label class="flex items-center justify-between p-4 rounded bg-slate-900 border border-slate-800 cursor-not-allowed opacity-75">
                             <div class="flex items-center gap-4">
-                                <div class="w-6 h-6 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 dynamic-group-border transition-colors"><div class="w-3 h-3 bg-blue-500 rounded-full dynamic-bg"></div></div>
+                                <div class="w-5 h-5 rounded border border-slate-600 flex items-center justify-center bg-blue-900/20"><div class="w-2.5 h-2.5 bg-blue-500 rounded-sm"></div></div>
                                 <div>
-                                    <span class="text-white font-medium group-hover:text-blue-400 transition-colors block dynamic-hover-text">Base Web Profesional</span>
-                                    <span class="text-xs text-gray-500">Hosting, Dominio, SSL, UX/UI</span>
+                                    <span class="text-slate-200 font-medium text-sm block">Core Digital (Base)</span>
+                                    <span class="text-xs text-slate-600">Hosting Cloud, Dominio, SSL, UX/UI</span>
                                 </div>
                             </div>
-                            <span class="font-mono text-gray-400">$400.000</span>
-                            <input type="checkbox" id="check-base" data-name="Base Web" value="400000" checked disabled class="hidden item-checkbox">
+                            <span class="text-xs font-mono text-slate-500">REQUERIDO</span>
+                            <input type="checkbox" id="check-base" data-name="Core Digital" checked disabled class="hidden item-checkbox">
                         </label>
                         
-                        <!-- PAGO -->
-                        <label class="flex items-center justify-between p-5 rounded-2xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.99] dynamic-hover-border">
+                        <!-- Módulo Pagos -->
+                        <label class="flex items-center justify-between p-4 rounded bg-slate-900 border border-slate-800 hover:border-blue-500/30 cursor-pointer transition-all group">
                             <div class="flex items-center gap-4">
-                                <div class="w-6 h-6 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 relative dynamic-group-border transition-colors">
-                                    <input type="checkbox" id="check-pagos" data-name="Pasarela de Pagos" value="300000" onchange="calculateTotal()" class="opacity-0 absolute inset-0 cursor-pointer peer item-checkbox">
-                                    <div class="w-3 h-3 bg-blue-500 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity dynamic-bg"></div>
+                                <div class="w-5 h-5 rounded border border-slate-600 flex items-center justify-center relative bg-slate-950">
+                                    <input type="checkbox" id="check-pagos" data-name="Módulo Fintech (Pagos)" onchange="updateConfiguratorUI()" class="opacity-0 absolute inset-0 cursor-pointer peer item-checkbox">
+                                    <div class="w-2.5 h-2.5 bg-blue-500 rounded-sm opacity-0 peer-checked:opacity-100 transition-opacity"></div>
                                 </div>
                                 <div>
-                                    <span class="text-white font-medium group-hover:text-blue-400 transition-colors block dynamic-hover-text">Pasarela de Pagos</span>
-                                    <span class="text-xs text-gray-500">MercadoPago / Wompi / Stripe</span>
+                                    <span class="text-slate-200 font-medium text-sm block group-hover:text-blue-400 transition-colors">Módulo Fintech (Pagos)</span>
+                                    <span class="text-xs text-slate-500">Procesamiento de tarjetas y conciliación</span>
                                 </div>
                             </div>
-                            <span class="font-mono text-gray-400">$300.000</span>
                         </label>
 
-                         <!-- CHATBOT -->
-                        <label class="flex items-center justify-between p-5 rounded-2xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.99] dynamic-hover-border">
+                         <!-- Módulo IA -->
+                        <label class="flex items-center justify-between p-4 rounded bg-slate-900 border border-slate-800 hover:border-purple-500/30 cursor-pointer transition-all group">
                             <div class="flex items-center gap-4">
-                                <div class="w-6 h-6 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 relative dynamic-group-border transition-colors">
-                                    <input type="checkbox" id="check-chatbot" data-name="Chatbot IA" value="500000" onchange="calculateTotal()" class="opacity-0 absolute inset-0 cursor-pointer peer item-checkbox">
-                                    <div class="w-3 h-3 bg-blue-500 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity dynamic-bg"></div>
+                                <div class="w-5 h-5 rounded border border-slate-600 flex items-center justify-center relative bg-slate-950">
+                                    <input type="checkbox" id="check-chatbot" data-name="Asistente Cognitivo (IA)" onchange="updateConfiguratorUI()" class="opacity-0 absolute inset-0 cursor-pointer peer item-checkbox">
+                                    <div class="w-2.5 h-2.5 bg-purple-500 rounded-sm opacity-0 peer-checked:opacity-100 transition-opacity"></div>
                                 </div>
                                 <div>
-                                    <span class="text-white font-medium group-hover:text-blue-400 transition-colors block dynamic-hover-text">Chatbot IA</span>
-                                    <span class="text-xs text-gray-500">Respuestas automáticas 24/7</span>
+                                    <span class="text-slate-200 font-medium text-sm block group-hover:text-purple-400 transition-colors">Asistente Cognitivo (IA)</span>
+                                    <span class="text-xs text-slate-500">Automatización de atención 24/7</span>
                                 </div>
                             </div>
-                            <span class="font-mono text-gray-400">$300.000</span>
                         </label>
 
-                        <!-- PWA -->
-                        <label class="flex items-center justify-between p-5 rounded-2xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.99] dynamic-hover-border">
+                        <!-- Módulo PWA -->
+                        <label class="flex items-center justify-between p-4 rounded bg-slate-900 border border-slate-800 hover:border-green-500/30 cursor-pointer transition-all group">
                             <div class="flex items-center gap-4">
-                                <div class="w-6 h-6 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 relative dynamic-group-border transition-colors">
-                                    <input type="checkbox" id="check-pwa" data-name="App PWA" value="500000" onchange="calculateTotal()" class="opacity-0 absolute inset-0 cursor-pointer peer item-checkbox">
-                                    <div class="w-3 h-3 bg-blue-500 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity dynamic-bg"></div>
+                                <div class="w-5 h-5 rounded border border-slate-600 flex items-center justify-center relative bg-slate-950">
+                                    <input type="checkbox" id="check-pwa" data-name="Plataforma Omnicanal (PWA)" onchange="updateConfiguratorUI()" class="opacity-0 absolute inset-0 cursor-pointer peer item-checkbox">
+                                    <div class="w-2.5 h-2.5 bg-green-500 rounded-sm opacity-0 peer-checked:opacity-100 transition-opacity"></div>
                                 </div>
                                 <div>
-                                    <span class="text-white font-medium group-hover:text-blue-400 transition-colors block dynamic-hover-text">App Móvil (PWA)</span>
-                                    <span class="text-xs text-gray-500">Instalable en iOS y Android</span>
+                                    <span class="text-slate-200 font-medium text-sm block group-hover:text-green-400 transition-colors">Plataforma Omnicanal (PWA)</span>
+                                    <span class="text-xs text-slate-500">App web instalable multiplataforma</span>
                                 </div>
                             </div>
-                            <span class="font-mono text-gray-400">$500.000</span>
                         </label>
 
-                        <div id="dynamic-modules-container" class="space-y-4"></div>
+                        <div id="dynamic-modules-container" class="space-y-3 pt-2"></div>
                     </div>
 
-                    <div class="mt-10 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
-                        <div class="text-center md:text-left">
-                            <p class="text-xs text-gray-500 uppercase tracking-widest mb-1">Inversión Estimada</p>
-                            <p class="text-5xl font-display font-bold text-white tracking-tight" id="total-display">$200.000</p>
-                            <p class="text-xs text-blue-500 mt-2 dynamic-text-color font-mono">*Precios en COP (Negociable)</p>
+                    <div class="mt-8 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6">
+                        <div>
+                            <p class="text-[10px] text-slate-500 uppercase tracking-widest mb-1" id="presupuesto-label">Seleccione Módulos</p>
+                            <div id="total-display" class="font-mono text-xl text-slate-400">--</div>
                         </div>
-                        <a href="#" id="btn-cotizar" target="_blank" class="w-full md:w-auto px-10 py-5 bg-white text-black font-bold rounded-xl hover:bg-gray-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] text-center active:scale-95 flex items-center justify-center gap-3 group">
-                            <span>Finalizar en WhatsApp</span> 
-                            <i class="fab fa-whatsapp text-xl group-hover:scale-110 transition-transform text-green-600"></i>
+                        <a href="#" id="btn-cotizar" target="_blank" class="w-full sm:w-auto px-8 py-4 bg-white hover:bg-slate-200 text-slate-900 font-bold rounded transition-all flex items-center justify-center gap-3 shadow-lg">
+                            <span>Contactar Soporte</span> 
+                            <i class="fas fa-arrow-right text-sm"></i>
                         </a>
                     </div>
                 </div>
                 
-                <!-- Contacto & Footer Right -->
+                <!-- Columna Derecha: Info de Contacto -->
                 <div class="flex flex-col justify-between reveal">
-                    <div class="bg-white/5 p-8 rounded-3xl border border-white/5 backdrop-blur-sm">
-                        <h3 class="text-2xl font-bold text-white mb-8">Hablemos de negocios</h3>
-                        <ul class="space-y-8 text-gray-400">
-                            <li class="flex items-center gap-5 group">
-                                <div class="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center group-hover:border-blue-500/50 transition-colors"><i class="fas fa-envelope text-lg group-hover:text-white transition-colors"></i></div>
-                                <div><span class="block text-xs uppercase tracking-wider text-gray-600">Email</span><span class="text-white">contacto@devinson.lat</span></div>
+                    <div class="bg-slate-900 p-8 rounded-xl border border-slate-800">
+                        <h3 class="text-xl font-bold text-white mb-6">Información Corporativa</h3>
+                        <ul class="space-y-6 text-slate-400">
+                            <li class="flex items-start gap-4">
+                                <i class="fas fa-envelope mt-1 text-slate-500"></i>
+                                <div>
+                                    <span class="block text-xs uppercase tracking-wider text-slate-600 font-bold">Email Comercial</span>
+                                    <span class="text-white text-sm">contacto@devinson.lat</span>
+                                </div>
                             </li>
-                            <li class="flex items-center gap-5 group">
-                                <div class="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center group-hover:border-green-500/50 transition-colors"><i class="fab fa-whatsapp text-lg group-hover:text-white transition-colors"></i></div>
-                                <div><span class="block text-xs uppercase tracking-wider text-gray-600">WhatsApp</span><span class="text-white">+57 321 520 3354</span></div>
+                            <li class="flex items-start gap-4">
+                                <i class="fab fa-whatsapp mt-1 text-slate-500"></i>
+                                <div>
+                                    <span class="block text-xs uppercase tracking-wider text-slate-600 font-bold">Línea Directa</span>
+                                    <span class="text-white text-sm">+57 321 520 3354</span>
+                                </div>
                             </li>
-                            <li class="flex items-center gap-5 group">
-                                <div class="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center group-hover:border-purple-500/50 transition-colors"><i class="fas fa-map-marker-alt text-lg group-hover:text-white transition-colors"></i></div>
-                                <div><span class="block text-xs uppercase tracking-wider text-gray-600">Ubicación</span><span class="text-white">Valledupar, Colombia</span></div>
+                            <li class="flex items-start gap-4">
+                                <i class="fas fa-building mt-1 text-slate-500"></i>
+                                <div>
+                                    <span class="block text-xs uppercase tracking-wider text-slate-600 font-bold">Oficinas</span>
+                                    <span class="text-white text-sm">Valledupar, Cesar, Colombia.</span>
+                                </div>
                             </li>
                         </ul>
                     </div>
                     
-                    <div class="mt-12 text-center md:text-right">
-                        <div class="inline-block p-4 border border-white/5 rounded-2xl bg-black/50 backdrop-blur-md">
-                            <p class="text-sm text-gray-400 italic">"El código es poesía, la IA es el pincel."</p>
-                        </div>
+                    <div class="mt-8 text-right">
+                        <p class="text-xs text-slate-600 font-mono">
+                            &copy; 2025 Devinson Systems.<br>Todos los derechos reservados.
+                        </p>
                     </div>
-                </div>
-            </div>
-            
-            <div class="flex flex-col md:flex-row justify-between items-center border-t border-white/5 pt-10 mt-16 text-xs text-gray-600 font-mono uppercase tracking-widest gap-4">
-                <span>© 2024 Devinson System.</span>
-                <div class="flex gap-4">
-                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
-                    <span>•</span>
-                    <a href="#" class="hover:text-white transition-colors">Terms</a>
                 </div>
             </div>
         </div>
