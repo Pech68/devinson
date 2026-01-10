@@ -1,289 +1,224 @@
-/* --- ESTILOS BASE & TIPOGRAFÍA --- */
+/* --- ESTILOS BASE & TIPOGRAFÍA (Identidad B2B) --- */
 html { scroll-behavior: smooth; }
+
 body { 
-    background-color: #050505; 
-    color: #ffffff; 
+    /* Fondo: Slate 900 (Azul Profundo Corporativo) en lugar de Negro puro */
+    background-color: #0f172a; 
+    color: #f8fafc; /* Slate 50 - Blanco suave para leer mejor */
     overflow-x: hidden;
-    transition: background-color 0.7s ease, color 0.7s ease;
-    position: relative;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
 }
 
-/* MEJORA 3: Selección de Texto Temática */
-::selection { background: #3b82f6; color: #ffffff; } /* Default */
-body.theme-christmas ::selection { background: #ef4444; color: white; }
-body.theme-halloween ::selection { background: #f97316; color: black; }
-body.theme-love ::selection { background: #ec4899; color: white; }
-body.theme-colombia ::selection { background: #facc15; color: black; }
+/* Selección de texto profesional */
+::selection { background: #3b82f6; color: #ffffff; }
 
-/* Scrollbar Personalizado */
-::-webkit-scrollbar { width: 8px; background: #050505; }
-::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; border: 2px solid #050505; }
-::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
+/* Scrollbar Sutil */
+::-webkit-scrollbar { width: 8px; background: #0f172a; }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #475569; }
 
-/* Canvas de Fondo */
+/* Canvas de Fondo (Red Neuronal) */
 #particles-canvas {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.6;
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.4;
 }
 
-/* Efectos de Mezcla de Imagen */
+/* Efectos de Fondo */
 .bg-blend-image {
-    position: absolute; inset: 0; background-size: cover; background-position: center; mix-blend-mode: screen; pointer-events: none; z-index: 0; filter: contrast(1.2) brightness(0.8);
+    position: absolute; inset: 0; background-size: cover; background-position: center; mix-blend-mode: overlay; pointer-events: none; z-index: 0; opacity: 0.15;
 }
 
-/* Texto Gradiente Principal */
+/* Texto Gradiente Corporativo (Azul a Cian) */
 .text-gradient {
-    background: linear-gradient(to right, #60a5fa, #c084fc);
+    background: linear-gradient(to right, #60a5fa, #38bdf8);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
 
-/* --- CLASES DE TEMAS (TEMPORADAS) --- */
-/* NAVIDAD */
-body.theme-christmas { background-color: #020c04; }
-body.theme-christmas .text-gradient { background: linear-gradient(to right, #ef4444, #22c55e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-body.theme-christmas .dynamic-text-color { color: #ef4444 !important; }
-body.theme-christmas .dynamic-text-color-secondary { color: #22c55e !important; }
-body.theme-christmas .logo-box { background: linear-gradient(to br, #ef4444, #15803d); box-shadow: 0 0 20px rgba(239, 68, 68, 0.6); }
-body.theme-christmas .indicator-dot { background-color: #ef4444; }
-body.theme-christmas .hero-btn-primary { background-color: #ef4444; }
-body.theme-christmas .hero-btn-primary:hover { background-color: #dc2626; box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4); }
-body.theme-christmas .cta-button { background-color: #22c55e; color: white; }
-body.theme-christmas .cta-button-mobile { background-color: #ef4444 !important; color: white !important; }
-body.theme-christmas .dynamic-glow { background-color: rgba(239, 68, 68, 0.15); }
-body.theme-christmas .dynamic-border { border-color: rgba(22, 163, 74, 0.3); color: #22c55e; }
-body.theme-christmas .theme-icon-bg { background-color: #ef4444; }
-body.theme-christmas .dynamic-hover-text:hover { color: #ef4444; }
-body.theme-christmas .dynamic-step-border { border-color: #ef4444; color: #ef4444; }
-body.theme-christmas .dynamic-bg { background-color: #ef4444; }
-body.theme-christmas .dynamic-group-border:hover { border-color: #ef4444; }
-body.theme-christmas .theme-chip { background-color: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); }
-body.theme-christmas .theme-icon-bg-subtle { background-color: rgba(239, 68, 68, 0.2); color: #fca5a5; }
+/* --- COMPONENTES UI CORPORATIVOS --- */
 
-/* HALLOWEEN */
-body.theme-halloween { background-color: #0f0505; }
-body.theme-halloween .text-gradient { background: linear-gradient(to right, #f97316, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-body.theme-halloween .dynamic-text-color { color: #f97316 !important; }
-body.theme-halloween .logo-box { background: linear-gradient(to br, #f97316, #6b21a8); }
-body.theme-halloween .hero-btn-primary { background-color: #f97316; }
-body.theme-halloween .hero-btn-primary:hover { background-color: #ea580c; }
-body.theme-halloween .cta-button { background-color: #a855f7; color: white; }
-body.theme-halloween .cta-button-mobile { background-color: #f97316 !important; }
-body.theme-halloween .dynamic-glow { background-color: rgba(249, 115, 22, 0.15); }
-body.theme-halloween .theme-icon-bg { background-color: #f97316; }
-body.theme-halloween .dynamic-bg { background-color: #f97316; }
-body.theme-halloween .dynamic-hover-text:hover { color: #f97316; }
-
-/* COLOMBIA */
-body.theme-colombia { background-color: #050505; }
-body.theme-colombia .text-gradient { background: linear-gradient(to right, #facc15, #3b82f6, #ef4444); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-body.theme-colombia .dynamic-text-color { color: #facc15 !important; }
-body.theme-colombia .logo-box { background: linear-gradient(to br, #facc15, #3b82f6); }
-body.theme-colombia .hero-btn-primary { background-color: #facc15; color: black; }
-body.theme-colombia .hero-btn-primary:hover { background-color: #eab308; }
-body.theme-colombia .cta-button { background-color: #3b82f6; color: white; }
-body.theme-colombia .cta-button-mobile { background-color: #facc15 !important; color: black !important; }
-body.theme-colombia .dynamic-bg { background-color: #facc15; }
-
-/* --- COMPONENTES UI --- */
-
-/* Glass Card */
+/* Glass Card "Enterprise" (Más sólida, bordes finos) */
 .glass {
-    background: rgba(20, 20, 30, 0.6); 
-    backdrop-filter: blur(16px); 
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08); 
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+    background: rgba(30, 41, 59, 0.7); /* Slate 800 semi-transparente */
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(148, 163, 184, 0.1); /* Borde muy sutil */
+    transition: all 0.3s ease;
     position: relative; 
     overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
+
 .glass:hover {
-    border-color: rgba(59, 130, 246, 0.6); 
-    transform: translateY(-5px); 
-    background: rgba(30, 30, 45, 0.8); 
-    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+    border-color: rgba(59, 130, 246, 0.4); 
+    transform: translateY(-2px); 
+    background: rgba(30, 41, 59, 0.9); 
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
 }
 
-/* 3D Container */
-.hero-image-container { position: relative; z-index: 10; transform-style: preserve-3d; transition: transform 0.1s ease-out; }
-.hero-image-container::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 25%; background: linear-gradient(to top, #050505, transparent); pointer-events: none; z-index: 30; }
+/* Botones "Titanio" */
+.hero-btn-primary, .cta-button {
+    background-color: #2563eb; /* Azul Royal sólido */
+    color: white;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.39);
+    transition: all 0.2s ease;
+}
 
-/* Floating Chips */
+.hero-btn-primary:hover, .cta-button:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.23);
+}
+
+.hero-btn-primary:active, .cta-button:active {
+    transform: translateY(1px);
+}
+
+/* Botón Secundario (Outline) */
+.btn-secondary {
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    color: #e2e8f0;
+    background: transparent;
+}
+.btn-secondary:hover {
+    background: rgba(148, 163, 184, 0.1);
+    border-color: #94a3b8;
+}
+
+/* --- ELEMENTOS DECORATIVOS --- */
+
+/* Chips Flotantes (Ahora estáticos o movimiento muy lento) */
 .tech-chip {
-    position: absolute; background: rgba(10, 15, 25, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 14px; padding: 12px 16px; display: flex; align-items: center; gap: 12px; box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.9); z-index: 20; transition: all 0.3s ease; min-width: 170px;
+    position: absolute; 
+    background: rgba(15, 23, 42, 0.95); /* Slate 900 casi sólido */
+    border: 1px solid rgba(56, 189, 248, 0.2); 
+    border-radius: 8px; /* Menos redondeado = más serio */
+    padding: 10px 14px; 
+    display: flex; align-items: center; gap: 10px; 
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3); 
+    z-index: 20;
 }
-.tech-chip:hover { transform: scale(1.1) translateZ(40px); border-color: rgba(59, 130, 246, 0.8); box-shadow: 0 0 30px rgba(59, 130, 246, 0.4); z-index: 40; background: #0f172a; }
-.chip-icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+.chip-icon { 
+    width: 32px; height: 32px; border-radius: 6px; 
+    display: flex; align-items: center; justify-content: center; 
+    background: rgba(56, 189, 248, 0.1); color: #38bdf8;
+}
 
-/* Mobile Belt */
-.mobile-belt-container { width: 200%; display: flex; gap: 1rem; animation: scrollBelt 25s linear infinite; }
-.mobile-chip { background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; padding: 8px 16px; display: flex; items-center; gap: 10px; white-space: nowrap; backdrop-filter: blur(8px); }
+/* Tarjeta Fintech (Estilo Tarjeta de Crédito Premium) */
+.holo-card { 
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid rgba(255,255,255,0.1); 
+    border-top: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    transform-style: preserve-3d; 
+    transition: transform 0.1s ease-out; 
+    position: relative; overflow: hidden; 
+}
 
-/* Holo Card */
-.holo-card { background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.15); backdrop-filter: blur(20px); transform-style: preserve-3d; transition: transform 0.1s ease-out; position: relative; overflow: hidden; }
+/* Marquee (Cinta de logos) */
+.marquee-container { overflow: hidden; white-space: nowrap; position: relative; background: #020617; border-top: 1px solid #1e293b; border-bottom: 1px solid #1e293b; }
+.marquee-content { display: inline-block; animation: marquee 40s linear infinite; color: #64748b; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.1em; }
 
-/* Marquee */
-.marquee-container { overflow: hidden; white-space: nowrap; position: relative; }
-.marquee-content { display: inline-block; animation: marquee 30s linear infinite; }
-
-/* Animations */
-.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+/* --- ANIMACIONES PROFESIONALES (Fade In > Glitch) --- */
+.reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
-/* MEJORA 2: Efecto Shine en Botones Principales */
-.hero-btn-primary, .cta-button, .cta-button-mobile {
-    position: relative;
-    overflow: hidden;
-}
-.hero-btn-primary::after, .cta-button::after, .cta-button-mobile::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -75%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
-    transform: skewX(-25deg);
-    transition: 0.5s;
-    pointer-events: none;
-}
-.hero-btn-primary:hover::after, .cta-button:hover::after, .cta-button-mobile:hover::after {
-    left: 125%;
-    transition: 0.7s ease-in-out;
-}
-
 @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-@keyframes scrollBelt { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-@keyframes floatSlow { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-.animate-float-slow { animation: floatSlow 6s ease-in-out infinite; }
 
-/* --- MOBILE MENU STYLES (CORREGIDO Y REFORZADO) --- */
+/* Animación sutil de pulso para status */
+@keyframes pulse-subtle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .5; }
+}
+.animate-pulse-slow { animation: pulse-subtle 3s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+
+/* --- MENÚ MÓVIL (Limpio) --- */
 #mobile-menu {
-    /* Forzamos posición y propiedades críticas */
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    
-    /* Estado inicial: Invisible y no interactivó */
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-10px);
-    
-    /* Estilos visuales */
-    background-color: rgba(5, 5, 5, 0.98) !important; /* Fondo casi negro sólido */
-    backdrop-filter: blur(20px);
-    z-index: 90 !important; /* Capa MUY alta, debajo solo del botón */
-    
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    
-    /* Centrado */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    position: fixed !important; top: 0; left: 0; width: 100%; height: 100vh;
+    opacity: 0; pointer-events: none; transform: translateY(-10px);
+    background-color: #0f172a !important; /* Slate 900 sólido */
+    z-index: 90 !important;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
 }
 
-#mobile-menu.open {
-    /* Estado abierto: Visible e interactivo */
-    opacity: 1 !important;
-    pointer-events: auto !important;
-    transform: translateY(0) !important;
-}
+#mobile-menu.open { opacity: 1 !important; pointer-events: auto !important; transform: translateY(0) !important; }
 
-/* Enlaces del menú más grandes y fáciles de tocar */
 #mobile-menu .mobile-link {
-    font-size: 2.2rem;
-    font-weight: 800;
-    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.5rem; /* Más pequeño y elegante */
+    font-weight: 600;
+    color: #94a3b8;
     text-decoration: none;
-    padding: 15px 0;
+    padding: 12px 0;
     display: block;
-    transition: all 0.3s ease;
+    transition: color 0.2s ease;
 }
 
-#mobile-menu .mobile-link:hover,
-#mobile-menu .mobile-link:active {
-    color: #ffffff;
-    transform: scale(1.1);
-    text-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
-}
+#mobile-menu .mobile-link:hover { color: #ffffff; }
+#mobile-menu .cta-button-mobile { margin-top: 20px; font-size: 1rem; }
 
-/* Botón Hamburger (Z-Index Extremo para que nunca se tape) */
-#menu-btn {
-    position: relative;
-    z-index: 100 !important; /* Siempre encima del menú */
-}
-
-/* Animación de la X */
-#menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); background-color: #ef4444; }
+/* Botón Hamburger */
+#menu-btn { position: relative; z-index: 100 !important; }
+#menu-btn span { background-color: #e2e8f0; height: 2px; } /* Líneas más finas */
+#menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
 #menu-btn.active span:nth-child(2) { opacity: 0; }
-#menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); background-color: #ef4444; }
+#menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
 
-.ai-loader { width: 24px; height: 24px; border: 3px solid rgba(255,255,255,0.1); border-top-color: currentColor; border-radius: 50%; animation: spin 0.8s linear infinite; }
+/* --- UTILIDADES B2B --- */
+.indicator-dot { background-color: #10b981; } /* Verde Esmeralda (Success) */
+.dynamic-text-color { color: #3b82f6 !important; } /* Azul Primary */
+
+/* Loader para IA */
+.ai-loader { 
+    width: 20px; height: 20px; 
+    border: 2px solid rgba(255,255,255,0.1); 
+    border-top-color: #3b82f6; 
+    border-radius: 50%; 
+    animation: spin 0.8s linear infinite; 
+}
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* --- NUEVOS EFECTOS DE PODER (AI DEMO) --- */
+/* Eliminamos efectos "Glitch" y "Neon" excesivos */
+.glitch-wrapper, .glitch { animation: none; color: inherit; }
+.glitch::before, .glitch::after { display: none; }
 
-/* 1. Efecto Glitch para Títulos (Cyberpunk/AI Vibe) */
-.glitch-wrapper {
-    position: relative;
-    display: inline-block;
-}
-.glitch {
-    position: relative;
-    color: white;
-}
-.glitch::before, .glitch::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.8;
-}
-.glitch::before {
-    color: #0ff;
-    z-index: -1;
-    animation: glitch-anim-1 2.5s infinite linear alternate-reverse;
-}
-.glitch::after {
-    color: #f0f;
-    z-index: -2;
-    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+/* --- SECCIÓN ARQUITECTURA (Live Code) --- */
+.stack-selector {
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
 }
 
-@keyframes glitch-anim-1 {
-    0% { clip-path: inset(20% 0 80% 0); transform: translate(-2px, 1px); }
-    20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, -1px); }
-    40% { clip-path: inset(40% 0 50% 0); transform: translate(-2px, 2px); }
-    60% { clip-path: inset(80% 0 5% 0); transform: translate(2px, -2px); }
-    80% { clip-path: inset(10% 0 70% 0); transform: translate(-1px, 1px); }
-    100% { clip-path: inset(30% 0 20% 0); transform: translate(1px, -1px); }
-}
-@keyframes glitch-anim-2 {
-    0% { clip-path: inset(10% 0 60% 0); transform: translate(2px, 1px); }
-    20% { clip-path: inset(80% 0 5% 0); transform: translate(-2px, -1px); }
-    40% { clip-path: inset(30% 0 20% 0); transform: translate(2px, 2px); }
-    60% { clip-path: inset(10% 0 80% 0); transform: translate(-2px, -2px); }
-    80% { clip-path: inset(50% 0 30% 0); transform: translate(1px, 1px); }
-    100% { clip-path: inset(20% 0 70% 0); transform: translate(-1px, -1px); }
+.stack-selector:hover {
+    transform: translateX(5px);
 }
 
-/* 2. Borde de Energía (Para la sección de IA) */
-.neon-pulse {
-    box-shadow: 0 0 10px rgba(59, 130, 246, 0.2), inset 0 0 10px rgba(59, 130, 246, 0.1);
-    animation: neonPulse 3s infinite alternate;
-}
-@keyframes neonPulse {
-    0% { box-shadow: 0 0 10px rgba(168, 85, 247, 0.2), inset 0 0 5px rgba(168, 85, 247, 0.1); border-color: rgba(168, 85, 247, 0.3); }
-    100% { box-shadow: 0 0 25px rgba(168, 85, 247, 0.6), inset 0 0 15px rgba(168, 85, 247, 0.3); border-color: rgba(168, 85, 247, 0.8); }
+.stack-selector.active {
+    background-color: #1e293b; /* Slate 800 */
+    border-color: #3b82f6; /* Blue 500 border color */
+    border-left-color: #3b82f6;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
-/* 3. Cursor de Escritura (Typewriter) */
-.typing-cursor::after {
-    content: '|';
-    animation: blink 1s step-end infinite;
-    color: #3b82f6;
+.stack-selector.active .w-10 {
+    background-color: rgba(59, 130, 246, 0.2); /* Icon bg highlight */
+    color: #60a5fa; /* Icon color highlight */
 }
-@keyframes blink { 50% { opacity: 0; } }
+
+/* Custom Scrollbar for Code Block */
+.custom-scrollbar::-webkit-scrollbar {
+    height: 8px;
+    background: #1e1e1e;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #4b5563;
+    border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #6b7280;
+}
+
+/* Ajustes de fuente para el bloque de código */
+pre code {
+    font-family: 'Fira Code', monospace;
+    font-variant-ligatures: normal;
+}
