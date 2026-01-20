@@ -43,6 +43,7 @@
                         'scroll': 'scroll 40s linear infinite',
                         'pulse-glow': 'pulseGlow 3s infinite',
                         'fade-in': 'fadeIn 0.5s ease-out forwards',
+                        'bounce-slow': 'bounce 3s infinite',
                     },
                     keyframes: {
                         float: {
@@ -55,11 +56,12 @@
                         },
                         scroll: {
                             '0%': { transform: 'translateX(0)' },
-                            '100%': { transform: 'translateX(calc(-280px * 5 - 2rem * 5))' } /* Adjusted for mobile card width */
+                            '100%': { transform: 'translateX(calc(-280px * 5 - 2rem * 5))' } 
                         },
                         pulseGlow: {
-                            '0%, 100%': { boxShadow: '0 0 20px rgba(59, 130, 246, 0.2)' },
-                            '50%': { boxShadow: '0 0 40px rgba(59, 130, 246, 0.5)' }
+                            '0%, 100%': { boxShadow: '0 0 0 0 rgba(37, 211, 102, 0.4)' },
+                            '70%': { boxShadow: '0 0 0 15px rgba(37, 211, 102, 0)' },
+                            '100%': { boxShadow: '0 0 0 0 rgba(37, 211, 102, 0)' }
                         },
                         fadeIn: {
                             '0%': { opacity: '0', transform: 'translateY(10px)' },
@@ -87,7 +89,7 @@
 
         /* Typography Utilities */
         .text-huge {
-            font-size: clamp(2.5rem, 10vw, 7rem); /* Adjusted min size for mobile */
+            font-size: clamp(2.5rem, 10vw, 7rem); 
             line-height: 0.95;
             letter-spacing: -0.04em;
         }
@@ -146,7 +148,6 @@
             width: max-content;
         }
         .carousel-card {
-            /* Responsive width for mobile */
             width: 80vw;
             max-width: 350px;
             height: 400px;
@@ -192,7 +193,6 @@
             backface-visibility: hidden;
             transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
-        /* Mobile adjustments for the deck */
         @media (max-width: 768px) {
             .deck-scale {
                 transform: scale(0.85);
@@ -210,6 +210,18 @@
             transform: translateY(0);
             opacity: 1;
             pointer-events: all;
+        }
+        
+        /* Floating Whatsapp */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
@@ -230,14 +242,14 @@
             
             <!-- Desktop Menu -->
             <div class="hidden md:flex gap-12 text-sm font-medium text-slate-300">
+                <a href="#stats" class="hover:text-white transition-colors relative group">Trayectoria</a>
                 <a href="#work" class="hover:text-white transition-colors relative group">Proyectos</a>
-                <a href="#impact" class="hover:text-white transition-colors relative group">Impacto</a>
-                <a href="#ecosystem" class="hover:text-white transition-colors relative group">Ecosistema</a>
+                <a href="#expertise" class="hover:text-white transition-colors relative group">Servicios</a>
                 <a href="#ai-consultant" class="hover:text-white transition-colors">AI Lab</a>
             </div>
 
             <a href="#contact" class="hidden md:block px-6 py-2 rounded-full border border-white/20 text-white text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all">
-                Let's Talk
+                Agendar Cita
             </a>
 
             <!-- Mobile Button -->
@@ -249,12 +261,12 @@
         <!-- Mobile Menu Overlay -->
         <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 flex flex-col justify-center items-center h-screen w-screen">
             <div class="flex flex-col gap-8 text-center text-2xl font-display font-bold text-white">
+                <a href="#stats" class="mobile-link hover:text-blue-400 transition-colors">Trayectoria</a>
                 <a href="#work" class="mobile-link hover:text-blue-400 transition-colors">Proyectos</a>
-                <a href="#impact" class="mobile-link hover:text-blue-400 transition-colors">Impacto</a>
-                <a href="#ecosystem" class="mobile-link hover:text-blue-400 transition-colors">Ecosistema</a>
+                <a href="#expertise" class="mobile-link hover:text-blue-400 transition-colors">Servicios</a>
                 <a href="#ai-consultant" class="mobile-link hover:text-blue-400 transition-colors">AI Lab</a>
-                <a href="#contact" class="mobile-link px-8 py-3 mt-4 rounded-full border border-white/20 text-sm font-sans font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all">
-                    Contacto
+                <a href="https://wa.me/573215203354" class="mobile-link px-8 py-3 mt-4 rounded-full border border-green-500/50 text-green-400 text-sm font-sans font-bold uppercase tracking-widest hover:bg-green-500 hover:text-white transition-all">
+                    <i class="fab fa-whatsapp mr-2"></i> WhatsApp
                 </a>
             </div>
         </div>
@@ -271,10 +283,10 @@
                 </h1>
                 <div class="flex flex-col md:flex-row gap-8 md:items-end justify-between">
                     <p class="text-lg md:text-xl text-slate-400 max-w-lg font-light leading-relaxed">
-                        Transformo ideas complejas en ecosistemas digitales escalables. E-commerce de alto impacto, plataformas web y automatización inteligente.
+                        Transformo ideas complejas en ecosistemas digitales escalables. Tiendas en línea que venden, sitios web rápidos y automatización inteligente.
                     </p>
                     <div class="flex gap-4">
-                        <a href="#work" class="w-14 h-14 md:w-16 md:h-16 rounded-full border border-slate-700 flex items-center justify-center text-white hover:bg-white hover:text-black hover:scale-110 transition-all duration-300">
+                        <a href="#stats" class="w-14 h-14 md:w-16 md:h-16 rounded-full border border-slate-700 flex items-center justify-center text-white hover:bg-white hover:text-black hover:scale-110 transition-all duration-300">
                             <i class="fas fa-arrow-down"></i>
                         </a>
                     </div>
@@ -288,17 +300,41 @@
         </div>
     </section>
 
-    <!-- Marquee -->
-    <div class="py-8 md:py-12 border-y border-white/5 bg-black/20 backdrop-blur-sm marquee-wrapper relative z-20">
+    <!-- NEW: STATS SECTION (Referencia Ivan) -->
+    <section id="stats" class="py-12 border-y border-white/5 bg-slate-900/30">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center reveal">
+                <div class="p-4">
+                    <span class="block text-4xl md:text-5xl font-display font-bold text-white mb-2">5+</span>
+                    <span class="text-xs md:text-sm text-slate-400 uppercase tracking-widest">Años Experiencia</span>
+                </div>
+                <div class="p-4">
+                    <span class="block text-4xl md:text-5xl font-display font-bold text-white mb-2">30+</span>
+                    <span class="text-xs md:text-sm text-slate-400 uppercase tracking-widest">Proyectos</span>
+                </div>
+                <div class="p-4">
+                    <span class="block text-4xl md:text-5xl font-display font-bold text-white mb-2">100%</span>
+                    <span class="text-xs md:text-sm text-slate-400 uppercase tracking-widest">Clientes Felices</span>
+                </div>
+                <div class="p-4">
+                    <span class="block text-4xl md:text-5xl font-display font-bold text-white mb-2">24/7</span>
+                    <span class="text-xs md:text-sm text-slate-400 uppercase tracking-widest">Soporte</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee (Updated text) -->
+    <div class="py-6 md:py-8 border-b border-white/5 bg-black/40 backdrop-blur-sm marquee-wrapper relative z-20">
         <div class="flex animate-drift whitespace-nowrap">
-            <div class="flex gap-8 md:gap-16 items-center px-8 text-2xl md:text-4xl font-display font-bold text-slate-800 uppercase tracking-tighter">
-                <span>React Enterprise</span> <span class="text-blue-900">•</span>
-                <span>Next.js</span> <span class="text-blue-900">•</span>
-                <span>AI Integration</span> <span class="text-blue-900">•</span>
-                <span>E-commerce</span> <span class="text-blue-900">•</span>
-                <span>Cloud Native</span> <span class="text-blue-900">•</span>
-                <span>React Enterprise</span> <span class="text-blue-900">•</span>
-                <span>Next.js</span> <span class="text-blue-900">•</span>
+            <div class="flex gap-8 md:gap-16 items-center px-8 text-xl md:text-3xl font-display font-bold text-slate-700 uppercase tracking-tighter">
+                <span>Diseño Web</span> <span class="text-blue-900">•</span>
+                <span>E-Commerce</span> <span class="text-blue-900">•</span>
+                <span>Marketing Digital</span> <span class="text-blue-900">•</span>
+                <span>Apps Móviles</span> <span class="text-blue-900">•</span>
+                <span>SEO & Analytics</span> <span class="text-blue-900">•</span>
+                <span>Diseño Web</span> <span class="text-blue-900">•</span>
+                <span>E-Commerce</span> <span class="text-blue-900">•</span>
             </div>
         </div>
     </div>
@@ -307,7 +343,7 @@
     <section id="work" class="py-24 md:py-32 relative">
         <div class="container mx-auto px-6">
             <div class="mb-16 md:mb-24 reveal">
-                <h2 class="text-4xl md:text-7xl font-display font-bold text-white mb-6">Selected<br>Works</h2>
+                <h2 class="text-4xl md:text-7xl font-display font-bold text-white mb-6">Proyectos<br>Destacados</h2>
                 <div class="w-24 h-1 bg-blue-600"></div>
             </div>
 
@@ -375,43 +411,46 @@
         </div>
     </section>
 
-    <!-- Services (Minimal List) -->
+    <!-- Services (Digitaliza tu negocio) -->
     <section id="expertise" class="py-24 md:py-32 bg-gradient-to-b from-slate-950 to-black">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-20 reveal">
-                <h2 class="text-4xl md:text-5xl font-display font-bold text-white">Capacidades<br>Técnicas</h2>
-                <p class="text-slate-500 max-w-sm mt-6 md:mt-0">Stack tecnológico moderno para resolver problemas de negocio reales.</p>
+                <div>
+                    <span class="text-blue-500 font-mono text-xs tracking-widest uppercase mb-2 block">Servicios</span>
+                    <h2 class="text-4xl md:text-5xl font-display font-bold text-white">Digitaliza tu<br>Negocio</h2>
+                </div>
+                <p class="text-slate-500 max-w-sm mt-6 md:mt-0">Soluciones integrales para crecer en internet, desde la idea hasta la venta.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Service 1 -->
                 <div class="group border-t border-white/10 pt-8 hover:border-blue-500 transition-colors duration-500 reveal">
-                    <i class="fas fa-code text-2xl text-slate-600 mb-6 group-hover:text-blue-500 transition-colors"></i>
-                    <h3 class="text-xl font-bold text-white mb-2">Frontend Engineering</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed">React, Astro, Tailwind. Interfaces fluidas y ultrarrápidas.</p>
+                    <i class="fas fa-desktop text-2xl text-slate-600 mb-6 group-hover:text-blue-500 transition-colors"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Diseño Web & Móvil</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Páginas web modernas y aplicaciones móviles intuitivas que reflejan la calidad de tu marca.</p>
                 </div>
                 <!-- Service 2 -->
                 <div class="group border-t border-white/10 pt-8 hover:border-purple-500 transition-colors duration-500 reveal" style="transition-delay: 100ms">
-                    <i class="fas fa-database text-2xl text-slate-600 mb-6 group-hover:text-purple-500 transition-colors"></i>
-                    <h3 class="text-xl font-bold text-white mb-2">Backend & Cloud</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed">Node.js, Firebase, AWS. Infraestructura segura y escalable.</p>
+                    <i class="fas fa-shopping-cart text-2xl text-slate-600 mb-6 group-hover:text-purple-500 transition-colors"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">E-Commerce</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Diseño e implementación de tu tienda en línea. Pasarelas de pago y gestión de inventario.</p>
                 </div>
                 <!-- Service 3 -->
                 <div class="group border-t border-white/10 pt-8 hover:border-green-500 transition-colors duration-500 reveal" style="transition-delay: 200ms">
-                    <i class="fas fa-shopping-bag text-2xl text-slate-600 mb-6 group-hover:text-green-500 transition-colors"></i>
-                    <h3 class="text-xl font-bold text-white mb-2">E-commerce</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed">Integración de pasarelas de pago (Wompi, Stripe) y lógica de negocio B2B.</p>
+                    <i class="fas fa-bullhorn text-2xl text-slate-600 mb-6 group-hover:text-green-500 transition-colors"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Marketing Digital</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Estrategias SEO, SEM y campañas publicitarias para atraer más clientes a tu sitio.</p>
                 </div>
                  <!-- Service 4 -->
                  <div class="group border-t border-white/10 pt-8 hover:border-pink-500 transition-colors duration-500 reveal" style="transition-delay: 300ms">
-                    <i class="fas fa-robot text-2xl text-slate-600 mb-6 group-hover:text-pink-500 transition-colors"></i>
-                    <h3 class="text-xl font-bold text-white mb-2">AI Solutions</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed">Chatbots, Análisis de Datos y Automatización con LLMs.</p>
+                    <i class="fas fa-brain text-2xl text-slate-600 mb-6 group-hover:text-pink-500 transition-colors"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Consultoría & IA</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Automatización de procesos con Inteligencia Artificial para ahorrar tiempo y dinero.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- IMPACT CAROUSEL -->
+    <!-- IMPACT CAROUSEL (Reasons) -->
     <section id="impact" class="py-24 bg-black border-y border-white/5 overflow-hidden">
         <div class="container mx-auto px-6 mb-12 text-center reveal">
             <h2 class="font-display text-3xl md:text-4xl text-white mb-4">¿Por qué tener una Web?</h2>
@@ -469,38 +508,6 @@
                         <p class="text-sm text-slate-300">Tu negocio nunca duerme. Captura clientes mientras descansas.</p>
                     </div>
                 </div>
-                <div class="carousel-card">
-                    <img src="https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?auto=format&fit=crop&w=800&q=80" alt="Conexiones Globales">
-                    <div class="card-overlay">
-                        <span class="text-purple-400 text-xs font-mono font-bold uppercase tracking-widest mb-2">Expansión</span>
-                        <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Alcance Global</h3>
-                        <p class="text-sm text-slate-300">Rompe las barreras geográficas. Tu mercado es el mundo entero.</p>
-                    </div>
-                </div>
-                <div class="carousel-card">
-                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80" alt="Negocios y Confianza">
-                    <div class="card-overlay">
-                        <span class="text-green-400 text-xs font-mono font-bold uppercase tracking-widest mb-2">Confianza</span>
-                        <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Credibilidad</h3>
-                        <p class="text-sm text-slate-300">Una presencia web profesional valida tu marca instantáneamente.</p>
-                    </div>
-                </div>
-                <div class="carousel-card">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Análisis de Datos">
-                    <div class="card-overlay">
-                        <span class="text-pink-400 text-xs font-mono font-bold uppercase tracking-widest mb-2">Inteligencia</span>
-                        <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Datos Reales</h3>
-                        <p class="text-sm text-slate-300">Conoce a tu cliente. Toma decisiones basadas en métricas.</p>
-                    </div>
-                </div>
-                <div class="carousel-card">
-                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80" alt="Usuario Móvil">
-                    <div class="card-overlay">
-                        <span class="text-orange-400 text-xs font-mono font-bold uppercase tracking-widest mb-2">Conversión</span>
-                        <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Centro de Ventas</h3>
-                        <p class="text-sm text-slate-300">Usa las redes para atraer, pero usa tu web para cerrar la venta.</p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -551,27 +558,22 @@
                 </div>
 
                 <!-- Fan Cards (Behind) -->
-                
                 <!-- Card 1: Shopify (Top Left Fan) -->
                 <div class="card-face absolute inset-0 bg-gradient-to-br from-[#95BF47]/10 to-slate-900 border border-[#95BF47]/30 rounded-2xl z-20 transform origin-bottom-center -rotate-3 translate-y-1 group-hover:-rotate-12 group-hover:-translate-x-16 group-hover:-translate-y-4 flex items-start justify-start p-5">
                      <i class="fab fa-shopify text-2xl md:text-4xl text-[#95BF47] drop-shadow-[0_0_10px_rgba(149,191,71,0.5)]"></i>
                 </div>
-                
                 <!-- Card 2: Wordpress (Top Right Fan) -->
                 <div class="card-face absolute inset-0 bg-gradient-to-br from-[#21759B]/10 to-slate-900 border border-[#21759B]/30 rounded-2xl z-20 transform origin-bottom-center rotate-3 translate-y-1 group-hover:rotate-12 group-hover:translate-x-16 group-hover:-translate-y-4 flex items-start justify-end p-5">
                      <i class="fab fa-wordpress text-2xl md:text-4xl text-[#21759B] drop-shadow-[0_0_10px_rgba(33,117,155,0.5)]"></i>
                 </div>
-                
                 <!-- Card 3: Meta (Bottom Left Fan) -->
                 <div class="card-face absolute inset-0 bg-gradient-to-br from-[#0668E1]/10 to-slate-900 border border-[#0668E1]/30 rounded-2xl z-10 transform origin-bottom-center -rotate-1 translate-y-2 group-hover:-rotate-25 group-hover:-translate-x-24 group-hover:translate-y-2 flex items-end justify-start p-5">
                      <i class="fab fa-meta text-2xl md:text-4xl text-[#0668E1] drop-shadow-[0_0_10px_rgba(6,104,225,0.5)]"></i>
                 </div>
-                
                 <!-- Card 4: Google (Bottom Right Fan) -->
                 <div class="card-face absolute inset-0 bg-gradient-to-br from-[#EA4335]/10 to-slate-900 border border-[#EA4335]/30 rounded-2xl z-10 transform origin-bottom-center rotate-1 translate-y-2 group-hover:rotate-25 group-hover:translate-x-24 group-hover:translate-y-2 flex items-end justify-end p-5">
                      <i class="fab fa-google text-2xl md:text-4xl text-[#EA4335] drop-shadow-[0_0_10px_rgba(234,67,53,0.5)]"></i>
                 </div>
-
             </div>
         </div>
     </section>
@@ -605,16 +607,23 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer (Enhanced) -->
     <footer id="contact" class="py-16 md:py-24 bg-black border-t border-white/5">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-start gap-12 md:gap-16">
                 <div class="max-w-md">
-                    <h3 class="text-2xl md:text-3xl font-display font-bold text-white mb-6">Empecemos un proyecto.</h3>
+                    <h3 class="text-2xl md:text-3xl font-display font-bold text-white mb-6">¡Hagamos que tu negocio crezca!</h3>
                     <p class="text-slate-400 font-light mb-8">
-                        Disponible para nuevos desarrollos en 2025. Enfocado en calidad, velocidad y resultados de negocio.
+                        Recibe tu asesoría personalizada sin ningún costo. Enfocado en calidad, velocidad y resultados de negocio.
                     </p>
                     <a href="mailto:contacto@devinson.lat" class="text-xl md:text-2xl text-white border-b border-white/20 hover:border-white pb-2 transition-all break-all">contacto@devinson.lat</a>
+                    
+                    <div class="mt-8 flex gap-4 flex-wrap">
+                         <span class="text-xs text-slate-500 uppercase tracking-widest border border-white/10 rounded px-2 py-1">Shopify</span>
+                         <span class="text-xs text-slate-500 uppercase tracking-widest border border-white/10 rounded px-2 py-1">WordPress</span>
+                         <span class="text-xs text-slate-500 uppercase tracking-widest border border-white/10 rounded px-2 py-1">React</span>
+                         <span class="text-xs text-slate-500 uppercase tracking-widest border border-white/10 rounded px-2 py-1">AWS</span>
+                    </div>
                 </div>
                 
                 <div class="flex gap-6 md:gap-8 items-end">
@@ -635,6 +644,11 @@
             </div>
         </div>
     </footer>
+    
+    <!-- Floating Whatsapp Button -->
+    <a href="https://wa.me/573215203354" target="_blank" class="floating-whatsapp w-14 h-14 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white shadow-2xl animate-pulse-glow hover:bg-green-400">
+        <i class="fab fa-whatsapp text-2xl md:text-3xl"></i>
+    </a>
 
     <!-- JAVASCRIPT -->
     <script>
