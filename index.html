@@ -262,41 +262,6 @@
             background-color: rgba(255, 255, 255, 0.1);
             border-color: transparent;
         }
-
-        /* Preloader */
-        #preloader {
-            position: fixed;
-            inset: 0;
-            background: #020617;
-            z-index: 10000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            transition: opacity 0.8s ease-out;
-        }
-        .loader-bar {
-            width: 200px;
-            height: 2px;
-            background: #1e293b;
-            margin-top: 20px;
-            position: relative;
-            overflow: hidden;
-        }
-        .loader-bar::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 0%;
-            background: #3b82f6;
-            animation: load 2s ease-in-out forwards;
-        }
-        @keyframes load {
-            0% { width: 0%; }
-            100% { width: 100%; }
-        }
         
         /* Tech Bars */
         .skill-track {
@@ -356,12 +321,6 @@
     </style>
 </head>
 <body class="antialiased selection:bg-white/20 selection:text-white relative">
-
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="font-mono text-blue-400 text-sm tracking-[0.3em] animate-pulse">SYSTEM_INIT</div>
-        <div class="loader-bar"></div>
-    </div>
 
     <!-- Custom Cursor Elements -->
     <div class="custom-cursor"></div>
@@ -504,7 +463,8 @@
                              <div class="absolute top-0 right-0 p-4 opacity-50">
                                 <i class="fas fa-arrow-up-right-from-square text-white"></i>
                              </div>
-                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?auto=format&fit=crop&w=800&q=80" alt="PechStore Tech" class="w-full h-auto object-cover rounded-xl shadow-lg hover:shadow-blue-500/20 transition-all duration-500">
+                             <!-- Replaced with original Imgur Logo -->
+                            <img src="https://i.imgur.com/1mkPsH6.png" alt="PechStore Tech" class="w-full h-auto object-contain max-h-[300px] rounded-xl shadow-lg hover:shadow-blue-500/20 transition-all duration-500">
                         </div>
                     </div>
                     <div class="w-full md:w-2/5 relative z-10 md:-ml-12 md:mt-12">
@@ -524,7 +484,8 @@
                     <div class="absolute inset-0 glow-purple opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl pointer-events-none"></div>
                     <div class="w-full md:w-3/5 relative z-10 tilt-card" data-tilt>
                         <div class="rounded-3xl overflow-hidden shadow-2xl shadow-purple-900/20 border border-white/5 tilt-content bg-slate-900/80 p-2">
-                            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80" alt="La Guaca del Valle" class="w-full h-auto object-cover rounded-2xl transform transition-transform duration-700">
+                             <!-- Replaced with original Imgur Logo -->
+                            <img src="https://i.imgur.com/pYxjQNT.png" alt="La Guaca del Valle" class="w-full h-auto object-cover rounded-2xl transform transition-transform duration-700">
                         </div>
                     </div>
                     <div class="w-full md:w-2/5 relative z-10 md:-mr-12 md:mt-12 text-left md:text-left">
@@ -544,7 +505,8 @@
                     <div class="absolute inset-0 glow-blue opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl pointer-events-none"></div>
                     <div class="w-full md:w-3/5 relative z-10 tilt-card" data-tilt>
                         <div class="bg-pink-950/20 p-8 md:p-16 rounded-3xl overflow-hidden border border-pink-500/10 tilt-content backdrop-blur-sm">
-                            <img src="https://images.unsplash.com/photo-1522335207989-dd0613480313?auto=format&fit=crop&w=800&q=80" alt="Rosa Beauty Logo" class="w-full h-auto object-contain max-h-[200px] md:max-h-[300px] drop-shadow-2xl rounded-xl">
+                             <!-- Replaced with original Imgur Logo -->
+                            <img src="https://i.imgur.com/zndRaPD.png" alt="Rosa Beauty Logo" class="w-full h-auto object-contain max-h-[200px] md:max-h-[300px] drop-shadow-2xl rounded-xl">
                         </div>
                     </div>
                     <div class="w-full md:w-2/5 relative z-10 md:-ml-12 md:mt-12">
@@ -923,17 +885,6 @@
         // VISUAL EFFECTS
         // ============================================
 
-        // Preloader
-        window.addEventListener('load', () => {
-            const preloader = document.getElementById('preloader');
-            setTimeout(() => {
-                preloader.style.opacity = '0';
-                setTimeout(() => {
-                    preloader.style.display = 'none';
-                }, 800);
-            }, 1500); // Fake load time for cinematic effect
-        });
-
         // Custom Cursor Logic
         const cursor = document.querySelector('.custom-cursor');
         const cursorDot = document.querySelector('.custom-cursor-dot');
@@ -972,10 +923,6 @@
                 card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
             });
         });
-        
-        // Particles Background (Optimized for Mobile)
-        // Disabled since we have video backgrounds now to save performance, 
-        // but keeping code just in case needed later or for specific sections.
         
         // Scroll Reveal & Bar Animation
         const observer = new IntersectionObserver((entries) => {
