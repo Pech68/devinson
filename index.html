@@ -313,6 +313,46 @@
             border-radius: 2px;
         }
 
+        /* Video Background Utilities */
+        .video-bg-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .video-bg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4; /* Opacity of the video */
+        }
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #020617 0%, rgba(2,6,23,0.6) 50%, #020617 100%);
+            z-index: 0;
+        }
+
+        /* Parallax Footer Background */
+        .footer-parallax {
+            background-image: url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1920&q=80');
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+        .footer-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(2, 6, 23, 0.92); /* Dark overlay */
+        }
+
     </style>
 </head>
 <body class="antialiased selection:bg-white/20 selection:text-white relative">
@@ -326,12 +366,6 @@
     <!-- Custom Cursor Elements -->
     <div class="custom-cursor"></div>
     <div class="custom-cursor-dot"></div>
-
-    <!-- Background Ambient Light -->
-    <div class="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-        <div class="absolute top-[-10%] left-[-10%] w-[80vw] h-[80vw] md:w-[50vw] md:h-[50vw] bg-blue-600/5 rounded-full blur-[80px] md:blur-[120px]"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[80vw] h-[80vw] md:w-[60vw] md:h-[60vw] bg-indigo-600/5 rounded-full blur-[100px] md:blur-[150px]"></div>
-    </div>
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 top-0 left-0 py-6 mix-blend-difference">
@@ -372,8 +406,18 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Video Background -->
     <section class="relative min-h-[90vh] flex flex-col justify-center pt-24 md:pt-20 overflow-hidden" id="hero">
+        
+        <!-- Video Background -->
+        <div class="video-bg-container">
+            <video autoplay loop muted playsinline class="video-bg">
+                <!-- Using a reliable abstract tech video -->
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-network-connection-background-2738-large.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+        </div>
+
         <div class="container mx-auto px-6 relative z-10">
             <div class="max-w-5xl reveal active">
                 <div class="flex items-center gap-3 mb-6">
@@ -386,27 +430,26 @@
                     digital.
                 </h1>
                 <div class="flex flex-col md:flex-row gap-8 md:items-end justify-between">
-                    <p class="text-lg md:text-xl text-slate-400 max-w-lg font-light leading-relaxed">
+                    <p class="text-lg md:text-xl text-slate-300 max-w-lg font-light leading-relaxed drop-shadow-md">
                         Transformo ideas complejas en ecosistemas digitales escalables. Tiendas en línea que venden, sitios web rápidos y automatización inteligente.
                     </p>
                     <div class="flex gap-4">
-                        <a href="#stats" class="w-14 h-14 md:w-16 md:h-16 rounded-full border border-slate-700 flex items-center justify-center text-white hover:bg-white hover:text-black hover:scale-110 transition-all duration-300 cursor-hover">
+                        <a href="#stats" class="w-14 h-14 md:w-16 md:h-16 rounded-full border border-slate-500/50 bg-black/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-black hover:scale-110 transition-all duration-300 cursor-hover">
                             <i class="fas fa-arrow-down"></i>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <!-- Abstract Tech Decoration (Desktop Only) -->
-        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1/3 h-full opacity-20 pointer-events-none hidden lg:block">
-            <canvas id="particles-canvas" class="w-full h-full"></canvas>
-        </div>
     </section>
 
-    <!-- STATS SECTION -->
-    <section id="stats" class="py-12 border-y border-white/5 bg-slate-900/30 backdrop-blur-md">
-        <div class="container mx-auto px-6">
+    <!-- STATS SECTION (Image Background) -->
+    <section id="stats" class="py-12 border-y border-white/5 relative">
+        <div class="absolute inset-0 z-0">
+             <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover opacity-10" alt="World Map">
+             <div class="absolute inset-0 bg-slate-900/90"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center reveal">
                 <div class="p-4 group cursor-default">
                     <span class="block text-4xl md:text-5xl font-display font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">5+</span>
@@ -519,14 +562,16 @@
         </div>
     </section>
 
-    <!-- Services (Digitaliza tu negocio) WITH BARS -->
-    <section id="expertise" class="py-24 md:py-32 bg-gradient-to-b from-slate-950 to-black relative overflow-hidden">
-        <!-- Decoration Code bg -->
-        <div class="absolute top-0 right-0 p-10 opacity-5 font-mono text-xs leading-loose hidden md:block select-none pointer-events-none">
-            const success = true;<br>
-            if (project) {<br>
-            &nbsp;&nbsp;deploy();<br>
-            }
+    <!-- Services (Digitaliza tu negocio) WITH VIDEO BACKGROUND -->
+    <section id="expertise" class="py-24 md:py-32 relative overflow-hidden">
+        
+        <!-- Video Background for Services -->
+        <div class="absolute inset-0 z-0">
+             <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-20">
+                <!-- Abstract Fluid or Data video -->
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-blue-fluid-background-2298-large.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-slate-950/90"></div>
         </div>
 
         <div class="container mx-auto px-6 relative z-10">
@@ -535,7 +580,7 @@
                     <span class="text-blue-500 font-mono text-xs tracking-widest uppercase mb-2 block">Tech Stack</span>
                     <h2 class="text-4xl md:text-5xl font-display font-bold text-white">Dominio<br>Digital</h2>
                 </div>
-                <p class="text-slate-500 max-w-sm mt-6 md:mt-0">Más que diseño, ofrezco arquitectura de software robusta y escalable.</p>
+                <p class="text-slate-400 max-w-sm mt-6 md:mt-0">Más que diseño, ofrezco arquitectura de software robusta y escalable.</p>
             </div>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -543,25 +588,25 @@
                 <!-- Services Grid -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
                     <!-- Service 1 -->
-                    <div class="group border border-white/5 bg-white/5 p-6 rounded-2xl hover:bg-white/10 transition-colors duration-500 reveal backdrop-blur-sm">
+                    <div class="group border border-white/5 bg-black/40 p-6 rounded-2xl hover:bg-white/10 transition-colors duration-500 reveal backdrop-blur-md">
                         <i class="fas fa-code text-2xl text-blue-400 mb-4"></i>
                         <h3 class="text-lg font-bold text-white mb-2">Frontend</h3>
                         <p class="text-sm text-slate-400">React, Next.js, Astro. Interfaces que vuelan.</p>
                     </div>
                     <!-- Service 2 -->
-                    <div class="group border border-white/5 bg-white/5 p-6 rounded-2xl hover:bg-white/10 transition-colors duration-500 reveal backdrop-blur-sm">
+                    <div class="group border border-white/5 bg-black/40 p-6 rounded-2xl hover:bg-white/10 transition-colors duration-500 reveal backdrop-blur-md">
                         <i class="fas fa-server text-2xl text-purple-400 mb-4"></i>
                         <h3 class="text-lg font-bold text-white mb-2">Backend</h3>
                         <p class="text-sm text-slate-400">Node, Python, Firebase. Datos seguros.</p>
                     </div>
                      <!-- Service 3 -->
-                     <div class="group border border-white/5 bg-white/5 p-6 rounded-2xl hover:bg-white/10 transition-colors duration-500 reveal backdrop-blur-sm">
+                     <div class="group border border-white/5 bg-black/40 p-6 rounded-2xl hover:bg-white/10 transition-colors duration-500 reveal backdrop-blur-md">
                         <i class="fas fa-mobile-alt text-2xl text-green-400 mb-4"></i>
                         <h3 class="text-lg font-bold text-white mb-2">Mobile</h3>
                         <p class="text-sm text-slate-400">Apps nativas y PWA responsivas.</p>
                     </div>
                      <!-- Service 4 -->
-                     <div class="group border border-white/5 bg-white/5 p-6 rounded-2xl hover:bg-white/10 transition-colors duration-500 reveal backdrop-blur-sm">
+                     <div class="group border border-white/5 bg-black/40 p-6 rounded-2xl hover:bg-white/10 transition-colors duration-500 reveal backdrop-blur-md">
                         <i class="fas fa-brain text-2xl text-pink-400 mb-4"></i>
                         <h3 class="text-lg font-bold text-white mb-2">AI Solutions</h3>
                         <p class="text-sm text-slate-400">Integración de LLMs y automatización.</p>
@@ -569,7 +614,7 @@
                 </div>
 
                 <!-- Skill Bars (The requested "Bars") -->
-                <div class="space-y-8 reveal">
+                <div class="space-y-8 reveal bg-black/30 p-8 rounded-3xl border border-white/5 backdrop-blur-sm">
                     <div>
                         <div class="flex justify-between text-sm text-slate-300 mb-2 font-mono">
                             <span>Desarrollo Web (React/Next)</span>
@@ -756,38 +801,39 @@
         </div>
     </section>
 
-    <!-- Footer (Enhanced) -->
-    <footer id="contact" class="py-16 md:py-24 bg-black border-t border-white/5">
-        <div class="container mx-auto px-6">
+    <!-- Footer (Enhanced Parallax) -->
+    <footer id="contact" class="py-16 md:py-24 footer-parallax border-t border-white/5">
+        <div class="footer-overlay"></div>
+        <div class="container mx-auto px-6 relative z-10">
             <div class="flex flex-col md:flex-row justify-between items-start gap-12 md:gap-16">
                 <div class="max-w-md">
                     <h3 class="text-2xl md:text-3xl font-display font-bold text-white mb-6">¡Hagamos que tu negocio crezca!</h3>
-                    <p class="text-slate-400 font-light mb-8">
+                    <p class="text-slate-300 font-light mb-8 drop-shadow-md">
                         Recibe tu asesoría personalizada sin ningún costo. Enfocado en calidad, velocidad y resultados de negocio.
                     </p>
                     <a href="mailto:contacto@devinson.lat" class="cursor-hover text-xl md:text-2xl text-white border-b border-white/20 hover:border-white pb-2 transition-all break-all">contacto@devinson.lat</a>
                     
                     <div class="mt-8 flex gap-4 flex-wrap">
-                         <span class="text-xs text-slate-500 uppercase tracking-widest border border-white/10 rounded px-2 py-1">Shopify</span>
-                         <span class="text-xs text-slate-500 uppercase tracking-widest border border-white/10 rounded px-2 py-1">WordPress</span>
-                         <span class="text-xs text-slate-500 uppercase tracking-widest border border-white/10 rounded px-2 py-1">React</span>
-                         <span class="text-xs text-slate-500 uppercase tracking-widest border border-white/10 rounded px-2 py-1">AWS</span>
+                         <span class="text-xs text-slate-400 uppercase tracking-widest border border-white/10 rounded px-2 py-1 bg-black/50">Shopify</span>
+                         <span class="text-xs text-slate-400 uppercase tracking-widest border border-white/10 rounded px-2 py-1 bg-black/50">WordPress</span>
+                         <span class="text-xs text-slate-400 uppercase tracking-widest border border-white/10 rounded px-2 py-1 bg-black/50">React</span>
+                         <span class="text-xs text-slate-400 uppercase tracking-widest border border-white/10 rounded px-2 py-1 bg-black/50">AWS</span>
                     </div>
                 </div>
                 
                 <div class="flex gap-6 md:gap-8 items-end">
-                    <a href="https://wa.me/573215203354" target="_blank" class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all cursor-hover">
+                    <a href="https://wa.me/573215203354" target="_blank" class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all cursor-hover bg-black/30 backdrop-blur-sm">
                         <i class="fab fa-whatsapp text-lg md:text-xl"></i>
                     </a>
-                    <a href="https://github.com/Pech68" target="_blank" class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all cursor-hover">
+                    <a href="https://github.com/Pech68" target="_blank" class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all cursor-hover bg-black/30 backdrop-blur-sm">
                         <i class="fab fa-github text-lg md:text-xl"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/devinson-rodriguez" target="_blank" class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all cursor-hover">
+                    <a href="https://www.linkedin.com/in/devinson-rodriguez" target="_blank" class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all cursor-hover bg-black/30 backdrop-blur-sm">
                         <i class="fab fa-linkedin-in text-lg md:text-xl"></i>
                     </a>
                 </div>
             </div>
-            <div class="mt-16 md:mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-slate-600 uppercase tracking-widest gap-4 md:gap-0">
+            <div class="mt-16 md:mt-24 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-slate-400 uppercase tracking-widest gap-4 md:gap-0">
                 <span>&copy; 2025 Devinson Rodriguez</span>
                 <span>Valledupar, Colombia</span>
             </div>
@@ -928,55 +974,9 @@
         });
         
         // Particles Background (Optimized for Mobile)
-        const canvas = document.getElementById('particles-canvas');
-        if(canvas) {
-            const ctx = canvas.getContext('2d');
-            let width, height, particles = [];
-
-            function resize() {
-                width = canvas.width = window.innerWidth;
-                height = canvas.height = window.innerHeight;
-                createParticles();
-            }
-
-            function createParticles() {
-                particles = [];
-                // Reduce particles on mobile to save battery/performance
-                const count = window.innerWidth < 768 ? 10 : 30; 
-                for(let i=0; i<count; i++) {
-                    particles.push({
-                        x: Math.random() * width,
-                        y: Math.random() * height,
-                        vx: (Math.random() - 0.5) * 0.2, 
-                        vy: (Math.random() - 0.5) * 0.2,
-                        size: Math.random() * 2,
-                    });
-                }
-            }
-
-            function animateParticles() {
-                ctx.clearRect(0, 0, width, height);
-                ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
-
-                particles.forEach((p, i) => {
-                    p.x += p.vx;
-                    p.y += p.vy;
-
-                    if(p.x < 0 || p.x > width) p.vx *= -1;
-                    if(p.y < 0 || p.y > height) p.vy *= -1;
-
-                    ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
-                    ctx.fill();
-                });
-                requestAnimationFrame(animateParticles);
-            }
-            
-            window.addEventListener('resize', resize);
-            resize();
-            animateParticles();
-        }
-
+        // Disabled since we have video backgrounds now to save performance, 
+        // but keeping code just in case needed later or for specific sections.
+        
         // Scroll Reveal & Bar Animation
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
