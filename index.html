@@ -2,7 +2,7 @@
 <html lang="es-CO" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <!-- SEO & Metadata -->
     <title>Devinson Rodriguez | Arquitectura Digital</title>
@@ -42,6 +42,7 @@
                         'drift': 'drift 20s linear infinite',
                         'scroll': 'scroll 40s linear infinite',
                         'pulse-glow': 'pulseGlow 3s infinite',
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
                     },
                     keyframes: {
                         float: {
@@ -54,11 +55,15 @@
                         },
                         scroll: {
                             '0%': { transform: 'translateX(0)' },
-                            '100%': { transform: 'translateX(calc(-350px * 5 - 2rem * 5))' } 
+                            '100%': { transform: 'translateX(calc(-280px * 5 - 2rem * 5))' } /* Adjusted for mobile card width */
                         },
                         pulseGlow: {
                             '0%, 100%': { boxShadow: '0 0 20px rgba(59, 130, 246, 0.2)' },
                             '50%': { boxShadow: '0 0 40px rgba(59, 130, 246, 0.5)' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
                         }
                     }
                 }
@@ -67,10 +72,12 @@
     </script>
 
     <style>
-        body {
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            width: 100%;
             background-color: #020617;
             color: #e2e8f0;
-            overflow-x: hidden;
         }
 
         /* Smooth Scrollbar */
@@ -80,7 +87,7 @@
 
         /* Typography Utilities */
         .text-huge {
-            font-size: clamp(3rem, 8vw, 7rem);
+            font-size: clamp(2.5rem, 10vw, 7rem); /* Adjusted min size for mobile */
             line-height: 0.95;
             letter-spacing: -0.04em;
         }
@@ -112,13 +119,15 @@
         /* Marquee */
         .marquee-wrapper {
             mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+            width: 100%;
+            overflow: hidden;
         }
 
         /* Reveal Animation */
         .reveal {
             opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
         }
         .reveal.active {
             opacity: 1;
@@ -129,24 +138,31 @@
         .carousel-container {
             width: 100%;
             overflow: hidden;
-            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
         }
         .carousel-track {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             width: max-content;
         }
         .carousel-card {
-            width: 350px;
-            height: 450px;
+            /* Responsive width for mobile */
+            width: 80vw;
+            max-width: 350px;
+            height: 400px;
             flex-shrink: 0;
             border-radius: 1.5rem;
             overflow: hidden;
             position: relative;
             transition: all 0.3s ease;
         }
+        @media (min-width: 768px) {
+            .carousel-card {
+                height: 450px;
+            }
+        }
         .carousel-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
             box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.3);
         }
         .carousel-card img {
@@ -165,7 +181,7 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
         /* Card Deck Animation Styles */
@@ -179,39 +195,44 @@
         /* Mobile adjustments for the deck */
         @media (max-width: 768px) {
             .deck-scale {
-                transform: scale(0.75);
+                transform: scale(0.85);
             }
+        }
+
+        /* Mobile Menu Styles */
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #mobile-menu.open {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: all;
         }
     </style>
 </head>
-<body class="antialiased selection:bg-white/20 selection:text-white">
+<body class="antialiased selection:bg-white/20 selection:text-white relative">
 
     <!-- Background Ambient Light -->
-    <div class="fixed top-0 left-0 w-screen h-screen overflow-hidden pointer-events-none z-0">
-        <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-blue-600/5 rounded-full blur-[120px]"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-indigo-600/5 rounded-full blur-[150px]"></div>
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+        <div class="absolute top-[-10%] left-[-10%] w-[80vw] h-[80vw] md:w-[50vw] md:h-[50vw] bg-blue-600/5 rounded-full blur-[80px] md:blur-[120px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[80vw] h-[80vw] md:w-[60vw] md:h-[60vw] bg-indigo-600/5 rounded-full blur-[100px] md:blur-[150px]"></div>
     </div>
 
-    <!-- Navigation (Minimal Floating) -->
+    <!-- Navigation -->
     <nav class="fixed w-full z-50 top-0 left-0 py-6 mix-blend-difference">
-        <div class="container mx-auto px-6 flex justify-between items-center">
+        <div class="container mx-auto px-6 flex justify-between items-center relative z-50">
             <a href="#" class="font-display font-bold text-2xl text-white tracking-tighter hover:tracking-wide transition-all duration-300">
                 DEVINSON<span class="text-blue-500">.</span>
             </a>
             
+            <!-- Desktop Menu -->
             <div class="hidden md:flex gap-12 text-sm font-medium text-slate-300">
-                <a href="#work" class="hover:text-white transition-colors relative group">
-                    Proyectos
-                    <span class="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#impact" class="hover:text-white transition-colors relative group">
-                    Impacto
-                    <span class="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#ecosystem" class="hover:text-white transition-colors relative group">
-                    Ecosistema
-                    <span class="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></span>
-                </a>
+                <a href="#work" class="hover:text-white transition-colors relative group">Proyectos</a>
+                <a href="#impact" class="hover:text-white transition-colors relative group">Impacto</a>
+                <a href="#ecosystem" class="hover:text-white transition-colors relative group">Ecosistema</a>
                 <a href="#ai-consultant" class="hover:text-white transition-colors">AI Lab</a>
             </div>
 
@@ -220,27 +241,40 @@
             </a>
 
             <!-- Mobile Button -->
-            <button id="menu-btn" class="md:hidden text-white text-xl">
+            <button id="menu-btn" class="md:hidden text-white text-2xl p-2 focus:outline-none">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 flex flex-col justify-center items-center h-screen w-screen">
+            <div class="flex flex-col gap-8 text-center text-2xl font-display font-bold text-white">
+                <a href="#work" class="mobile-link hover:text-blue-400 transition-colors">Proyectos</a>
+                <a href="#impact" class="mobile-link hover:text-blue-400 transition-colors">Impacto</a>
+                <a href="#ecosystem" class="mobile-link hover:text-blue-400 transition-colors">Ecosistema</a>
+                <a href="#ai-consultant" class="mobile-link hover:text-blue-400 transition-colors">AI Lab</a>
+                <a href="#contact" class="mobile-link px-8 py-3 mt-4 rounded-full border border-white/20 text-sm font-sans font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all">
+                    Contacto
+                </a>
+            </div>
+        </div>
     </nav>
 
-    <!-- Hero Section (Typography Driven) -->
-    <section class="relative min-h-[90vh] flex flex-col justify-center pt-20" id="hero">
+    <!-- Hero Section -->
+    <section class="relative min-h-[90vh] flex flex-col justify-center pt-24 md:pt-20 overflow-hidden" id="hero">
         <div class="container mx-auto px-6 relative z-10">
             <div class="max-w-5xl reveal active">
-                <p class="text-blue-500 font-mono text-sm mb-6 tracking-widest uppercase">Arquitectura de Software Full Stack</p>
-                <h1 class="text-huge font-display font-bold text-white mb-8">
+                <p class="text-blue-500 font-mono text-xs md:text-sm mb-6 tracking-widest uppercase">Arquitectura de Software Full Stack</p>
+                <h1 class="text-huge font-display font-bold text-white mb-8 leading-none">
                     Creando <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">futuro</span><br>
                     digital.
                 </h1>
                 <div class="flex flex-col md:flex-row gap-8 md:items-end justify-between">
-                    <p class="text-xl text-slate-400 max-w-lg font-light leading-relaxed">
+                    <p class="text-lg md:text-xl text-slate-400 max-w-lg font-light leading-relaxed">
                         Transformo ideas complejas en ecosistemas digitales escalables. E-commerce de alto impacto, plataformas web y automatización inteligente.
                     </p>
                     <div class="flex gap-4">
-                        <a href="#work" class="w-16 h-16 rounded-full border border-slate-700 flex items-center justify-center text-white hover:bg-white hover:text-black hover:scale-110 transition-all duration-300">
+                        <a href="#work" class="w-14 h-14 md:w-16 md:h-16 rounded-full border border-slate-700 flex items-center justify-center text-white hover:bg-white hover:text-black hover:scale-110 transition-all duration-300">
                             <i class="fas fa-arrow-down"></i>
                         </a>
                     </div>
@@ -248,16 +282,16 @@
             </div>
         </div>
         
-        <!-- Abstract Tech Decoration -->
+        <!-- Abstract Tech Decoration (Desktop Only) -->
         <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1/3 h-full opacity-20 pointer-events-none hidden lg:block">
             <canvas id="particles-canvas" class="w-full h-full"></canvas>
         </div>
     </section>
 
     <!-- Marquee -->
-    <div class="py-12 border-y border-white/5 bg-black/20 backdrop-blur-sm marquee-wrapper relative z-20">
+    <div class="py-8 md:py-12 border-y border-white/5 bg-black/20 backdrop-blur-sm marquee-wrapper relative z-20">
         <div class="flex animate-drift whitespace-nowrap">
-            <div class="flex gap-16 items-center px-8 text-4xl font-display font-bold text-slate-800 uppercase tracking-tighter">
+            <div class="flex gap-8 md:gap-16 items-center px-8 text-2xl md:text-4xl font-display font-bold text-slate-800 uppercase tracking-tighter">
                 <span>React Enterprise</span> <span class="text-blue-900">•</span>
                 <span>Next.js</span> <span class="text-blue-900">•</span>
                 <span>AI Integration</span> <span class="text-blue-900">•</span>
@@ -270,25 +304,25 @@
     </div>
 
     <!-- PORTFOLIO SECTION -->
-    <section id="work" class="py-32 relative">
+    <section id="work" class="py-24 md:py-32 relative">
         <div class="container mx-auto px-6">
-            <div class="mb-24 reveal">
-                <h2 class="text-5xl md:text-7xl font-display font-bold text-white mb-6">Selected<br>Works</h2>
+            <div class="mb-16 md:mb-24 reveal">
+                <h2 class="text-4xl md:text-7xl font-display font-bold text-white mb-6">Selected<br>Works</h2>
                 <div class="w-24 h-1 bg-blue-600"></div>
             </div>
 
-            <div class="space-y-32">
+            <div class="space-y-24 md:space-y-32">
                 <!-- Project 1: PechStore -->
-                <div class="portfolio-item group relative flex flex-col md:flex-row items-center gap-12 reveal">
+                <div class="portfolio-item group relative flex flex-col md:flex-row items-center gap-8 md:gap-12 reveal">
                     <div class="absolute inset-0 glow-blue opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl pointer-events-none"></div>
-                    <div class="md:w-3/5 relative z-10">
-                        <div class="bg-slate-900/50 p-12 md:p-16 rounded-3xl overflow-hidden relative">
-                            <img src="https://i.imgur.com/1mkPsH6.png" alt="PechStore Logo" class="w-full h-auto object-contain max-h-[300px] drop-shadow-2xl transform group-hover:scale-105 transition-transform duration-700">
+                    <div class="w-full md:w-3/5 relative z-10">
+                        <div class="bg-slate-900/50 p-8 md:p-16 rounded-3xl overflow-hidden relative">
+                            <img src="https://i.imgur.com/1mkPsH6.png" alt="PechStore Logo" class="w-full h-auto object-contain max-h-[200px] md:max-h-[300px] drop-shadow-2xl transform group-hover:scale-105 transition-transform duration-700">
                         </div>
                     </div>
-                    <div class="md:w-2/5 relative z-10 md:-ml-12 md:mt-12">
+                    <div class="w-full md:w-2/5 relative z-10 md:-ml-12 md:mt-12">
                         <span class="text-blue-500 font-mono text-xs uppercase tracking-widest mb-2 block">E-commerce B2B</span>
-                        <h3 class="text-4xl font-display font-bold text-white mb-4">PechStore Shop</h3>
+                        <h3 class="text-3xl md:text-4xl font-display font-bold text-white mb-4">PechStore Shop</h3>
                         <p class="text-slate-400 mb-8 leading-relaxed font-light">
                             Plataforma de comercio electrónico mayorista. Integración de inventarios en tiempo real y precios dinámicos.
                         </p>
@@ -299,16 +333,16 @@
                 </div>
 
                 <!-- Project 2: La Guaca del Valle -->
-                <div class="portfolio-item group relative flex flex-col md:flex-row-reverse items-center gap-12 reveal">
+                <div class="portfolio-item group relative flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 reveal">
                     <div class="absolute inset-0 glow-purple opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl pointer-events-none"></div>
-                    <div class="md:w-3/5 relative z-10">
+                    <div class="w-full md:w-3/5 relative z-10">
                         <div class="rounded-3xl overflow-hidden shadow-2xl shadow-purple-900/20">
                             <img src="https://i.imgur.com/pYxjQNT.png" alt="La Guaca del Valle" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
                         </div>
                     </div>
-                    <div class="md:w-2/5 relative z-10 md:-mr-12 md:mt-12 text-right md:text-left">
+                    <div class="w-full md:w-2/5 relative z-10 md:-mr-12 md:mt-12 text-left md:text-left">
                         <span class="text-purple-500 font-mono text-xs uppercase tracking-widest mb-2 block">Marketplace Local</span>
-                        <h3 class="text-4xl font-display font-bold text-white mb-4">La Guaca del Valle</h3>
+                        <h3 class="text-3xl md:text-4xl font-display font-bold text-white mb-4">La Guaca del Valle</h3>
                         <p class="text-slate-400 mb-8 leading-relaxed font-light">
                             Directorio digital y plataforma de ventas para comercios locales. Optimizado para carga rápida y SEO local.
                         </p>
@@ -319,16 +353,16 @@
                 </div>
 
                 <!-- Project 3: Rosa Beauty -->
-                <div class="portfolio-item group relative flex flex-col md:flex-row items-center gap-12 reveal">
+                <div class="portfolio-item group relative flex flex-col md:flex-row items-center gap-8 md:gap-12 reveal">
                     <div class="absolute inset-0 glow-blue opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl pointer-events-none"></div>
-                    <div class="md:w-3/5 relative z-10">
-                        <div class="bg-pink-950/20 p-12 md:p-16 rounded-3xl overflow-hidden border border-pink-500/10">
-                            <img src="https://i.imgur.com/zndRaPD.png" alt="Rosa Beauty Logo" class="w-full h-auto object-contain max-h-[300px] drop-shadow-2xl transform group-hover:scale-105 transition-transform duration-700">
+                    <div class="w-full md:w-3/5 relative z-10">
+                        <div class="bg-pink-950/20 p-8 md:p-16 rounded-3xl overflow-hidden border border-pink-500/10">
+                            <img src="https://i.imgur.com/zndRaPD.png" alt="Rosa Beauty Logo" class="w-full h-auto object-contain max-h-[200px] md:max-h-[300px] drop-shadow-2xl transform group-hover:scale-105 transition-transform duration-700">
                         </div>
                     </div>
-                    <div class="md:w-2/5 relative z-10 md:-ml-12 md:mt-12">
+                    <div class="w-full md:w-2/5 relative z-10 md:-ml-12 md:mt-12">
                         <span class="text-pink-500 font-mono text-xs uppercase tracking-widest mb-2 block">Beauty & Wellness</span>
-                        <h3 class="text-4xl font-display font-bold text-white mb-4">Rosa Estudio</h3>
+                        <h3 class="text-3xl md:text-4xl font-display font-bold text-white mb-4">Rosa Estudio</h3>
                         <p class="text-slate-400 mb-8 leading-relaxed font-light">
                             Landing page corporativa para estudio de belleza. Diseño elegante enfocado en conversión de citas.
                         </p>
@@ -342,9 +376,9 @@
     </section>
 
     <!-- Services (Minimal List) -->
-    <section id="expertise" class="py-32 bg-gradient-to-b from-slate-950 to-black">
+    <section id="expertise" class="py-24 md:py-32 bg-gradient-to-b from-slate-950 to-black">
         <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-20 reveal">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-20 reveal">
                 <h2 class="text-4xl md:text-5xl font-display font-bold text-white">Capacidades<br>Técnicas</h2>
                 <p class="text-slate-500 max-w-sm mt-6 md:mt-0">Stack tecnológico moderno para resolver problemas de negocio reales.</p>
             </div>
@@ -380,7 +414,7 @@
     <!-- IMPACT CAROUSEL -->
     <section id="impact" class="py-24 bg-black border-y border-white/5 overflow-hidden">
         <div class="container mx-auto px-6 mb-12 text-center reveal">
-            <h2 class="font-display text-4xl text-white mb-4">¿Por qué tener una Web?</h2>
+            <h2 class="font-display text-3xl md:text-4xl text-white mb-4">¿Por qué tener una Web?</h2>
             <p class="text-slate-500">Razones para transformar tu negocio hoy.</p>
         </div>
         <div class="carousel-container">
@@ -390,7 +424,7 @@
                     <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=800&q=80" alt="Ciudad de noche">
                     <div class="card-overlay">
                         <span class="text-blue-400 text-xs font-mono font-bold uppercase tracking-widest mb-2">Disponibilidad</span>
-                        <h3 class="text-2xl font-bold text-white mb-2">Ventas 24/7</h3>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Ventas 24/7</h3>
                         <p class="text-sm text-slate-300">Tu negocio nunca duerme. Captura clientes mientras descansas.</p>
                     </div>
                 </div>
@@ -398,7 +432,7 @@
                     <img src="https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?auto=format&fit=crop&w=800&q=80" alt="Conexiones Globales">
                     <div class="card-overlay">
                         <span class="text-purple-400 text-xs font-mono font-bold uppercase tracking-widest mb-2">Expansión</span>
-                        <h3 class="text-2xl font-bold text-white mb-2">Alcance Global</h3>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Alcance Global</h3>
                         <p class="text-sm text-slate-300">Rompe las barreras geográficas. Tu mercado es el mundo entero.</p>
                     </div>
                 </div>
@@ -406,32 +440,32 @@
                     <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80" alt="Negocios y Confianza">
                     <div class="card-overlay">
                         <span class="text-green-400 text-xs font-mono font-bold uppercase tracking-widest mb-2">Confianza</span>
-                        <h3 class="text-2xl font-bold text-white mb-2">Credibilidad</h3>
-                        <p class="text-sm text-slate-300">Una presencia web profesional valida tu marca instantáneamente ante nuevos clientes.</p>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Credibilidad</h3>
+                        <p class="text-sm text-slate-300">Una presencia web profesional valida tu marca instantáneamente.</p>
                     </div>
                 </div>
                 <div class="carousel-card">
                     <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Análisis de Datos">
                     <div class="card-overlay">
                         <span class="text-pink-400 text-xs font-mono font-bold uppercase tracking-widest mb-2">Inteligencia</span>
-                        <h3 class="text-2xl font-bold text-white mb-2">Datos Reales</h3>
-                        <p class="text-sm text-slate-300">Conoce a tu cliente. Toma decisiones estratégicas basadas en métricas exactas.</p>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Datos Reales</h3>
+                        <p class="text-sm text-slate-300">Conoce a tu cliente. Toma decisiones basadas en métricas.</p>
                     </div>
                 </div>
                 <div class="carousel-card">
                     <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80" alt="Usuario Móvil">
                     <div class="card-overlay">
                         <span class="text-orange-400 text-xs font-mono font-bold uppercase tracking-widest mb-2">Conversión</span>
-                        <h3 class="text-2xl font-bold text-white mb-2">Centro de Ventas</h3>
-                        <p class="text-sm text-slate-300">Usa las redes para atraer, pero usa tu web para cerrar la venta sin distracciones.</p>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Centro de Ventas</h3>
+                        <p class="text-sm text-slate-300">Usa las redes para atraer, pero usa tu web para cerrar la venta.</p>
                     </div>
                 </div>
-                <!-- Duplicates for Loop -->
+                 <!-- Duplicates -->
                  <div class="carousel-card">
                     <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=800&q=80" alt="Ciudad de noche">
                     <div class="card-overlay">
                         <span class="text-blue-400 text-xs font-mono font-bold uppercase tracking-widest mb-2">Disponibilidad</span>
-                        <h3 class="text-2xl font-bold text-white mb-2">Ventas 24/7</h3>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Ventas 24/7</h3>
                         <p class="text-sm text-slate-300">Tu negocio nunca duerme. Captura clientes mientras descansas.</p>
                     </div>
                 </div>
@@ -439,7 +473,7 @@
                     <img src="https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?auto=format&fit=crop&w=800&q=80" alt="Conexiones Globales">
                     <div class="card-overlay">
                         <span class="text-purple-400 text-xs font-mono font-bold uppercase tracking-widest mb-2">Expansión</span>
-                        <h3 class="text-2xl font-bold text-white mb-2">Alcance Global</h3>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Alcance Global</h3>
                         <p class="text-sm text-slate-300">Rompe las barreras geográficas. Tu mercado es el mundo entero.</p>
                     </div>
                 </div>
@@ -447,24 +481,24 @@
                     <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80" alt="Negocios y Confianza">
                     <div class="card-overlay">
                         <span class="text-green-400 text-xs font-mono font-bold uppercase tracking-widest mb-2">Confianza</span>
-                        <h3 class="text-2xl font-bold text-white mb-2">Credibilidad</h3>
-                        <p class="text-sm text-slate-300">Una presencia web profesional valida tu marca instantáneamente ante nuevos clientes.</p>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Credibilidad</h3>
+                        <p class="text-sm text-slate-300">Una presencia web profesional valida tu marca instantáneamente.</p>
                     </div>
                 </div>
                 <div class="carousel-card">
                     <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Análisis de Datos">
                     <div class="card-overlay">
                         <span class="text-pink-400 text-xs font-mono font-bold uppercase tracking-widest mb-2">Inteligencia</span>
-                        <h3 class="text-2xl font-bold text-white mb-2">Datos Reales</h3>
-                        <p class="text-sm text-slate-300">Conoce a tu cliente. Toma decisiones estratégicas basadas en métricas exactas.</p>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Datos Reales</h3>
+                        <p class="text-sm text-slate-300">Conoce a tu cliente. Toma decisiones basadas en métricas.</p>
                     </div>
                 </div>
                 <div class="carousel-card">
                     <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80" alt="Usuario Móvil">
                     <div class="card-overlay">
                         <span class="text-orange-400 text-xs font-mono font-bold uppercase tracking-widest mb-2">Conversión</span>
-                        <h3 class="text-2xl font-bold text-white mb-2">Centro de Ventas</h3>
-                        <p class="text-sm text-slate-300">Usa las redes para atraer, pero usa tu web para cerrar la venta sin distracciones.</p>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Centro de Ventas</h3>
+                        <p class="text-sm text-slate-300">Usa las redes para atraer, pero usa tu web para cerrar la venta.</p>
                     </div>
                 </div>
             </div>
@@ -472,14 +506,14 @@
     </section>
 
     <!-- NEW SECTION: ECOSYSTEM DECK -->
-    <section id="ecosystem" class="py-32 relative overflow-hidden bg-slate-950">
+    <section id="ecosystem" class="py-24 md:py-32 relative overflow-hidden bg-slate-950">
         <!-- Background radial glow -->
         <div class="absolute inset-0 bg-gradient-to-r from-blue-900/10 via-transparent to-purple-900/10 pointer-events-none"></div>
 
-        <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-center min-h-[600px] w-full">
+        <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-center min-h-[500px] md:min-h-[600px] w-full">
 
             <!-- Mobile: Text displayed as grid above/below -->
-            <div class="grid grid-cols-2 gap-8 w-full md:absolute md:inset-0 md:w-full md:h-full md:gap-0 pointer-events-none mb-12 md:mb-0">
+            <div class="grid grid-cols-2 gap-4 md:gap-8 w-full md:absolute md:inset-0 md:w-full md:h-full md:gap-0 pointer-events-none mb-12 md:mb-0">
                 <!-- Top Left -->
                 <div class="text-left md:absolute md:top-20 md:left-20 reveal">
                     <h3 class="text-blue-400 font-mono text-[10px] md:text-xs uppercase tracking-widest mb-1">Estrategia</h3>
@@ -503,16 +537,16 @@
             </div>
 
             <!-- The Deck Visual (Centered) -->
-            <div class="relative w-64 h-80 md:w-80 md:h-96 deck-perspective group deck-scale z-20">
+            <div class="relative w-48 h-64 md:w-80 md:h-96 deck-perspective group deck-scale z-20 mx-auto mt-8 md:mt-0">
                 
                 <!-- Main Card (WEB) -->
                 <div class="absolute inset-0 bg-slate-900 border border-blue-500/50 rounded-2xl flex flex-col items-center justify-center z-30 shadow-2xl shadow-blue-500/20 transform transition-transform duration-500 group-hover:scale-105 animate-pulse-glow">
-                    <div class="w-20 h-20 rounded-full bg-blue-500/10 flex items-center justify-center mb-4 border border-blue-500/30">
-                        <i class="fas fa-globe text-3xl text-blue-400"></i>
+                    <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-blue-500/10 flex items-center justify-center mb-4 border border-blue-500/30">
+                        <i class="fas fa-globe text-2xl md:text-3xl text-blue-400"></i>
                     </div>
-                    <h2 class="text-5xl md:text-6xl font-display font-bold text-white tracking-tighter">WEB</h2>
+                    <h2 class="text-4xl md:text-6xl font-display font-bold text-white tracking-tighter">WEB</h2>
                     <div class="mt-4 px-3 py-1 bg-blue-500/10 rounded-full border border-blue-500/20">
-                        <p class="text-[10px] text-blue-300 font-mono tracking-[0.2em] uppercase">The Core</p>
+                        <p class="text-[8px] md:text-[10px] text-blue-300 font-mono tracking-[0.2em] uppercase">The Core</p>
                     </div>
                 </div>
 
@@ -520,22 +554,22 @@
                 
                 <!-- Card 1: Shopify (Top Left Fan) -->
                 <div class="card-face absolute inset-0 bg-gradient-to-br from-[#95BF47]/10 to-slate-900 border border-[#95BF47]/30 rounded-2xl z-20 transform origin-bottom-center -rotate-3 translate-y-1 group-hover:-rotate-12 group-hover:-translate-x-16 group-hover:-translate-y-4 flex items-start justify-start p-5">
-                     <i class="fab fa-shopify text-4xl text-[#95BF47] drop-shadow-[0_0_10px_rgba(149,191,71,0.5)]"></i>
+                     <i class="fab fa-shopify text-2xl md:text-4xl text-[#95BF47] drop-shadow-[0_0_10px_rgba(149,191,71,0.5)]"></i>
                 </div>
                 
                 <!-- Card 2: Wordpress (Top Right Fan) -->
                 <div class="card-face absolute inset-0 bg-gradient-to-br from-[#21759B]/10 to-slate-900 border border-[#21759B]/30 rounded-2xl z-20 transform origin-bottom-center rotate-3 translate-y-1 group-hover:rotate-12 group-hover:translate-x-16 group-hover:-translate-y-4 flex items-start justify-end p-5">
-                     <i class="fab fa-wordpress text-4xl text-[#21759B] drop-shadow-[0_0_10px_rgba(33,117,155,0.5)]"></i>
+                     <i class="fab fa-wordpress text-2xl md:text-4xl text-[#21759B] drop-shadow-[0_0_10px_rgba(33,117,155,0.5)]"></i>
                 </div>
                 
                 <!-- Card 3: Meta (Bottom Left Fan) -->
                 <div class="card-face absolute inset-0 bg-gradient-to-br from-[#0668E1]/10 to-slate-900 border border-[#0668E1]/30 rounded-2xl z-10 transform origin-bottom-center -rotate-1 translate-y-2 group-hover:-rotate-25 group-hover:-translate-x-24 group-hover:translate-y-2 flex items-end justify-start p-5">
-                     <i class="fab fa-meta text-4xl text-[#0668E1] drop-shadow-[0_0_10px_rgba(6,104,225,0.5)]"></i>
+                     <i class="fab fa-meta text-2xl md:text-4xl text-[#0668E1] drop-shadow-[0_0_10px_rgba(6,104,225,0.5)]"></i>
                 </div>
                 
                 <!-- Card 4: Google (Bottom Right Fan) -->
                 <div class="card-face absolute inset-0 bg-gradient-to-br from-[#EA4335]/10 to-slate-900 border border-[#EA4335]/30 rounded-2xl z-10 transform origin-bottom-center rotate-1 translate-y-2 group-hover:rotate-25 group-hover:translate-x-24 group-hover:translate-y-2 flex items-end justify-end p-5">
-                     <i class="fab fa-google text-4xl text-[#EA4335] drop-shadow-[0_0_10px_rgba(234,67,53,0.5)]"></i>
+                     <i class="fab fa-google text-2xl md:text-4xl text-[#EA4335] drop-shadow-[0_0_10px_rgba(234,67,53,0.5)]"></i>
                 </div>
 
             </div>
@@ -543,7 +577,7 @@
     </section>
 
     <!-- AI Consultant Section -->
-    <section id="ai-consultant" class="py-32 relative">
+    <section id="ai-consultant" class="py-24 md:py-32 relative">
         <div class="container mx-auto px-6 relative z-10 max-w-4xl text-center">
             <span class="inline-block px-3 py-1 bg-white/5 rounded-full text-xs font-mono text-blue-400 mb-6 border border-white/10">BETA FEATURE</span>
             <h2 class="text-4xl md:text-6xl font-display font-bold text-white mb-8">¿Qué necesitas construir?</h2>
@@ -551,7 +585,7 @@
             
             <div class="bg-white/5 rounded-2xl p-2 border border-white/10 shadow-2xl backdrop-blur-sm max-w-2xl mx-auto">
                 <div class="relative">
-                    <textarea id="ai-input" rows="2" class="w-full bg-transparent border-none rounded-xl p-4 text-white focus:ring-0 text-lg placeholder-slate-600 resize-none" placeholder="Ej: Una tienda de ropa con pagos por Wompi..."></textarea>
+                    <textarea id="ai-input" rows="3" class="w-full bg-transparent border-none rounded-xl p-4 text-white focus:ring-0 text-base md:text-lg placeholder-slate-600 resize-none" placeholder="Ej: Una tienda de ropa con pagos por Wompi..."></textarea>
                     <button onclick="consultarIA()" id="ai-btn" class="absolute right-2 top-2 bottom-2 px-6 bg-white text-black font-bold rounded-lg hover:bg-blue-400 hover:text-white transition-all flex items-center gap-2">
                         <i class="fas fa-sparkles"></i> <span class="hidden sm:inline">Generar</span>
                     </button>
@@ -572,30 +606,30 @@
     </section>
 
     <!-- Footer -->
-    <footer id="contact" class="py-24 bg-black border-t border-white/5">
+    <footer id="contact" class="py-16 md:py-24 bg-black border-t border-white/5">
         <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-start gap-16">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-12 md:gap-16">
                 <div class="max-w-md">
-                    <h3 class="text-3xl font-display font-bold text-white mb-6">Empecemos un proyecto.</h3>
+                    <h3 class="text-2xl md:text-3xl font-display font-bold text-white mb-6">Empecemos un proyecto.</h3>
                     <p class="text-slate-400 font-light mb-8">
                         Disponible para nuevos desarrollos en 2025. Enfocado en calidad, velocidad y resultados de negocio.
                     </p>
-                    <a href="mailto:contacto@devinson.lat" class="text-2xl text-white border-b border-white/20 hover:border-white pb-2 transition-all">contacto@devinson.lat</a>
+                    <a href="mailto:contacto@devinson.lat" class="text-xl md:text-2xl text-white border-b border-white/20 hover:border-white pb-2 transition-all break-all">contacto@devinson.lat</a>
                 </div>
                 
-                <div class="flex gap-8 items-end">
-                    <a href="https://wa.me/573215203354" target="_blank" class="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all">
-                        <i class="fab fa-whatsapp text-xl"></i>
+                <div class="flex gap-6 md:gap-8 items-end">
+                    <a href="https://wa.me/573215203354" target="_blank" class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all">
+                        <i class="fab fa-whatsapp text-lg md:text-xl"></i>
                     </a>
-                    <a href="https://github.com/Pech68" target="_blank" class="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all">
-                        <i class="fab fa-github text-xl"></i>
+                    <a href="https://github.com/Pech68" target="_blank" class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all">
+                        <i class="fab fa-github text-lg md:text-xl"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/devinson-rodriguez" target="_blank" class="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all">
-                        <i class="fab fa-linkedin-in text-xl"></i>
+                    <a href="https://www.linkedin.com/in/devinson-rodriguez" target="_blank" class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all">
+                        <i class="fab fa-linkedin-in text-lg md:text-xl"></i>
                     </a>
                 </div>
             </div>
-            <div class="mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-slate-600 uppercase tracking-widest">
+            <div class="mt-16 md:mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-slate-600 uppercase tracking-widest gap-4 md:gap-0">
                 <span>&copy; 2025 Devinson Rodriguez</span>
                 <span>Valledupar, Colombia</span>
             </div>
@@ -607,10 +641,7 @@
         // ============================================
         // API CONFIG & AI LOGIC
         // ============================================
-        const partA = "AIzaSyBHfGUNg8F5";     
-        const partB = "0Volpv1yBuYnG";      
-        const partC = "cxS6MZCMM4";         
-        const apiKey = partA + partB + partC; 
+        const apiKey = ""; // Injected by environment
 
         let aiSummaryForWhatsapp = "";
 
@@ -683,7 +714,7 @@
         // VISUAL EFFECTS
         // ============================================
         
-        // Particles Background
+        // Particles Background (Optimized for Mobile)
         const canvas = document.getElementById('particles-canvas');
         if(canvas) {
             const ctx = canvas.getContext('2d');
@@ -697,7 +728,8 @@
 
             function createParticles() {
                 particles = [];
-                const count = window.innerWidth < 768 ? 15 : 30; 
+                // Reduce particles on mobile to save battery/performance
+                const count = window.innerWidth < 768 ? 10 : 30; 
                 for(let i=0; i<count; i++) {
                     particles.push({
                         x: Math.random() * width,
@@ -743,9 +775,30 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Mobile Menu
-        document.getElementById('menu-btn').addEventListener('click', () => {
-             alert("Menú móvil simplificado para demostración.");
+        // Mobile Menu Toggle Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            if(isMenuOpen) {
+                mobileMenu.classList.add('open');
+                menuBtn.innerHTML = '<i class="fas fa-times"></i>'; // Change icon to X
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+            } else {
+                mobileMenu.classList.remove('open');
+                menuBtn.innerHTML = '<i class="fas fa-bars"></i>'; // Change icon back to hamburger
+                document.body.style.overflow = '';
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+
+        // Close menu when a link is clicked
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
         });
 
     </script>
