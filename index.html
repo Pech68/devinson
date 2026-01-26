@@ -4,26 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- SEO & Metadata -->
     <title>Devinson Rodriguez | Arquitectura Digital</title>
     <meta name="description" content="Portafolio de Devinson Rodriguez. Desarrollo Web Premium, E-commerce y Soluciones IA.">
     <meta name="theme-color" content="#020617"> 
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
     
-    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Markdown Parser -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     
-    <!-- Configuration -->
     <script>
         tailwind.config = {
             theme: {
@@ -322,18 +316,15 @@
 </head>
 <body class="antialiased selection:bg-white/20 selection:text-white relative">
 
-    <!-- Custom Cursor Elements -->
     <div class="custom-cursor"></div>
     <div class="custom-cursor-dot"></div>
 
-    <!-- Navigation -->
     <nav class="fixed w-full z-50 top-0 left-0 py-6 mix-blend-difference">
         <div class="container mx-auto px-6 flex justify-between items-center relative z-50">
             <a href="#" class="font-display font-bold text-2xl text-white tracking-tighter hover:tracking-wide transition-all duration-300 cursor-hover">
                 DEVINSON<span class="text-blue-500">.</span>
             </a>
             
-            <!-- Desktop Menu -->
             <div class="hidden md:flex gap-12 text-sm font-medium text-slate-300">
                 <a href="#stats" class="hover:text-white transition-colors relative group cursor-hover">Trayectoria</a>
                 <a href="#work" class="hover:text-white transition-colors relative group cursor-hover">Proyectos</a>
@@ -345,13 +336,11 @@
                 Agendar Cita
             </a>
 
-            <!-- Mobile Button -->
             <button id="menu-btn" class="md:hidden text-white text-2xl p-2 focus:outline-none">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
 
-        <!-- Mobile Menu Overlay -->
         <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 flex flex-col justify-center items-center h-screen w-screen">
             <div class="flex flex-col gap-8 text-center text-2xl font-display font-bold text-white">
                 <a href="#stats" class="mobile-link hover:text-blue-400 transition-colors">Trayectoria</a>
@@ -365,13 +354,10 @@
         </div>
     </nav>
 
-    <!-- Hero Section with Video Background -->
     <section class="relative min-h-[90vh] flex flex-col justify-center pt-24 md:pt-20 overflow-hidden" id="hero">
         
-        <!-- Video Background -->
         <div class="video-bg-container">
             <video autoplay loop muted playsinline class="video-bg" poster="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop">
-                <!-- Stable Pixabay Video for Tech/Network -->
                 <source src="https://cdn.pixabay.com/video/2019/04/20/22908-331664413_large.mp4" type="video/mp4">
             </video>
             <div class="video-overlay"></div>
@@ -402,7 +388,6 @@
         </div>
     </section>
 
-    <!-- STATS SECTION (Image Background) -->
     <section id="stats" class="py-12 border-y border-white/5 relative">
         <div class="absolute inset-0 z-0">
              <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover opacity-10" alt="World Map">
@@ -430,7 +415,6 @@
         </div>
     </section>
 
-    <!-- Marquee -->
     <div class="py-6 md:py-8 border-b border-white/5 bg-black/40 backdrop-blur-sm marquee-wrapper relative z-20">
         <div class="flex animate-drift whitespace-nowrap">
             <div class="flex gap-8 md:gap-16 items-center px-8 text-xl md:text-3xl font-display font-bold text-slate-700 uppercase tracking-tighter">
@@ -445,7 +429,6 @@
         </div>
     </div>
 
-    <!-- PORTFOLIO SECTION (With 3D Tilt) -->
     <section id="work" class="py-24 md:py-32 relative">
         <div class="container mx-auto px-6">
             <div class="mb-16 md:mb-24 reveal">
@@ -454,16 +437,13 @@
             </div>
 
             <div class="space-y-24 md:space-y-32">
-                <!-- Project 1: PechStore -->
                 <div class="portfolio-item group relative flex flex-col md:flex-row items-center gap-8 md:gap-12 reveal tilt-card-wrapper">
                     <div class="absolute inset-0 glow-blue opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl pointer-events-none"></div>
-                    <!-- 3D Card Container -->
                     <div class="w-full md:w-3/5 relative z-10 tilt-card" data-tilt>
                         <div class="bg-slate-900/80 p-8 md:p-16 rounded-3xl overflow-hidden relative border border-white/5 tilt-content backdrop-blur-sm shadow-2xl">
                              <div class="absolute top-0 right-0 p-4 opacity-50">
                                 <i class="fas fa-arrow-up-right-from-square text-white"></i>
                              </div>
-                             <!-- Replaced with original Imgur Logo -->
                             <img src="https://i.imgur.com/1mkPsH6.png" alt="PechStore Tech" class="w-full h-auto object-contain max-h-[300px] rounded-xl shadow-lg hover:shadow-blue-500/20 transition-all duration-500">
                         </div>
                     </div>
@@ -479,12 +459,10 @@
                     </div>
                 </div>
 
-                <!-- Project 2: La Guaca del Valle -->
                 <div class="portfolio-item group relative flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 reveal tilt-card-wrapper">
                     <div class="absolute inset-0 glow-purple opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl pointer-events-none"></div>
                     <div class="w-full md:w-3/5 relative z-10 tilt-card" data-tilt>
                         <div class="rounded-3xl overflow-hidden shadow-2xl shadow-purple-900/20 border border-white/5 tilt-content bg-slate-900/80 p-2">
-                             <!-- Replaced with original Imgur Logo -->
                             <img src="https://i.imgur.com/pYxjQNT.png" alt="La Guaca del Valle" class="w-full h-auto object-cover rounded-2xl transform transition-transform duration-700">
                         </div>
                     </div>
@@ -500,12 +478,10 @@
                     </div>
                 </div>
 
-                <!-- Project 3: Rosa Beauty -->
                 <div class="portfolio-item group relative flex flex-col md:flex-row items-center gap-8 md:gap-12 reveal tilt-card-wrapper">
                     <div class="absolute inset-0 glow-blue opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl pointer-events-none"></div>
                     <div class="w-full md:w-3/5 relative z-10 tilt-card" data-tilt>
                         <div class="bg-pink-950/20 p-8 md:p-16 rounded-3xl overflow-hidden border border-pink-500/10 tilt-content backdrop-blur-sm">
-                             <!-- Replaced with original Imgur Logo -->
                             <img src="https://i.imgur.com/zndRaPD.png" alt="Rosa Beauty Logo" class="w-full h-auto object-contain max-h-[200px] md:max-h-[300px] drop-shadow-2xl rounded-xl">
                         </div>
                     </div>
@@ -520,17 +496,36 @@
                         </a>
                     </div>
                 </div>
+
+                <div class="portfolio-item group relative flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 reveal tilt-card-wrapper">
+                    <div class="absolute inset-0 glow-blue opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl pointer-events-none"></div>
+                    <div class="w-full md:w-3/5 relative z-10 tilt-card" data-tilt>
+                        <div class="bg-slate-900/80 p-8 md:p-16 rounded-3xl overflow-hidden relative border border-white/5 tilt-content backdrop-blur-sm shadow-2xl flex items-center justify-center">
+                             <div class="absolute top-0 right-0 p-4 opacity-50">
+                                <i class="fas fa-arrow-up-right-from-square text-white"></i>
+                             </div>
+                            <img src="https://i.imgur.com/HNQr8IZ.png" alt="PechPos Logo" class="w-full h-auto object-contain max-h-[300px] rounded-xl drop-shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-500">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-2/5 relative z-10 md:-ml-12 md:mt-12 text-left">
+                        <span class="text-blue-400 font-mono text-xs uppercase tracking-widest mb-2 block">SaaS & Enterprise</span>
+                        <h3 class="text-3xl md:text-4xl font-display font-bold text-white mb-4">PechPos System</h3>
+                        <p class="text-slate-400 mb-8 leading-relaxed font-light">
+                            Software de gestión POS Multi-tenant diseñado para la automatización de inventarios, ventas y facturación. Escalable para múltiples sucursales bajo una misma arquitectura en la nube.
+                        </p>
+                        <a href="https://devinson.lat/pechpos" target="_blank" class="cursor-hover inline-flex items-center gap-3 text-white font-medium hover:gap-6 transition-all group-hover:text-blue-400">
+                            Acceder al Sistema <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Services (Digitaliza tu negocio) WITH VIDEO BACKGROUND -->
     <section id="expertise" class="py-24 md:py-32 relative overflow-hidden">
         
-        <!-- Video Background for Services -->
         <div class="absolute inset-0 z-0">
              <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-20" poster="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop">
-                <!-- Stable Pixabay Video for Abstract -->
                 <source src="https://cdn.pixabay.com/video/2023/10/22/186175-877661271_large.mp4" type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-slate-950/90"></div>
@@ -547,27 +542,22 @@
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 
-                <!-- Services Grid -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                    <!-- Service 1 -->
                     <div class="group border border-white/5 bg-black/40 p-6 rounded-2xl hover:bg-white/10 transition-colors duration-500 reveal backdrop-blur-md">
                         <i class="fas fa-code text-2xl text-blue-400 mb-4"></i>
                         <h3 class="text-lg font-bold text-white mb-2">Frontend</h3>
                         <p class="text-sm text-slate-400">React, Next.js, Astro. Interfaces que vuelan.</p>
                     </div>
-                    <!-- Service 2 -->
                     <div class="group border border-white/5 bg-black/40 p-6 rounded-2xl hover:bg-white/10 transition-colors duration-500 reveal backdrop-blur-md">
                         <i class="fas fa-server text-2xl text-purple-400 mb-4"></i>
                         <h3 class="text-lg font-bold text-white mb-2">Backend</h3>
                         <p class="text-sm text-slate-400">Node, Python, Firebase. Datos seguros.</p>
                     </div>
-                     <!-- Service 3 -->
                      <div class="group border border-white/5 bg-black/40 p-6 rounded-2xl hover:bg-white/10 transition-colors duration-500 reveal backdrop-blur-md">
                         <i class="fas fa-mobile-alt text-2xl text-green-400 mb-4"></i>
                         <h3 class="text-lg font-bold text-white mb-2">Mobile</h3>
                         <p class="text-sm text-slate-400">Apps nativas y PWA responsivas.</p>
                     </div>
-                     <!-- Service 4 -->
                      <div class="group border border-white/5 bg-black/40 p-6 rounded-2xl hover:bg-white/10 transition-colors duration-500 reveal backdrop-blur-md">
                         <i class="fas fa-brain text-2xl text-pink-400 mb-4"></i>
                         <h3 class="text-lg font-bold text-white mb-2">AI Solutions</h3>
@@ -575,7 +565,6 @@
                     </div>
                 </div>
 
-                <!-- Skill Bars (The requested "Bars") -->
                 <div class="space-y-8 reveal bg-black/30 p-8 rounded-3xl border border-white/5 backdrop-blur-sm">
                     <div>
                         <div class="flex justify-between text-sm text-slate-300 mb-2 font-mono">
@@ -618,7 +607,6 @@
         </div>
     </section>
 
-    <!-- IMPACT CAROUSEL -->
     <section id="impact" class="py-24 bg-black border-y border-white/5 overflow-hidden">
         <div class="container mx-auto px-6 mb-12 text-center reveal">
             <h2 class="font-display text-3xl md:text-4xl text-white mb-4">¿Por qué tener una Web?</h2>
@@ -626,7 +614,6 @@
         </div>
         <div class="carousel-container">
             <div class="carousel-track animate-scroll">
-                <!-- Cards -->
                 <div class="carousel-card cursor-hover">
                     <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" alt="Cyber Security">
                     <div class="card-overlay">
@@ -659,7 +646,6 @@
                         <p class="text-sm text-slate-300">Sistemas preparados para crecer contigo sin romperse.</p>
                     </div>
                 </div>
-                 <!-- Loop Duplicates -->
                  <div class="carousel-card cursor-hover">
                     <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" alt="Cyber Security">
                     <div class="card-overlay">
@@ -672,41 +658,32 @@
         </div>
     </section>
 
-    <!-- NEW SECTION: ECOSYSTEM DECK -->
     <section id="ecosystem" class="py-24 md:py-32 relative overflow-hidden bg-slate-950">
-        <!-- Background radial glow -->
         <div class="absolute inset-0 bg-gradient-to-r from-blue-900/10 via-transparent to-purple-900/10 pointer-events-none"></div>
 
         <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-center min-h-[500px] md:min-h-[600px] w-full">
 
-            <!-- Mobile: Text displayed as grid above/below -->
             <div class="grid grid-cols-2 gap-4 md:gap-8 w-full md:absolute md:inset-0 md:w-full md:h-full md:gap-0 pointer-events-none mb-12 md:mb-0">
-                <!-- Top Left -->
                 <div class="text-left md:absolute md:top-20 md:left-20 reveal">
                     <h3 class="text-blue-400 font-mono text-[10px] md:text-xs uppercase tracking-widest mb-1">Estrategia</h3>
                     <p class="text-white font-bold text-sm md:text-xl leading-tight">Meta Ads &<br>Social Growth</p>
                 </div>
-                <!-- Top Right -->
                 <div class="text-right md:absolute md:top-20 md:right-20 reveal">
                     <h3 class="text-purple-400 font-mono text-[10px] md:text-xs uppercase tracking-widest mb-1">Plataforma</h3>
                     <p class="text-white font-bold text-sm md:text-xl leading-tight">Shopify &<br>WordPress Core</p>
                 </div>
-                <!-- Bottom Left (Hidden mobile, shown via grid order if needed, but keeping simple grid) -->
                 <div class="text-left md:absolute md:bottom-20 md:left-20 reveal">
                     <h3 class="text-green-400 font-mono text-[10px] md:text-xs uppercase tracking-widest mb-1">Infraestructura</h3>
                     <p class="text-white font-bold text-sm md:text-xl leading-tight">AWS Cloud &<br>Scalability</p>
                 </div>
-                <!-- Bottom Right -->
                 <div class="text-right md:absolute md:bottom-20 md:right-20 reveal">
                     <h3 class="text-pink-400 font-mono text-[10px] md:text-xs uppercase tracking-widest mb-1">Inteligencia</h3>
                     <p class="text-white font-bold text-sm md:text-xl leading-tight">AI Driven<br>Marketing</p>
                 </div>
             </div>
 
-            <!-- The Deck Visual (Centered) -->
             <div class="relative w-48 h-64 md:w-80 md:h-96 deck-perspective group deck-scale z-20 mx-auto mt-8 md:mt-0 cursor-hover">
                 
-                <!-- Main Card (WEB) -->
                 <div class="absolute inset-0 bg-slate-900 border border-blue-500/50 rounded-2xl flex flex-col items-center justify-center z-30 shadow-2xl shadow-blue-500/20 transform transition-transform duration-500 group-hover:scale-105 animate-pulse-glow">
                     <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-blue-500/10 flex items-center justify-center mb-4 border border-blue-500/30">
                         <i class="fas fa-globe text-2xl md:text-3xl text-blue-400"></i>
@@ -717,7 +694,6 @@
                     </div>
                 </div>
 
-                <!-- Fan Cards (Behind) -->
                 <div class="card-face absolute inset-0 bg-gradient-to-br from-[#95BF47]/10 to-slate-900 border border-[#95BF47]/30 rounded-2xl z-20 transform origin-bottom-center -rotate-3 translate-y-1 group-hover:-rotate-12 group-hover:-translate-x-16 group-hover:-translate-y-4 flex items-start justify-start p-5">
                      <i class="fab fa-shopify text-2xl md:text-4xl text-[#95BF47] drop-shadow-[0_0_10px_rgba(149,191,71,0.5)]"></i>
                 </div>
@@ -734,7 +710,6 @@
         </div>
     </section>
 
-    <!-- AI Consultant Section -->
     <section id="ai-consultant" class="py-24 md:py-32 relative">
         <div class="container mx-auto px-6 relative z-10 max-w-4xl text-center">
             <span class="inline-block px-3 py-1 bg-white/5 rounded-full text-xs font-mono text-blue-400 mb-6 border border-white/10">BETA FEATURE</span>
@@ -750,7 +725,6 @@
                 </div>
             </div>
 
-            <!-- AI Output -->
             <div id="ai-result" class="hidden mt-12 text-left bg-slate-900/50 p-8 rounded-2xl border border-white/5 animate-fade-in">
                  <div id="ai-content" class="text-slate-300 leading-relaxed font-light mb-6 prose prose-invert max-w-none"></div>
                  <div id="dynamic-modules-container" class="flex flex-wrap gap-2 mb-6"></div>
@@ -763,7 +737,6 @@
         </div>
     </section>
 
-    <!-- Footer (Enhanced Parallax) -->
     <footer id="contact" class="py-16 md:py-24 footer-parallax border-t border-white/5">
         <div class="footer-overlay"></div>
         <div class="container mx-auto px-6 relative z-10">
@@ -802,12 +775,10 @@
         </div>
     </footer>
     
-    <!-- Floating Whatsapp Button -->
     <a href="https://wa.me/573215203354" target="_blank" class="floating-whatsapp w-14 h-14 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center text-white shadow-2xl animate-pulse-glow hover:bg-green-400 cursor-hover">
         <i class="fab fa-whatsapp text-2xl md:text-3xl"></i>
     </a>
 
-    <!-- JAVASCRIPT -->
     <script>
         // ============================================
         // API CONFIG & AI LOGIC
