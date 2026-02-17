@@ -56,6 +56,8 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Markdown Parser para respuestas bonitas de la IA -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     
     <style>
         :root {
@@ -235,6 +237,13 @@
             animation: messageSlide 0.3s ease-out;
             word-wrap: break-word;
         }
+        
+        /* Markdown Styles inside Chat */
+        .message strong { color: #818cf8; font-weight: 700; }
+        .message ul { list-style-type: disc; margin-left: 20px; margin-top: 5px; }
+        .message li { margin-bottom: 4px; }
+        .message p { margin-bottom: 8px; }
+        .message p:last-child { margin-bottom: 0; }
 
         @keyframes messageSlide {
             from { opacity: 0; transform: translateY(10px); }
@@ -687,7 +696,7 @@
         </div>
     </section>
 
-    <!-- --- WIDGET CHATBOT (NUEVO) --- -->
+    <!-- --- WIDGET CHATBOT (INTELLIGENT) --- -->
     <div id="chat-widget">
         <!-- Ventana del Chat -->
         <div id="chat-window">
@@ -698,7 +707,7 @@
                         <img src="https://i.imgur.com/HNQr8IZ.png" alt="Bot" class="w-6 h-6">
                     </div>
                     <div>
-                        <h4 class="text-white font-bold text-sm">PechBot 🤖</h4>
+                        <h4 class="text-white font-bold text-sm">PechBot 🤖 (AI)</h4>
                         <span class="text-green-300 text-xs flex items-center gap-1">
                             <span class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span> En línea
                         </span>
@@ -713,10 +722,10 @@
             <div id="chat-messages" class="chat-messages">
                 <!-- Mensaje de bienvenida -->
                 <div class="message msg-bot">
-                    Hola 👋, soy PechBot. Estoy aquí para ayudarte con dudas sobre precios, facturación DIAN, soporte o cómo ingresar.
+                    Hola 👋, soy <strong>PechBot</strong>, impulsado por IA. Puedes preguntarme cualquier cosa sobre el sistema, precios, o cómo empezar.
                 </div>
                 <div class="message msg-bot">
-                    ¿En qué puedo ayudarte hoy?
+                    ¿Qué duda tienes hoy?
                 </div>
             </div>
 
@@ -859,46 +868,36 @@
             }
         }
 
-        // --- LÓGICA DEL CHATBOT ---
-        const knowledgeBase = [
-            {
-                keywords: ['hola', 'buenas', 'inicio', 'saludo'],
-                answer: "¡Hola! ¿Cómo estás? Pregúntame sobre precios, la DIAN, o cómo usar el sistema."
-            },
-            {
-                keywords: ['precio', 'costo', 'valor', 'cuanto vale', 'planes', 'tarifa', 'pagar'],
-                answer: "Manejamos estos planes para Colombia:\n🔹 POS Básico (Interno): $35.000/mes\n🔹 FE Básico (100 docs): $75.000/mes\n🔹 FE Plus (300 docs + Inventario): $100.000/mes\n🔹 FE PRO (1000 docs + Tienda Online): $150.000/mes."
-            },
-            {
-                keywords: ['dian', 'factura', 'electronica', 'legal', 'impuesto', 'xml'],
-                answer: "PechPOS cumple con la Resolución DIAN 2.1 ✅. Generamos Factura Electrónica, Documento Equivalente POS y Notas Crédito. El XML y PDF se envían automáticamente al correo del cliente."
-            },
-            {
-                keywords: ['restaurante', 'bar', 'mesa', 'comanda', 'cocina', 'propina', 'pedido'],
-                answer: "Para restaurantes tenemos: 🗺️ Mapa de mesas interactivo, 🖨️ Envío de comandas a cocina/bar, división de cuentas y gestión de propinas. ¡Ideal para agilizar el servicio!"
-            },
-            {
-                keywords: ['inventario', 'stock', 'producto', 'insumo', 'ingrediente', 'proveedor'],
-                answer: "Puedes controlar inventarios por variantes (talla/color), recibir alertas de stock bajo y gestionar insumos con recetas (escandallos) para saber cuánto gastas realmente."
-            },
-            {
-                keywords: ['ingresar', 'entrar', 'login', 'acceso', 'usuario', 'contraseña', 'pin'],
-                answer: "⚠️ Importante: Tu primer ingreso es con usuario 'Administrador' y el PIN genérico es 👉 **0000**. Recuerda marcar los números con el mouse en la pantalla por seguridad."
-            },
-            {
-                keywords: ['hardware', 'equipo', 'impresora', 'computador', 'celular', 'tablet', 'lector'],
-                answer: "PechPOS es compatible con Windows, Android y iOS. Funciona con impresoras térmicas (58mm/80mm), lectores de barras, básculas y cajones monederos estándar."
-            },
-            {
-                keywords: ['soporte', 'ayuda', 'humano', 'asesor', 'contacto', 'whatsapp', 'telefono'],
-                answer: "Nuestro soporte es vía WhatsApp de Lunes a Sábado (8am - 6pm). Si tienes un problema urgente, usa el botón de abajo para chatear con un humano 👇",
-                action: "whatsapp"
-            },
-            {
-                keywords: ['offline', 'internet', 'sin red', 'conexion'],
-                answer: "¡No te preocupes! PechPOS tiene modo Offline. Puedes seguir vendiendo sin internet y el sistema sincronizará todo cuando recuperes la conexión. ☁️"
-            }
-        ];
+        // --- LÓGICA DEL CHATBOT CON API REAL (GEMINI) ---
+        
+        // Divide API Key en partes (Seguridad básica para cliente)
+        const partA = "AIzaSyAZ-Huqh";
+        const partB = "p-aCAeobkr82e";
+        const partC = "Ay3y0xKyCKezA";
+        const apiKey = partA + partB + partC;
+
+        // Contexto del Sistema (System Prompt)
+        const systemContext = `
+            Eres PechBot, el asistente experto de PechPOS Colombia. Tu tono es profesional, amable y directo.
+            Usa la siguiente información para responder preguntas. Responde siempre en Español. 
+            NO inventes información. Si no sabes la respuesta o es muy técnica, sugiere contactar a un humano.
+            Usa formato Markdown (negritas, listas) para que se vea bien.
+
+            INFORMACIÓN DE PECHPOS:
+            1. General: Ecosistema digital en la nube para comercios (restaurantes, tiendas). 100% Web (Chrome, Safari, Android, iOS). Tiene modo Offline (vende sin internet).
+            2. Primer Ingreso: Registro con email. 15 días gratis. Usuario: Administrador. PIN Genérico: 0000. IMPORTANTE: Marcar PIN con el mouse en pantalla por seguridad.
+            3. DIAN: Cumple Res. 2.1. Plataforma Factus. Genera XML y PDF automático al correo. Maneja Factura Electrónica, POS Equivalente y Notas Crédito.
+            4. Restaurantes: Mapa de mesas, Comandas a cocina/bar, División de cuentas, Propinas, Modificadores (ej: sin cebolla).
+            5. Inventarios: Variantes (talla/color), Alertas stock bajo, Recetas/Insumos (escandallos), Proveedores.
+            6. Finanzas: Cierres de caja (ciegos para seguridad), Registro de gastos, Auditoría completa.
+            7. Hardware: Impresoras térmicas (58/80mm), Básculas, Lectores códigos, Datáfonos.
+            8. Precios (COP): 
+               - POS Básico: $35.000/mes (Solo interno).
+               - FE Básico: $75.000/mes (100 docs).
+               - FE Plus: $100.000/mes (300 docs + Inventario + Soporte). RECOMENDADO.
+               - FE PRO: $150.000/mes (1000 docs + Tienda Online).
+            9. Soporte: WhatsApp +57 321 520 3354 (Lun-Sab 8am-6pm).
+        `;
 
         const chatWindow = document.getElementById('chat-window');
         const chatMessages = document.getElementById('chat-messages');
@@ -923,30 +922,60 @@
             if (e.key === 'Enter') sendMessage();
         }
 
-        function sendMessage() {
+        async function sendMessage() {
             const text = chatInput.value.trim();
             if (!text) return;
 
+            // 1. Mostrar mensaje usuario
             addMessage(text, 'user');
             chatInput.value = '';
 
+            // 2. Indicador de escritura
             showTypingIndicator();
 
-            setTimeout(() => {
+            try {
+                // 3. Llamada a la API de Google Gemini
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        contents: [{
+                            parts: [{
+                                text: systemContext + "\n\nPregunta del usuario: " + text
+                            }]
+                        }]
+                    })
+                });
+
+                const data = await response.json();
                 removeTypingIndicator();
-                const response = getBotResponse(text);
-                addMessage(response.text, 'bot');
-                
-                if (response.action === 'whatsapp' || response.isFallback) {
-                    addWhatsAppButton();
+
+                if (data.candidates && data.candidates[0].content) {
+                    const aiText = data.candidates[0].content.parts[0].text;
+                    addMessage(aiText, 'bot');
+                } else {
+                    addMessage("Lo siento, tuve un pequeño problema de conexión. ¿Intentamos de nuevo?", 'bot');
                 }
-            }, 800);
+
+            } catch (error) {
+                console.error("Error API:", error);
+                removeTypingIndicator();
+                addMessage("Mis circuitos están algo saturados. 😅 Mejor habla con un humano:", 'bot');
+                addWhatsAppButton();
+            }
         }
 
         function addMessage(text, type) {
             const div = document.createElement('div');
             div.className = `message ${type === 'user' ? 'msg-user' : 'msg-bot'}`;
-            div.innerHTML = text.replace(/\n/g, '<br>');
+            // Parsear Markdown si es bot, o texto plano si es usuario
+            if (type === 'bot') {
+                div.innerHTML = marked.parse(text);
+            } else {
+                div.textContent = text;
+            }
             chatMessages.appendChild(div);
             scrollToBottom();
         }
@@ -981,34 +1010,6 @@
             chatMessages.appendChild(btnDiv);
             scrollToBottom();
             lucide.createIcons();
-        }
-
-        function getBotResponse(input) {
-            const lowerInput = input.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-            
-            let bestMatch = null;
-            let highestScore = 0;
-
-            knowledgeBase.forEach(topic => {
-                let score = 0;
-                topic.keywords.forEach(word => {
-                    if (lowerInput.includes(word)) score++;
-                });
-                if (score > highestScore) {
-                    highestScore = score;
-                    bestMatch = topic;
-                }
-            });
-
-            if (bestMatch && highestScore > 0) {
-                return { text: bestMatch.answer, action: bestMatch.action || null, isFallback: false };
-            } else {
-                return { 
-                    text: "🤔 No estoy seguro de haber entendido eso. ¿Te gustaría hablar directamente con nuestro equipo de soporte?", 
-                    action: null, 
-                    isFallback: true 
-                };
-            }
         }
 
         const observer = new IntersectionObserver((entries) => {
