@@ -874,9 +874,9 @@
         // --- LÓGICA DEL CHATBOT CON API REAL (GEMINI) ---
         
         // Divide API Key en partes (Seguridad básica para cliente)
-        const partA = "AIzaSyA4qAq8p";
-        const partB = "F0yoiFsa0jBDl";
-        const partC = "4_je570t2ZuCw";
+        const partA = "AIzaSyBC71uPn";
+        const partB = "ZZ9qvDOl_cJyc";
+        const partC = "2lDRuXYSKlk7Q";
         const apiKey = partA + partB + partC;
 
         // Contexto del Sistema (System Prompt)
@@ -936,9 +936,9 @@
             // 2. Indicador de escritura
             showTypingIndicator();
 
-            // Lista de modelos a intentar (Auto-switch: Intenta el 2.5 primero, luego el 1.5)
+            // Lista de modelos a intentar (Auto-switch: Intenta el 2.0 primero, luego el 1.5)
             const modelsToTry = [
-                'gemini-2.5-flash-preview-09-2025', 
+                'gemini-2.0-flash', 
                 'gemini-1.5-flash', 
                 'gemini-pro'
             ];
