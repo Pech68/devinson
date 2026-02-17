@@ -167,6 +167,115 @@
         #mobile-menu { display: none; }
         #mobile-menu.active { display: block; animation: slideDown 0.3s ease-out; }
         @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- NUEVOS ESTILOS PARA EL CHATBOT --- */
+        #chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        #chat-window {
+            width: 350px;
+            height: 500px;
+            background: #0f172a; /* Slate 900 */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            margin-bottom: 15px;
+            transform-origin: bottom right;
+            animation: chatPopup 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @media (max-width: 640px) {
+            #chat-window {
+                width: 90vw;
+                height: 70vh;
+                bottom: 80px;
+                right: 5vw;
+            }
+        }
+
+        @keyframes chatPopup {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .chat-header {
+            background: linear-gradient(90deg, #4f46e5, #9333ea);
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background: rgba(15, 23, 42, 0.95);
+            scrollbar-width: thin;
+            scrollbar-color: #4f46e5 #0f172a;
+        }
+
+        .message {
+            margin-bottom: 12px;
+            max-width: 85%;
+            padding: 10px 14px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            animation: messageSlide 0.3s ease-out;
+            word-wrap: break-word;
+        }
+
+        @keyframes messageSlide {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .msg-bot {
+            background: #1e293b; /* Slate 800 */
+            color: #e2e8f0;
+            border-top-left-radius: 2px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .msg-user {
+            background: #4f46e5; /* Indigo 600 */
+            color: white;
+            align-self: flex-end;
+            margin-left: auto;
+            border-bottom-right-radius: 2px;
+        }
+
+        .chat-input-area {
+            padding: 10px;
+            background: #1e293b;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            gap: 8px;
+        }
+
+        .typing-indicator span {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background-color: #94a3b8;
+            border-radius: 50%;
+            animation: typing 1.4s infinite ease-in-out both;
+            margin: 0 1px;
+        }
+        .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+        .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes typing { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
     </style>
 </head>
 <body class="selection:bg-indigo-500 selection:text-white">
@@ -578,6 +687,58 @@
         </div>
     </section>
 
+    <!-- --- WIDGET CHATBOT (NUEVO) --- -->
+    <div id="chat-widget">
+        <!-- Ventana del Chat -->
+        <div id="chat-window">
+            <!-- Header -->
+            <div class="chat-header">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center">
+                        <img src="https://i.imgur.com/HNQr8IZ.png" alt="Bot" class="w-6 h-6">
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold text-sm">PechBot 🤖</h4>
+                        <span class="text-green-300 text-xs flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span> En línea
+                        </span>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" class="text-white hover:text-gray-200">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Área de Mensajes -->
+            <div id="chat-messages" class="chat-messages">
+                <!-- Mensaje de bienvenida -->
+                <div class="message msg-bot">
+                    Hola 👋, soy PechBot. Estoy aquí para ayudarte con dudas sobre precios, facturación DIAN, soporte o cómo ingresar.
+                </div>
+                <div class="message msg-bot">
+                    ¿En qué puedo ayudarte hoy?
+                </div>
+            </div>
+
+            <!-- Input -->
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Escribe tu pregunta..." 
+                       class="flex-1 bg-gray-800 text-white rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 border border-gray-700 placeholder-gray-500"
+                       onkeypress="handleKeyPress(event)">
+                <button onclick="sendMessage()" class="bg-indigo-600 hover:bg-indigo-700 text-white p-2 rounded-lg transition-colors">
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Botón Flotante (Trigger) -->
+        <button id="chat-trigger" onclick="toggleChat()" 
+                class="bg-indigo-600 hover:bg-indigo-500 text-white rounded-full p-4 shadow-[0_0_20px_rgba(79,70,229,0.5)] transition-all transform hover:scale-110 flex items-center justify-center group">
+            <i data-lucide="message-square" class="w-7 h-7 absolute transition-all duration-300 group-hover:opacity-0 scale-100 group-hover:scale-0"></i>
+            <i data-lucide="chevron-up" class="w-7 h-7 absolute transition-all duration-300 opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100"></i>
+        </button>
+    </div>
+
     <!-- --- FOOTER --- -->
     <footer class="bg-black py-16 border-t border-white/10">
         <div class="max-w-7xl mx-auto px-4 text-center">
@@ -695,6 +856,158 @@
             } else {
                 content.classList.remove('hidden');
                 icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // --- LÓGICA DEL CHATBOT ---
+        const knowledgeBase = [
+            {
+                keywords: ['hola', 'buenas', 'inicio', 'saludo'],
+                answer: "¡Hola! ¿Cómo estás? Pregúntame sobre precios, la DIAN, o cómo usar el sistema."
+            },
+            {
+                keywords: ['precio', 'costo', 'valor', 'cuanto vale', 'planes', 'tarifa', 'pagar'],
+                answer: "Manejamos estos planes para Colombia:\n🔹 POS Básico (Interno): $35.000/mes\n🔹 FE Básico (100 docs): $75.000/mes\n🔹 FE Plus (300 docs + Inventario): $100.000/mes\n🔹 FE PRO (1000 docs + Tienda Online): $150.000/mes."
+            },
+            {
+                keywords: ['dian', 'factura', 'electronica', 'legal', 'impuesto', 'xml'],
+                answer: "PechPOS cumple con la Resolución DIAN 2.1 ✅. Generamos Factura Electrónica, Documento Equivalente POS y Notas Crédito. El XML y PDF se envían automáticamente al correo del cliente."
+            },
+            {
+                keywords: ['restaurante', 'bar', 'mesa', 'comanda', 'cocina', 'propina', 'pedido'],
+                answer: "Para restaurantes tenemos: 🗺️ Mapa de mesas interactivo, 🖨️ Envío de comandas a cocina/bar, división de cuentas y gestión de propinas. ¡Ideal para agilizar el servicio!"
+            },
+            {
+                keywords: ['inventario', 'stock', 'producto', 'insumo', 'ingrediente', 'proveedor'],
+                answer: "Puedes controlar inventarios por variantes (talla/color), recibir alertas de stock bajo y gestionar insumos con recetas (escandallos) para saber cuánto gastas realmente."
+            },
+            {
+                keywords: ['ingresar', 'entrar', 'login', 'acceso', 'usuario', 'contraseña', 'pin'],
+                answer: "⚠️ Importante: Tu primer ingreso es con usuario 'Administrador' y el PIN genérico es 👉 **0000**. Recuerda marcar los números con el mouse en la pantalla por seguridad."
+            },
+            {
+                keywords: ['hardware', 'equipo', 'impresora', 'computador', 'celular', 'tablet', 'lector'],
+                answer: "PechPOS es compatible con Windows, Android y iOS. Funciona con impresoras térmicas (58mm/80mm), lectores de barras, básculas y cajones monederos estándar."
+            },
+            {
+                keywords: ['soporte', 'ayuda', 'humano', 'asesor', 'contacto', 'whatsapp', 'telefono'],
+                answer: "Nuestro soporte es vía WhatsApp de Lunes a Sábado (8am - 6pm). Si tienes un problema urgente, usa el botón de abajo para chatear con un humano 👇",
+                action: "whatsapp"
+            },
+            {
+                keywords: ['offline', 'internet', 'sin red', 'conexion'],
+                answer: "¡No te preocupes! PechPOS tiene modo Offline. Puedes seguir vendiendo sin internet y el sistema sincronizará todo cuando recuperes la conexión. ☁️"
+            }
+        ];
+
+        const chatWindow = document.getElementById('chat-window');
+        const chatMessages = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+        const chatTrigger = document.getElementById('chat-trigger');
+        let isChatOpen = false;
+
+        function toggleChat() {
+            isChatOpen = !isChatOpen;
+            if (isChatOpen) {
+                chatWindow.style.display = 'flex';
+                chatTrigger.style.display = 'none'; 
+                if (window.innerWidth > 640) chatTrigger.style.display = 'flex'; 
+                setTimeout(() => chatInput.focus(), 100);
+            } else {
+                chatWindow.style.display = 'none';
+                chatTrigger.style.display = 'flex';
+            }
+        }
+
+        function handleKeyPress(e) {
+            if (e.key === 'Enter') sendMessage();
+        }
+
+        function sendMessage() {
+            const text = chatInput.value.trim();
+            if (!text) return;
+
+            addMessage(text, 'user');
+            chatInput.value = '';
+
+            showTypingIndicator();
+
+            setTimeout(() => {
+                removeTypingIndicator();
+                const response = getBotResponse(text);
+                addMessage(response.text, 'bot');
+                
+                if (response.action === 'whatsapp' || response.isFallback) {
+                    addWhatsAppButton();
+                }
+            }, 800);
+        }
+
+        function addMessage(text, type) {
+            const div = document.createElement('div');
+            div.className = `message ${type === 'user' ? 'msg-user' : 'msg-bot'}`;
+            div.innerHTML = text.replace(/\n/g, '<br>');
+            chatMessages.appendChild(div);
+            scrollToBottom();
+        }
+
+        function showTypingIndicator() {
+            const div = document.createElement('div');
+            div.id = 'typing-indicator';
+            div.className = 'message msg-bot typing-indicator';
+            div.innerHTML = '<span></span><span></span><span></span>';
+            chatMessages.appendChild(div);
+            scrollToBottom();
+        }
+
+        function removeTypingIndicator() {
+            const indicator = document.getElementById('typing-indicator');
+            if (indicator) indicator.remove();
+        }
+
+        function scrollToBottom() {
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function addWhatsAppButton() {
+            const btnDiv = document.createElement('div');
+            btnDiv.className = "message msg-bot bg-transparent border-0 p-0";
+            btnDiv.innerHTML = `
+                <a href="https://wa.me/573215203354?text=Hola,%20necesito%20ayuda%20con%20PechPOS" target="_blank" 
+                   class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white text-sm font-bold py-2 px-4 rounded-lg transition-colors mt-2 w-full justify-center">
+                   <i data-lucide="message-circle" class="w-4 h-4"></i> Hablar con Humano
+                </a>
+            `;
+            chatMessages.appendChild(btnDiv);
+            scrollToBottom();
+            lucide.createIcons();
+        }
+
+        function getBotResponse(input) {
+            const lowerInput = input.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            
+            let bestMatch = null;
+            let highestScore = 0;
+
+            knowledgeBase.forEach(topic => {
+                let score = 0;
+                topic.keywords.forEach(word => {
+                    if (lowerInput.includes(word)) score++;
+                });
+                if (score > highestScore) {
+                    highestScore = score;
+                    bestMatch = topic;
+                }
+            });
+
+            if (bestMatch && highestScore > 0) {
+                return { text: bestMatch.answer, action: bestMatch.action || null, isFallback: false };
+            } else {
+                return { 
+                    text: "🤔 No estoy seguro de haber entendido eso. ¿Te gustaría hablar directamente con nuestro equipo de soporte?", 
+                    action: null, 
+                    isFallback: true 
+                };
             }
         }
 
