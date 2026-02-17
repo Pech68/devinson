@@ -3,7 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PechPOS - El Futuro de tu Negocio</title>
+    
+    <!-- --- SEO BÁSICO --- -->
+    <title>PechPOS - Sistema POS y Facturación Electrónica DIAN en Colombia</title>
+    <meta name="description" content="PechPOS: El software punto de venta (POS) en la nube más avanzado para restaurantes, tiendas y retail en Colombia. Facturación electrónica DIAN, control de inventarios y reportes en tiempo real. ¡15 días de prueba gratis!">
+    <meta name="keywords" content="POS Colombia, Facturación Electrónica DIAN, software para restaurantes, sistema de ventas, control de inventario nube, PechPOS, punto de venta retail, facturación automática, software contable Colombia">
+    <meta name="author" content="Devinson.lat">
+    <link rel="canonical" href="https://devinson.lat/pechpos">
+
+    <!-- --- OPEN GRAPH / FACEBOOK / WHATSAPP --- -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://devinson.lat/pechpos">
+    <meta property="og:title" content="PechPOS - El Futuro de tu Negocio en la Nube">
+    <meta property="og:description" content="Gestiona tus ventas, inventarios y facturación electrónica DIAN desde un solo lugar. Ideal para restaurantes y tiendas. Prueba PechPOS 15 días gratis.">
+    <!-- El logo para WhatsApp debe ser una URL directa y preferiblemente cuadrada -->
+    <meta property="og:image" content="https://i.imgur.com/HNQr8IZ.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="PechPOS">
+
+    <!-- --- TWITTER --- -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PechPOS - Sistema POS y Facturación Electrónica">
+    <meta name="twitter:description" content="Control total de tu negocio: Ventas, Comandas, Inventarios y Facturación DIAN.">
+    <meta name="twitter:image" content="https://i.imgur.com/HNQr8IZ.png">
+
+    <!-- --- DATOS ESTRUCTURADOS (JSON-LD) PARA GOOGLE --- -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "PechPOS",
+      "operatingSystem": "Web, Windows, Android, iOS",
+      "applicationCategory": "BusinessApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "35000",
+        "priceCurrency": "COP"
+      },
+      "description": "Sistema de Punto de Venta (POS) con facturación electrónica DIAN integrada, control de inventarios y gestión de restaurantes.",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "ratingCount": "150"
+      }
+    }
+    </script>
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons CDN -->
@@ -18,7 +64,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #030712; /* Fondo oscuro para resaltar lo holográfico */
+            background-color: #030712;
             color: #f9fafb;
             overflow-x: hidden;
         }
@@ -27,7 +73,6 @@
             font-family: 'Space Grotesk', sans-serif;
         }
 
-        /* --- HOLOGRAPHIC & GLASS EFFECTS --- */
         .glass-panel {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(16px);
@@ -85,7 +130,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* --- ANIMATIONS --- */
         .animate-float {
             animation: float 6s ease-in-out infinite;
         }
@@ -120,7 +164,6 @@
             transform: translateY(0);
         }
 
-        /* Menu Mobile */
         #mobile-menu { display: none; }
         #mobile-menu.active { display: block; animation: slideDown 0.3s ease-out; }
         @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
@@ -137,7 +180,6 @@
     <nav class="fixed top-0 w-full glass-panel z-50 border-b-0">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
                 <div class="flex items-center gap-3 cursor-pointer group" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
                     <div class="relative h-10 w-10 overflow-hidden rounded-lg shadow-[0_0_15px_rgba(99,102,241,0.5)]">
                         <img src="https://i.imgur.com/HNQr8IZ.png" alt="PechPOS Logo" class="h-full w-full object-cover">
@@ -147,7 +189,6 @@
                     </span>
                 </div>
 
-                <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center gap-8">
                     <a href="#features" class="text-sm font-medium text-gray-300 hover:text-white hover:scale-105 transition-all">Características</a>
                     <a href="#audience" class="text-sm font-medium text-gray-300 hover:text-white hover:scale-105 transition-all">Para Quién</a>
@@ -163,7 +204,6 @@
                     </button>
                 </div>
 
-                <!-- Mobile Menu Button -->
                 <div class="md:hidden">
                     <button onclick="toggleMenu()" class="text-gray-300 hover:text-white transition">
                         <i id="menu-icon" data-lucide="menu" class="w-7 h-7"></i>
@@ -172,7 +212,6 @@
             </div>
         </div>
 
-        <!-- Mobile Menu Panel -->
         <div id="mobile-menu" class="md:hidden glass-panel border-t border-white/10 p-4 space-y-2 absolute w-full backdrop-blur-xl bg-black/80">
             <a href="#features" onclick="toggleMenu()" class="block w-full text-left py-3 px-4 hover:bg-white/5 rounded-xl text-gray-200">Características</a>
             <a href="#audience" onclick="toggleMenu()" class="block w-full text-left py-3 px-4 hover:bg-white/5 rounded-xl text-gray-200">Para Quién</a>
@@ -187,60 +226,53 @@
     </nav>
 
     <!-- --- HERO SECTION --- -->
-    <section class="min-h-screen flex items-center pt-24 relative overflow-hidden">
+    <header class="min-h-screen flex items-center pt-24 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-16 relative z-10">
             
-            <!-- Text Content -->
             <div class="lg:w-1/2 space-y-8 text-center lg:text-left reveal active">
                 <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full text-indigo-300 text-sm font-semibold backdrop-blur-md animate-pulse">
-                    <span class="w-2 h-2 rounded-full bg-green-400"></span> Tecnología POS de Última Generación
+                    <span class="w-2 h-2 rounded-full bg-green-400"></span> POS con Facturación Electrónica DIAN
                 </div>
                 
                 <h1 class="text-5xl lg:text-7xl font-display font-bold leading-tight tracking-tight">
-                    El control total <br/>
-                    no es magia, <br/>
-                    <span class="gradient-text text-glow">es PechPOS.</span>
+                    Optimiza tu negocio <br/>
+                    con el poder de <br/>
+                    <span class="gradient-text text-glow">PechPOS Colombia.</span>
                 </h1>
                 
-                <p class="text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-light">
-                    Transforma el caos de libretas y Excel en una experiencia digital fluida. 
-                    Diseñado para <strong>envolver a tus clientes</strong> en un servicio rápido, 
-                    mientras tú tienes el control absoluto de cada peso, inventario y factura.
+                <p class="text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-light text-balance">
+                    Dile adiós al Excel y a los procesos lentos. Nuestro sistema de <strong>punto de venta inteligente</strong> integra facturación DIAN, comandas de restaurante y control de stock en una sola plataforma holográfica.
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start pt-4">
                     <button onclick="handleLoginRedirect()" class="px-8 py-4 bg-white text-indigo-950 rounded-2xl font-bold text-lg hover:bg-gray-100 transition-all shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:scale-105 active:scale-95 flex items-center justify-center gap-2">
-                        Comenzar Gratis
+                        Prueba 15 Días Gratis
                     </button>
                     <button onclick="window.scrollTo({top: document.getElementById('features').offsetTop - 100, behavior: 'smooth'})" class="px-8 py-4 glass-panel text-white rounded-2xl font-bold text-lg hover:bg-white/10 transition-all border border-white/20 flex items-center justify-center gap-2">
-                        Ver Demo <i data-lucide="play-circle" class="w-5 h-5"></i>
+                        Ver Funciones <i data-lucide="play-circle" class="w-5 h-5"></i>
                     </button>
                 </div>
 
                 <div class="flex items-center justify-center lg:justify-start gap-8 pt-6 text-sm font-medium text-gray-500 border-t border-white/10 mt-8">
-                    <span class="flex items-center gap-2"><i data-lucide="shield-check" class="text-indigo-400"></i> Datos Encriptados</span>
-                    <span class="flex items-center gap-2"><i data-lucide="cloud" class="text-purple-400"></i> 100% Nube</span>
-                    <span class="flex items-center gap-2"><i data-lucide="zap" class="text-yellow-400"></i> Soporte 24/7</span>
+                    <span class="flex items-center gap-2"><i data-lucide="shield-check" class="text-indigo-400"></i> Legalidad DIAN</span>
+                    <span class="flex items-center gap-2"><i data-lucide="cloud" class="text-purple-400"></i> Nube Segura</span>
+                    <span class="flex items-center gap-2"><i data-lucide="zap" class="text-yellow-400"></i> Soporte Local</span>
                 </div>
             </div>
             
-            <!-- Hero Image / Holographic Effect -->
             <div class="lg:w-1/2 relative perspective-1000 reveal delay-200">
-                <!-- Efecto de luz detrás -->
                 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-indigo-500/30 to-purple-500/30 blur-[100px] rounded-full animate-pulse"></div>
                 
                 <div class="relative animate-float group">
-                    <!-- Glass container for image -->
                     <div class="glass-panel p-2 rounded-3xl relative z-10 transition-transform duration-500 group-hover:rotate-1 group-hover:scale-105">
-                        <img src="https://i.imgur.com/RUm6BRn.png" alt="Dashboard PechPOS" class="rounded-2xl shadow-2xl border border-white/10 w-full h-auto">
+                        <img src="https://i.imgur.com/RUm6BRn.png" alt="Sistema POS PechPOS Dashboard" class="rounded-2xl shadow-2xl border border-white/10 w-full h-auto">
                         
-                        <!-- Floating Holographic Widgets -->
                         <div class="absolute -right-6 top-20 glass-panel p-4 rounded-xl border border-green-500/30 shadow-lg animate-float" style="animation-delay: 1s;">
                             <div class="flex items-center gap-3">
                                 <div class="bg-green-500/20 p-2 rounded-lg text-green-400"><i data-lucide="trending-up" class="w-5 h-5"></i></div>
                                 <div>
-                                    <p class="text-xs text-gray-400 uppercase">Ventas Hoy</p>
-                                    <p class="text-lg font-bold text-white">+$1.2M</p>
+                                    <p class="text-xs text-gray-400 uppercase">Ventas Mensuales</p>
+                                    <p class="text-lg font-bold text-white">+ Incremento</p>
                                 </div>
                             </div>
                         </div>
@@ -249,8 +281,8 @@
                             <div class="flex items-center gap-3">
                                 <div class="bg-indigo-500/20 p-2 rounded-lg text-indigo-400"><i data-lucide="check-circle" class="w-5 h-5"></i></div>
                                 <div>
-                                    <p class="text-xs text-gray-400 uppercase">DIAN</p>
-                                    <p class="text-sm font-bold text-white">Factura Enviada</p>
+                                    <p class="text-xs text-gray-400 uppercase">DIAN 2.1</p>
+                                    <p class="text-sm font-bold text-white">Documento Validado</p>
                                 </div>
                             </div>
                         </div>
@@ -258,15 +290,15 @@
                 </div>
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- --- AUDIENCE SECTION (Para quién es esto) --- -->
+    <!-- --- AUDIENCE SECTION --- -->
     <section id="audience" class="py-24 relative">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16 reveal">
-                <h2 class="text-3xl md:text-5xl font-display font-bold mb-6">Diseñado para tu ritmo</h2>
+                <h2 class="text-3xl md:text-5xl font-display font-bold mb-6">Un sistema, todos los sectores</h2>
                 <p class="text-gray-400 max-w-2xl mx-auto text-lg">
-                    No importa si vendes café, ropa o servicios. PechPOS se adapta a la lógica de tu negocio, no al revés.
+                    PechPOS ha sido desarrollado escuchando a comerciantes colombianos. No es solo software, es una herramienta de crecimiento.
                 </p>
             </div>
 
@@ -276,14 +308,14 @@
                     <div class="w-16 h-16 bg-orange-500/10 rounded-2xl flex items-center justify-center text-orange-400 mb-6 group-hover:scale-110 transition-transform">
                         <i data-lucide="utensils-crossed" class="w-8 h-8"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Gastronomía</h3>
+                    <h3 class="text-xl font-bold mb-3 text-white">Gastronomía y Bares</h3>
                     <p class="text-gray-400 text-sm leading-relaxed mb-4">
-                        Restaurantes, Cafés, Bares y Food Trucks.
+                        Control de mesas, propinas, inventario de insumos y comandas digitales.
                     </p>
                     <ul class="text-sm text-gray-500 space-y-2">
-                        <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-400"></i> Mapa de mesas visual</li>
-                        <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-400"></i> Comandas a cocina</li>
-                        <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-400"></i> División de cuentas</li>
+                        <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-400"></i> Mapa de mesas interactivo</li>
+                        <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-400"></i> Recetas y escandallos</li>
+                        <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-400"></i> Impresión en cocina/bar</li>
                     </ul>
                 </div>
 
@@ -292,14 +324,14 @@
                     <div class="w-16 h-16 bg-indigo-500/10 rounded-2xl flex items-center justify-center text-indigo-400 mb-6 group-hover:scale-110 transition-transform">
                         <i data-lucide="shopping-bag" class="w-8 h-8"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Retail y Tiendas</h3>
+                    <h3 class="text-xl font-bold mb-3 text-white">Tiendas y Moda</h3>
                     <p class="text-gray-400 text-sm leading-relaxed mb-4">
-                        Boutiques, Calzado, Tecnología y Regalos.
+                        Gestión de tallas, colores, categorías y etiquetas de código de barras.
                     </p>
                     <ul class="text-sm text-gray-500 space-y-2">
-                        <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-indigo-400"></i> Tallas y colores</li>
-                        <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-indigo-400"></i> Código de barras</li>
-                        <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-indigo-400"></i> Control de stock crítico</li>
+                        <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-indigo-400"></i> Variantes de productos</li>
+                        <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-indigo-400"></i> Lectura de códigos ultra rápida</li>
+                        <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-indigo-400"></i> Control de crédito a clientes</li>
                     </ul>
                 </div>
 
@@ -308,100 +340,95 @@
                     <div class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform">
                         <i data-lucide="store" class="w-8 h-8"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Minimercados</h3>
+                    <h3 class="text-xl font-bold mb-3 text-white">Minimercados y Fruvers</h3>
                     <p class="text-gray-400 text-sm leading-relaxed mb-4">
-                        Tiendas de barrio, Fruvers y Licoreras.
+                        Caja ágil para alta rotación, integración con básculas y reporte de pérdidas.
                     </p>
                     <ul class="text-sm text-gray-500 space-y-2">
-                        <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-400"></i> Venta rápida (caja ágil)</li>
-                        <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-400"></i> Báscula integrada</li>
-                        <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-400"></i> Múltiples cajeros</li>
+                        <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-400"></i> Interfaz de cajero optimizada</li>
+                        <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-400"></i> Reporte de utilidad bruta</li>
+                        <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-400"></i> Gestión de proveedores</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- --- DEEP DIVE FEATURES (Detalle de funciones) --- -->
+    <!-- --- DEEP DIVE FEATURES --- -->
     <section id="features" class="py-24 bg-white/5 relative">
         <div class="absolute inset-0 bg-grid-white/[0.02] bg-[length:30px_30px]"></div>
         <div class="max-w-7xl mx-auto px-4 relative z-10">
             
             <div class="text-center mb-24 reveal">
-                <span class="text-indigo-400 font-bold tracking-widest uppercase text-xs">Potencia sin límites</span>
-                <h2 class="text-4xl md:text-5xl font-display font-bold mt-2 text-white">Más que un POS, un cerebro digital</h2>
+                <span class="text-indigo-400 font-bold tracking-widest uppercase text-xs">Poderoso y Simple</span>
+                <h2 class="text-4xl md:text-5xl font-display font-bold mt-2 text-white">Descubre todo lo que ofrece PechPOS</h2>
             </div>
 
             <div class="space-y-32">
                 <!-- Feature 1: POS Experience -->
-                <div class="flex flex-col lg:flex-row items-center gap-16 reveal">
+                <article class="flex flex-col lg:flex-row items-center gap-16 reveal">
                     <div class="lg:w-1/2 relative group">
                         <div class="absolute inset-0 bg-indigo-500 rounded-full blur-[100px] opacity-20 group-hover:opacity-30 transition-opacity"></div>
-                        <img src="https://i.imgur.com/8c1Kcs3.png" class="relative rounded-2xl border border-white/10 shadow-2xl transform transition-all duration-700 group-hover:scale-[1.02] group-hover:-rotate-1" alt="POS Interface">
+                        <img src="https://i.imgur.com/8c1Kcs3.png" class="relative rounded-2xl border border-white/10 shadow-2xl transform transition-all duration-700 group-hover:scale-[1.02] group-hover:-rotate-1" alt="Interfaz Punto de Venta POS PechPOS">
                     </div>
                     <div class="lg:w-1/2 space-y-6">
                         <div class="w-16 h-16 bg-indigo-600/20 rounded-2xl flex items-center justify-center text-indigo-400 border border-indigo-500/30">
                             <i data-lucide="zap" class="w-8 h-8"></i>
                         </div>
-                        <h3 class="text-3xl font-bold text-white">Velocidad que enamora al cliente</h3>
+                        <h3 class="text-3xl font-bold text-white">Ventas a la velocidad de la luz</h3>
                         <p class="text-gray-400 text-lg leading-relaxed">
-                            Olvídate de las filas eternas. Nuestra interfaz de caja está diseñada para procesar ventas en segundos. 
-                            <span class="text-white font-semibold">Escanea, cobra e imprime</span> sin tocar el mouse.
-                            Dale a tu cliente la rapidez que espera y evita que se vaya a la competencia.
+                            Procesa pagos en efectivo, tarjeta o transferencia en segundos. La interfaz de PechPOS es táctil y amigable, permitiendo que tu personal trabaje sin errores desde el primer día.
                         </p>
                         <div class="grid grid-cols-2 gap-4">
                             <div class="glass-panel p-4 rounded-xl">
-                                <p class="text-2xl font-bold text-white">0.5s</p>
-                                <p class="text-xs text-gray-500">Tiempo búsqueda producto</p>
+                                <p class="text-2xl font-bold text-white">100%</p>
+                                <p class="text-xs text-gray-500">Intuitivo y fácil</p>
                             </div>
                             <div class="glass-panel p-4 rounded-xl">
                                 <p class="text-2xl font-bold text-white">Offline</p>
-                                <p class="text-xs text-gray-500">Funciona sin internet</p>
+                                <p class="text-xs text-gray-500">Vende sin internet</p>
                             </div>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- Feature 2: Restaurant Mode -->
-                <div class="flex flex-col lg:flex-row items-center gap-16 reveal">
+                <article class="flex flex-col lg:flex-row items-center gap-16 reveal">
                     <div class="lg:w-1/2 order-2 lg:order-1 space-y-6">
                         <div class="w-16 h-16 bg-orange-600/20 rounded-2xl flex items-center justify-center text-orange-400 border border-orange-500/30">
                             <i data-lucide="chef-hat" class="w-8 h-8"></i>
                         </div>
-                        <h3 class="text-3xl font-bold text-white">Sincronía Cocina - Mesa</h3>
+                        <h3 class="text-3xl font-bold text-white">Control de Mesas y Cocina</h3>
                         <p class="text-gray-400 text-lg leading-relaxed">
-                            Elimina los gritos y los errores en las comandas. Con el modo restaurante, el mesero toma el pedido en la mesa y 
-                            <span class="text-white font-semibold">aparece mágicamente en la cocina</span>.
-                            Gestiona propinas, separa cuentas por comensal y visualiza qué mesas están ocupadas en tiempo real.
+                            Visualiza el estado de tus mesas: Libres, Ocupadas, Por Pagar. Los pedidos fluyen directamente desde el mesero hasta la pantalla de cocina o impresora, eliminando desperdicios y demoras.
                         </p>
                         <ul class="space-y-3 pt-4">
                             <li class="flex items-center gap-3 text-gray-300">
                                 <div class="bg-orange-500/20 p-1 rounded text-orange-400"><i data-lucide="check" class="w-4 h-4"></i></div>
-                                Edición de mesas visual (Drag & Drop)
+                                Divisiones de cuenta instantáneas
                             </li>
                             <li class="flex items-center gap-3 text-gray-300">
                                 <div class="bg-orange-500/20 p-1 rounded text-orange-400"><i data-lucide="check" class="w-4 h-4"></i></div>
-                                Notas especiales para el chef
+                                Control de domicilios y propinas
                             </li>
                         </ul>
                     </div>
                     <div class="lg:w-1/2 order-1 lg:order-2 relative group">
                         <div class="absolute inset-0 bg-orange-500 rounded-full blur-[100px] opacity-20 group-hover:opacity-30 transition-opacity"></div>
-                        <img src="https://i.imgur.com/cpvru8p.png" class="relative rounded-2xl border border-white/10 shadow-2xl transform transition-all duration-700 group-hover:scale-[1.02] group-hover:rotate-1" alt="Restaurant Interface">
+                        <img src="https://i.imgur.com/cpvru8p.png" class="relative rounded-2xl border border-white/10 shadow-2xl transform transition-all duration-700 group-hover:scale-[1.02] group-hover:rotate-1" alt="Gestión de Restaurantes PechPOS">
                     </div>
-                </div>
+                </article>
 
                 <!-- Feature 3: DIAN Invoice -->
-                <div class="flex flex-col lg:flex-row items-center gap-16 reveal">
+                <article class="flex flex-col lg:flex-row items-center gap-16 reveal">
                     <div class="lg:w-1/2 relative group">
                         <div class="absolute inset-0 bg-green-500 rounded-full blur-[100px] opacity-20 group-hover:opacity-30 transition-opacity"></div>
-                        <!-- Abstract representation of invoicing -->
                         <div class="glass-panel p-8 rounded-3xl border border-green-500/30 relative overflow-hidden">
                             <div class="absolute top-0 right-0 p-32 bg-green-500/10 rounded-full blur-3xl"></div>
                             <div class="space-y-4">
                                 <div class="flex justify-between items-center border-b border-white/10 pb-4">
-                                    <div class="h-4 w-24 bg-white/20 rounded"></div>
-                                    <div class="h-8 w-20 bg-green-500/20 rounded-lg flex items-center justify-center text-green-400 text-xs font-bold">APROBADA</div>
+                                    <p class="text-white font-bold">FE - 1045</p>
+                                    <div class="h-8 w-24 bg-green-500/20 rounded-lg flex items-center justify-center text-green-400 text-[10px] font-bold tracking-widest">DIAN APROBADO</div>
                                 </div>
                                 <div class="space-y-2">
                                     <div class="h-3 w-full bg-white/5 rounded"></div>
@@ -410,11 +437,11 @@
                                 </div>
                                 <div class="pt-4 flex items-center gap-3">
                                     <div class="p-3 bg-white/5 rounded-lg border border-white/10">
-                                        <i data-lucide="qr-code" class="text-white w-10 h-10"></i>
+                                        <i data-lucide="mail" class="text-white w-8 h-8"></i>
                                     </div>
-                                    <div class="text-sm text-gray-400">
-                                        CUFE Generado automáticamente.<br>
-                                        Envío al correo del cliente.
+                                    <div class="text-xs text-gray-400">
+                                        Factura enviada automáticamente al<br>
+                                        correo del cliente y validada ante la DIAN.
                                     </div>
                                 </div>
                             </div>
@@ -424,13 +451,12 @@
                         <div class="w-16 h-16 bg-green-600/20 rounded-2xl flex items-center justify-center text-green-400 border border-green-500/30">
                             <i data-lucide="file-check" class="w-8 h-8"></i>
                         </div>
-                        <h3 class="text-3xl font-bold text-white">Facturación Electrónica DIAN Integrada</h3>
+                        <h3 class="text-3xl font-bold text-white">Factura Electrónica sin complicaciones</h3>
                         <p class="text-gray-400 text-lg leading-relaxed">
-                            Deja de pagar intermediarios costosos. PechPOS genera y envía tus facturas electrónicas a la DIAN automáticamente con cada venta. 
-                            Cumple con la ley sin pasos extra, sin salir del sistema y sin dolores de cabeza.
+                            No pierdas tiempo subiendo facturas al final del día. PechPOS genera el XML y el PDF automáticamente, enviándolos al correo de tus clientes en tiempo real. Cumplir con la resolución DIAN nunca fue tan fácil.
                         </p>
                     </div>
-                </div>
+                </article>
 
             </div>
         </div>
@@ -438,22 +464,20 @@
 
     <!-- --- PRICING SECTION --- -->
     <section id="pricing" class="py-24 relative overflow-hidden">
-        <!-- Background elements -->
         <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-50"></div>
         
         <div class="max-w-7xl mx-auto px-4 relative z-10">
             <div class="text-center mb-16 reveal">
-                <h2 class="text-4xl md:text-5xl font-display font-bold mb-6 text-white">Planes Transparentes</h2>
-                <p class="text-xl text-gray-400">Elige la potencia que tu negocio necesita hoy.</p>
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-6 text-white">Precios Honestos</h2>
+                <p class="text-xl text-gray-400">Sin cláusulas de permanencia. Crece con nosotros.</p>
                 
-                <!-- Toggle -->
                 <div class="flex justify-center mt-8">
                     <div class="glass-panel p-1.5 rounded-2xl inline-flex relative">
                         <button id="btn-fe" onclick="setPricingMode('fe')" class="px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-indigo-600 text-white shadow-lg">
                             Facturación Electrónica
                         </button>
                         <button id="btn-pos" onclick="setPricingMode('pos')" class="px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-400 hover:text-white">
-                            Solo POS (Interno)
+                            Solo POS (Gestión Interna)
                         </button>
                     </div>
                 </div>
@@ -461,10 +485,9 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
                 
-                <!-- PLAN BASIC -->
                 <div class="holo-card p-8 rounded-[2rem] flex flex-col h-full reveal delay-100 border-white/5">
                     <div class="mb-8">
-                        <span class="text-indigo-300 text-xs font-bold uppercase tracking-widest border border-indigo-500/30 px-3 py-1 rounded-full">Inicial</span>
+                        <span class="text-indigo-300 text-xs font-bold uppercase tracking-widest border border-indigo-500/30 px-3 py-1 rounded-full">Básico</span>
                         <h3 id="plan-basic-title" class="text-2xl font-bold mt-4 text-white">FE - Básico</h3>
                         <div class="mt-4 flex items-baseline">
                             <span id="plan-basic-price" class="text-4xl font-bold text-white">$75.000</span>
@@ -472,20 +495,19 @@
                         </div>
                     </div>
                     <ul class="space-y-4 mb-8 flex-1 text-gray-300 text-sm">
-                        <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-indigo-400"></i> 3 Usuarios</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-indigo-400"></i> 1 Establecimiento</li>
                         <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> <span id="plan-basic-feature">100 docs / mes</span></li>
-                        <li class="flex items-center gap-3 opacity-50"><i data-lucide="x" class="w-4 h-4"></i> Sin Tienda Online</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-indigo-400"></i> Soporte vía Chat</li>
                     </ul>
                     <button onclick="handleLoginRedirect()" class="w-full py-3 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/10 transition-all">
                         Elegir Plan
                     </button>
                 </div>
 
-                <!-- PLAN PLUS (Highlighted) -->
                 <div class="holo-card p-10 rounded-[2.5rem] flex flex-col relative transform md:-translate-y-4 border-indigo-500 shadow-[0_0_40px_rgba(79,70,229,0.15)] z-20 reveal delay-200">
-                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-[10px] font-bold px-4 py-1 rounded-full tracking-widest shadow-lg">MÁS POPULAR</div>
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-[10px] font-bold px-4 py-1 rounded-full tracking-widest shadow-lg uppercase">Ideal para Tiendas</div>
                     <div class="mb-8">
-                        <span class="text-purple-300 text-xs font-bold uppercase tracking-widest border border-purple-500/30 px-3 py-1 rounded-full">Crecimiento</span>
+                        <span class="text-purple-300 text-xs font-bold uppercase tracking-widest border border-purple-500/30 px-3 py-1 rounded-full">Plus</span>
                         <h3 id="plan-plus-title" class="text-3xl font-bold mt-4 text-white">FE - Plus</h3>
                         <div class="mt-4 flex items-baseline">
                             <span id="plan-plus-price" class="text-5xl font-bold text-white">$100.000</span>
@@ -493,20 +515,19 @@
                         </div>
                     </div>
                     <ul class="space-y-5 mb-10 flex-1 text-gray-200">
-                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-purple-400"></i> 5 Usuarios</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-purple-400"></i> Multi-usuario</li>
                         <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-green-400"></i> <span id="plan-plus-feature">300 docs / mes</span></li>
-                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-purple-400"></i> Soporte Prioritario</li>
-                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-purple-400"></i> Reportes Avanzados</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-purple-400"></i> Facturas e Inventario</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-purple-400"></i> Reportes Contables</li>
                     </ul>
                     <button onclick="handleLoginRedirect()" class="w-full py-4 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold hover:shadow-lg hover:shadow-indigo-500/25 transition-all transform hover:scale-105">
-                        Empezar Ahora
+                        Probar Gratis
                     </button>
                 </div>
 
-                <!-- PLAN PRO -->
                 <div class="holo-card p-8 rounded-[2rem] flex flex-col h-full reveal delay-300 border-white/5">
                     <div class="mb-8">
-                        <span class="text-blue-300 text-xs font-bold uppercase tracking-widest border border-blue-500/30 px-3 py-1 rounded-full">Corporativo</span>
+                        <span class="text-blue-300 text-xs font-bold uppercase tracking-widest border border-blue-500/30 px-3 py-1 rounded-full">Pro</span>
                         <h3 id="plan-pro-title" class="text-2xl font-bold mt-4 text-white">FE - PRO</h3>
                         <div class="mt-4 flex items-baseline">
                             <span id="plan-pro-price" class="text-4xl font-bold text-white">$150.000</span>
@@ -514,12 +535,12 @@
                         </div>
                     </div>
                     <ul class="space-y-4 mb-8 flex-1 text-gray-300 text-sm">
-                        <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-blue-400"></i> 8 Usuarios</li>
-                        <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> <span id="plan-pro-feature">Ilimitado (1000 docs)</span></li>
-                        <li class="flex items-center gap-3 text-white"><i data-lucide="star" class="w-4 h-4 text-yellow-400"></i> Incluye Tienda Virtual</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-blue-400"></i> Usuarios Ilimitados</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-green-400"></i> <span id="plan-pro-feature">1000 docs / mes</span></li>
+                        <li class="flex items-center gap-3 text-white font-bold"><i data-lucide="star" class="w-4 h-4 text-yellow-400"></i> Tienda Online Integrada</li>
                     </ul>
-                    <button onclick="handleLoginRedirect()" class="w-full py-3 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/10 transition-all">
-                        Contactar Ventas
+                    <button onclick="handleContact()" class="w-full py-3 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/10 transition-all">
+                        Hablar con Asesor
                     </button>
                 </div>
 
@@ -530,10 +551,8 @@
     <!-- --- FAQ SECTION --- -->
     <section class="py-24">
         <div class="max-w-3xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12 text-white">Preguntas Frecuentes</h2>
-            <div id="faq-container" class="space-y-4">
-                <!-- FAQs inserted via JS -->
-            </div>
+            <h2 class="text-3xl font-bold text-center mb-12 text-white">Preguntas sobre PechPOS</h2>
+            <div id="faq-container" class="space-y-4"></div>
         </div>
     </section>
 
@@ -542,18 +561,18 @@
         <div class="absolute inset-0 bg-gradient-to-b from-indigo-900/20 to-black"></div>
         <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
             <h2 class="text-5xl md:text-7xl font-display font-bold mb-8 text-white tracking-tight">
-                Deja de sobrevivir, <br/>
-                <span class="gradient-text">empieza a dominar.</span>
+                No esperes más,<br/>
+                <span class="gradient-text">el futuro es hoy.</span>
             </h2>
             <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
-                Tu negocio merece tecnología de punta. Únete a los empresarios que modernizaron su operación con PechPOS.
+                Únete a cientos de comercios que ya están vendiendo más y mejor con PechPOS. Tu primera factura electrónica está a un clic.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
-                <button onclick="handleLoginRedirect()" class="w-full sm:w-auto px-12 py-5 bg-white text-black rounded-full font-bold text-xl hover:scale-105 transition-transform shadow-[0_0_30px_rgba(255,255,255,0.2)]">
-                    Crear Cuenta Gratis
+                <button onclick="handleLoginRedirect()" class="w-full sm:w-auto px-12 py-5 bg-white text-black rounded-full font-bold text-xl hover:scale-105 transition-transform shadow-[0_0_40px_rgba(255,255,255,0.2)]">
+                    Empezar Mi Prueba Gratis
                 </button>
                 <button onclick="handleContact()" class="w-full sm:w-auto px-12 py-5 glass-panel text-white rounded-full font-bold text-xl hover:bg-white/10 transition-all flex items-center justify-center gap-3">
-                    <i data-lucide="message-circle" class="w-6 h-6"></i> Hablar con Asesor
+                    <i data-lucide="message-circle" class="w-6 h-6"></i> WhatsApp Soporte
                 </button>
             </div>
         </div>
@@ -563,44 +582,43 @@
     <footer class="bg-black py-16 border-t border-white/10">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <div class="flex items-center justify-center gap-3 mb-8 opacity-80 hover:opacity-100 transition-opacity">
-                <img src="https://i.imgur.com/HNQr8IZ.png" alt="PechPOS" class="h-8 w-auto" />
+                <img src="https://i.imgur.com/HNQr8IZ.png" alt="Logotipo PechPOS" class="h-8 w-auto" />
                 <span class="text-2xl font-display font-bold text-white">PechPOS</span>
             </div>
             <p class="text-gray-500 text-sm mb-8">
-                &copy; <span id="year"></span> PechPOS Inc. Hecho con <i data-lucide="heart" class="inline w-3 h-3 text-red-500"></i> en Colombia.
+                &copy; <span id="year"></span> PechPOS Colombia. Todos los derechos reservados.<br/>
+                Software de punto de venta y facturación legal DIAN.
             </p>
             <div class="flex justify-center gap-8 text-sm font-medium text-gray-400">
-                <a href="#" class="hover:text-white transition">Términos</a>
+                <a href="#" class="hover:text-white transition">Términos de Uso</a>
                 <a href="#" class="hover:text-white transition">Privacidad</a>
-                <a href="https://devinson.lat" target="_blank" class="hover:text-indigo-400 transition">Desarrollador</a>
+                <a href="https://devinson.lat" target="_blank" class="hover:text-indigo-400 transition">Desarrollado por Devinson</a>
             </div>
         </div>
     </footer>
 
     <script>
-        // --- DATA & STATE ---
         let currentPricingMode = 'fe';
         const pricingData = {
             fe: {
                 basic: { title: 'FE - Básico', price: '$75.000', feature: '100 docs / mes' },
                 plus: { title: 'FE - Plus', price: '$100.000', feature: '300 docs / mes' },
-                pro: { title: 'FE - PRO', price: '$150.000', feature: 'Ilimitado (1000 docs)' }
+                pro: { title: 'FE - PRO', price: '$150.000', feature: '1000 docs / mes' }
             },
             pos: {
                 basic: { title: 'POS - Básico', price: '$35.000', feature: 'Caja e Inventario' },
-                plus: { title: 'POS - Plus', price: '$50.000', feature: 'Gestión Avanzada' },
-                pro: { title: 'POS - PRO', price: '$80.000', feature: 'Control de Sedes' }
+                plus: { title: 'POS - Plus', price: '$50.000', feature: 'Gestión Completa' },
+                pro: { title: 'POS - PRO', price: '$80.000', feature: 'Multi-sede' }
             }
         };
 
         const faqs = [
-            {q: "¿Necesito instalar algo?", a: "No. PechPOS vive en la nube. Accedes desde Chrome, Safari o cualquier navegador, como si fuera Facebook."},
-            {q: "¿Sirve para mi negocio?", a: "Si vendes productos o servicios, sí. Está optimizado para restaurantes (mesas/cocina) y tiendas retail (código de barras/inventario)."},
-            {q: "¿Qué pasa si se va el internet?", a: "Puedes seguir registrando ventas. El sistema guarda todo localmente y sincroniza apenas vuelve la conexión."},
-            {q: "¿Cómo funciona la facturación electrónica?", a: "Es automática. Al cerrar una venta, el sistema conecta con la DIAN y envía el correo al cliente en segundos. Sin pasos extra."},
+            {q: "¿PechPOS es legal ante la DIAN?", a: "Sí, PechPOS está actualizado con la versión 2.1 de facturación electrónica. Emitimos documentos equivalentes y facturas de venta legales cumpliendo con toda la normativa colombiana."},
+            {q: "¿Cómo funciona la prueba gratis de 15 días?", a: "Al registrarte, obtienes acceso total al módulo POS de gestión interna. Puedes cargar inventario, registrar ventas y probar la interfaz. La facturación electrónica se activa tras la aprobación de tu resolución ante la DIAN."},
+            {q: "¿Qué hardware necesito?", a: "PechPOS es compatible con casi todo. Puedes usar computadores, tablets (Android/iPad) y celulares. Funciona con impresoras térmicas de 58mm y 80mm, cajones monederos y lectores de código de barras."},
+            {q: "¿Ofrecen soporte técnico en Colombia?", a: "Absolutamente. Tenemos un equipo basado en Colombia listo para ayudarte vía WhatsApp o conexión remota de lunes a sábado."},
         ];
 
-        // --- FUNCTIONS ---
         function handleLoginRedirect() {
             window.location.href = 'https://pechpos.netlify.app/';
         }
@@ -613,7 +631,6 @@
             const menu = document.getElementById('mobile-menu');
             const icon = document.getElementById('menu-icon');
             menu.classList.toggle('active');
-            
             if (menu.classList.contains('active')) {
                 icon.setAttribute('data-lucide', 'x');
             } else {
@@ -626,7 +643,6 @@
             currentPricingMode = mode;
             const btnFe = document.getElementById('btn-fe');
             const btnPos = document.getElementById('btn-pos');
-            
             if (mode === 'fe') {
                 btnFe.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-indigo-600 text-white shadow-lg";
                 btnPos.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-400 hover:text-white";
@@ -634,16 +650,13 @@
                 btnPos.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-indigo-600 text-white shadow-lg";
                 btnFe.className = "px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 text-gray-400 hover:text-white";
             }
-
             const data = pricingData[mode];
             updatePricingElement('plan-basic-title', data.basic.title);
             updatePricingElement('plan-basic-price', data.basic.price);
             updatePricingElement('plan-basic-feature', data.basic.feature);
-            
             updatePricingElement('plan-plus-title', data.plus.title);
             updatePricingElement('plan-plus-price', data.plus.price);
             updatePricingElement('plan-plus-feature', data.plus.feature);
-            
             updatePricingElement('plan-pro-title', data.pro.title);
             updatePricingElement('plan-pro-price', data.pro.price);
             updatePricingElement('plan-pro-feature', data.pro.feature);
@@ -666,9 +679,7 @@
                         <span class="pr-4">${faq.q}</span>
                         <i id="faq-icon-${i}" data-lucide="chevron-down" class="text-gray-500 shrink-0 w-5 h-5 transition-transform duration-300"></i>
                     </button>
-                    <div id="faq-content-${i}" class="hidden px-6 pb-6 text-gray-400 leading-relaxed text-sm">
-                        ${faq.a}
-                    </div>
+                    <div id="faq-content-${i}" class="hidden px-6 pb-6 text-gray-400 leading-relaxed text-sm">${faq.a}</div>
                 </div>
             `).join('');
             lucide.createIcons();
@@ -678,7 +689,6 @@
             const content = document.getElementById(`faq-content-${index}`);
             const icon = document.getElementById(`faq-icon-${index}`);
             const isOpen = !content.classList.contains('hidden');
-            
             if (isOpen) {
                 content.classList.add('hidden');
                 icon.style.transform = 'rotate(0deg)';
@@ -688,7 +698,6 @@
             }
         }
 
-        // Intersection Observer for scroll animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -701,8 +710,6 @@
             renderFaqs();
             document.getElementById('year').innerText = new Date().getFullYear();
             lucide.createIcons();
-            
-            // Activate animations on scroll
             document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
         };
     </script>
