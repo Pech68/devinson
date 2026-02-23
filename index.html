@@ -1163,9 +1163,9 @@
                     <a href="https://wa.me/573215203354" target="_blank" class="btn-primary">
                         <i class="fab fa-whatsapp"></i> Hablar por WhatsApp
                     </a>
-                    <a href="mailto:devinsonrodriguez68@gmail.com?subject=Quiero%20cotizar%20un%20proyecto&body=Hola%20Devinson%2C%0A%0AEstoy%20interesado%20en%20tus%20servicios.%20Me%20gustar%C3%ADa%20hablar%20sobre%3A%0A%0A" class="btn-secondary">
+                    <button onclick="document.getElementById('emailModal').classList.add('open')" class="btn-secondary" style="cursor:pointer; border:none;">
                         <i class="fas fa-envelope"></i> Enviar Email
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -1178,7 +1178,7 @@
                 <div class="footer-brand">
                     <a href="#" class="logo">DEVINSON<span>.</span></a>
                     <p>Desarrollo web premium, e-commerce y soluciones digitales desde Valledupar, Colombia. Construyendo el futuro digital de tu negocio.</p>
-                    <a href="mailto:devinsonrodriguez68@gmail.com" class="email">devinsonrodriguez68@gmail.com</a>
+                    <a href="/cdn-cgi/l/email-protection#86e2e3f0efe8f5e9e8f4e9e2f4efe1f3e3fcb0bec6e1ebe7efeaa8e5e9eb" class="email"><span class="__cf_email__" data-cfemail="422627342b2c312d2c302d26302b25372738747a02252f232b2e6c212d2f">[email&#160;protected]</span></a>
                 </div>
                 <div class="footer-col">
                     <h4>Servicios</h4>
@@ -1196,7 +1196,7 @@
                         <li><a href="https://wa.me/573215203354" target="_blank">WhatsApp</a></li>
                         <li><a href="https://github.com/Pech68" target="_blank">GitHub</a></li>
                         <li><a href="https://www.linkedin.com/in/devinson-rodriguez" target="_blank">LinkedIn</a></li>
-                        <li><a href="mailto:devinsonrodriguez68@gmail.com?subject=Quiero%20cotizar%20un%20proyecto">Email</a></li>
+                        <li><a href="/cdn-cgi/l/email-protection#0b6f6e7d626578646579646f79626c7e6e713d334b6c666a62672568646634787e69616e687f365a7e626e79642e393b68647f62716a792e393b7e652e393b7b7964726e687f64">Email</a></li>
                     </ul>
                 </div>
             </div>
@@ -1216,7 +1216,63 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <!-- EMAIL MODAL -->
+    <div id="emailModal" style="display:none; position:fixed; inset:0; z-index:999; background:rgba(3,7,18,0.85); backdrop-filter:blur(12px); align-items:center; justify-content:center; padding:24px;">
+        <div style="background:#0d1117; border:1px solid rgba(255,255,255,0.08); border-radius:24px; padding:40px 32px; max-width:480px; width:100%; position:relative;">
+            <button onclick="document.getElementById('emailModal').classList.remove('open')" style="position:absolute; top:16px; right:16px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); color:#94a3b8; width:36px; height:36px; border-radius:50%; cursor:pointer; font-size:1rem; line-height:1;">&#10005;</button>
+            <h3 style="font-family:'Syne',sans-serif; font-weight:800; font-size:1.6rem; color:white; margin-bottom:6px; letter-spacing:-0.02em;">Envíame un mensaje</h3>
+            <p style="font-size:0.82rem; color:#64748b; margin-bottom:28px;">Te respondo en menos de 24 horas.</p>
+            <div style="display:flex; flex-direction:column; gap:14px;">
+                <input id="em-name" type="text" placeholder="Tu nombre" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:14px 16px; color:white; font-size:0.9rem; outline:none; width:100%; font-family:'DM Sans',sans-serif;">
+                <input id="em-email" type="email" placeholder="Tu correo electrónico" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:14px 16px; color:white; font-size:0.9rem; outline:none; width:100%; font-family:'DM Sans',sans-serif;">
+                <textarea id="em-msg" rows="4" placeholder="Cuéntame sobre tu proyecto..." style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:14px 16px; color:white; font-size:0.9rem; outline:none; width:100%; font-family:'DM Sans',sans-serif; resize:none;"></textarea>
+                <button onclick="sendEmail()" id="em-send" style="background:white; color:black; border:none; border-radius:100px; padding:15px 28px; font-weight:700; font-size:0.9rem; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:10px; transition:all 0.25s;">
+                    <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                </button>
+                <p id="em-feedback" style="text-align:center; font-size:0.82rem; color:#10b981; display:none; margin-top:4px;"></p>
+            </div>
+        </div>
+    </div>
+    <style>
+        #emailModal { display:none; }
+        #emailModal.open { display:flex; }
+    </style>
+
     <script>
+        function sendEmail() {
+            const name = document.getElementById('em-name').value.trim();
+            const email = document.getElementById('em-email').value.trim();
+            const msg = document.getElementById('em-msg').value.trim();
+            const feedback = document.getElementById('em-feedback');
+            const btn = document.getElementById('em-send');
+            if (!name || !email || !msg) {
+                feedback.textContent = 'Por favor completa todos los campos.';
+                feedback.style.color = '#f87171';
+                feedback.style.display = 'block';
+                return;
+            }
+            const subject = encodeURIComponent('Proyecto web - ' + name);
+            const body = encodeURIComponent('Hola Devinson,\n\nMi nombre es ' + name + ' (' + email + ').\n\n' + msg + '\n\nEspero tu respuesta.');
+            window.open('https://mail.google.com/mail/?view=cm&to=devinsonrodriguez68@gmail.com&su=' + subject + '&body=' + body, '_blank');
+            btn.innerHTML = '<i class="fas fa-check"></i> \u00a1Listo!';
+            btn.style.background = '#10b981';
+            btn.style.color = 'white';
+            feedback.textContent = '\u2713 Abriendo Gmail...';
+            feedback.style.color = '#10b981';
+            feedback.style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('emailModal').classList.remove('open');
+                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Mensaje';
+                btn.style.background = 'white'; btn.style.color = 'black';
+                feedback.style.display = 'none';
+                document.getElementById('em-name').value = '';
+                document.getElementById('em-email').value = '';
+                document.getElementById('em-msg').value = '';
+            }, 2500);
+        }
+    </script>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Cursor
         const cursor = document.getElementById('cursor');
         const cursorDot = document.getElementById('cursorDot');
@@ -1272,20 +1328,4 @@
                 }
             });
         }, { threshold: 0.1 });
-        revealEls.forEach(el => observer.observe(el));
-
-        // Also observe skills panel separately
-        const skillsObs = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.querySelectorAll('.skill-fill').forEach(bar => {
-                        bar.style.width = bar.getAttribute('data-w');
-                    });
-                }
-            });
-        }, { threshold: 0.3 });
-        document.querySelectorAll('.skills-panel').forEach(el => skillsObs.observe(el));
-    </script>
-
-</body>
-</html>
+        revealEls.forEach(el => observer.observ
