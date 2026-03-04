@@ -1,687 +1,774 @@
 <!DOCTYPE html>
-<html lang="es-CO" class="scroll-smooth">
+<html lang="es-CO">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Devinson Rodriguez | Experto en E-commerce & Automatización IA</title>
-    <meta name="description" content="Desarrollo Web Full Stack de alto nivel. E-commerce, Mercado Pago, Automatización IA y Chatbots en Colombia.">
-    <meta name="theme-color" content="#050505">
-    <link rel="canonical" href="https://devinson.lat">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Devinson Rodriguez — Desarrollo Web & Digital</title>
+<meta name="description" content="Arquitectura Digital de Impacto. Desarrollo Web, E-commerce y Soluciones Digitales desde Colombia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:ital,wght@0,300;0,400;0,600;0,900;1,300&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Devinson Rodriguez | Digital Architect">
-    <meta property="og:description" content="Transformo negocios con E-commerce, Pagos Digitales y Automatización IA. Cotiza tu proyecto hoy.">
-    <meta property="og:url" content="https://devinson.lat">
-    <meta property="og:site_name" content="Devinson Rodriguez Portafolio">
-    <meta property="og:image" content="https://i.imgur.com/ksFVp9V.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+:root{
+  --ink:#0a0a0a;
+  --paper:#f2efe8;
+  --warm:#e8e2d5;
+  --accent:#c8382a;
+  --accent2:#1a3a2a;
+  --gold:#c9a84c;
+  --muted:#7a7060;
+  --light:#faf8f3;
+}
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Devinson Rodriguez | Desarrollador Web & IA">
-    <meta name="twitter:description" content="Expertos en E-commerce y Sistemas de Pago en Colombia.">
-    <meta name="twitter:image" content="https://i.imgur.com/xCyUZMm.jpeg">
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--ink);color:var(--paper);font-family:'Archivo',sans-serif;overflow-x:hidden}
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Devinson Rodriguez",
-      "image": "https://i.imgur.com/xCyUZMm.jpeg",
-      "@id": "https://devinson.lat",
-      "url": "https://devinson.lat",
-      "telephone": "+57 321 520 3354",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Valledupar",
-        "addressLocality": "Valledupar",
-        "addressRegion": "Cesar",
-        "postalCode": "200001",
-        "addressCountry": "CO"
-      },
-      "priceRange": "$$$",
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "08:00",
-        "closes": "18:00"
-      },
-      "sameAs": [
-        "https://github.com/Pech68",
-        "https://www.linkedin.com/in/devinson-rodriguez"
-      ]
-    }
-    </script>
+/* scrollbar */
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--ink)}
+::-webkit-scrollbar-thumb{background:var(--accent)}
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Space Grotesk', 'sans-serif'] },
-                    colors: { black: '#050505', dark: '#0a0a0a' },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'float-delayed': 'float 7s ease-in-out 2s infinite',
-                        'float-slow': 'float 8s ease-in-out 1s infinite',
-                        'breathe': 'breathe 8s ease-in-out infinite',
-                        'scroll-belt': 'scrollBelt 20s linear infinite',
-                    },
-                    keyframes: {
-                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-15px)' } },
-                        breathe: { '0%, 100%': { transform: 'scale(1)' }, '50%': { transform: 'scale(1.02)' } },
-                        scrollBelt: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } }
-                    }
-                }
-            }
-        }
-    </script>
-    <link rel="stylesheet" href="style.css">
+/* ── GRAIN ── */
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.06'/%3E%3C/svg%3E");pointer-events:none;z-index:9998;opacity:.4}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 0;transition:background .5s,padding .4s}
+nav.scrolled{background:rgba(10,10,10,0.92);backdrop-filter:blur(24px);border-bottom:1px solid rgba(242,239,232,0.06);padding:14px 0}
+.nav-inner{max-width:1400px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
+@media(min-width:768px){.nav-inner{padding:0 40px}}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--paper);text-decoration:none;letter-spacing:.08em}
+.logo em{color:var(--accent);font-style:normal}
+.nav-links{display:none;gap:48px;list-style:none}
+@media(min-width:768px){.nav-links{display:flex}}
+.nav-links a{color:rgba(242,239,232,0.45);text-decoration:none;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--paper)}
+.nav-pill{display:none;padding:9px 24px;border-radius:2px;background:var(--accent);color:white;text-decoration:none;font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;transition:background .25s}
+@media(min-width:768px){.nav-pill{display:block}}
+.nav-pill:hover{background:#a12d22}
+.ham{background:none;border:1px solid rgba(242,239,232,0.15);color:var(--paper);padding:8px 12px;cursor:pointer;font-size:.9rem}
+@media(min-width:768px){.ham{display:none}}
+
+/* mobile menu */
+.mob-overlay{position:fixed;inset:0;z-index:99;background:var(--ink);transform:translateX(100%);transition:transform .45s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.mob-overlay.open{transform:none}
+.mob-overlay a{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--paper);text-decoration:none;letter-spacing:.06em;transition:color .2s}
+.mob-overlay a:hover{color:var(--accent)}
+
+/* ── HERO ── */
+#hero{min-height:100vh;display:grid;grid-template-rows:1fr auto;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-video{width:100%;height:100%;object-fit:cover;opacity:.18;filter:saturate(.3) contrast(1.2)}
+.hero-veil{position:absolute;inset:0;background:linear-gradient(160deg,rgba(10,10,10,.7) 0%,rgba(10,10,10,.2) 50%,rgba(10,10,10,.9) 100%)}
+
+.hero-body{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:0 20px;padding-top:clamp(120px,18vh,180px);display:flex;flex-direction:column;justify-content:flex-end;height:100%}
+@media(min-width:768px){.hero-body{padding:0 40px;padding-top:clamp(120px,18vh,180px)}}
+
+.hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.hero-eyebrow-line{width:40px;height:1px;background:var(--accent)}
+.hero-eyebrow span{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--accent);letter-spacing:.2em;text-transform:uppercase}
+
+.hero-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(5rem,18vw,18rem);line-height:.88;letter-spacing:.01em;color:var(--paper);margin-bottom:0}
+.hero-h1 .stroke{-webkit-text-stroke:1px rgba(242,239,232,0.35);color:transparent}
+
+.hero-footer{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:0 20px 52px;display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap}
+@media(min-width:768px){.hero-footer{padding:0 40px 60px}}
+.hero-desc{max-width:380px;font-size:.95rem;color:rgba(242,239,232,0.5);line-height:1.75;font-weight:300}
+.hero-scroll-btn{display:flex;align-items:center;gap:14px;text-decoration:none;color:rgba(242,239,232,0.4);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;font-family:'JetBrains Mono',monospace;transition:color .3s}
+.hero-scroll-btn .line{width:48px;height:1px;background:currentColor;transition:width .3s}
+.hero-scroll-btn:hover{color:var(--paper)}
+.hero-scroll-btn:hover .line{width:80px}
+
+/* ── TICKER ── */
+.ticker{border-top:1px solid rgba(242,239,232,0.08);border-bottom:1px solid rgba(242,239,232,0.08);padding:14px 0;overflow:hidden;mask-image:linear-gradient(to right,transparent,black 8%,black 92%,transparent)}
+.ticker-track{display:flex;gap:0;width:max-content;animation:tick 25s linear infinite}
+@keyframes tick{to{transform:translateX(-50%)}}
+.ticker-item{font-family:'Bebas Neue',sans-serif;font-size:clamp(.9rem,2vw,1.1rem);letter-spacing:.12em;color:rgba(242,239,232,0.18);white-space:nowrap;padding:0 32px}
+.ticker-sep{color:var(--accent);padding:0 4px}
+
+/* ── SECTION UTIL ── */
+.wrap{max-width:1400px;margin:0 auto;padding:0 40px}
+@media(max-width:640px){.wrap{padding:0 20px}}
+.label{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;display:block}
+.label-accent{color:var(--accent)}
+
+/* reveal */
+.r{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}
+.r.d1{transition-delay:.1s}.r.d2{transition-delay:.2s}.r.d3{transition-delay:.3s}
+.r.on{opacity:1;transform:none}
+
+/* ── STATS ── */
+#stats{padding:80px 0;border-bottom:1px solid rgba(242,239,232,0.07)}
+.stats-row{display:grid;grid-template-columns:repeat(2,1fr);gap:0}
+@media(min-width:640px){.stats-row{grid-template-columns:repeat(4,1fr)}}
+.stat-cell{padding:48px 32px;border-right:1px solid rgba(242,239,232,0.07);border-bottom:1px solid rgba(242,239,232,0.07)}
+.stat-cell:nth-child(2n){border-right:none}
+@media(min-width:640px){.stat-cell:nth-child(2n){border-right:1px solid rgba(242,239,232,0.07)}.stat-cell:last-child{border-right:none}}
+.stat-n{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,8vw,5.5rem);line-height:1;color:var(--paper);letter-spacing:.02em}
+.stat-l{font-size:.68rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-top:6px;font-family:'JetBrains Mono',monospace}
+
+/* ── WORK ── */
+#work{padding:120px 0}
+.work-head{margin-bottom:80px;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.work-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,8vw,7rem);line-height:.9;letter-spacing:.02em;color:var(--paper)}
+.work-title span{color:var(--accent)}
+.work-index{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--muted);line-height:1.6;max-width:260px;text-align:right}
+
+/* project rows */
+.proj-list{display:flex;flex-direction:column;gap:0}
+.proj{display:grid;grid-template-columns:1fr;border-top:1px solid rgba(242,239,232,0.08);transition:border-color .3s}
+@media(min-width:900px){.proj{grid-template-columns:1fr 1fr}}
+.proj:hover{border-color:rgba(242,239,232,0.2)}
+
+.proj-visual{aspect-ratio:4/3;overflow:hidden;position:relative;background:#111}
+@media(max-width:899px){.proj-visual{max-height:260px}}
+.proj-visual img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.22,1,.36,1),filter .5s;filter:saturate(.2) brightness(.7)}
+.proj:hover .proj-visual img{transform:scale(1.04);filter:saturate(.8) brightness(.85)}
+.proj-num{position:absolute;top:20px;left:24px;font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:rgba(242,239,232,0.1);line-height:1;transition:color .3s}
+.proj:hover .proj-num{color:rgba(242,239,232,0.25)}
+.proj-badge{position:absolute;bottom:20px;right:20px;background:rgba(10,10,10,0.85);border:1px solid rgba(242,239,232,0.12);padding:5px 12px;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+.proj-info{padding:28px 20px;display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+@media(min-width:900px){.proj-info{padding:40px 48px}}
+.proj-cat{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;display:block}
+.proj-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3.2rem);color:var(--paper);letter-spacing:.02em;line-height:.95;margin-bottom:16px}
+.proj-desc{font-size:.88rem;color:rgba(242,239,232,0.45);line-height:1.75;font-weight:300;max-width:380px}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.proj-tag{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border:1px solid rgba(242,239,232,0.1);color:rgba(242,239,232,0.35)}
+.proj-link{display:inline-flex;align-items:center;gap:12px;color:var(--paper);text-decoration:none;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;transition:gap .3s;margin-top:16px;border-bottom:1px solid rgba(242,239,232,0.15);padding-bottom:8px;width:fit-content}
+.proj-link:hover{gap:24px;color:var(--accent);border-color:var(--accent)}
+
+/* ── SERVICES ── */
+#expertise{padding:120px 0;background:var(--light);color:var(--ink)}
+.exp-head{margin-bottom:80px}
+.exp-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,7vw,6.5rem);line-height:.9;letter-spacing:.02em;color:var(--ink)}
+.exp-title em{font-style:normal;color:var(--accent)}
+.svc-grid{display:grid;grid-template-columns:1fr;gap:0;border:1px solid rgba(10,10,10,.1)}
+@media(min-width:640px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.svc-grid{grid-template-columns:repeat(4,1fr)}}
+.svc{padding:36px 28px;border-right:1px solid rgba(10,10,10,.1);border-bottom:1px solid rgba(10,10,10,.1);background:var(--light);transition:background .3s}
+.svc:hover{background:var(--ink);color:var(--paper)}
+.svc:hover .svc-ico{color:var(--accent)}
+.svc:hover .svc-t,.svc:hover .svc-d{color:inherit}
+.svc-ico{font-size:1.4rem;margin-bottom:20px;color:var(--accent);display:block;transition:color .3s}
+.svc-t{font-family:'Archivo',sans-serif;font-weight:900;font-size:1rem;color:var(--ink);margin-bottom:10px;transition:color .3s}
+.svc-d{font-size:.82rem;color:rgba(10,10,10,.5);line-height:1.65;transition:color .3s}
+
+/* skills */
+.skills-section{margin-top:60px;display:grid;grid-template-columns:1fr;gap:40px}
+@media(min-width:900px){.skills-section{grid-template-columns:1fr 1fr;align-items:center}}
+.skills-copy{font-size:1.05rem;color:rgba(10,10,10,.55);line-height:1.75;font-weight:300}
+.skills-copy strong{color:var(--ink);font-weight:900}
+.skill-list{display:flex;flex-direction:column;gap:16px}
+.skill-row{display:flex;flex-direction:column;gap:6px}
+.skill-meta{display:flex;justify-content:space-between}
+.skill-name{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.1em;color:rgba(10,10,10,.5);text-transform:uppercase}
+.skill-pct{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:rgba(10,10,10,.35)}
+.skill-bar{height:2px;background:rgba(10,10,10,.08);position:relative}
+.skill-fill{position:absolute;inset:0;background:var(--accent);width:0;transition:width 1.6s cubic-bezier(.22,1,.36,1);transform-origin:left}
+
+/* ── STACK ── */
+#ecosystem{padding:100px 0;border-top:1px solid rgba(242,239,232,0.07)}
+.eco-grid{display:grid;grid-template-columns:1fr;gap:60px;align-items:center}
+@media(min-width:900px){.eco-grid{grid-template-columns:1fr 1fr;gap:80px}}
+.eco-copy .big-t{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,5vw,4.5rem);line-height:.92;letter-spacing:.02em;color:var(--paper);margin-bottom:20px}
+.eco-copy p{font-size:.9rem;color:rgba(242,239,232,.4);line-height:1.75;font-weight:300;margin-bottom:32px}
+.eco-tags{display:flex;flex-wrap:wrap;gap:8px}
+.eco-t{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border:1px solid rgba(242,239,232,.1);color:rgba(242,239,232,.35);transition:all .25s}
+.eco-t:hover{border-color:var(--accent);color:var(--accent)}
+
+.tech-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(242,239,232,0.07)}
+.tech-c{background:var(--ink);padding:28px 16px;display:flex;flex-direction:column;align-items:center;gap:10px;transition:background .3s}
+.tech-c:hover{background:#141414}
+.tech-c i{font-size:1.7rem;transition:transform .3s}
+.tech-c:hover i{transform:scale(1.15)}
+.tech-c span{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,239,232,.3)}
+
+/* ── WHY WEB ── */
+#impact{padding:100px 0;background:#0e0e0e;overflow:hidden}
+.impact-head{margin-bottom:60px;text-align:center}
+.impact-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,7vw,6rem);letter-spacing:.02em;color:var(--paper)}
+.impact-title em{font-style:normal;color:var(--accent)}
+.cards-track-wrap{overflow:hidden;mask-image:linear-gradient(to right,transparent,black 6%,black 94%,transparent)}
+.cards-track{display:flex;gap:16px;width:max-content;animation:slide 40s linear infinite}
+@keyframes slide{to{transform:translateX(calc(-50% - 8px))}}
+.cards-track:hover{animation-play-state:paused}
+.cc{width:min(75vw,300px);height:400px;flex-shrink:0;border-radius:4px;overflow:hidden;position:relative}
+.cc img{width:100%;height:100%;object-fit:cover;filter:saturate(.3) brightness(.6);transition:filter .5s,transform .6s}
+.cc:hover img{filter:saturate(.7) brightness(.75);transform:scale(1.04)}
+.cc-over{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.95) 0%,transparent 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:24px}
+.cc-tag{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px}
+.cc-title{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--paper);letter-spacing:.04em;margin-bottom:6px}
+.cc-desc{font-size:.75rem;color:rgba(242,239,232,.45);line-height:1.55}
+
+/* ── PROCESS ── */
+#process{padding:120px 0}
+.proc-head{margin-bottom:80px;display:flex;flex-direction:column;gap:16px}
+.proc-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,7vw,6rem);color:var(--paper);letter-spacing:.02em;line-height:.92}
+.proc-grid{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid rgba(242,239,232,.08)}
+@media(min-width:640px){.proc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.proc-grid{grid-template-columns:repeat(4,1fr)}}
+.proc-step{padding:40px 32px;border-right:1px solid rgba(242,239,232,.08);border-bottom:1px solid rgba(242,239,232,.08);position:relative;overflow:hidden;transition:background .3s}
+.proc-step::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.proc-step:hover{background:#0f0f0f}
+.proc-step:hover::before{transform:scaleX(1)}
+.proc-n{font-family:'Bebas Neue',sans-serif;font-size:4rem;color:rgba(242,239,232,.06);line-height:1;margin-bottom:20px;letter-spacing:.02em}
+.proc-t{font-family:'Archivo',sans-serif;font-weight:900;font-size:.95rem;color:var(--paper);margin-bottom:10px}
+.proc-d{font-size:.8rem;color:rgba(242,239,232,.35);line-height:1.7}
+
+/* ── CTA ── */
+#contact{padding:120px 0;position:relative;overflow:hidden}
+#contact::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(200,56,42,.08),transparent 70%);pointer-events:none}
+.cta-inner{text-align:center;position:relative;z-index:1}
+.cta-label{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:24px}
+.cta-label-line{width:32px;height:1px;background:var(--accent)}
+.cta-big{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,12vw,11rem);line-height:.87;letter-spacing:.01em;color:var(--paper);margin-bottom:28px}
+.cta-big .hollow{-webkit-text-stroke:1px rgba(242,239,232,.25);color:transparent}
+.cta-sub{font-size:1rem;color:rgba(242,239,232,.4);margin-bottom:52px;font-weight:300}
+.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-a{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;background:var(--accent);color:white;text-decoration:none;font-weight:600;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;transition:background .25s,transform .2s}
+.btn-a:hover{background:#a12d22;transform:translateY(-2px)}
+.btn-b{display:inline-flex;align-items:center;gap:10px;padding:15px 36px;border:1px solid rgba(242,239,232,.15);color:var(--paper);text-decoration:none;font-weight:600;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;transition:border-color .25s,background .25s}
+.btn-b:hover{border-color:rgba(242,239,232,.4);background:rgba(242,239,232,.05)}
+
+/* ── FOOTER ── */
+footer{padding:60px 0 32px;border-top:1px solid rgba(242,239,232,.07);background:#060606}
+.footer-row{display:grid;grid-template-columns:1fr;gap:48px;margin-bottom:56px}
+@media(min-width:768px){.footer-row{grid-template-columns:2fr 1fr 1fr;align-items:start}}
+.footer-brand-logo{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:.06em;color:var(--paper);text-decoration:none;display:block;margin-bottom:14px}
+.footer-brand-logo em{color:var(--accent);font-style:normal}
+.footer-brand p{font-size:.83rem;color:rgba(242,239,232,.3);line-height:1.7;max-width:300px;margin-bottom:20px}
+.footer-email{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:rgba(242,239,232,.35);text-decoration:none;letter-spacing:.05em;border-bottom:1px solid rgba(242,239,232,.1);padding-bottom:4px;transition:color .2s,border-color .2s}
+.footer-email:hover{color:var(--accent);border-color:var(--accent)}
+.footer-col h4{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(242,239,232,.25);margin-bottom:20px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-col ul a{font-size:.83rem;color:rgba(242,239,232,.3);text-decoration:none;transition:color .2s}
+.footer-col ul a:hover{color:var(--paper)}
+.footer-bottom{display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center;padding-top:32px;border-top:1px solid rgba(242,239,232,.06)}
+@media(min-width:640px){.footer-bottom{flex-direction:row;justify-content:space-between;text-align:left}}
+.footer-bottom span{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:rgba(242,239,232,.2);letter-spacing:.08em}
+.socials{display:flex;gap:8px}
+.soc-btn{width:36px;height:36px;border:1px solid rgba(242,239,232,.1);display:flex;align-items:center;justify-content:center;color:rgba(242,239,232,.3);text-decoration:none;font-size:.85rem;transition:all .25s}
+.soc-btn:hover{background:var(--accent);border-color:var(--accent);color:white}
+
+/* floating wa */
+.wa{position:fixed;bottom:24px;right:24px;z-index:200;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;text-decoration:none;font-size:1.3rem;box-shadow:0 6px 24px rgba(37,211,102,.3);transition:transform .3s,box-shadow .3s;animation:wapulse 3s ease-in-out infinite}
+.wa:hover{transform:scale(1.1);box-shadow:0 10px 32px rgba(37,211,102,.5)}
+@keyframes wapulse{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,.3),0 0 0 0 rgba(37,211,102,.35)}70%{box-shadow:0 6px 24px rgba(37,211,102,.3),0 0 0 14px rgba(37,211,102,0)}}
+
+/* ── TRUST STRIP ── */
+.trust{padding:32px 0;border-top:1px solid rgba(242,239,232,.06);border-bottom:1px solid rgba(242,239,232,.06)}
+.trust-inner{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.t-chip{display:flex;align-items:center;gap:8px;padding:8px 18px;border:1px solid rgba(242,239,232,.07);font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,239,232,.25)}
+.t-chip i{color:var(--accent)}
+
+/* accent colors on stat nums */
+.c1{color:var(--paper)}
+.c2{color:var(--accent)}
+.c3{color:var(--gold)}
+.c4{color:var(--paper)}
+
+/* ── MOBILE ── */
+@media(max-width:767px){
+  #work,#expertise,#ecosystem,#impact,#process{padding:72px 0}
+  #contact{padding:80px 0}
+  #stats{padding:56px 0}
+  .work-head{flex-direction:column;align-items:flex-start;margin-bottom:48px}
+  .work-index{text-align:left;max-width:none}
+  .proj-visual{aspect-ratio:unset!important;height:220px;max-height:none}
+  .proj-visual img{height:100%}
+  .proj-name{font-size:2rem!important}
+  .proj-desc{font-size:.85rem}
+  .stat-cell{padding:28px 14px}
+  .trust-inner{gap:8px}
+  .t-chip{font-size:.56rem;padding:6px 10px}
+  .exp-head{margin-bottom:48px}
+  .svc{padding:26px 18px}
+  .eco-grid{gap:40px}
+  .proc-head{margin-bottom:48px}
+  .proc-step{padding:26px 18px}
+  .proc-n{font-size:3rem}
+  .cta-btns{flex-direction:column;align-items:center}
+  .btn-a,.btn-b{width:100%;justify-content:center;max-width:300px}
+  footer{padding:48px 0 24px}
+  .footer-row{gap:32px;margin-bottom:36px}
+  .hero-desc{font-size:.88rem}
+  .hero-scroll-btn{display:none}
+  .skills-copy{font-size:.92rem}
+}
+
+/* line decoration */
+.section-line{width:32px;height:2px;background:var(--accent);margin-bottom:20px}
+.section-line.light{background:var(--accent)}
+</style>
 </head>
-<body class="antialiased font-sans bg-black text-white selection:bg-blue-500 selection:text-white transition-colors duration-700">
+<body>
 
-    <div id="holiday-badge" class="fixed top-24 right-4 z-40 hidden animate-float-slow group cursor-pointer">
-        <div class="glass px-4 py-2 rounded-full flex items-center gap-2 border border-white/20 transition-all group-hover:scale-105">
-            <span id="holiday-icon" class="text-xl"></span>
-            <span id="holiday-text" class="text-sm font-bold tracking-wide uppercase"></span>
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">DEVINSON<em>.</em></a>
+    <ul class="nav-links">
+      <li><a href="#stats">Trayectoria</a></li>
+      <li><a href="#work">Proyectos</a></li>
+      <li><a href="#expertise">Servicios</a></li>
+      <li><a href="#process">Proceso</a></li>
+    </ul>
+    <a href="https://wa.me/573215203354" target="_blank" class="nav-pill">Agendar Cita</a>
+    <button class="ham" id="ham"><i class="fas fa-bars"></i></button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mob-overlay" id="mob">
+  <a href="#stats" class="mlink">Trayectoria</a>
+  <a href="#work" class="mlink">Proyectos</a>
+  <a href="#expertise" class="mlink">Servicios</a>
+  <a href="#process" class="mlink">Proceso</a>
+  <a href="https://wa.me/573215203354" target="_blank" style="font-size:1.2rem;color:#10b981;font-family:'JetBrains Mono',monospace;letter-spacing:.1em"><i class="fab fa-whatsapp" style="margin-right:8px"></i>WhatsApp</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg">
+    <video autoplay loop muted playsinline class="hero-video">
+      <source src="https://cdn.pixabay.com/video/2019/04/20/22908-331664413_large.mp4" type="video/mp4">
+    </video>
+    <div class="hero-veil"></div>
+  </div>
+  <div class="hero-body">
+    <div class="hero-eyebrow r">
+      <div class="hero-eyebrow-line"></div>
+      <span>Disponible para proyectos — 2025</span>
+    </div>
+    <h1 class="hero-h1 r">
+      ARCHI<span class="stroke">TEC</span><br>TURA<br><span class="stroke">DIGI</span>TAL
+    </h1>
+  </div>
+  <div class="hero-footer">
+    <p class="hero-desc r">Transformo ideas en ecosistemas digitales escalables. E-commerce que convierte, sitios web de alto rendimiento y automatización inteligente.</p>
+    <a href="#stats" class="hero-scroll-btn r">
+      <div class="line"></div>
+      Explorar
+    </a>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item">Diseño Web</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">E-Commerce</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Marketing Digital</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Apps Móviles</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">SEO & Analytics</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">UI/UX Design</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">SaaS & Cloud</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Diseño Web</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">E-Commerce</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Marketing Digital</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">Apps Móviles</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">SEO & Analytics</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">UI/UX Design</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">SaaS & Cloud</span><span class="ticker-sep">✦</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="wrap">
+    <div class="stats-row r">
+      <div class="stat-cell">
+        <div class="stat-n c1">5<span style="color:var(--accent)">+</span></div>
+        <div class="stat-l">Años Experiencia</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-n c2">30<span style="color:var(--muted)">+</span></div>
+        <div class="stat-l">Proyectos Entregados</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-n c3">100%</div>
+        <div class="stat-l">Clientes Satisfechos</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-n c4">24/7</div>
+        <div class="stat-l">Soporte Continuo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<div class="trust">
+  <div class="wrap">
+    <div class="trust-inner">
+      <div class="t-chip"><i class="fab fa-shopify"></i>Shopify Partner</div>
+      <div class="t-chip"><i class="fab fa-wordpress"></i>WordPress Expert</div>
+      <div class="t-chip"><i class="fab fa-react"></i>React Developer</div>
+      <div class="t-chip"><i class="fab fa-aws"></i>AWS Cloud</div>
+      <div class="t-chip"><i class="fas fa-mobile-alt"></i>Mobile-First</div>
+      <div class="t-chip"><i class="fas fa-search"></i>SEO Optimizado</div>
+    </div>
+  </div>
+</div>
+
+<!-- WORK -->
+<section id="work">
+  <div class="wrap">
+    <div class="work-head r">
+      <div>
+        <span class="label label-accent">Proyectos Destacados</span>
+        <h2 class="work-title">EL TRABAJO<br><span>HABLA</span> SOLO.</h2>
+      </div>
+      <div class="work-index">
+        Selección de proyectos<br>
+        — 2022 a 2025 —<br>
+        Colombia & Internacional
+      </div>
+    </div>
+  </div>
+
+  <div class="proj-list">
+
+    <!-- P1 -->
+    <div class="proj r">
+      <div class="proj-visual">
+        <img src="https://i.imgur.com/1mkPsH6.png" alt="PechStore Shop" loading="lazy">
+        <div class="proj-num">01</div>
+        <div class="proj-badge">E-commerce B2B</div>
+      </div>
+      <div class="proj-info proj-info-right">
+        <div>
+          <span class="proj-cat">E-commerce B2B — Shopify</span>
+          <h3 class="proj-name">PECHSTORE<br>SHOP</h3>
+          <p class="proj-desc">Plataforma mayorista con integración de inventarios en tiempo real, dashboard de analíticas avanzado y sistema de precios dinámicos. Escalable para alto volumen de pedidos.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Shopify</span>
+            <span class="proj-tag">Inventario Live</span>
+            <span class="proj-tag">Analytics</span>
+            <span class="proj-tag">B2B Pricing</span>
+          </div>
         </div>
+        <a href="https://pechstore.shop" target="_blank" class="proj-link">Visitar Sitio <i class="fas fa-arrow-right" style="font-size:.75rem"></i></a>
+      </div>
     </div>
 
-    <canvas id="particles-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
-
-    <nav class="fixed w-full z-50 top-0 left-0 border-b border-white/5 bg-black/80 backdrop-blur-xl transition-all duration-300">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center relative z-50">
-            <div class="flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
-                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center font-bold text-white shadow-[0_0_15px_rgba(59,130,246,0.5)] logo-box">D</div>
-                <span class="font-display font-bold text-lg tracking-tight">DEVINSON<span class="text-white/40">.LAT</span></span>
-            </div>
-            
-            <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-white/70">
-                <a href="#servicios" class="hover:text-white hover:scale-105 transition-all">Servicios</a>
-                <a href="#proyectos" class="hover:text-white hover:scale-105 transition-all">Proyectos</a>
-                <a href="#proceso" class="hover:text-white hover:scale-105 transition-all">Proceso</a>
-                <a href="#ia-lab" class="hover:text-white transition-all flex items-center gap-2 group">
-                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse group-hover:shadow-[0_0_8px_#22c55e] indicator-dot"></span> IA Lab
-                </a>
-            </div>
-
-            <a href="#cotizar" class="hidden md:block bg-white text-black px-5 py-2 rounded-full font-bold text-sm hover:bg-gray-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] active:scale-95 cta-button">
-                Cotizar
-            </a>
-
-            <button id="menu-btn" class="md:hidden text-white focus:outline-none z-50 p-2 relative w-8 h-8 flex flex-col justify-center items-center gap-1.5 group">
-                <span class="w-6 h-0.5 bg-white rounded-full transition-all duration-300 origin-center"></span>
-                <span class="w-6 h-0.5 bg-white rounded-full transition-all duration-300 origin-center"></span>
-                <span class="w-6 h-0.5 bg-white rounded-full transition-all duration-300 origin-center"></span>
-            </button>
+    <!-- P2 -->
+    <div class="proj r">
+      <div class="proj-info wrap" style="max-width:none;padding-top:40px;padding-bottom:40px;order:2">
+        <div>
+          <span class="proj-cat">Marketplace Local — SEO</span>
+          <h3 class="proj-name">LA GUACA<br>DEL VALLE</h3>
+          <p class="proj-desc">Directorio digital para comercios locales con SEO geolocalizado, carga ultrarrápida y conectividad real entre negocios y comunidad.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">SEO Local</span>
+            <span class="proj-tag">Geolocalización</span>
+            <span class="proj-tag">Directorio</span>
+            <span class="proj-tag">PWA</span>
+          </div>
         </div>
-
-        <div id="mobile-menu" class="fixed inset-0 bg-black/90 backdrop-blur-2xl z-40 flex flex-col items-center justify-center transition-all duration-500 opacity-0 pointer-events-none translate-y-4">
-            <div class="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 rounded-full blur-[100px]"></div>
-            <div class="absolute bottom-0 left-0 w-64 h-64 bg-purple-600/10 rounded-full blur-[100px]"></div>
-
-            <nav class="flex flex-col items-center space-y-8 relative z-10">
-                <a href="#hero" class="text-3xl font-display font-bold text-white/50 hover:text-white transition-colors hover:scale-110 duration-300 mobile-link">Inicio</a>
-                <a href="#servicios" class="text-3xl font-display font-bold text-white/50 hover:text-white transition-colors hover:scale-110 duration-300 mobile-link">Servicios</a>
-                <a href="#proyectos" class="text-3xl font-display font-bold text-white/50 hover:text-white transition-colors hover:scale-110 duration-300 mobile-link">Proyectos</a>
-                <a href="#proceso" class="text-3xl font-display font-bold text-white/50 hover:text-white transition-colors hover:scale-110 duration-300 mobile-link">Proceso</a>
-                <a href="#ia-lab" class="text-3xl font-display font-bold text-white/50 hover:text-purple-400 transition-colors hover:scale-110 duration-300 mobile-link flex items-center gap-3"><i class="fas fa-sparkles text-xl"></i> IA Lab</a>
-                
-                <div class="w-16 h-[1px] bg-white/10 my-4"></div>
-                
-                <a href="#cotizar" class="px-8 py-4 bg-white text-black rounded-full font-bold text-xl shadow-xl hover:bg-gray-200 transition-transform active:scale-95 mobile-link cta-button-mobile">Cotizar Proyecto</a>
-            </nav>
-            
-            <div class="absolute bottom-12 flex gap-8 text-gray-400">
-                <a href="https://github.com/Pech68" target="_blank" class="hover:text-white transition-colors hover:-translate-y-1"><i class="fab fa-github text-2xl"></i></a>
-                <a href="https://www.linkedin.com/in/devinson-rodriguez" target="_blank" class="hover:text-white transition-colors hover:-translate-y-1"><i class="fab fa-linkedin text-2xl"></i></a>
-                <a href="https://wa.me/573215203354" target="_blank" class="hover:text-white transition-colors hover:-translate-y-1"><i class="fab fa-whatsapp text-2xl"></i></a>
-            </div>
-        </div>
-    </nav>
-
-    <section id="hero" class="relative min-h-screen pt-28 pb-0 flex flex-col justify-end overflow-hidden bg-hero-gradient perspective-1000">
-        <div class="bg-blend-image absolute inset-0 z-0" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop'); opacity: 0.3; background-size: cover; background-position: center;"></div>
-        
-        <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-end justify-between h-full">
-            <div class="w-full md:w-1/2 mb-12 md:mb-32 relative z-20 pointer-events-none reveal active text-center md:text-left pt-6">
-                <div class="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-white/10 bg-white/5 backdrop-blur-md pointer-events-auto hover:bg-white/10 transition-colors cursor-default">
-                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse indicator-dot"></span>
-                    <span class="text-xs font-mono text-blue-400 dynamic-text-color font-bold">AGENDA ABIERTA 2026</span>
-                </div>
-                
-                <h1 class="text-5xl md:text-7xl font-display font-bold leading-tight mb-6 pointer-events-auto tracking-tight">
-                    Arquitectura <br>
-                    <span class="glitch-wrapper">
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 glitch" data-text="Digital Avanzada">Digital Avanzada</span>
-                    </span>
-                </h1>
-                
-                <p class="text-lg md:text-xl text-gray-300 max-w-lg mb-8 font-light pointer-events-auto mx-auto md:mx-0 leading-relaxed">
-                    Creo ecosistemas donde convergen <strong class="text-white font-medium">Pagos Nativos</strong> e <span id="typewriter-text" class="text-white font-medium typing-cursor">Inteligencia Artificial</span>. Deja de vender webs, empieza a vender resultados.
-                </p>
-
-                <div class="flex flex-col md:flex-row gap-4 pointer-events-auto px-4 md:px-0">
-                    <button onclick="document.getElementById('ia-lab').scrollIntoView()" class="w-full md:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(37,99,235,0.3)] active:scale-95 hero-btn-primary group">
-                        <i class="fas fa-robot group-hover:rotate-12 transition-transform"></i> Consultar con IA
-                    </button>
-                    <a href="https://github.com/Pech68" target="_blank" class="w-full md:w-auto px-8 py-4 border border-white/20 hover:bg-white/5 text-white font-medium rounded-xl transition-all flex items-center justify-center gap-3 active:scale-95 hover:border-white/40">
-                        <i class="fab fa-github"></i> Ver Código
-                    </a>
-                </div>
-            </div>
-
-            <div class="w-full md:w-1/2 relative flex justify-center items-end h-[50vh] md:h-[600px] perspective-1000 reveal active mt-auto">
-                <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[80%] bg-blue-600/15 blur-[120px] rounded-full animate-pulse-slow dynamic-glow"></div>
-                
-                <div id="hero-img-container" class="hero-image-container relative z-10 h-full flex items-end w-full justify-center">
-                    <img src="https://i.imgur.com/DBrfwWX.png" alt="Devinson Rodriguez" class="h-full object-contain max-h-[85vh] drop-shadow-2xl filter brightness-110 contrast-110 animate-breathe relative z-10 pointer-events-none">
-                    
-                    <div class="absolute bottom-10 left-0 w-full md:hidden z-30 overflow-hidden py-2 mask-linear">
-                        <div class="mobile-belt-container flex gap-4 animate-scroll-belt w-max">
-                            <div class="mobile-chip px-3 py-1 rounded-full border bg-black/50 backdrop-blur-md text-xs font-mono text-purple-300 border-purple-500/30 whitespace-nowrap"><i class="fas fa-brain"></i> Gemini AI</div>
-                            <div class="mobile-chip px-3 py-1 rounded-full border bg-black/50 backdrop-blur-md text-xs font-mono text-blue-300 border-blue-500/30 whitespace-nowrap"><i class="fas fa-handshake"></i> Mercado Pago</div>
-                            <div class="mobile-chip px-3 py-1 rounded-full border bg-black/50 backdrop-blur-md text-xs font-mono text-green-300 border-green-500/30 whitespace-nowrap"><i class="fab fa-whatsapp"></i> WhatsApp API</div>
-                            <div class="mobile-chip px-3 py-1 rounded-full border bg-black/50 backdrop-blur-md text-xs font-mono text-amber-300 border-amber-500/30 whitespace-nowrap"><i class="fas fa-bolt"></i> Fast PWA</div>
-                            <div class="mobile-chip px-3 py-1 rounded-full border bg-black/50 backdrop-blur-md text-xs font-mono text-purple-300 border-purple-500/30 whitespace-nowrap"><i class="fas fa-brain"></i> Gemini AI</div>
-                            <div class="mobile-chip px-3 py-1 rounded-full border bg-black/50 backdrop-blur-md text-xs font-mono text-blue-300 border-blue-500/30 whitespace-nowrap"><i class="fas fa-handshake"></i> Mercado Pago</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="hidden md:flex items-center gap-3 p-3 rounded-2xl bg-black/40 border border-white/10 backdrop-blur-md absolute top-20 -left-12 animate-float-delayed theme-chip">
-                    <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-purple-500/20 text-purple-400 border border-purple-500/30 theme-icon-bg-subtle"><i class="fas fa-brain"></i></div>
-                    <div><p class="text-[10px] text-gray-400 uppercase tracking-wider font-mono">Neural Engine</p><p class="font-bold text-sm text-white">Gemini AI</p></div>
-                </div>
-                <div class="hidden md:flex items-center gap-3 p-3 rounded-2xl bg-black/40 border border-white/10 backdrop-blur-md absolute top-32 -right-8 animate-float theme-chip">
-                    <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-blue-500/20 text-blue-400 border border-blue-500/30 theme-icon-bg-subtle"><i class="fas fa-handshake"></i></div>
-                    <div><p class="text-[10px] text-gray-400 uppercase tracking-wider font-mono">Fintech Node</p><p class="font-bold text-sm text-white">Mercado Pago</p></div>
-                </div>
-                <div class="hidden md:flex items-center gap-3 p-3 rounded-2xl bg-black/40 border border-white/10 backdrop-blur-md absolute bottom-40 -right-12 animate-float-slow theme-chip">
-                    <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-amber-500/20 text-amber-400 border border-amber-500/30 theme-icon-bg-subtle"><i class="fas fa-cash-register"></i></div>
-                    <div><p class="text-[10px] text-gray-400 uppercase tracking-wider font-mono">Retail Nexus</p><p class="font-bold text-sm text-white">Sistema POS</p></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="border-y border-white/5 bg-black py-4 md:py-6 relative z-20 overflow-hidden flex">
-        <div class="animate-scroll-belt flex whitespace-nowrap items-center w-max">
-            <div class="font-display font-bold text-2xl md:text-4xl text-white/10 uppercase tracking-tighter flex gap-8 md:gap-12 px-6">
-                <span>E-COMMERCE</span> <span>•</span> <span>REACT</span> <span>•</span> <span>NODE.JS</span> <span>•</span> <span>AUTOMATIZACIÓN</span> <span>•</span> <span>MERCADOPAGO</span> <span>•</span> <span>WHATSAPP API</span> <span>•</span> <span>GEMINI AI</span> <span>•</span> <span>PWA</span> <span>•</span> <span>STRIPE</span> <span>•</span> <span>NEQUI</span> <span>•</span>
-            </div>
-            <div class="font-display font-bold text-2xl md:text-4xl text-white/10 uppercase tracking-tighter flex gap-8 md:gap-12 px-6">
-                <span>E-COMMERCE</span> <span>•</span> <span>REACT</span> <span>•</span> <span>NODE.JS</span> <span>•</span> <span>AUTOMATIZACIÓN</span> <span>•</span> <span>MERCADOPAGO</span> <span>•</span> <span>WHATSAPP API</span> <span>•</span> <span>GEMINI AI</span> <span>•</span> <span>PWA</span> <span>•</span> <span>STRIPE</span> <span>•</span> <span>NEQUI</span> <span>•</span>
-            </div>
-        </div>
+        <a href="https://laguacadelvalle.netlify.app/" target="_blank" class="proj-link" style="color:var(--paper)">Explorar Proyecto <i class="fas fa-arrow-right" style="font-size:.75rem"></i></a>
+      </div>
+      <div class="proj-visual" style="order:1">
+        <img src="https://i.imgur.com/pYxjQNT.png" alt="La Guaca del Valle" loading="lazy">
+        <div class="proj-num">02</div>
+        <div class="proj-badge">Marketplace Local</div>
+      </div>
     </div>
 
-    <section id="servicios" class="py-20 md:py-24 relative overflow-hidden bg-black">
-        <div class="bg-blend-image absolute inset-0 z-0 opacity-20" style="background-image: url('https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1080&auto=format&fit=crop'); background-size: cover;"></div>
-        
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-16 reveal">
-                <span class="text-blue-500 font-mono text-xs tracking-widest uppercase mb-2 block dynamic-text-color font-bold">Capacidades del Sistema</span>
-                <h2 class="text-3xl md:text-5xl font-display font-bold text-white">Infraestructura Robusta</h2>
-                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Tecnología diseñada para escalar. Seguridad bancaria y velocidad instantánea.</p>
-            </div>
-
-            <div class="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20">
-                <div class="relative group perspective-1000 reveal order-1 lg:order-2">
-                    <div id="payment-card" class="bg-gradient-to-br from-gray-900 to-black w-[300px] md:w-[340px] h-[480px] rounded-3xl p-8 flex flex-col justify-between relative shadow-2xl overflow-hidden cursor-pointer transform transition-transform duration-700 mx-auto border border-white/10 group-hover:border-blue-500/30 dynamic-hover-border">
-                        <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M54.627 0l.83.828-1.415 1.415-.828-.828-.828.828-1.415-1.415.828-.828-.828-.828 1.415-1.415.828.828.828-.828 1.415 1.415-.828.828zM22.485 0l.83.828-1.415 1.415-.828-.828-.828.828-1.415-1.415.828-.828-.828-.828 1.415-1.415.828.828.828-.828 1.415 1.415-.828.828z\' fill=\'%23ffffff\' fill-opacity=\'1\' fill-rule=\'evenodd\'/%3E%3C/svg%3E');"></div>
-                        
-                        <div class="flex justify-between items-start z-10">
-                            <i class="fas fa-wifi text-white/50 rotate-90 text-xl"></i>
-                            <span class="text-xs font-mono text-blue-400 border border-blue-400/30 px-2 py-1 rounded dynamic-border dynamic-text-color shadow-[0_0_10px_rgba(59,130,246,0.2)]">SECURE_V3</span>
-                        </div>
-
-                        <div class="w-16 h-12 bg-gradient-to-tr from-yellow-200 to-yellow-600 rounded-lg shadow-lg relative z-10 border border-yellow-400/50 flex items-center justify-center chip-sim">
-                            <div class="w-full h-[1px] bg-black/30"></div>
-                            <div class="absolute h-full w-[1px] bg-black/30"></div>
-                        </div>
-
-                        <div class="space-y-4 z-10 mt-auto mb-8">
-                            <div class="flex items-center gap-4 bg-white/5 p-3 rounded-xl border border-white/5 hover:bg-white/10 transition-colors backdrop-blur-sm">
-                                <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white text-xs theme-icon-bg shadow-lg"><i class="fas fa-handshake"></i></div>
-                                <div><p class="text-sm font-bold text-white">Mercado Pago</p><p class="text-[10px] text-gray-300">Tarjetas, PSE y Efecty</p></div>
-                            </div>
-                            <div class="flex items-center gap-4 bg-white/5 p-3 rounded-xl border border-white/5 hover:bg-white/10 transition-colors backdrop-blur-sm">
-                                <div class="w-8 h-8 rounded-full bg-pink-600 flex items-center justify-center text-white text-xs shadow-lg"><i class="fas fa-mobile-alt"></i></div>
-                                <div><p class="text-sm font-bold text-white">Nequi / Daviplata</p><p class="text-[10px] text-gray-300">Transferencia QR Automática</p></div>
-                            </div>
-                        </div>
-
-                        <div class="z-10 pt-4 border-t border-white/10 flex justify-between items-center text-xs text-gray-500 font-mono"><span>ID: DEV-8832</span><span class="text-green-500 animate-pulse">● ONLINE</span></div>
-                        <div id="card-shine" class="absolute inset-0 pointer-events-none opacity-50 mix-blend-overlay"></div>
-                    </div>
-                </div>
-
-                <div class="lg:w-1/3 space-y-6 order-2 lg:order-1 px-4 md:px-0">
-                    <div class="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 reveal group hover:border-blue-500/40 transition-colors relative overflow-hidden">
-                        <div class="absolute inset-0 bg-blue-500/5 z-0 dynamic-glass-bg opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        <h3 class="text-xl font-bold text-white mb-3 relative z-10 flex items-center gap-3"><i class="fas fa-shield-alt text-blue-400 dynamic-icon-color text-2xl"></i> Seguridad Militar</h3>
-                        <p class="text-sm text-gray-400 relative z-10 leading-relaxed">Encriptación de punta a punta (E2EE) y certificados SSL Wildcard. Tus clientes compran con la misma confianza que en un banco.</p>
-                    </div>
-                    <div class="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 reveal group hover:border-yellow-500/40 transition-colors relative overflow-hidden">
-                        <div class="absolute inset-0 bg-yellow-500/5 z-0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        <h3 class="text-xl font-bold text-white mb-3 relative z-10 flex items-center gap-3"><i class="fas fa-bolt text-yellow-400 text-2xl"></i> Ultra Fast PWA</h3>
-                        <p class="text-sm text-gray-400 relative z-10 leading-relaxed">Aplicaciones Web Progresivas que cargan en menos de 1 segundo. Funcionan offline y se sienten como apps nativas.</p>
-                    </div>
-                </div>
-
-                <div class="lg:w-1/3 space-y-6 order-3 px-4 md:px-0">
-                    <div class="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 reveal group hover:border-purple-500/40 transition-colors relative overflow-hidden">
-                        <div class="absolute inset-0 bg-purple-500/5 z-0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        <h3 class="text-xl font-bold text-white mb-3 relative z-10 flex items-center gap-3"><i class="fas fa-brain text-purple-400 text-2xl"></i> Dashboard IA</h3>
-                        <p class="text-sm text-gray-400 relative z-10 leading-relaxed">Panel administrativo que no solo muestra datos, sino que predice tendencias de venta usando algoritmos de Machine Learning.</p>
-                    </div>
-                    <div class="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 reveal group hover:border-green-500/40 transition-colors relative overflow-hidden">
-                        <div class="absolute inset-0 bg-green-500/5 z-0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        <h3 class="text-xl font-bold text-white mb-3 relative z-10 flex items-center gap-3"><i class="fab fa-whatsapp text-green-400 text-2xl"></i> Bots Conversacionales</h3>
-                        <p class="text-sm text-gray-400 relative z-10 leading-relaxed">Agentes inteligentes en WhatsApp que cierran ventas, agendan citas y resuelven dudas 24/7 sin intervención humana.</p>
-                    </div>
-                </div>
-            </div>
+    <!-- P3 -->
+    <div class="proj r">
+      <div class="proj-visual">
+        <img src="https://i.imgur.com/zndRaPD.png" alt="Rosa Estudio" loading="lazy" style="object-position:top">
+        <div class="proj-num">03</div>
+        <div class="proj-badge">Beauty & Wellness</div>
+      </div>
+      <div class="proj-info wrap" style="max-width:none;padding-top:40px;padding-bottom:40px">
+        <div>
+          <span class="proj-cat">Beauty & Wellness — Landing Page</span>
+          <h3 class="proj-name">ROSA<br>ESTUDIO</h3>
+          <p class="proj-desc">Landing page corporativa de alta conversión para estudio de belleza. Diseño minimalista y elegante que convierte visitantes en citas por WhatsApp.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Landing Page</span>
+            <span class="proj-tag">WhatsApp CTA</span>
+            <span class="proj-tag">Branding</span>
+            <span class="proj-tag">Conversión</span>
+          </div>
         </div>
-    </section>
+        <a href="https://rosaestudiodebelleza.netlify.app/" target="_blank" class="proj-link">Ver Proyecto <i class="fas fa-arrow-right" style="font-size:.75rem"></i></a>
+      </div>
+    </div>
 
-    <section id="proyectos" class="py-24 relative overflow-hidden bg-black border-t border-white/5">
-        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[150px] pointer-events-none"></div>
-        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[150px] pointer-events-none"></div>
-
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-20 reveal">
-                <span class="text-purple-500 font-mono text-xs tracking-widest uppercase mb-2 block font-bold">Proyectos Destacados</span>
-                <h2 class="text-3xl md:text-5xl font-display font-bold text-white">El Trabajo Habla Solo</h2>
-                <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-6 rounded-full"></div>
-            </div>
-
-            <div class="space-y-24">
-                <div class="flex flex-col md:flex-row items-center gap-12 group reveal">
-                    <div class="w-full md:w-1/2 relative">
-                        <div class="absolute inset-0 bg-blue-500/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="relative bg-gradient-to-br from-gray-900 to-black p-8 rounded-3xl border border-white/10 overflow-hidden transform transition-transform group-hover:scale-[1.02] duration-500 flex justify-center items-center min-h-[300px]">
-                            <img src="https://i.imgur.com/1mkPsH6.png" alt="PechStore Tech" class="w-full h-auto object-contain max-h-[280px] rounded-xl relative z-10">
-                        </div>
-                    </div>
-                    <div class="w-full md:w-1/2 space-y-6">
-                        <span class="text-blue-400 font-mono text-xs tracking-widest uppercase font-bold px-3 py-1 bg-blue-500/10 rounded-full border border-blue-500/20 inline-block">E-commerce B2B</span>
-                        <h3 class="text-3xl md:text-4xl font-display font-bold text-white">PechStore Shop</h3>
-                        <p class="text-gray-400 leading-relaxed">Plataforma de comercio electrónico mayorista con integración de inventarios en tiempo real, dashboard de analíticas avanzado y sistema de precios dinámicos. Escalable para alto volumen de pedidos.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">Shopify</span>
-                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">Inventario Live</span>
-                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">Analytics</span>
-                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">B2B Pricing</span>
-                        </div>
-                        <a href="https://pechstore.shop" target="_blank" class="inline-flex items-center gap-2 text-blue-400 font-bold group/link mt-2 hover:text-white transition-colors">
-                            Visitar Sitio <i class="fas fa-arrow-right transform transition-transform group-hover/link:translate-x-2 text-sm"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="flex flex-col md:flex-row-reverse items-center gap-12 group reveal">
-                    <div class="w-full md:w-1/2 relative">
-                        <div class="absolute inset-0 bg-purple-500/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="relative bg-gradient-to-br from-[#1a0e2e] to-[#0d1117] rounded-3xl border border-white/10 overflow-hidden transform transition-transform group-hover:scale-[1.02] duration-500">
-                            <img src="https://i.imgur.com/pYxjQNT.png" alt="La Guaca del Valle" class="w-full h-auto object-cover max-h-[340px] relative z-10">
-                        </div>
-                    </div>
-                    <div class="w-full md:w-1/2 space-y-6">
-                        <span class="text-purple-400 font-mono text-xs tracking-widest uppercase font-bold px-3 py-1 bg-purple-500/10 rounded-full border border-purple-500/20 inline-block">Marketplace Local</span>
-                        <h3 class="text-3xl md:text-4xl font-display font-bold text-white">La Guaca del Valle</h3>
-                        <p class="text-gray-400 leading-relaxed">Directorio digital y plataforma de ventas para comercios locales. Optimizado para carga rápida, SEO local con geolocalización integrada para conectar negocios con su comunidad.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">SEO Local</span>
-                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">Geolocalización</span>
-                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">Directorio</span>
-                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">PWA</span>
-                        </div>
-                        <a href="https://laguacadelvalle.netlify.app/" target="_blank" class="inline-flex items-center gap-2 text-purple-400 font-bold group/link mt-2 hover:text-white transition-colors">
-                            Explorar Proyecto <i class="fas fa-arrow-right transform transition-transform group-hover/link:translate-x-2 text-sm"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="flex flex-col md:flex-row items-center gap-12 group reveal">
-                    <div class="w-full md:w-1/2 relative">
-                        <div class="absolute inset-0 bg-pink-500/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="relative bg-gradient-to-br from-[#1a0a18] to-black p-8 rounded-3xl border border-white/10 overflow-hidden transform transition-transform group-hover:scale-[1.02] duration-500 flex justify-center items-center min-h-[300px]">
-                            <img src="https://i.imgur.com/zndRaPD.png" alt="Rosa Estudio" class="w-full h-auto object-contain max-h-[200px] relative z-10">
-                        </div>
-                    </div>
-                    <div class="w-full md:w-1/2 space-y-6">
-                        <span class="text-pink-400 font-mono text-xs tracking-widest uppercase font-bold px-3 py-1 bg-pink-500/10 rounded-full border border-pink-500/20 inline-block">Beauty & Wellness</span>
-                        <h3 class="text-3xl md:text-4xl font-display font-bold text-white">Rosa Estudio</h3>
-                        <p class="text-gray-400 leading-relaxed">Landing page corporativa para estudio de belleza. Diseño minimalista y elegante enfocado en conversión de citas por WhatsApp. Estética premium que refleja la identidad de marca.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">Landing Page</span>
-                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">WhatsApp CTA</span>
-                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">Branding</span>
-                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">Conversión</span>
-                        </div>
-                        <a href="https://rosaestudiodebelleza.netlify.app/" target="_blank" class="inline-flex items-center gap-2 text-pink-400 font-bold group/link mt-2 hover:text-white transition-colors">
-                            Ver Proyecto <i class="fas fa-arrow-right transform transition-transform group-hover/link:translate-x-2 text-sm"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="flex flex-col md:flex-row-reverse items-center gap-12 group reveal">
-                    <div class="w-full md:w-1/2 relative">
-                        <div class="absolute inset-0 bg-cyan-500/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="relative bg-gradient-to-br from-[#0a1628] to-black p-8 rounded-3xl border border-white/10 overflow-hidden transform transition-transform group-hover:scale-[1.02] duration-500 flex justify-center items-center min-h-[300px]">
-                            <img src="https://i.imgur.com/HNQr8IZ.png" alt="PechPos System" class="w-full h-auto object-contain relative z-10" style="filter: drop-shadow(0 0 30px rgba(59,130,246,0.2));">
-                        </div>
-                    </div>
-                    <div class="w-full md:w-1/2 space-y-6">
-                        <span class="text-cyan-400 font-mono text-xs tracking-widest uppercase font-bold px-3 py-1 bg-cyan-500/10 rounded-full border border-cyan-500/20 inline-block">SaaS & Enterprise</span>
-                        <h3 class="text-3xl md:text-4xl font-display font-bold text-white">PechPos System</h3>
-                        <p class="text-gray-400 leading-relaxed">Software POS multi-tenant para automatización de inventarios, ventas y facturación. Arquitectura cloud escalable para múltiples sucursales bajo una sola plataforma.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">SaaS</span>
-                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">Multi-tenant</span>
-                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">Cloud AWS</span>
-                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">Facturación</span>
-                        </div>
-                        <a href="https://devinson.lat/pechpos" target="_blank" class="inline-flex items-center gap-2 text-cyan-400 font-bold group/link mt-2 hover:text-white transition-colors">
-                            Acceder al Sistema <i class="fas fa-arrow-right transform transition-transform group-hover/link:translate-x-2 text-sm"></i>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
+    <!-- P4 -->
+    <div class="proj r">
+      <div class="proj-info wrap" style="max-width:none;padding-top:40px;padding-bottom:40px;order:2">
+        <div>
+          <span class="proj-cat">SaaS Enterprise — Cloud</span>
+          <h3 class="proj-name">PECHPOS<br>SYSTEM</h3>
+          <p class="proj-desc">Software POS multi-tenant para automatización de inventarios, ventas y facturación. Arquitectura cloud escalable para múltiples sucursales.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">SaaS</span>
+            <span class="proj-tag">Multi-tenant</span>
+            <span class="proj-tag">Cloud AWS</span>
+            <span class="proj-tag">Facturación</span>
+          </div>
         </div>
-    </section>
+        <a href="https://devinson.lat/pechpos" target="_blank" class="proj-link" style="color:var(--paper)">Acceder al Sistema <i class="fas fa-arrow-right" style="font-size:.75rem"></i></a>
+      </div>
+      <div class="proj-visual" style="order:1">
+        <img src="https://i.imgur.com/HNQr8IZ.png" alt="PechPos System" loading="lazy">
+        <div class="proj-num">04</div>
+        <div class="proj-badge">SaaS & Enterprise</div>
+      </div>
+    </div>
 
-    <section id="proceso" class="py-24 bg-black relative overflow-hidden border-t border-white/5">
-        <div class="bg-blend-image absolute inset-0 z-0 opacity-20" style="background-image: url('https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=1080&auto=format&fit=crop'); background-size: cover;"></div>
-        <div class="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#0a0a0a]/80 to-[#050505] z-0"></div>
+  </div>
+</section>
 
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-20 reveal">
-                <h2 class="text-3xl md:text-5xl font-display font-bold text-white">Mi Proceso de Ingeniería</h2>
-                <p class="text-gray-400 mt-4 max-w-xl mx-auto">Metodología ágil dividida en sprints de alto impacto.</p>
-            </div>
+<!-- EXPERTISE -->
+<section id="expertise">
+  <div class="wrap">
+    <div class="exp-head r">
+      <span class="label" style="color:var(--accent)">Lo que ofrezco</span>
+      <h2 class="exp-title">SERVI<em>CIOS</em><br>& SOLUCIONES</h2>
+    </div>
+    <div class="svc-grid r">
+      <div class="svc">
+        <i class="fas fa-code svc-ico"></i>
+        <div class="svc-t">Desarrollo Web</div>
+        <div class="svc-d">React, Next.js, Astro. Interfaces rápidas, accesibles y con conversión optimizada para tu negocio.</div>
+      </div>
+      <div class="svc">
+        <i class="fas fa-shopping-bag svc-ico"></i>
+        <div class="svc-t">E-Commerce</div>
+        <div class="svc-d">Tiendas Shopify y WooCommerce listas para vender desde el día 1. Optimizadas para conversión.</div>
+      </div>
+      <div class="svc">
+        <i class="fas fa-mobile-alt svc-ico"></i>
+        <div class="svc-t">Apps Móviles</div>
+        <div class="svc-d">Apps nativas y PWAs responsivas para iOS y Android. Experiencia fluida en cualquier dispositivo.</div>
+      </div>
+      <div class="svc">
+        <i class="fas fa-chart-line svc-ico"></i>
+        <div class="svc-t">Marketing Digital</div>
+        <div class="svc-d">SEO, Meta Ads, Google Ads. Tráfico orgánico y pagado que realmente convierte en ventas.</div>
+      </div>
+    </div>
 
-            <div class="relative max-w-5xl mx-auto">
-                <div class="hidden md:block absolute left-1/2 w-[2px] h-full bg-gradient-to-b from-transparent via-blue-500 to-transparent transform -translate-x-1/2 opacity-30"></div>
-                
-                <div class="space-y-16 relative z-10">
-                    
-                    <div class="flex flex-col md:flex-row items-center justify-between gap-8 group reveal">
-                        <div class="md:w-5/12 text-center md:text-right order-2 md:order-1 pr-4">
-                            <h3 class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors mb-3">1. Análisis Neural & Estrategia</h3>
-                            <p class="text-gray-400 text-sm leading-relaxed">Auditoría profunda de tu modelo de negocio. Identificamos cuellos de botella y definimos el stack tecnológico (React, Node, Python) que garantiza escalabilidad a largo plazo.</p>
-                        </div>
-                        <div class="w-16 h-16 rounded-full bg-black border border-white/10 flex items-center justify-center text-blue-500 shadow-[0_0_30px_rgba(59,130,246,0.3)] z-10 order-1 md:order-2 shrink-0 mx-auto md:mx-0 relative transition-transform group-hover:scale-110">
-                            <div class="absolute inset-0 rounded-full border-2 border-blue-500/50 animate-ping opacity-20"></div>
-                            <i class="fas fa-search text-xl"></i>
-                        </div>
-                        <div class="md:w-5/12 order-3 pl-4 hidden md:block"><span class="text-xs font-mono text-gray-600">SEM 1</span></div>
-                    </div>
-
-                    <div class="flex flex-col md:flex-row items-center justify-between gap-8 group reveal">
-                        <div class="md:w-5/12 order-2 md:order-1 pr-4 hidden md:block text-right"><span class="text-xs font-mono text-gray-600">SEM 2</span></div>
-                        <div class="w-16 h-16 rounded-full bg-black border border-white/10 flex items-center justify-center text-purple-500 shadow-[0_0_30px_rgba(168,85,247,0.3)] z-10 order-1 md:order-2 shrink-0 mx-auto md:mx-0 relative transition-transform group-hover:scale-110">
-                            <i class="fas fa-layer-group text-xl"></i>
-                        </div>
-                        <div class="md:w-5/12 text-center md:text-left order-3 pl-4">
-                            <h3 class="text-2xl font-bold text-white group-hover:text-purple-400 transition-colors mb-3">2. UX/UI & Prototipado</h3>
-                            <p class="text-gray-400 text-sm leading-relaxed">Diseño centrado en la conversión. Creamos wireframes interactivos y maquetas de alta fidelidad para validar la experiencia de usuario antes de escribir una sola línea de código.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col md:flex-row items-center justify-between gap-8 group reveal">
-                        <div class="md:w-5/12 text-center md:text-right order-2 md:order-1 pr-4">
-                            <h3 class="text-2xl font-bold text-white group-hover:text-green-400 transition-colors mb-3">3. Desarrollo & Integración</h3>
-                            <p class="text-gray-400 text-sm leading-relaxed">Programación modular y limpia ("Clean Code"). Integración robusta de APIs bancarias, sistemas de inventario y entrenamiento de modelos de IA personalizados.</p>
-                        </div>
-                        <div class="w-16 h-16 rounded-full bg-black border border-white/10 flex items-center justify-center text-green-500 shadow-[0_0_30px_rgba(34,197,94,0.3)] z-10 order-1 md:order-2 shrink-0 mx-auto md:mx-0 relative transition-transform group-hover:scale-110">
-                            <i class="fas fa-code text-xl"></i>
-                        </div>
-                        <div class="md:w-5/12 order-3 pl-4 hidden md:block"><span class="text-xs font-mono text-gray-600">SEM 3-4</span></div>
-                    </div>
-
-                    <div class="flex flex-col md:flex-row items-center justify-between gap-8 group reveal">
-                        <div class="md:w-5/12 order-2 md:order-1 pr-4 hidden md:block text-right"><span class="text-xs font-mono text-gray-600">LANZAMIENTO</span></div>
-                        <div class="w-16 h-16 rounded-full bg-black border border-white/10 flex items-center justify-center text-white shadow-[0_0_30px_rgba(255,255,255,0.3)] z-10 order-1 md:order-2 shrink-0 mx-auto md:mx-0 relative transition-transform group-hover:scale-110">
-                            <i class="fas fa-rocket text-xl"></i>
-                        </div>
-                        <div class="md:w-5/12 text-center md:text-left order-3 pl-4">
-                            <h3 class="text-2xl font-bold text-white group-hover:text-white transition-colors mb-3">4. Despliegue & Escala</h3>
-                            <p class="text-gray-400 text-sm leading-relaxed">Lanzamiento en infraestructura cloud global (Vercel/AWS). Optimización técnica de SEO para Google y tests de carga para asegurar estabilidad bajo tráfico masivo.</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+    <div class="skills-section r" style="margin-top:60px">
+      <div class="skills-copy">
+        <strong>Más que diseño,</strong><br>
+        arquitectura de software robusta y escalable que genera resultados de negocio reales. Cada decisión técnica tiene un porqué estratégico.
+      </div>
+      <div class="skill-list">
+        <div class="skill-row">
+          <div class="skill-meta"><span class="skill-name">React / Next.js</span><span class="skill-pct">95%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="95%"></div></div>
         </div>
-    </section>
-
-    <section id="ia-lab" class="py-24 bg-black relative overflow-hidden border-t border-white/5">
-        <div class="absolute -right-20 top-20 w-96 h-96 bg-purple-600/10 rounded-full blur-[120px] pointer-events-none"></div>
-        <div class="absolute -left-20 bottom-20 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
-
-        <div class="container mx-auto px-6 relative z-10 max-w-4xl">
-            <div class="text-center mb-12 reveal">
-                <span class="text-purple-400 font-mono text-xs tracking-widest uppercase mb-2 block font-bold">Powered by Gemini AI</span>
-                <h2 class="text-4xl md:text-5xl font-display font-bold text-white">Laboratorio de Ideas</h2>
-                <p class="text-gray-400 mt-4">Cuéntale a mi IA sobre tu negocio y recibe una estrategia técnica al instante.</p>
-            </div>
-
-            <div class="bg-gradient-to-br from-white/10 to-transparent p-[1px] rounded-3xl reveal shadow-2xl">
-                <div class="bg-gray-900/90 rounded-[22px] p-6 md:p-10 backdrop-blur-xl border border-white/5 relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-50"></div>
-
-                    <div class="flex flex-col gap-6">
-                        <div>
-                            <label class="text-xs text-gray-400 font-mono ml-1 mb-2 block uppercase tracking-wider">Describe tu proyecto:</label>
-                            <textarea id="ai-input" rows="3" class="w-full bg-black/60 border border-white/10 rounded-xl p-4 text-white focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all resize-none text-lg font-mono placeholder-gray-600" placeholder="Ej: Tengo una tienda de ropa en Instagram y quiero automatizar los pedidos y pagos..."></textarea>
-                        </div>
-                        
-                        <div class="flex justify-end">
-                            <button onclick="consultarIA()" id="ai-btn" class="w-full md:w-auto px-8 py-4 bg-white text-black font-bold rounded-xl hover:bg-gray-100 transition-all flex items-center justify-center gap-3 shadow-lg hover:shadow-purple-500/20 active:scale-95 group">
-                                <span>Generar Estrategia</span>
-                                <i class="fas fa-sparkles text-purple-600 group-hover:rotate-12 transition-transform"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div id="ai-result" class="hidden mt-8 border-t border-white/10 pt-8 animation-fade-in">
-                        <div class="flex items-center justify-between mb-6">
-                            <div class="flex items-center gap-3 bg-green-500/10 px-3 py-1 rounded-full border border-green-500/20">
-                                <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse indicator-dot"></div>
-                                <span class="text-xs font-bold text-green-300 tracking-wide">ANÁLISIS COMPLETADO</span>
-                            </div>
-                        </div>
-                        <div id="ai-content" class="text-gray-300 text-sm leading-loose ai-response font-light mb-8 p-4 bg-black/40 rounded-lg border border-white/5"></div>
-                        <div class="flex justify-end">
-                            <a href="#cotizar" class="text-sm text-purple-400 hover:text-white transition-colors border-b border-purple-400/30 pb-1 font-bold hover:border-white">Ver Presupuesto Desglosado &rarr;</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="skill-row">
+          <div class="skill-meta"><span class="skill-name">E-Commerce (Shopify/Woo)</span><span class="skill-pct">90%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="90%"></div></div>
         </div>
-    </section>
-
-    <section id="herramientas" class="py-20 bg-black relative border-t border-white/5 overflow-hidden">
-        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-        <div class="container mx-auto px-6 relative z-10">
-            
-            <div class="flex flex-col lg:flex-row items-center gap-12">
-                <div class="lg:w-1/2 reveal">
-                    <span class="text-green-400 font-mono text-xs tracking-widest uppercase mb-2 block font-bold">Herramienta Gratuita</span>
-                    <h2 class="text-3xl md:text-5xl font-display font-bold text-white mb-6">Generador de Links <span class="text-green-500">WhatsApp</span></h2>
-                    <p class="text-gray-400 text-lg mb-6">Crea enlaces personalizados para tu Instagram o Facebook en segundos. Tus clientes te contactarán con un clic.</p>
-                    
-                    <div class="bg-blue-500/10 border-l-4 border-blue-500 p-4 rounded-r-lg mb-8">
-                        <p class="text-sm text-blue-200">
-                            <strong class="block text-white mb-1"><i class="fas fa-lightbulb text-yellow-400 mr-1"></i> Consejo Pro:</strong>
-                            "Una vez tengas el link, la clave es responder rápido. ¿Sabías que el 70% de las ventas se pierden por demoras en responder? Mi <strong>Chatbot IA</strong> responde en 0.5 segundos."
-                        </p>
-                    </div>
-                </div>
-
-                <div class="lg:w-1/2 w-full reveal">
-                    <div class="bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-2xl relative">
-                        <div class="absolute -top-4 -right-4 w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white text-xl shadow-lg animate-bounce">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-
-                        <div class="space-y-5">
-                            <div>
-                                <label class="text-xs text-gray-400 uppercase font-bold tracking-wider mb-2 block">Tu Número (Sin +)</label>
-                                <div class="flex items-center bg-black/50 rounded-xl border border-white/10 overflow-hidden focus-within:border-green-500 transition-colors">
-                                    <span class="pl-4 text-gray-500 select-none"><i class="fas fa-phone-alt"></i></span>
-                                    <input type="number" id="wa-number" class="w-full bg-transparent p-4 text-white focus:outline-none font-mono" placeholder="Ej: 573001234567">
-                                </div>
-                            </div>
-                            
-                            <div>
-                                <label class="text-xs text-gray-400 uppercase font-bold tracking-wider mb-2 block">Mensaje Predefinido</label>
-                                <textarea id="wa-message" rows="2" class="w-full bg-black/50 border border-white/10 rounded-xl p-4 text-white focus:border-green-500 focus:outline-none transition-colors resize-none" placeholder="Hola, quiero más información sobre sus servicios..."></textarea>
-                            </div>
-
-                            <button onclick="generateWhatsAppLink()" class="w-full py-4 bg-green-600 hover:bg-green-500 text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-green-500/30 flex items-center justify-center gap-2 group">
-                                Generar Link Mágico <i class="fas fa-magic group-hover:rotate-12 transition-transform"></i>
-                            </button>
-
-                            <div id="wa-result" class="hidden pt-4 border-t border-white/10 mt-4">
-                                <p class="text-xs text-center text-gray-400 mb-2">Tu Enlace Personalizado:</p>
-                                <div class="flex gap-2">
-                                    <input type="text" id="wa-output" readonly class="w-full bg-black/80 text-green-400 text-xs p-3 rounded-lg border border-green-500/30 font-mono truncate">
-                                    <button onclick="copyToClipboard()" class="bg-white/10 hover:bg-white/20 text-white p-3 rounded-lg transition-colors" title="Copiar"><i class="fas fa-copy"></i></button>
-                                    <a id="wa-test-btn" href="#" target="_blank" class="bg-green-500/20 hover:bg-green-500/30 text-green-400 p-3 rounded-lg transition-colors border border-green-500/30" title="Probar"><i class="fas fa-external-link-alt"></i></a>
-                                </div>
-                                <p id="copy-feedback" class="text-center text-xs text-green-400 mt-2 opacity-0 transition-opacity">¡Copiado al portapapeles!</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="skill-row">
+          <div class="skill-meta"><span class="skill-name">Marketing & SEO</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="85%"></div></div>
         </div>
-    </section>
-
-    <footer id="cotizar" class="pt-24 pb-10 bg-black border-t border-white/5 relative">
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="grid md:grid-cols-2 gap-20">
-                <div class="reveal">
-                    <h2 class="text-3xl font-display font-bold text-white mb-2">Cotizador Dinámico</h2>
-                    <p class="text-gray-500 mb-8 text-sm">Selecciona los módulos que necesitas.</p>
-                    
-                    <div class="space-y-4" id="modules-container">
-                        <label class="flex items-center justify-between p-5 rounded-2xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.99]">
-                            <div class="flex items-center gap-4">
-                                <div class="w-6 h-6 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 transition-colors"><div class="w-3 h-3 bg-blue-500 rounded-full"></div></div>
-                                <div>
-                                    <span class="text-white font-medium group-hover:text-blue-400 transition-colors block">Base Web Profesional</span>
-                                    <span class="text-xs text-gray-500">Hosting, Dominio, SSL, UX/UI</span>
-                                </div>
-                            </div>
-                            <span class="font-mono text-gray-400">$200.000</span>
-                            <input type="checkbox" id="check-base" data-name="Base Web" value="200000" checked disabled class="hidden item-checkbox">
-                        </label>
-                        
-                        <label class="flex items-center justify-between p-5 rounded-2xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.99]">
-                            <div class="flex items-center gap-4">
-                                <div class="w-6 h-6 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 relative transition-colors">
-                                    <input type="checkbox" id="check-pagos" data-name="Pasarela de Pagos" value="100000" onchange="calculateTotal()" class="opacity-0 absolute inset-0 cursor-pointer peer item-checkbox">
-                                    <div class="w-3 h-3 bg-blue-500 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity"></div>
-                                </div>
-                                <div>
-                                    <span class="text-white font-medium group-hover:text-blue-400 transition-colors block">Pasarela de Pagos</span>
-                                    <span class="text-xs text-gray-500">MercadoPago / Wompi / Stripe</span>
-                                </div>
-                            </div>
-                            <span class="font-mono text-gray-400">$100.000</span>
-                        </label>
-
-                         <label class="flex items-center justify-between p-5 rounded-2xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.99]">
-                            <div class="flex items-center gap-4">
-                                <div class="w-6 h-6 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 relative transition-colors">
-                                    <input type="checkbox" id="check-chatbot" data-name="Chatbot IA" value="300000" onchange="calculateTotal()" class="opacity-0 absolute inset-0 cursor-pointer peer item-checkbox">
-                                    <div class="w-3 h-3 bg-blue-500 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity"></div>
-                                </div>
-                                <div>
-                                    <span class="text-white font-medium group-hover:text-blue-400 transition-colors block">Chatbot IA</span>
-                                    <span class="text-xs text-gray-500">Respuestas automáticas 24/7</span>
-                                </div>
-                            </div>
-                            <span class="font-mono text-gray-400">$300.000</span>
-                        </label>
-
-                        <label class="flex items-center justify-between p-5 rounded-2xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.99]">
-                            <div class="flex items-center gap-4">
-                                <div class="w-6 h-6 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 relative transition-colors">
-                                    <input type="checkbox" id="check-pwa" data-name="App PWA" value="400000" onchange="calculateTotal()" class="opacity-0 absolute inset-0 cursor-pointer peer item-checkbox">
-                                    <div class="w-3 h-3 bg-blue-500 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity"></div>
-                                </div>
-                                <div>
-                                    <span class="text-white font-medium group-hover:text-blue-400 transition-colors block">App Móvil (PWA)</span>
-                                    <span class="text-xs text-gray-500">Instalable en iOS y Android</span>
-                                </div>
-                            </div>
-                            <span class="font-mono text-gray-400">$400.000</span>
-                        </label>
-                    </div>
-
-                    <div class="mt-10 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
-                        <div class="text-center md:text-left">
-                            <p class="text-xs text-gray-500 uppercase tracking-widest mb-1">Inversión Estimada</p>
-                            <p class="text-5xl font-display font-bold text-white tracking-tight" id="total-display">$200.000</p>
-                            <p class="text-xs text-blue-500 mt-2 font-mono">*Precios en COP (Negociable)</p>
-                        </div>
-                        <a href="https://wa.me/573215203354" id="btn-cotizar" target="_blank" class="w-full md:w-auto px-10 py-5 bg-white text-black font-bold rounded-xl hover:bg-gray-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] text-center active:scale-95 flex items-center justify-center gap-3 group">
-                            <span>Finalizar en WhatsApp</span> 
-                            <i class="fab fa-whatsapp text-xl group-hover:scale-110 transition-transform text-green-600"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="flex flex-col justify-between reveal">
-                    <div class="bg-white/5 p-8 rounded-3xl border border-white/5 backdrop-blur-sm">
-                        <h3 class="text-2xl font-bold text-white mb-8">Hablemos de negocios</h3>
-                        <ul class="space-y-8 text-gray-400">
-                            <li class="flex items-center gap-5 group">
-                                <div class="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center group-hover:border-blue-500/50 transition-colors"><i class="fas fa-envelope text-lg group-hover:text-white transition-colors"></i></div>
-                                <div><span class="block text-xs uppercase tracking-wider text-gray-600">Email</span><span class="text-white">contacto@devinson.lat</span></div>
-                            </li>
-                            <li class="flex items-center gap-5 group">
-                                <div class="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center group-hover:border-green-500/50 transition-colors"><i class="fab fa-whatsapp text-lg group-hover:text-white transition-colors"></i></div>
-                                <div><span class="block text-xs uppercase tracking-wider text-gray-600">WhatsApp</span><span class="text-white">+57 321 520 3354</span></div>
-                            </li>
-                            <li class="flex items-center gap-5 group">
-                                <div class="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center group-hover:border-purple-500/50 transition-colors"><i class="fas fa-map-marker-alt text-lg group-hover:text-white transition-colors"></i></div>
-                                <div><span class="block text-xs uppercase tracking-wider text-gray-600">Ubicación</span><span class="text-white">Valledupar, Colombia</span></div>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="mt-12 text-center md:text-right">
-                        <div class="inline-block p-4 border border-white/5 rounded-2xl bg-black/50 backdrop-blur-md">
-                            <p class="text-sm text-gray-400 italic">"El código es poesía, la IA es el pincel."</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="flex flex-col md:flex-row justify-between items-center border-t border-white/5 pt-10 mt-16 text-xs text-gray-600 font-mono uppercase tracking-widest gap-4">
-                <span>© 2026 Devinson System.</span>
-                <div class="flex gap-4">
-                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
-                    <span>•</span>
-                    <a href="#" class="hover:text-white transition-colors">Terms</a>
-                </div>
-            </div>
+        <div class="skill-row">
+          <div class="skill-meta"><span class="skill-name">UI/UX Design</span><span class="skill-pct">80%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="80%"></div></div>
         </div>
-    </footer>
-    
-    <script src="script.js"></script>
+        <div class="skill-row">
+          <div class="skill-meta"><span class="skill-name">Backend (Node / Python)</span><span class="skill-pct">75%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="75%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ECOSYSTEM -->
+<section id="ecosystem">
+  <div class="wrap">
+    <div class="eco-grid">
+      <div class="eco-copy r">
+        <span class="label label-accent">Tech Stack</span>
+        <div class="big-t">EL ECOSISTEMA<br>COMPLETO.</div>
+        <p>Trabajo con las herramientas líderes de la industria para construir soluciones que duran y escalan. Cada tecnología elegida por razones estratégicas.</p>
+        <div class="eco-tags">
+          <span class="eco-t">React</span><span class="eco-t">Next.js</span><span class="eco-t">Node.js</span>
+          <span class="eco-t">Python</span><span class="eco-t">Firebase</span><span class="eco-t">AWS</span>
+          <span class="eco-t">Shopify</span><span class="eco-t">WordPress</span><span class="eco-t">Astro</span>
+          <span class="eco-t">Figma</span>
+        </div>
+      </div>
+      <div class="tech-grid r d2">
+        <div class="tech-c"><i class="fab fa-shopify" style="color:#95BF47"></i><span>Shopify</span></div>
+        <div class="tech-c"><i class="fab fa-wordpress" style="color:#21759B"></i><span>WordPress</span></div>
+        <div class="tech-c"><i class="fab fa-react" style="color:#61DAFB"></i><span>React</span></div>
+        <div class="tech-c"><i class="fab fa-node-js" style="color:#339933"></i><span>Node.js</span></div>
+        <div class="tech-c"><i class="fab fa-python" style="color:#3776AB"></i><span>Python</span></div>
+        <div class="tech-c"><i class="fab fa-aws" style="color:#FF9900"></i><span>AWS</span></div>
+        <div class="tech-c"><i class="fab fa-meta" style="color:#0668E1"></i><span>Meta Ads</span></div>
+        <div class="tech-c"><i class="fab fa-google" style="color:#EA4335"></i><span>Google</span></div>
+        <div class="tech-c"><i class="fab fa-figma" style="color:#F24E1E"></i><span>Figma</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY WEB -->
+<section id="impact">
+  <div class="wrap">
+    <div class="impact-head r">
+      <span class="label label-accent" style="display:block;text-align:center;margin-bottom:12px">¿Por qué tener una Web?</span>
+      <h2 class="impact-title">TU NEGOCIO,<br><em>SIN LÍMITES.</em></h2>
+    </div>
+  </div>
+  <div class="cards-track-wrap">
+    <div class="cards-track">
+      <div class="cc"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" alt="Seguridad"><div class="cc-over"><span class="cc-tag" style="color:#60a5fa">Seguridad</span><div class="cc-title">Confianza Total</div><div class="cc-desc">Infraestructura que protege tus datos y los de tus clientes.</div></div></div>
+      <div class="cc"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Expansión"><div class="cc-over"><span class="cc-tag" style="color:#a78bfa">Expansión</span><div class="cc-title">Alcance Global</div><div class="cc-desc">Rompe las barreras geográficas. Tu mercado es el mundo.</div></div></div>
+      <div class="cc"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Analytics"><div class="cc-over"><span class="cc-tag" style="color:#f472b6">Data</span><div class="cc-title">Decisiones Inteligentes</div><div class="cc-desc">Toma decisiones con datos reales de comportamiento.</div></div></div>
+      <div class="cc"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Crecimiento"><div class="cc-over"><span class="cc-tag" style="color:#10b981">Crecimiento</span><div class="cc-title">Escalabilidad Real</div><div class="cc-desc">Sistemas preparados para crecer contigo sin romperse.</div></div></div>
+      <div class="cc"><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80" alt="Ventas"><div class="cc-over"><span class="cc-tag" style="color:#fb923c">Ventas</span><div class="cc-title">24/7 Activo</div><div class="cc-desc">Tu web vende mientras duermes. Sin horarios ni festivos.</div></div></div>
+      <!-- duplicate -->
+      <div class="cc"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" alt="Seguridad"><div class="cc-over"><span class="cc-tag" style="color:#60a5fa">Seguridad</span><div class="cc-title">Confianza Total</div><div class="cc-desc">Infraestructura que protege tus datos y los de tus clientes.</div></div></div>
+      <div class="cc"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Expansión"><div class="cc-over"><span class="cc-tag" style="color:#a78bfa">Expansión</span><div class="cc-title">Alcance Global</div><div class="cc-desc">Rompe las barreras geográficas. Tu mercado es el mundo.</div></div></div>
+      <div class="cc"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Analytics"><div class="cc-over"><span class="cc-tag" style="color:#f472b6">Data</span><div class="cc-title">Decisiones Inteligentes</div><div class="cc-desc">Toma decisiones con datos reales de comportamiento.</div></div></div>
+      <div class="cc"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Crecimiento"><div class="cc-over"><span class="cc-tag" style="color:#10b981">Crecimiento</span><div class="cc-title">Escalabilidad Real</div><div class="cc-desc">Sistemas preparados para crecer contigo sin romperse.</div></div></div>
+      <div class="cc"><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80" alt="Ventas"><div class="cc-over"><span class="cc-tag" style="color:#fb923c">Ventas</span><div class="cc-title">24/7 Activo</div><div class="cc-desc">Tu web vende mientras duermes. Sin horarios ni festivos.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="wrap">
+    <div class="proc-head r">
+      <span class="label label-accent">Cómo trabajo</span>
+      <h2 class="proc-title">PROCESO CLARO,<br>RESULTADOS REALES.</h2>
+    </div>
+    <div class="proc-grid">
+      <div class="proc-step r">
+        <div class="proc-n">01</div>
+        <div class="proc-t">Descubrimiento</div>
+        <div class="proc-d">Entiendo tu negocio, objetivos y competencia antes de escribir una línea de código.</div>
+      </div>
+      <div class="proc-step r d1">
+        <div class="proc-n">02</div>
+        <div class="proc-t">Diseño & Prototipo</div>
+        <div class="proc-d">Wireframes y prototipos interactivos para validar la experiencia antes de desarrollar.</div>
+      </div>
+      <div class="proc-step r d2">
+        <div class="proc-n">03</div>
+        <div class="proc-t">Desarrollo</div>
+        <div class="proc-d">Código limpio, optimizado y escalable. Actualizaciones semanales de progreso.</div>
+      </div>
+      <div class="proc-step r d3">
+        <div class="proc-n">04</div>
+        <div class="proc-t">Lanzamiento & Soporte</div>
+        <div class="proc-d">Deploy, pruebas y soporte continuo para garantizar que todo funcione perfecto.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact">
+  <div class="wrap">
+    <div class="cta-inner r">
+      <div class="cta-label">
+        <div class="cta-label-line"></div>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)">Asesoría gratuita — Sin compromisos</span>
+        <div class="cta-label-line"></div>
+      </div>
+      <h2 class="cta-big">¿LISTO<br>PARA <span class="hollow">CONS</span><br>TRUIR?</h2>
+      <p class="cta-sub">Solo resultados. Empecemos hoy.</p>
+      <div class="cta-btns">
+        <a href="https://wa.me/573215203354" target="_blank" class="btn-a"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="mailto:devinsonrodriguez68@gmail.com?subject=Quiero%20cotizar%20un%20proyecto" class="btn-b"><i class="fas fa-envelope"></i> Email</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-row">
+      <div class="footer-brand">
+        <a href="#" class="footer-brand-logo">DEVINSON<em>.</em></a>
+        <p>Desarrollo web premium, e-commerce y soluciones digitales desde Valledupar, Colombia. Construyendo el futuro digital de tu negocio.</p>
+        <a href="mailto:devinsonrodriguez68@gmail.com" class="footer-email">devinsonrodriguez68@gmail.com</a>
+      </div>
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#expertise">Desarrollo Web</a></li>
+          <li><a href="#expertise">E-Commerce</a></li>
+          <li><a href="#expertise">Apps Móviles</a></li>
+          <li><a href="#expertise">Marketing Digital</a></li>
+          <li><a href="#expertise">SEO & Analytics</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Conectar</h4>
+        <ul>
+          <li><a href="https://wa.me/573215203354" target="_blank">WhatsApp</a></li>
+          <li><a href="https://github.com/Pech68" target="_blank">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/devinson-rodriguez" target="_blank">LinkedIn</a></li>
+          <li><a href="mailto:devinsonrodriguez68@gmail.com">Email</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2025 Devinson Rodriguez — Valledupar, Colombia</span>
+      <div class="socials">
+        <a href="https://wa.me/573215203354" target="_blank" class="soc-btn"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://github.com/Pech68" target="_blank" class="soc-btn"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/devinson-rodriguez" target="_blank" class="soc-btn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/573215203354" target="_blank" class="wa"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+// Nav scroll
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>50));
+
+// Mobile menu
+const ham=document.getElementById('ham'),mob=document.getElementById('mob');
+let open=false;
+ham.addEventListener('click',()=>{
+  open=!open;mob.classList.toggle('open',open);
+  ham.innerHTML=open?'<i class="fas fa-times"></i>':'<i class="fas fa-bars"></i>';
+  document.body.style.overflow=open?'hidden':'';
+});
+document.querySelectorAll('.mlink').forEach(l=>l.addEventListener('click',()=>{
+  open=false;mob.classList.remove('open');
+  ham.innerHTML='<i class="fas fa-bars"></i>';document.body.style.overflow='';
+}));
+
+// Reveal + skill bars
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('on');
+      e.target.querySelectorAll('.skill-fill').forEach(b=>b.style.width=b.dataset.w);
+    }
+  });
+},{threshold:0.1});
+document.querySelectorAll('.r').forEach(el=>obs.observe(el));
+
+// Also watch skills panel specifically
+const skillsObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.querySelectorAll('.skill-fill').forEach(b=>b.style.width=b.dataset.w)});
+},{threshold:0.3});
+document.querySelectorAll('.skill-list').forEach(el=>skillsObs.observe(el));
+</script>
 </body>
 </html>
