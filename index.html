@@ -2,873 +2,395 @@
 <html lang="es-CO" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Devinson Rodriguez | Desarrollo Web & Digital</title>
-    <meta name="description" content="Portafolio de Devinson Rodriguez. Desarrollo Web Premium, E-commerce y Soluciones Digitales.">
-    <meta name="theme-color" content="#030712">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Syne:wght@400;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Devinson Rodriguez | Experto en E-commerce & Automatización IA</title>
+    <meta name="description" content="Desarrollo Web Full Stack de alto nivel. E-commerce, Mercado Pago, Automatización IA y Chatbots en Colombia.">
+    <meta name="theme-color" content="#050505">
+    <link rel="canonical" href="https://devinson.lat">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Devinson Rodriguez | Digital Architect">
+    <meta property="og:description" content="Transformo negocios con E-commerce, Pagos Digitales y Automatización IA. Cotiza tu proyecto hoy.">
+    <meta property="og:url" content="https://devinson.lat">
+    <meta property="og:site_name" content="Devinson Rodriguez Portafolio">
+    <meta property="og:image" content="https://i.imgur.com/ksFVp9V.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Devinson Rodriguez | Desarrollador Web & IA">
+    <meta name="twitter:description" content="Expertos en E-commerce y Sistemas de Pago en Colombia.">
+    <meta name="twitter:image" content="https://i.imgur.com/xCyUZMm.jpeg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Devinson Rodriguez",
+      "image": "https://i.imgur.com/xCyUZMm.jpeg",
+      "@id": "https://devinson.lat",
+      "url": "https://devinson.lat",
+      "telephone": "+57 321 520 3354",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Valledupar",
+        "addressLocality": "Valledupar",
+        "addressRegion": "Cesar",
+        "postalCode": "200001",
+        "addressCountry": "CO"
+      },
+      "priceRange": "$$$",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "sameAs": [
+        "https://github.com/Pech68",
+        "https://www.linkedin.com/in/devinson-rodriguez"
+      ]
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-        :root {
-            --bg: #030712;
-            --surface: #0d1117;
-            --card: #111827;
-            --border: rgba(255,255,255,0.07);
-            --text: #f1f5f9;
-            --muted: #6b7280;
-            --accent: #3b82f6;
-            --accent2: #8b5cf6;
-            --green: #10b981;
-        }
-
-        html { overflow-x: hidden; scroll-behavior: smooth; }
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'DM Sans', sans-serif;
-            overflow-x: hidden;
-            cursor: none;
-        }
-        @media (hover: none) and (pointer: coarse) {
-            body { cursor: auto; }
-            .cursor, .cursor-dot { display: none !important; }
-        }
-
-        ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-track { background: var(--bg); }
-        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
-
-        /* ======= CURSOR ======= */
-        .cursor {
-            position: fixed; top: 0; left: 0;
-            width: 32px; height: 32px;
-            border: 1.5px solid rgba(255,255,255,0.4);
-            border-radius: 50%;
-            pointer-events: none; z-index: 9999;
-            transform: translate(-50%, -50%);
-            transition: width 0.3s, height 0.3s, border-color 0.3s, background 0.3s;
-            mix-blend-mode: difference;
-        }
-        .cursor-dot {
-            position: fixed; top: 0; left: 0;
-            width: 5px; height: 5px;
-            background: white; border-radius: 50%;
-            pointer-events: none; z-index: 9999;
-            transform: translate(-50%, -50%);
-            transition: transform 0.1s;
-        }
-        .cursor.big { width: 56px; height: 56px; border-color: transparent; background: rgba(255,255,255,0.08); }
-
-        /* ======= TYPOGRAPHY ======= */
-        .font-display { font-family: 'Syne', sans-serif; }
-        .font-mono { font-family: 'Space Mono', monospace; }
-
-        /* ======= NOISE OVERLAY ======= */
-        body::before {
-            content: '';
-            position: fixed; inset: 0; z-index: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-            opacity: 0.025;
-            pointer-events: none;
-        }
-
-        /* ======= REVEAL ======= */
-        .reveal {
-            opacity: 0;
-            transform: translateY(32px);
-            transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1);
-        }
-        .reveal.visible { opacity: 1; transform: none; }
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
-        .reveal-delay-4 { transition-delay: 0.4s; }
-
-        /* ======= LAYOUT UTILS ======= */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-        @media (min-width: 768px) { .container { padding: 0 40px; } }
-        @media (min-width: 1200px) { .container { padding: 0 48px; } }
-
-        /* ======= NAV ======= */
-        nav {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-            padding: 20px 0;
-            transition: background 0.4s, border-color 0.4s, padding 0.4s;
-        }
-        nav.scrolled {
-            background: rgba(3,7,18,0.85);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-            padding: 14px 0;
-        }
-        .nav-inner {
-            display: flex; align-items: center; justify-content: space-between;
-        }
-        .logo {
-            font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.3rem;
-            color: white; text-decoration: none; letter-spacing: -0.03em;
-        }
-        .logo span { color: var(--accent); }
-        .nav-links {
-            display: none; gap: 40px; list-style: none;
-        }
-        @media (min-width: 768px) { .nav-links { display: flex; } }
-        .nav-links a {
-            color: var(--muted); text-decoration: none; font-size: 0.85rem;
-            font-weight: 500; letter-spacing: 0.02em;
-            transition: color 0.2s;
-        }
-        .nav-links a:hover { color: white; }
-        .nav-cta {
-            display: none;
-            padding: 10px 22px; border-radius: 100px;
-            border: 1px solid var(--border);
-            background: transparent;
-            color: white; text-decoration: none;
-            font-size: 0.8rem; font-weight: 600;
-            letter-spacing: 0.05em; text-transform: uppercase;
-            transition: all 0.25s;
-        }
-        @media (min-width: 768px) { .nav-cta { display: block; } }
-        .nav-cta:hover { background: white; color: black; border-color: white; }
-        .menu-btn {
-            display: flex; align-items: center; justify-content: center;
-            width: 40px; height: 40px;
-            background: none; border: 1px solid var(--border);
-            border-radius: 8px; color: white; cursor: pointer;
-            font-size: 1.1rem;
-        }
-        @media (min-width: 768px) { .menu-btn { display: none; } }
-
-        /* Mobile Menu */
-        .mobile-menu {
-            position: fixed; inset: 0; z-index: 99;
-            background: rgba(3,7,18,0.97);
-            backdrop-filter: blur(30px);
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
-            gap: 32px;
-            transform: translateX(100%);
-            transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
-        }
-        .mobile-menu.open { transform: none; }
-        .mobile-menu a {
-            font-family: 'Syne', sans-serif; font-weight: 700; font-size: 2rem;
-            color: white; text-decoration: none; letter-spacing: -0.02em;
-            transition: color 0.2s;
-        }
-        .mobile-menu a:hover { color: var(--accent); }
-
-        /* ======= HERO ======= */
-        #hero {
-            min-height: 100vh;
-            display: flex; flex-direction: column; justify-content: flex-end;
-            padding-bottom: 80px;
-            position: relative; overflow: hidden;
-        }
-        .hero-bg {
-            position: absolute; inset: 0; z-index: 0;
-        }
-        .hero-video {
-            width: 100%; height: 100%; object-fit: cover; opacity: 0.25;
-        }
-        .hero-grad {
-            position: absolute; inset: 0;
-            background: linear-gradient(to bottom, var(--bg) 0%, rgba(3,7,18,0.3) 40%, var(--bg) 100%);
-        }
-        .hero-content { position: relative; z-index: 2; }
-        .hero-badge {
-            display: inline-flex; align-items: center; gap: 8px;
-            padding: 6px 14px; border-radius: 100px;
-            border: 1px solid rgba(16,185,129,0.3);
-            background: rgba(16,185,129,0.07);
-            font-family: 'Space Mono', monospace; font-size: 0.7rem;
-            color: var(--green); letter-spacing: 0.1em; text-transform: uppercase;
-            margin-bottom: 32px;
-        }
-        .hero-badge .dot {
-            width: 6px; height: 6px;
-            background: var(--green); border-radius: 50%;
-            animation: blink 1.5s ease infinite;
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
-        }
-        .hero-title {
-            font-family: 'Syne', sans-serif; font-weight: 800;
-            font-size: clamp(3rem, 10vw, 8rem);
-            line-height: 0.92; letter-spacing: -0.04em;
-            color: white; margin-bottom: 32px;
-        }
-        .hero-title .grad {
-            background: linear-gradient(135deg, #60a5fa, #a78bfa);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .hero-bottom {
-            display: flex; flex-direction: column; gap: 24px;
-            align-items: flex-start;
-        }
-        @media (min-width: 768px) {
-            .hero-bottom { flex-direction: row; align-items: flex-end; justify-content: space-between; }
-        }
-        .hero-sub {
-            font-size: 1.05rem; color: #94a3b8; font-weight: 300;
-            line-height: 1.7; max-width: 440px;
-        }
-        .hero-scroll {
-            width: 52px; height: 52px; border-radius: 50%;
-            border: 1px solid var(--border);
-            display: flex; align-items: center; justify-content: center;
-            color: white; text-decoration: none;
-            transition: all 0.3s;
-            flex-shrink: 0;
-        }
-        .hero-scroll:hover { background: white; color: black; border-color: white; }
-
-        /* ======= MARQUEE ======= */
-        .marquee-wrap {
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-            padding: 18px 0; overflow: hidden;
-            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-        }
-        .marquee-track {
-            display: flex; gap: 48px; width: max-content;
-            animation: marquee 30s linear infinite;
-        }
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .marquee-item {
-            font-family: 'Syne', sans-serif; font-weight: 700;
-            font-size: clamp(1.1rem, 3vw, 1.6rem);
-            letter-spacing: -0.02em; color: #1e293b;
-            text-transform: uppercase; white-space: nowrap;
-        }
-        .marquee-dot { color: #1e40af; margin: 0 16px; }
-
-        /* ======= STATS ======= */
-        #stats { padding: 80px 0; }
-        .stats-grid {
-            display: grid; grid-template-columns: repeat(2, 1fr);
-            gap: 1px; background: var(--border);
-            border: 1px solid var(--border); border-radius: 20px;
-            overflow: hidden;
-        }
-        @media (min-width: 640px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
-        .stat-card {
-            background: var(--card); padding: 36px 24px;
-            text-align: center;
-            transition: background 0.3s;
-        }
-        .stat-card:hover { background: #161d2c; }
-        .stat-num {
-            font-family: 'Syne', sans-serif; font-weight: 800;
-            font-size: clamp(2.5rem, 6vw, 3.5rem); color: white;
-            letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px;
-        }
-        .stat-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
-
-        /* ======= SECTION HEADINGS ======= */
-        .section-tag {
-            font-family: 'Space Mono', monospace; font-size: 0.7rem;
-            color: var(--accent); text-transform: uppercase;
-            letter-spacing: 0.15em; margin-bottom: 12px; display: block;
-        }
-        .section-title {
-            font-family: 'Syne', sans-serif; font-weight: 800;
-            font-size: clamp(2.2rem, 6vw, 4.5rem);
-            letter-spacing: -0.03em; color: white; line-height: 1;
-        }
-        .section-bar { width: 32px; height: 3px; background: var(--accent); margin-top: 20px; }
-
-        /* ======= WORK ======= */
-        #work { padding: 100px 0; }
-        .work-header { margin-bottom: 80px; }
-        .projects-list { display: flex; flex-direction: column; gap: 120px; }
-
-        .project-item {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        @media (min-width: 900px) {
-            .project-item { grid-template-columns: 3fr 2fr; gap: 60px; }
-            .project-item.reverse { direction: rtl; }
-            .project-item.reverse > * { direction: ltr; }
-        }
-
-        .project-visual {
-            border-radius: 20px; overflow: hidden;
-            border: 1px solid var(--border);
-            background: var(--card);
-            position: relative;
-            group: true;
-        }
-        .project-visual-inner {
-            padding: 40px 32px; min-height: 300px;
-            display: flex; align-items: center; justify-content: center;
-            transition: transform 0.5s;
-        }
-        .project-visual:hover .project-visual-inner { transform: scale(1.02); }
-        .project-visual img { width: 100%; height: auto; object-fit: contain; max-height: 280px; border-radius: 12px; }
-        .project-glow {
-            position: absolute; inset: 0; opacity: 0;
-            transition: opacity 0.5s;
-            pointer-events: none;
-        }
-        .project-visual:hover .project-glow { opacity: 1; }
-        .project-glow-blue { background: radial-gradient(circle at 50% 50%, rgba(59,130,246,0.12), transparent 70%); }
-        .project-glow-purple { background: radial-gradient(circle at 50% 50%, rgba(139,92,246,0.12), transparent 70%); }
-        .project-glow-pink { background: radial-gradient(circle at 50% 50%, rgba(236,72,153,0.12), transparent 70%); }
-
-        .project-info {}
-        .project-tag {
-            font-family: 'Space Mono', monospace; font-size: 0.68rem;
-            text-transform: uppercase; letter-spacing: 0.12em;
-            margin-bottom: 12px; display: block;
-        }
-        .project-name {
-            font-family: 'Syne', sans-serif; font-weight: 800;
-            font-size: clamp(1.8rem, 4vw, 2.8rem); color: white;
-            letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 16px;
-        }
-        .project-desc { font-size: 0.95rem; color: #64748b; line-height: 1.75; margin-bottom: 28px; font-weight: 300; }
-        .project-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
-        .project-chip {
-            font-size: 0.7rem; padding: 4px 12px; border-radius: 100px;
-            border: 1px solid var(--border); color: var(--muted);
-            font-family: 'Space Mono', monospace;
-        }
-        .project-link {
-            display: inline-flex; align-items: center; gap: 8px;
-            color: white; text-decoration: none; font-weight: 600; font-size: 0.9rem;
-            transition: gap 0.3s, color 0.3s;
-        }
-        .project-link:hover { gap: 16px; }
-
-        /* ======= SERVICES ======= */
-        #expertise { padding: 100px 0; background: var(--surface); position: relative; overflow: hidden; }
-        #expertise::before {
-            content: ''; position: absolute; top: -200px; right: -200px;
-            width: 500px; height: 500px; border-radius: 50%;
-            background: radial-gradient(circle, rgba(59,130,246,0.06), transparent 70%);
-            pointer-events: none;
-        }
-        .services-header { display: flex; flex-direction: column; gap: 20px; margin-bottom: 60px; }
-        @media (min-width: 768px) {
-            .services-header { flex-direction: row; align-items: flex-end; justify-content: space-between; }
-        }
-        .services-sub { font-size: 0.9rem; color: var(--muted); max-width: 320px; line-height: 1.7; }
-
-        .services-grid {
-            display: grid; grid-template-columns: 1fr;
-            gap: 16px; margin-bottom: 60px;
-        }
-        @media (min-width: 640px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (min-width: 1024px) { .services-grid { grid-template-columns: repeat(4, 1fr); } }
-
-        .service-card {
-            background: var(--card); border: 1px solid var(--border);
-            border-radius: 16px; padding: 28px 24px;
-            transition: all 0.3s; position: relative; overflow: hidden;
-        }
-        .service-card::after {
-            content: ''; position: absolute; bottom: 0; left: 0;
-            height: 2px; width: 0; transition: width 0.4s;
-        }
-        .service-card:hover::after { width: 100%; }
-        .service-card.blue::after { background: var(--accent); }
-        .service-card.purple::after { background: var(--accent2); }
-        .service-card.green::after { background: var(--green); }
-        .service-card.pink::after { background: #ec4899; }
-        .service-card:hover { border-color: rgba(255,255,255,0.12); transform: translateY(-4px); }
-
-        .service-icon { font-size: 1.4rem; margin-bottom: 18px; }
-        .service-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; color: white; margin-bottom: 8px; }
-        .service-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
-
-        /* Skills */
-        .skills-panel { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 40px; }
-        .skill-row { margin-bottom: 28px; }
-        .skill-row:last-child { margin-bottom: 0; }
-        .skill-meta { display: flex; justify-content: space-between; margin-bottom: 8px; }
-        .skill-name { font-family: 'Space Mono', monospace; font-size: 0.75rem; color: #94a3b8; }
-        .skill-pct { font-family: 'Space Mono', monospace; font-size: 0.75rem; color: var(--muted); }
-        .skill-track { height: 3px; background: rgba(255,255,255,0.05); border-radius: 2px; overflow: hidden; }
-        .skill-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent2)); width: 0; border-radius: 2px; transition: width 1.5s cubic-bezier(0.22,1,0.36,1); }
-
-        /* ======= STACK ECOSYSTEM ======= */
-        #ecosystem {
-            padding: 100px 0;
-            background: var(--bg);
-            position: relative; overflow: hidden;
-        }
-        .ecosystem-inner {
-            display: grid; grid-template-columns: 1fr;
-            gap: 60px; align-items: center;
-        }
-        @media (min-width: 900px) { .ecosystem-inner { grid-template-columns: 1fr 1fr; gap: 80px; } }
-
-        .ecosystem-copy {}
-        .ecosystem-copy h2 {
-            font-family: 'Syne', sans-serif; font-weight: 800;
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            letter-spacing: -0.03em; color: white; line-height: 1.05;
-            margin-bottom: 20px;
-        }
-        .ecosystem-copy p { font-size: 0.95rem; color: var(--muted); line-height: 1.75; margin-bottom: 32px; }
-        .ecosystem-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-        .eco-tag {
-            padding: 7px 16px; border-radius: 100px;
-            border: 1px solid var(--border); font-size: 0.8rem;
-            color: #94a3b8; font-family: 'Space Mono', monospace;
-            transition: all 0.25s;
-        }
-        .eco-tag:hover { border-color: var(--accent); color: var(--accent); }
-
-        .tech-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
-        }
-        .tech-cell {
-            background: var(--card); border: 1px solid var(--border);
-            border-radius: 14px; padding: 22px 16px;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            gap: 10px; text-align: center;
-            transition: all 0.3s;
-        }
-        .tech-cell:hover { border-color: rgba(255,255,255,0.15); background: #161d2c; transform: translateY(-3px); }
-        .tech-cell i { font-size: 1.8rem; }
-        .tech-cell span { font-size: 0.72rem; color: var(--muted); font-family: 'Space Mono', monospace; }
-
-        /* ======= WHY WEB CAROUSEL ======= */
-        #impact { padding: 100px 0; background: var(--surface); overflow: hidden; }
-        .impact-header { text-align: center; margin-bottom: 60px; }
-        .carousel-wrap {
-            overflow: hidden;
-            mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-        }
-        .carousel-track {
-            display: flex; gap: 20px; width: max-content;
-            animation: scroll-cards 40s linear infinite;
-        }
-        @keyframes scroll-cards {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-50% - 10px)); }
-        }
-        .carousel-track:hover { animation-play-state: paused; }
-
-        .c-card {
-            width: min(80vw, 340px); height: 420px;
-            border-radius: 20px; overflow: hidden;
-            position: relative; flex-shrink: 0; cursor: pointer;
-        }
-        .c-card img {
-            width: 100%; height: 100%; object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-        .c-card:hover img { transform: scale(1.06); }
-        .c-card-overlay {
-            position: absolute; inset: 0;
-            background: linear-gradient(to top, rgba(3,7,18,0.95) 0%, rgba(3,7,18,0.1) 60%);
-            display: flex; flex-direction: column; justify-content: flex-end;
-            padding: 28px;
-        }
-        .c-card-tag {
-            font-family: 'Space Mono', monospace; font-size: 0.65rem;
-            text-transform: uppercase; letter-spacing: 0.12em;
-            margin-bottom: 8px;
-        }
-        .c-card-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.3rem; color: white; margin-bottom: 8px; }
-        .c-card-desc { font-size: 0.8rem; color: #94a3b8; line-height: 1.6; }
-
-        /* ======= PROCESS ======= */
-        #process { padding: 100px 0; background: var(--bg); }
-        .process-grid {
-            display: grid; grid-template-columns: 1fr;
-            gap: 0; margin-top: 60px;
-        }
-        @media (min-width: 640px) { .process-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (min-width: 1024px) { .process-grid { grid-template-columns: repeat(4, 1fr); } }
-
-        .process-step {
-            padding: 36px 28px;
-            border: 1px solid var(--border);
-            margin: -1px 0 0 -1px;
-            transition: background 0.3s;
-        }
-        .process-step:hover { background: var(--card); }
-        .process-num {
-            font-family: 'Syne', sans-serif; font-weight: 800;
-            font-size: 3rem; color: rgba(59,130,246,0.12);
-            line-height: 1; margin-bottom: 20px;
-            letter-spacing: -0.04em;
-        }
-        .process-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.05rem; color: white; margin-bottom: 10px; }
-        .process-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.7; }
-
-        /* ======= CONTACT / FOOTER ======= */
-        footer {
-            padding: 80px 0 40px;
-            border-top: 1px solid var(--border);
-            background: var(--surface);
-        }
-        .footer-grid {
-            display: grid; grid-template-columns: 1fr;
-            gap: 48px; margin-bottom: 64px;
-        }
-        @media (min-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; align-items: start; } }
-        @media (min-width: 1024px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr; } }
-
-        .footer-brand .logo { font-size: 1.5rem; display: block; margin-bottom: 16px; }
-        .footer-brand p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; max-width: 320px; }
-        .footer-brand .email {
-            display: inline-block; margin-top: 24px;
-            font-size: 0.9rem; color: white; text-decoration: none;
-            border-bottom: 1px solid rgba(255,255,255,0.15);
-            padding-bottom: 4px; transition: border-color 0.2s;
-        }
-        .footer-brand .email:hover { border-color: var(--accent); color: var(--accent); }
-
-        .footer-col h4 {
-            font-family: 'Space Mono', monospace; font-size: 0.7rem;
-            text-transform: uppercase; letter-spacing: 0.1em;
-            color: var(--muted); margin-bottom: 20px;
-        }
-        .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 10px; }
-        .footer-col ul li a {
-            text-decoration: none; color: #64748b; font-size: 0.88rem;
-            transition: color 0.2s;
-        }
-        .footer-col ul li a:hover { color: white; }
-
-        .footer-bottom {
-            display: flex; flex-direction: column; gap: 16px;
-            align-items: center; text-align: center;
-            padding-top: 32px; border-top: 1px solid var(--border);
-            font-size: 0.78rem; color: var(--muted);
-            font-family: 'Space Mono', monospace;
-        }
-        @media (min-width: 640px) {
-            .footer-bottom { flex-direction: row; justify-content: space-between; text-align: left; }
-        }
-
-        .socials { display: flex; gap: 12px; }
-        .social-btn {
-            width: 40px; height: 40px; border-radius: 10px;
-            border: 1px solid var(--border);
-            display: flex; align-items: center; justify-content: center;
-            color: var(--muted); text-decoration: none;
-            transition: all 0.25s;
-        }
-        .social-btn:hover { background: white; color: black; border-color: white; transform: translateY(-2px); }
-
-        /* ======= CONTACT CTA ======= */
-        .cta-section {
-            padding: 100px 0;
-            background: var(--bg);
-            text-align: center;
-            position: relative; overflow: hidden;
-        }
-        .cta-section::before {
-            content: ''; position: absolute;
-            top: 50%; left: 50%; transform: translate(-50%, -50%);
-            width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(59,130,246,0.08), transparent 70%);
-            pointer-events: none;
-        }
-        .cta-title {
-            font-family: 'Syne', sans-serif; font-weight: 800;
-            font-size: clamp(2.5rem, 7vw, 6rem);
-            letter-spacing: -0.04em; color: white;
-            line-height: 0.95; margin-bottom: 24px;
-            position: relative; z-index: 1;
-        }
-        .cta-sub { font-size: 1rem; color: var(--muted); margin-bottom: 48px; position: relative; z-index: 1; }
-        .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
-        .btn-primary {
-            display: inline-flex; align-items: center; gap: 10px;
-            padding: 16px 32px; border-radius: 100px;
-            background: white; color: black;
-            text-decoration: none; font-weight: 700; font-size: 0.9rem;
-            transition: all 0.3s;
-        }
-        .btn-primary:hover { background: var(--accent); color: white; transform: translateY(-2px); }
-        .btn-secondary {
-            display: inline-flex; align-items: center; gap: 10px;
-            padding: 16px 32px; border-radius: 100px;
-            border: 1px solid var(--border);
-            background: transparent; color: white;
-            text-decoration: none; font-weight: 600; font-size: 0.9rem;
-            transition: all 0.3s;
-        }
-        .btn-secondary:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.05); }
-
-        /* ======= FLOATING WA ======= */
-        .wa-float {
-            position: fixed; bottom: 24px; right: 24px; z-index: 200;
-            width: 56px; height: 56px; border-radius: 50%;
-            background: #25D366; color: white;
-            display: flex; align-items: center; justify-content: center;
-            text-decoration: none; font-size: 1.4rem;
-            box-shadow: 0 8px 32px rgba(37,211,102,0.35);
-            transition: transform 0.3s, box-shadow 0.3s;
-            animation: wa-pulse 3s ease-in-out infinite;
-        }
-        .wa-float:hover { transform: scale(1.1); box-shadow: 0 12px 40px rgba(37,211,102,0.5); }
-        @keyframes wa-pulse {
-            0%, 100% { box-shadow: 0 8px 32px rgba(37,211,102,0.35), 0 0 0 0 rgba(37,211,102,0.4); }
-            70% { box-shadow: 0 8px 32px rgba(37,211,102,0.35), 0 0 0 16px rgba(37,211,102,0); }
-        }
-
-        /* ======= TESTIMONIAL STRIP ======= */
-        .trust-strip {
-            padding: 60px 0;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-            background: var(--card);
-        }
-        .trust-inner { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; align-items: center; }
-        .trust-item {
-            display: flex; align-items: center; gap: 10px;
-            padding: 10px 20px; border-radius: 100px;
-            border: 1px solid var(--border);
-            font-size: 0.82rem; color: var(--muted);
-        }
-        .trust-item i { color: var(--accent); }
-
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Space Grotesk', 'sans-serif'] },
+                    colors: { black: '#050505', dark: '#0a0a0a' },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 7s ease-in-out 2s infinite',
+                        'float-slow': 'float 8s ease-in-out 1s infinite',
+                        'breathe': 'breathe 8s ease-in-out infinite',
+                        'scroll-belt': 'scrollBelt 20s linear infinite',
+                    },
+                    keyframes: {
+                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-15px)' } },
+                        breathe: { '0%, 100%': { transform: 'scale(1)' }, '50%': { transform: 'scale(1.02)' } },
+                        scrollBelt: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="antialiased font-sans bg-black text-white selection:bg-blue-500 selection:text-white transition-colors duration-700">
 
-    <!-- Cursor -->
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-dot" id="cursorDot"></div>
+    <div id="holiday-badge" class="fixed top-24 right-4 z-40 hidden animate-float-slow group cursor-pointer">
+        <div class="glass px-4 py-2 rounded-full flex items-center gap-2 border border-white/20 transition-all group-hover:scale-105">
+            <span id="holiday-icon" class="text-xl"></span>
+            <span id="holiday-text" class="text-sm font-bold tracking-wide uppercase"></span>
+        </div>
+    </div>
 
-    <!-- Nav -->
-    <nav id="navbar">
-        <div class="container nav-inner">
-            <a href="#" class="logo">DEVINSON<span>.</span></a>
-            <ul class="nav-links">
-                <li><a href="#stats">Trayectoria</a></li>
-                <li><a href="#work">Proyectos</a></li>
-                <li><a href="#expertise">Servicios</a></li>
-                <li><a href="#process">Proceso</a></li>
-            </ul>
-            <a href="https://wa.me/573215203354" target="_blank" class="nav-cta">Agendar Cita</a>
-            <button class="menu-btn" id="menuBtn"><i class="fas fa-bars"></i></button>
+    <canvas id="particles-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+
+    <nav class="fixed w-full z-50 top-0 left-0 border-b border-white/5 bg-black/80 backdrop-blur-xl transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center relative z-50">
+            <div class="flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center font-bold text-white shadow-[0_0_15px_rgba(59,130,246,0.5)] logo-box">D</div>
+                <span class="font-display font-bold text-lg tracking-tight">DEVINSON<span class="text-white/40">.LAT</span></span>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-white/70">
+                <a href="#servicios" class="hover:text-white hover:scale-105 transition-all">Servicios</a>
+                <a href="#proyectos" class="hover:text-white hover:scale-105 transition-all">Proyectos</a>
+                <a href="#proceso" class="hover:text-white hover:scale-105 transition-all">Proceso</a>
+                <a href="#ia-lab" class="hover:text-white transition-all flex items-center gap-2 group">
+                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse group-hover:shadow-[0_0_8px_#22c55e] indicator-dot"></span> IA Lab
+                </a>
+            </div>
+
+            <a href="#cotizar" class="hidden md:block bg-white text-black px-5 py-2 rounded-full font-bold text-sm hover:bg-gray-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] active:scale-95 cta-button">
+                Cotizar
+            </a>
+
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none z-50 p-2 relative w-8 h-8 flex flex-col justify-center items-center gap-1.5 group">
+                <span class="w-6 h-0.5 bg-white rounded-full transition-all duration-300 origin-center"></span>
+                <span class="w-6 h-0.5 bg-white rounded-full transition-all duration-300 origin-center"></span>
+                <span class="w-6 h-0.5 bg-white rounded-full transition-all duration-300 origin-center"></span>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-black/90 backdrop-blur-2xl z-40 flex flex-col items-center justify-center transition-all duration-500 opacity-0 pointer-events-none translate-y-4">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 rounded-full blur-[100px]"></div>
+            <div class="absolute bottom-0 left-0 w-64 h-64 bg-purple-600/10 rounded-full blur-[100px]"></div>
+
+            <nav class="flex flex-col items-center space-y-8 relative z-10">
+                <a href="#hero" class="text-3xl font-display font-bold text-white/50 hover:text-white transition-colors hover:scale-110 duration-300 mobile-link">Inicio</a>
+                <a href="#servicios" class="text-3xl font-display font-bold text-white/50 hover:text-white transition-colors hover:scale-110 duration-300 mobile-link">Servicios</a>
+                <a href="#proyectos" class="text-3xl font-display font-bold text-white/50 hover:text-white transition-colors hover:scale-110 duration-300 mobile-link">Proyectos</a>
+                <a href="#proceso" class="text-3xl font-display font-bold text-white/50 hover:text-white transition-colors hover:scale-110 duration-300 mobile-link">Proceso</a>
+                <a href="#ia-lab" class="text-3xl font-display font-bold text-white/50 hover:text-purple-400 transition-colors hover:scale-110 duration-300 mobile-link flex items-center gap-3"><i class="fas fa-sparkles text-xl"></i> IA Lab</a>
+                
+                <div class="w-16 h-[1px] bg-white/10 my-4"></div>
+                
+                <a href="#cotizar" class="px-8 py-4 bg-white text-black rounded-full font-bold text-xl shadow-xl hover:bg-gray-200 transition-transform active:scale-95 mobile-link cta-button-mobile">Cotizar Proyecto</a>
+            </nav>
+            
+            <div class="absolute bottom-12 flex gap-8 text-gray-400">
+                <a href="https://github.com/Pech68" target="_blank" class="hover:text-white transition-colors hover:-translate-y-1"><i class="fab fa-github text-2xl"></i></a>
+                <a href="https://www.linkedin.com/in/devinson-rodriguez" target="_blank" class="hover:text-white transition-colors hover:-translate-y-1"><i class="fab fa-linkedin text-2xl"></i></a>
+                <a href="https://wa.me/573215203354" target="_blank" class="hover:text-white transition-colors hover:-translate-y-1"><i class="fab fa-whatsapp text-2xl"></i></a>
+            </div>
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#stats" class="mob-link">Trayectoria</a>
-        <a href="#work" class="mob-link">Proyectos</a>
-        <a href="#expertise" class="mob-link">Servicios</a>
-        <a href="#process" class="mob-link">Proceso</a>
-        <a href="https://wa.me/573215203354" target="_blank" style="color: #10b981; font-size:1rem; border:1px solid rgba(16,185,129,0.3); padding:12px 28px; border-radius:100px;">
-            <i class="fab fa-whatsapp" style="margin-right:8px;"></i> WhatsApp
-        </a>
-    </div>
-
-    <!-- HERO -->
-    <section id="hero">
-        <div class="hero-bg">
-            <video autoplay loop muted playsinline class="hero-video" poster="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop">
-                <source src="https://cdn.pixabay.com/video/2019/04/20/22908-331664413_large.mp4" type="video/mp4">
-            </video>
-            <div class="hero-grad"></div>
-        </div>
-        <div class="container hero-content">
-            <div class="hero-badge">
-                <span class="dot"></span>
-                Disponible para proyectos
-            </div>
-            <h1 class="hero-title">
-                Arquitectura<br>
-                <span class="grad">Digital</span><br>
-                de Impacto.
-            </h1>
-            <div class="hero-bottom">
-                <p class="hero-sub">
-                    Transformo ideas en ecosistemas digitales escalables. E-commerce que convierte, sitios web de alto rendimiento y automatización inteligente.
+    <section id="hero" class="relative min-h-screen pt-28 pb-0 flex flex-col justify-end overflow-hidden bg-hero-gradient perspective-1000">
+        <div class="bg-blend-image absolute inset-0 z-0" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop'); opacity: 0.3; background-size: cover; background-position: center;"></div>
+        
+        <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-end justify-between h-full">
+            <div class="w-full md:w-1/2 mb-12 md:mb-32 relative z-20 pointer-events-none reveal active text-center md:text-left pt-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-white/10 bg-white/5 backdrop-blur-md pointer-events-auto hover:bg-white/10 transition-colors cursor-default">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse indicator-dot"></span>
+                    <span class="text-xs font-mono text-blue-400 dynamic-text-color font-bold">AGENDA ABIERTA 2026</span>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-display font-bold leading-tight mb-6 pointer-events-auto tracking-tight">
+                    Arquitectura <br>
+                    <span class="glitch-wrapper">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 glitch" data-text="Digital Avanzada">Digital Avanzada</span>
+                    </span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-gray-300 max-w-lg mb-8 font-light pointer-events-auto mx-auto md:mx-0 leading-relaxed">
+                    Creo ecosistemas donde convergen <strong class="text-white font-medium">Pagos Nativos</strong> e <span id="typewriter-text" class="text-white font-medium typing-cursor">Inteligencia Artificial</span>. Deja de vender webs, empieza a vender resultados.
                 </p>
-                <a href="#stats" class="hero-scroll">
-                    <i class="fas fa-arrow-down" style="font-size:0.9rem;"></i>
-                </a>
+
+                <div class="flex flex-col md:flex-row gap-4 pointer-events-auto px-4 md:px-0">
+                    <button onclick="document.getElementById('ia-lab').scrollIntoView()" class="w-full md:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-3 shadow-[0_10px_30px_rgba(37,99,235,0.3)] active:scale-95 hero-btn-primary group">
+                        <i class="fas fa-robot group-hover:rotate-12 transition-transform"></i> Consultar con IA
+                    </button>
+                    <a href="https://github.com/Pech68" target="_blank" class="w-full md:w-auto px-8 py-4 border border-white/20 hover:bg-white/5 text-white font-medium rounded-xl transition-all flex items-center justify-center gap-3 active:scale-95 hover:border-white/40">
+                        <i class="fab fa-github"></i> Ver Código
+                    </a>
+                </div>
+            </div>
+
+            <div class="w-full md:w-1/2 relative flex justify-center items-end h-[50vh] md:h-[600px] perspective-1000 reveal active mt-auto">
+                <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[80%] bg-blue-600/15 blur-[120px] rounded-full animate-pulse-slow dynamic-glow"></div>
+                
+                <div id="hero-img-container" class="hero-image-container relative z-10 h-full flex items-end w-full justify-center">
+                    <img src="https://i.imgur.com/DBrfwWX.png" alt="Devinson Rodriguez" class="h-full object-contain max-h-[85vh] drop-shadow-2xl filter brightness-110 contrast-110 animate-breathe relative z-10 pointer-events-none">
+                    
+                    <div class="absolute bottom-10 left-0 w-full md:hidden z-30 overflow-hidden py-2 mask-linear">
+                        <div class="mobile-belt-container flex gap-4 animate-scroll-belt w-max">
+                            <div class="mobile-chip px-3 py-1 rounded-full border bg-black/50 backdrop-blur-md text-xs font-mono text-purple-300 border-purple-500/30 whitespace-nowrap"><i class="fas fa-brain"></i> Gemini AI</div>
+                            <div class="mobile-chip px-3 py-1 rounded-full border bg-black/50 backdrop-blur-md text-xs font-mono text-blue-300 border-blue-500/30 whitespace-nowrap"><i class="fas fa-handshake"></i> Mercado Pago</div>
+                            <div class="mobile-chip px-3 py-1 rounded-full border bg-black/50 backdrop-blur-md text-xs font-mono text-green-300 border-green-500/30 whitespace-nowrap"><i class="fab fa-whatsapp"></i> WhatsApp API</div>
+                            <div class="mobile-chip px-3 py-1 rounded-full border bg-black/50 backdrop-blur-md text-xs font-mono text-amber-300 border-amber-500/30 whitespace-nowrap"><i class="fas fa-bolt"></i> Fast PWA</div>
+                            <div class="mobile-chip px-3 py-1 rounded-full border bg-black/50 backdrop-blur-md text-xs font-mono text-purple-300 border-purple-500/30 whitespace-nowrap"><i class="fas fa-brain"></i> Gemini AI</div>
+                            <div class="mobile-chip px-3 py-1 rounded-full border bg-black/50 backdrop-blur-md text-xs font-mono text-blue-300 border-blue-500/30 whitespace-nowrap"><i class="fas fa-handshake"></i> Mercado Pago</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex items-center gap-3 p-3 rounded-2xl bg-black/40 border border-white/10 backdrop-blur-md absolute top-20 -left-12 animate-float-delayed theme-chip">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-purple-500/20 text-purple-400 border border-purple-500/30 theme-icon-bg-subtle"><i class="fas fa-brain"></i></div>
+                    <div><p class="text-[10px] text-gray-400 uppercase tracking-wider font-mono">Neural Engine</p><p class="font-bold text-sm text-white">Gemini AI</p></div>
+                </div>
+                <div class="hidden md:flex items-center gap-3 p-3 rounded-2xl bg-black/40 border border-white/10 backdrop-blur-md absolute top-32 -right-8 animate-float theme-chip">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-blue-500/20 text-blue-400 border border-blue-500/30 theme-icon-bg-subtle"><i class="fas fa-handshake"></i></div>
+                    <div><p class="text-[10px] text-gray-400 uppercase tracking-wider font-mono">Fintech Node</p><p class="font-bold text-sm text-white">Mercado Pago</p></div>
+                </div>
+                <div class="hidden md:flex items-center gap-3 p-3 rounded-2xl bg-black/40 border border-white/10 backdrop-blur-md absolute bottom-40 -right-12 animate-float-slow theme-chip">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-amber-500/20 text-amber-400 border border-amber-500/30 theme-icon-bg-subtle"><i class="fas fa-cash-register"></i></div>
+                    <div><p class="text-[10px] text-gray-400 uppercase tracking-wider font-mono">Retail Nexus</p><p class="font-bold text-sm text-white">Sistema POS</p></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Marquee -->
-    <div class="marquee-wrap">
-        <div class="marquee-track">
-            <span class="marquee-item">Diseño Web</span><span class="marquee-dot">•</span>
-            <span class="marquee-item">E-Commerce</span><span class="marquee-dot">•</span>
-            <span class="marquee-item">Marketing Digital</span><span class="marquee-dot">•</span>
-            <span class="marquee-item">Apps Móviles</span><span class="marquee-dot">•</span>
-            <span class="marquee-item">SEO & Analytics</span><span class="marquee-dot">•</span>
-            <span class="marquee-item">UI/UX Design</span><span class="marquee-dot">•</span>
-            <span class="marquee-item">Diseño Web</span><span class="marquee-dot">•</span>
-            <span class="marquee-item">E-Commerce</span><span class="marquee-dot">•</span>
-            <span class="marquee-item">Marketing Digital</span><span class="marquee-dot">•</span>
-            <span class="marquee-item">Apps Móviles</span><span class="marquee-dot">•</span>
-            <span class="marquee-item">SEO & Analytics</span><span class="marquee-dot">•</span>
-            <span class="marquee-item">UI/UX Design</span><span class="marquee-dot">•</span>
-        </div>
-    </div>
-
-    <!-- STATS -->
-    <section id="stats">
-        <div class="container">
-            <div class="stats-grid reveal">
-                <div class="stat-card">
-                    <div class="stat-num" style="color:#60a5fa;">5+</div>
-                    <div class="stat-label">Años Experiencia</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-num" style="color:#a78bfa;">30+</div>
-                    <div class="stat-label">Proyectos</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-num" style="color:#10b981;">100%</div>
-                    <div class="stat-label">Clientes Felices</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-num" style="color:#f472b6;">24/7</div>
-                    <div class="stat-label">Soporte</div>
-                </div>
+    <div class="border-y border-white/5 bg-black py-4 md:py-6 relative z-20 overflow-hidden flex">
+        <div class="animate-scroll-belt flex whitespace-nowrap items-center w-max">
+            <div class="font-display font-bold text-2xl md:text-4xl text-white/10 uppercase tracking-tighter flex gap-8 md:gap-12 px-6">
+                <span>E-COMMERCE</span> <span>•</span> <span>REACT</span> <span>•</span> <span>NODE.JS</span> <span>•</span> <span>AUTOMATIZACIÓN</span> <span>•</span> <span>MERCADOPAGO</span> <span>•</span> <span>WHATSAPP API</span> <span>•</span> <span>GEMINI AI</span> <span>•</span> <span>PWA</span> <span>•</span> <span>STRIPE</span> <span>•</span> <span>NEQUI</span> <span>•</span>
             </div>
-        </div>
-    </section>
-
-    <!-- Trust Strip -->
-    <div class="trust-strip">
-        <div class="container">
-            <div class="trust-inner">
-                <div class="trust-item"><i class="fab fa-shopify"></i> Shopify Partner</div>
-                <div class="trust-item"><i class="fab fa-wordpress"></i> WordPress Expert</div>
-                <div class="trust-item"><i class="fab fa-react"></i> React Developer</div>
-                <div class="trust-item"><i class="fab fa-aws"></i> AWS Cloud</div>
-                <div class="trust-item"><i class="fas fa-mobile-alt"></i> Mobile-First</div>
-                <div class="trust-item"><i class="fas fa-search"></i> SEO Optimizado</div>
+            <div class="font-display font-bold text-2xl md:text-4xl text-white/10 uppercase tracking-tighter flex gap-8 md:gap-12 px-6">
+                <span>E-COMMERCE</span> <span>•</span> <span>REACT</span> <span>•</span> <span>NODE.JS</span> <span>•</span> <span>AUTOMATIZACIÓN</span> <span>•</span> <span>MERCADOPAGO</span> <span>•</span> <span>WHATSAPP API</span> <span>•</span> <span>GEMINI AI</span> <span>•</span> <span>PWA</span> <span>•</span> <span>STRIPE</span> <span>•</span> <span>NEQUI</span> <span>•</span>
             </div>
         </div>
     </div>
 
-    <!-- WORK -->
-    <section id="work">
-        <div class="container">
-            <div class="work-header reveal">
-                <span class="section-tag">Proyectos Destacados</span>
-                <h2 class="section-title">El trabajo<br>habla solo.</h2>
-                <div class="section-bar"></div>
+    <section id="servicios" class="py-20 md:py-24 relative overflow-hidden bg-black">
+        <div class="bg-blend-image absolute inset-0 z-0 opacity-20" style="background-image: url('https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1080&auto=format&fit=crop'); background-size: cover;"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16 reveal">
+                <span class="text-blue-500 font-mono text-xs tracking-widest uppercase mb-2 block dynamic-text-color font-bold">Capacidades del Sistema</span>
+                <h2 class="text-3xl md:text-5xl font-display font-bold text-white">Infraestructura Robusta</h2>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Tecnología diseñada para escalar. Seguridad bancaria y velocidad instantánea.</p>
             </div>
 
-            <div class="projects-list">
+            <div class="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20">
+                <div class="relative group perspective-1000 reveal order-1 lg:order-2">
+                    <div id="payment-card" class="bg-gradient-to-br from-gray-900 to-black w-[300px] md:w-[340px] h-[480px] rounded-3xl p-8 flex flex-col justify-between relative shadow-2xl overflow-hidden cursor-pointer transform transition-transform duration-700 mx-auto border border-white/10 group-hover:border-blue-500/30 dynamic-hover-border">
+                        <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M54.627 0l.83.828-1.415 1.415-.828-.828-.828.828-1.415-1.415.828-.828-.828-.828 1.415-1.415.828.828.828-.828 1.415 1.415-.828.828zM22.485 0l.83.828-1.415 1.415-.828-.828-.828.828-1.415-1.415.828-.828-.828-.828 1.415-1.415.828.828.828-.828 1.415 1.415-.828.828z\' fill=\'%23ffffff\' fill-opacity=\'1\' fill-rule=\'evenodd\'/%3E%3C/svg%3E');"></div>
+                        
+                        <div class="flex justify-between items-start z-10">
+                            <i class="fas fa-wifi text-white/50 rotate-90 text-xl"></i>
+                            <span class="text-xs font-mono text-blue-400 border border-blue-400/30 px-2 py-1 rounded dynamic-border dynamic-text-color shadow-[0_0_10px_rgba(59,130,246,0.2)]">SECURE_V3</span>
+                        </div>
 
-                <!-- Project 1 -->
-                <div class="project-item reveal">
-                    <div class="project-visual">
-                        <div class="project-glow project-glow-blue"></div>
-                        <div class="project-visual-inner" style="background:linear-gradient(135deg,#0d1117,#1e293b);">
-                            <img src="https://i.imgur.com/1mkPsH6.png" alt="PechStore Tech">
+                        <div class="w-16 h-12 bg-gradient-to-tr from-yellow-200 to-yellow-600 rounded-lg shadow-lg relative z-10 border border-yellow-400/50 flex items-center justify-center chip-sim">
+                            <div class="w-full h-[1px] bg-black/30"></div>
+                            <div class="absolute h-full w-[1px] bg-black/30"></div>
+                        </div>
+
+                        <div class="space-y-4 z-10 mt-auto mb-8">
+                            <div class="flex items-center gap-4 bg-white/5 p-3 rounded-xl border border-white/5 hover:bg-white/10 transition-colors backdrop-blur-sm">
+                                <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white text-xs theme-icon-bg shadow-lg"><i class="fas fa-handshake"></i></div>
+                                <div><p class="text-sm font-bold text-white">Mercado Pago</p><p class="text-[10px] text-gray-300">Tarjetas, PSE y Efecty</p></div>
+                            </div>
+                            <div class="flex items-center gap-4 bg-white/5 p-3 rounded-xl border border-white/5 hover:bg-white/10 transition-colors backdrop-blur-sm">
+                                <div class="w-8 h-8 rounded-full bg-pink-600 flex items-center justify-center text-white text-xs shadow-lg"><i class="fas fa-mobile-alt"></i></div>
+                                <div><p class="text-sm font-bold text-white">Nequi / Daviplata</p><p class="text-[10px] text-gray-300">Transferencia QR Automática</p></div>
+                            </div>
+                        </div>
+
+                        <div class="z-10 pt-4 border-t border-white/10 flex justify-between items-center text-xs text-gray-500 font-mono"><span>ID: DEV-8832</span><span class="text-green-500 animate-pulse">● ONLINE</span></div>
+                        <div id="card-shine" class="absolute inset-0 pointer-events-none opacity-50 mix-blend-overlay"></div>
+                    </div>
+                </div>
+
+                <div class="lg:w-1/3 space-y-6 order-2 lg:order-1 px-4 md:px-0">
+                    <div class="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 reveal group hover:border-blue-500/40 transition-colors relative overflow-hidden">
+                        <div class="absolute inset-0 bg-blue-500/5 z-0 dynamic-glass-bg opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <h3 class="text-xl font-bold text-white mb-3 relative z-10 flex items-center gap-3"><i class="fas fa-shield-alt text-blue-400 dynamic-icon-color text-2xl"></i> Seguridad Militar</h3>
+                        <p class="text-sm text-gray-400 relative z-10 leading-relaxed">Encriptación de punta a punta (E2EE) y certificados SSL Wildcard. Tus clientes compran con la misma confianza que en un banco.</p>
+                    </div>
+                    <div class="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 reveal group hover:border-yellow-500/40 transition-colors relative overflow-hidden">
+                        <div class="absolute inset-0 bg-yellow-500/5 z-0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <h3 class="text-xl font-bold text-white mb-3 relative z-10 flex items-center gap-3"><i class="fas fa-bolt text-yellow-400 text-2xl"></i> Ultra Fast PWA</h3>
+                        <p class="text-sm text-gray-400 relative z-10 leading-relaxed">Aplicaciones Web Progresivas que cargan en menos de 1 segundo. Funcionan offline y se sienten como apps nativas.</p>
+                    </div>
+                </div>
+
+                <div class="lg:w-1/3 space-y-6 order-3 px-4 md:px-0">
+                    <div class="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 reveal group hover:border-purple-500/40 transition-colors relative overflow-hidden">
+                        <div class="absolute inset-0 bg-purple-500/5 z-0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <h3 class="text-xl font-bold text-white mb-3 relative z-10 flex items-center gap-3"><i class="fas fa-brain text-purple-400 text-2xl"></i> Dashboard IA</h3>
+                        <p class="text-sm text-gray-400 relative z-10 leading-relaxed">Panel administrativo que no solo muestra datos, sino que predice tendencias de venta usando algoritmos de Machine Learning.</p>
+                    </div>
+                    <div class="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 reveal group hover:border-green-500/40 transition-colors relative overflow-hidden">
+                        <div class="absolute inset-0 bg-green-500/5 z-0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <h3 class="text-xl font-bold text-white mb-3 relative z-10 flex items-center gap-3"><i class="fab fa-whatsapp text-green-400 text-2xl"></i> Bots Conversacionales</h3>
+                        <p class="text-sm text-gray-400 relative z-10 leading-relaxed">Agentes inteligentes en WhatsApp que cierran ventas, agendan citas y resuelven dudas 24/7 sin intervención humana.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="proyectos" class="py-24 relative overflow-hidden bg-black border-t border-white/5">
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[150px] pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[150px] pointer-events-none"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-20 reveal">
+                <span class="text-purple-500 font-mono text-xs tracking-widest uppercase mb-2 block font-bold">Proyectos Destacados</span>
+                <h2 class="text-3xl md:text-5xl font-display font-bold text-white">El Trabajo Habla Solo</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <div class="space-y-24">
+                <div class="flex flex-col md:flex-row items-center gap-12 group reveal">
+                    <div class="w-full md:w-1/2 relative">
+                        <div class="absolute inset-0 bg-blue-500/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="relative bg-gradient-to-br from-gray-900 to-black p-8 rounded-3xl border border-white/10 overflow-hidden transform transition-transform group-hover:scale-[1.02] duration-500 flex justify-center items-center min-h-[300px]">
+                            <img src="https://i.imgur.com/1mkPsH6.png" alt="PechStore Tech" class="w-full h-auto object-contain max-h-[280px] rounded-xl relative z-10">
                         </div>
                     </div>
-                    <div class="project-info">
-                        <span class="project-tag" style="color:#60a5fa;">E-commerce B2B</span>
-                        <h3 class="project-name">PechStore Shop</h3>
-                        <p class="project-desc">Plataforma de comercio electrónico mayorista con integración de inventarios en tiempo real, dashboard de analíticas avanzado y sistema de precios dinámicos. Escalable para alto volumen de pedidos.</p>
-                        <div class="project-chips">
-                            <span class="project-chip">Shopify</span>
-                            <span class="project-chip">Inventario Live</span>
-                            <span class="project-chip">Analytics</span>
-                            <span class="project-chip">B2B Pricing</span>
+                    <div class="w-full md:w-1/2 space-y-6">
+                        <span class="text-blue-400 font-mono text-xs tracking-widest uppercase font-bold px-3 py-1 bg-blue-500/10 rounded-full border border-blue-500/20 inline-block">E-commerce B2B</span>
+                        <h3 class="text-3xl md:text-4xl font-display font-bold text-white">PechStore Shop</h3>
+                        <p class="text-gray-400 leading-relaxed">Plataforma de comercio electrónico mayorista con integración de inventarios en tiempo real, dashboard de analíticas avanzado y sistema de precios dinámicos. Escalable para alto volumen de pedidos.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">Shopify</span>
+                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">Inventario Live</span>
+                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">Analytics</span>
+                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">B2B Pricing</span>
                         </div>
-                        <a href="https://pechstore.shop" target="_blank" class="project-link" style="color:#60a5fa;">
-                            Visitar Sitio <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i>
+                        <a href="https://pechstore.shop" target="_blank" class="inline-flex items-center gap-2 text-blue-400 font-bold group/link mt-2 hover:text-white transition-colors">
+                            Visitar Sitio <i class="fas fa-arrow-right transform transition-transform group-hover/link:translate-x-2 text-sm"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- Project 2 -->
-                <div class="project-item reverse reveal">
-                    <div class="project-visual">
-                        <div class="project-glow project-glow-purple"></div>
-                        <div class="project-visual-inner" style="background:linear-gradient(135deg,#0d1117,#1a0e2e); padding:0;">
-                            <img src="https://i.imgur.com/pYxjQNT.png" alt="La Guaca del Valle" style="max-height:340px; object-fit:cover; width:100%; border-radius:0;">
+                <div class="flex flex-col md:flex-row-reverse items-center gap-12 group reveal">
+                    <div class="w-full md:w-1/2 relative">
+                        <div class="absolute inset-0 bg-purple-500/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="relative bg-gradient-to-br from-[#1a0e2e] to-[#0d1117] rounded-3xl border border-white/10 overflow-hidden transform transition-transform group-hover:scale-[1.02] duration-500">
+                            <img src="https://i.imgur.com/pYxjQNT.png" alt="La Guaca del Valle" class="w-full h-auto object-cover max-h-[340px] relative z-10">
                         </div>
                     </div>
-                    <div class="project-info">
-                        <span class="project-tag" style="color:#a78bfa;">Marketplace Local</span>
-                        <h3 class="project-name">La Guaca<br>del Valle</h3>
-                        <p class="project-desc">Directorio digital y plataforma de ventas para comercios locales. Optimizado para carga rápida, SEO local con geolocalización integrada para conectar negocios con su comunidad.</p>
-                        <div class="project-chips">
-                            <span class="project-chip">SEO Local</span>
-                            <span class="project-chip">Geolocalización</span>
-                            <span class="project-chip">Directorio</span>
-                            <span class="project-chip">PWA</span>
+                    <div class="w-full md:w-1/2 space-y-6">
+                        <span class="text-purple-400 font-mono text-xs tracking-widest uppercase font-bold px-3 py-1 bg-purple-500/10 rounded-full border border-purple-500/20 inline-block">Marketplace Local</span>
+                        <h3 class="text-3xl md:text-4xl font-display font-bold text-white">La Guaca del Valle</h3>
+                        <p class="text-gray-400 leading-relaxed">Directorio digital y plataforma de ventas para comercios locales. Optimizado para carga rápida, SEO local con geolocalización integrada para conectar negocios con su comunidad.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">SEO Local</span>
+                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">Geolocalización</span>
+                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">Directorio</span>
+                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">PWA</span>
                         </div>
-                        <a href="https://laguacadelvalle.netlify.app/" target="_blank" class="project-link" style="color:#a78bfa;">
-                            Explorar Proyecto <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i>
+                        <a href="https://laguacadelvalle.netlify.app/" target="_blank" class="inline-flex items-center gap-2 text-purple-400 font-bold group/link mt-2 hover:text-white transition-colors">
+                            Explorar Proyecto <i class="fas fa-arrow-right transform transition-transform group-hover/link:translate-x-2 text-sm"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- Project 3 -->
-                <div class="project-item reveal">
-                    <div class="project-visual">
-                        <div class="project-glow project-glow-pink"></div>
-                        <div class="project-visual-inner" style="background:linear-gradient(135deg,#0d0710,#1a0a18);">
-                            <img src="https://i.imgur.com/zndRaPD.png" alt="Rosa Estudio" style="max-height:200px;">
+                <div class="flex flex-col md:flex-row items-center gap-12 group reveal">
+                    <div class="w-full md:w-1/2 relative">
+                        <div class="absolute inset-0 bg-pink-500/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="relative bg-gradient-to-br from-[#1a0a18] to-black p-8 rounded-3xl border border-white/10 overflow-hidden transform transition-transform group-hover:scale-[1.02] duration-500 flex justify-center items-center min-h-[300px]">
+                            <img src="https://i.imgur.com/zndRaPD.png" alt="Rosa Estudio" class="w-full h-auto object-contain max-h-[200px] relative z-10">
                         </div>
                     </div>
-                    <div class="project-info">
-                        <span class="project-tag" style="color:#f472b6;">Beauty & Wellness</span>
-                        <h3 class="project-name">Rosa Estudio</h3>
-                        <p class="project-desc">Landing page corporativa para estudio de belleza. Diseño minimalista y elegante enfocado en conversión de citas por WhatsApp. Estética premium que refleja la identidad de marca.</p>
-                        <div class="project-chips">
-                            <span class="project-chip">Landing Page</span>
-                            <span class="project-chip">WhatsApp CTA</span>
-                            <span class="project-chip">Branding</span>
-                            <span class="project-chip">Conversión</span>
+                    <div class="w-full md:w-1/2 space-y-6">
+                        <span class="text-pink-400 font-mono text-xs tracking-widest uppercase font-bold px-3 py-1 bg-pink-500/10 rounded-full border border-pink-500/20 inline-block">Beauty & Wellness</span>
+                        <h3 class="text-3xl md:text-4xl font-display font-bold text-white">Rosa Estudio</h3>
+                        <p class="text-gray-400 leading-relaxed">Landing page corporativa para estudio de belleza. Diseño minimalista y elegante enfocado en conversión de citas por WhatsApp. Estética premium que refleja la identidad de marca.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">Landing Page</span>
+                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">WhatsApp CTA</span>
+                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">Branding</span>
+                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">Conversión</span>
                         </div>
-                        <a href="https://rosaestudiodebelleza.netlify.app/" target="_blank" class="project-link" style="color:#f472b6;">
-                            Ver Proyecto <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i>
+                        <a href="https://rosaestudiodebelleza.netlify.app/" target="_blank" class="inline-flex items-center gap-2 text-pink-400 font-bold group/link mt-2 hover:text-white transition-colors">
+                            Ver Proyecto <i class="fas fa-arrow-right transform transition-transform group-hover/link:translate-x-2 text-sm"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- Project 4 -->
-                <div class="project-item reverse reveal">
-                    <div class="project-visual">
-                        <div class="project-glow project-glow-blue"></div>
-                        <div class="project-visual-inner" style="background:linear-gradient(135deg,#0d1117,#0a1628);">
-                            <img src="https://i.imgur.com/HNQr8IZ.png" alt="PechPos System" style="filter: drop-shadow(0 0 30px rgba(59,130,246,0.3));">
+                <div class="flex flex-col md:flex-row-reverse items-center gap-12 group reveal">
+                    <div class="w-full md:w-1/2 relative">
+                        <div class="absolute inset-0 bg-cyan-500/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="relative bg-gradient-to-br from-[#0a1628] to-black p-8 rounded-3xl border border-white/10 overflow-hidden transform transition-transform group-hover:scale-[1.02] duration-500 flex justify-center items-center min-h-[300px]">
+                            <img src="https://i.imgur.com/HNQr8IZ.png" alt="PechPos System" class="w-full h-auto object-contain relative z-10" style="filter: drop-shadow(0 0 30px rgba(59,130,246,0.2));">
                         </div>
                     </div>
-                    <div class="project-info">
-                        <span class="project-tag" style="color:#60a5fa;">SaaS & Enterprise</span>
-                        <h3 class="project-name">PechPos<br>System</h3>
-                        <p class="project-desc">Software POS multi-tenant para automatización de inventarios, ventas y facturación. Arquitectura cloud escalable para múltiples sucursales bajo una sola plataforma.</p>
-                        <div class="project-chips">
-                            <span class="project-chip">SaaS</span>
-                            <span class="project-chip">Multi-tenant</span>
-                            <span class="project-chip">Cloud AWS</span>
-                            <span class="project-chip">Facturación</span>
+                    <div class="w-full md:w-1/2 space-y-6">
+                        <span class="text-cyan-400 font-mono text-xs tracking-widest uppercase font-bold px-3 py-1 bg-cyan-500/10 rounded-full border border-cyan-500/20 inline-block">SaaS & Enterprise</span>
+                        <h3 class="text-3xl md:text-4xl font-display font-bold text-white">PechPos System</h3>
+                        <p class="text-gray-400 leading-relaxed">Software POS multi-tenant para automatización de inventarios, ventas y facturación. Arquitectura cloud escalable para múltiples sucursales bajo una sola plataforma.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">SaaS</span>
+                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">Multi-tenant</span>
+                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">Cloud AWS</span>
+                            <span class="text-xs font-mono text-gray-400 px-3 py-1 bg-white/5 rounded-full border border-white/10">Facturación</span>
                         </div>
-                        <a href="https://devinson.lat/pechpos" target="_blank" class="project-link" style="color:#60a5fa;">
-                            Acceder al Sistema <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i>
+                        <a href="https://devinson.lat/pechpos" target="_blank" class="inline-flex items-center gap-2 text-cyan-400 font-bold group/link mt-2 hover:text-white transition-colors">
+                            Acceder al Sistema <i class="fas fa-arrow-right transform transition-transform group-hover/link:translate-x-2 text-sm"></i>
                         </a>
                     </div>
                 </div>
@@ -877,415 +399,289 @@
         </div>
     </section>
 
-    <!-- EXPERTISE / SERVICES -->
-    <section id="expertise">
-        <div class="container">
-            <div class="services-header">
+    <section id="proceso" class="py-24 bg-black relative overflow-hidden border-t border-white/5">
+        <div class="bg-blend-image absolute inset-0 z-0 opacity-20" style="background-image: url('https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=1080&auto=format&fit=crop'); background-size: cover;"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#0a0a0a]/80 to-[#050505] z-0"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-3xl md:text-5xl font-display font-bold text-white">Mi Proceso de Ingeniería</h2>
+                <p class="text-gray-400 mt-4 max-w-xl mx-auto">Metodología ágil dividida en sprints de alto impacto.</p>
+            </div>
+
+            <div class="relative max-w-5xl mx-auto">
+                <div class="hidden md:block absolute left-1/2 w-[2px] h-full bg-gradient-to-b from-transparent via-blue-500 to-transparent transform -translate-x-1/2 opacity-30"></div>
+                
+                <div class="space-y-16 relative z-10">
+                    
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-8 group reveal">
+                        <div class="md:w-5/12 text-center md:text-right order-2 md:order-1 pr-4">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors mb-3">1. Análisis Neural & Estrategia</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Auditoría profunda de tu modelo de negocio. Identificamos cuellos de botella y definimos el stack tecnológico (React, Node, Python) que garantiza escalabilidad a largo plazo.</p>
+                        </div>
+                        <div class="w-16 h-16 rounded-full bg-black border border-white/10 flex items-center justify-center text-blue-500 shadow-[0_0_30px_rgba(59,130,246,0.3)] z-10 order-1 md:order-2 shrink-0 mx-auto md:mx-0 relative transition-transform group-hover:scale-110">
+                            <div class="absolute inset-0 rounded-full border-2 border-blue-500/50 animate-ping opacity-20"></div>
+                            <i class="fas fa-search text-xl"></i>
+                        </div>
+                        <div class="md:w-5/12 order-3 pl-4 hidden md:block"><span class="text-xs font-mono text-gray-600">SEM 1</span></div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-8 group reveal">
+                        <div class="md:w-5/12 order-2 md:order-1 pr-4 hidden md:block text-right"><span class="text-xs font-mono text-gray-600">SEM 2</span></div>
+                        <div class="w-16 h-16 rounded-full bg-black border border-white/10 flex items-center justify-center text-purple-500 shadow-[0_0_30px_rgba(168,85,247,0.3)] z-10 order-1 md:order-2 shrink-0 mx-auto md:mx-0 relative transition-transform group-hover:scale-110">
+                            <i class="fas fa-layer-group text-xl"></i>
+                        </div>
+                        <div class="md:w-5/12 text-center md:text-left order-3 pl-4">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-purple-400 transition-colors mb-3">2. UX/UI & Prototipado</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Diseño centrado en la conversión. Creamos wireframes interactivos y maquetas de alta fidelidad para validar la experiencia de usuario antes de escribir una sola línea de código.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-8 group reveal">
+                        <div class="md:w-5/12 text-center md:text-right order-2 md:order-1 pr-4">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-green-400 transition-colors mb-3">3. Desarrollo & Integración</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Programación modular y limpia ("Clean Code"). Integración robusta de APIs bancarias, sistemas de inventario y entrenamiento de modelos de IA personalizados.</p>
+                        </div>
+                        <div class="w-16 h-16 rounded-full bg-black border border-white/10 flex items-center justify-center text-green-500 shadow-[0_0_30px_rgba(34,197,94,0.3)] z-10 order-1 md:order-2 shrink-0 mx-auto md:mx-0 relative transition-transform group-hover:scale-110">
+                            <i class="fas fa-code text-xl"></i>
+                        </div>
+                        <div class="md:w-5/12 order-3 pl-4 hidden md:block"><span class="text-xs font-mono text-gray-600">SEM 3-4</span></div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-8 group reveal">
+                        <div class="md:w-5/12 order-2 md:order-1 pr-4 hidden md:block text-right"><span class="text-xs font-mono text-gray-600">LANZAMIENTO</span></div>
+                        <div class="w-16 h-16 rounded-full bg-black border border-white/10 flex items-center justify-center text-white shadow-[0_0_30px_rgba(255,255,255,0.3)] z-10 order-1 md:order-2 shrink-0 mx-auto md:mx-0 relative transition-transform group-hover:scale-110">
+                            <i class="fas fa-rocket text-xl"></i>
+                        </div>
+                        <div class="md:w-5/12 text-center md:text-left order-3 pl-4">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-white transition-colors mb-3">4. Despliegue & Escala</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Lanzamiento en infraestructura cloud global (Vercel/AWS). Optimización técnica de SEO para Google y tests de carga para asegurar estabilidad bajo tráfico masivo.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ia-lab" class="py-24 bg-black relative overflow-hidden border-t border-white/5">
+        <div class="absolute -right-20 top-20 w-96 h-96 bg-purple-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute -left-20 bottom-20 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="container mx-auto px-6 relative z-10 max-w-4xl">
+            <div class="text-center mb-12 reveal">
+                <span class="text-purple-400 font-mono text-xs tracking-widest uppercase mb-2 block font-bold">Powered by Gemini AI</span>
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-white">Laboratorio de Ideas</h2>
+                <p class="text-gray-400 mt-4">Cuéntale a mi IA sobre tu negocio y recibe una estrategia técnica al instante.</p>
+            </div>
+
+            <div class="bg-gradient-to-br from-white/10 to-transparent p-[1px] rounded-3xl reveal shadow-2xl">
+                <div class="bg-gray-900/90 rounded-[22px] p-6 md:p-10 backdrop-blur-xl border border-white/5 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-50"></div>
+
+                    <div class="flex flex-col gap-6">
+                        <div>
+                            <label class="text-xs text-gray-400 font-mono ml-1 mb-2 block uppercase tracking-wider">Describe tu proyecto:</label>
+                            <textarea id="ai-input" rows="3" class="w-full bg-black/60 border border-white/10 rounded-xl p-4 text-white focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all resize-none text-lg font-mono placeholder-gray-600" placeholder="Ej: Tengo una tienda de ropa en Instagram y quiero automatizar los pedidos y pagos..."></textarea>
+                        </div>
+                        
+                        <div class="flex justify-end">
+                            <button onclick="consultarIA()" id="ai-btn" class="w-full md:w-auto px-8 py-4 bg-white text-black font-bold rounded-xl hover:bg-gray-100 transition-all flex items-center justify-center gap-3 shadow-lg hover:shadow-purple-500/20 active:scale-95 group">
+                                <span>Generar Estrategia</span>
+                                <i class="fas fa-sparkles text-purple-600 group-hover:rotate-12 transition-transform"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="ai-result" class="hidden mt-8 border-t border-white/10 pt-8 animation-fade-in">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center gap-3 bg-green-500/10 px-3 py-1 rounded-full border border-green-500/20">
+                                <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse indicator-dot"></div>
+                                <span class="text-xs font-bold text-green-300 tracking-wide">ANÁLISIS COMPLETADO</span>
+                            </div>
+                        </div>
+                        <div id="ai-content" class="text-gray-300 text-sm leading-loose ai-response font-light mb-8 p-4 bg-black/40 rounded-lg border border-white/5"></div>
+                        <div class="flex justify-end">
+                            <a href="#cotizar" class="text-sm text-purple-400 hover:text-white transition-colors border-b border-purple-400/30 pb-1 font-bold hover:border-white">Ver Presupuesto Desglosado &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="herramientas" class="py-20 bg-black relative border-t border-white/5 overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2 reveal">
+                    <span class="text-green-400 font-mono text-xs tracking-widest uppercase mb-2 block font-bold">Herramienta Gratuita</span>
+                    <h2 class="text-3xl md:text-5xl font-display font-bold text-white mb-6">Generador de Links <span class="text-green-500">WhatsApp</span></h2>
+                    <p class="text-gray-400 text-lg mb-6">Crea enlaces personalizados para tu Instagram o Facebook en segundos. Tus clientes te contactarán con un clic.</p>
+                    
+                    <div class="bg-blue-500/10 border-l-4 border-blue-500 p-4 rounded-r-lg mb-8">
+                        <p class="text-sm text-blue-200">
+                            <strong class="block text-white mb-1"><i class="fas fa-lightbulb text-yellow-400 mr-1"></i> Consejo Pro:</strong>
+                            "Una vez tengas el link, la clave es responder rápido. ¿Sabías que el 70% de las ventas se pierden por demoras en responder? Mi <strong>Chatbot IA</strong> responde en 0.5 segundos."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="lg:w-1/2 w-full reveal">
+                    <div class="bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-2xl relative">
+                        <div class="absolute -top-4 -right-4 w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white text-xl shadow-lg animate-bounce">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+
+                        <div class="space-y-5">
+                            <div>
+                                <label class="text-xs text-gray-400 uppercase font-bold tracking-wider mb-2 block">Tu Número (Sin +)</label>
+                                <div class="flex items-center bg-black/50 rounded-xl border border-white/10 overflow-hidden focus-within:border-green-500 transition-colors">
+                                    <span class="pl-4 text-gray-500 select-none"><i class="fas fa-phone-alt"></i></span>
+                                    <input type="number" id="wa-number" class="w-full bg-transparent p-4 text-white focus:outline-none font-mono" placeholder="Ej: 573001234567">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="text-xs text-gray-400 uppercase font-bold tracking-wider mb-2 block">Mensaje Predefinido</label>
+                                <textarea id="wa-message" rows="2" class="w-full bg-black/50 border border-white/10 rounded-xl p-4 text-white focus:border-green-500 focus:outline-none transition-colors resize-none" placeholder="Hola, quiero más información sobre sus servicios..."></textarea>
+                            </div>
+
+                            <button onclick="generateWhatsAppLink()" class="w-full py-4 bg-green-600 hover:bg-green-500 text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-green-500/30 flex items-center justify-center gap-2 group">
+                                Generar Link Mágico <i class="fas fa-magic group-hover:rotate-12 transition-transform"></i>
+                            </button>
+
+                            <div id="wa-result" class="hidden pt-4 border-t border-white/10 mt-4">
+                                <p class="text-xs text-center text-gray-400 mb-2">Tu Enlace Personalizado:</p>
+                                <div class="flex gap-2">
+                                    <input type="text" id="wa-output" readonly class="w-full bg-black/80 text-green-400 text-xs p-3 rounded-lg border border-green-500/30 font-mono truncate">
+                                    <button onclick="copyToClipboard()" class="bg-white/10 hover:bg-white/20 text-white p-3 rounded-lg transition-colors" title="Copiar"><i class="fas fa-copy"></i></button>
+                                    <a id="wa-test-btn" href="#" target="_blank" class="bg-green-500/20 hover:bg-green-500/30 text-green-400 p-3 rounded-lg transition-colors border border-green-500/30" title="Probar"><i class="fas fa-external-link-alt"></i></a>
+                                </div>
+                                <p id="copy-feedback" class="text-center text-xs text-green-400 mt-2 opacity-0 transition-opacity">¡Copiado al portapapeles!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="cotizar" class="pt-24 pb-10 bg-black border-t border-white/5 relative">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-2 gap-20">
                 <div class="reveal">
-                    <span class="section-tag">Lo que ofrezco</span>
-                    <h2 class="section-title">Servicios</h2>
-                    <div class="section-bar"></div>
-                </div>
-                <p class="services-sub reveal reveal-delay-1" style="opacity:0;">Más que diseño, arquitectura de software robusta y escalable que genera resultados de negocio reales.</p>
-            </div>
+                    <h2 class="text-3xl font-display font-bold text-white mb-2">Cotizador Dinámico</h2>
+                    <p class="text-gray-500 mb-8 text-sm">Selecciona los módulos que necesitas.</p>
+                    
+                    <div class="space-y-4" id="modules-container">
+                        <label class="flex items-center justify-between p-5 rounded-2xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.99]">
+                            <div class="flex items-center gap-4">
+                                <div class="w-6 h-6 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 transition-colors"><div class="w-3 h-3 bg-blue-500 rounded-full"></div></div>
+                                <div>
+                                    <span class="text-white font-medium group-hover:text-blue-400 transition-colors block">Base Web Profesional</span>
+                                    <span class="text-xs text-gray-500">Hosting, Dominio, SSL, UX/UI</span>
+                                </div>
+                            </div>
+                            <span class="font-mono text-gray-400">$200.000</span>
+                            <input type="checkbox" id="check-base" data-name="Base Web" value="200000" checked disabled class="hidden item-checkbox">
+                        </label>
+                        
+                        <label class="flex items-center justify-between p-5 rounded-2xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.99]">
+                            <div class="flex items-center gap-4">
+                                <div class="w-6 h-6 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 relative transition-colors">
+                                    <input type="checkbox" id="check-pagos" data-name="Pasarela de Pagos" value="100000" onchange="calculateTotal()" class="opacity-0 absolute inset-0 cursor-pointer peer item-checkbox">
+                                    <div class="w-3 h-3 bg-blue-500 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+                                </div>
+                                <div>
+                                    <span class="text-white font-medium group-hover:text-blue-400 transition-colors block">Pasarela de Pagos</span>
+                                    <span class="text-xs text-gray-500">MercadoPago / Wompi / Stripe</span>
+                                </div>
+                            </div>
+                            <span class="font-mono text-gray-400">$100.000</span>
+                        </label>
 
-            <div class="services-grid">
-                <div class="service-card blue reveal">
-                    <div class="service-icon"><i class="fas fa-code" style="color:#60a5fa;"></i></div>
-                    <div class="service-title">Desarrollo Web</div>
-                    <div class="service-desc">React, Next.js, Astro. Interfaces rápidas, accesibles y con conversión optimizada.</div>
-                </div>
-                <div class="service-card green reveal reveal-delay-1">
-                    <div class="service-icon"><i class="fas fa-shopping-bag" style="color:#10b981;"></i></div>
-                    <div class="service-title">E-Commerce</div>
-                    <div class="service-desc">Tiendas Shopify y WooCommerce listas para vender desde el día 1.</div>
-                </div>
-                <div class="service-card purple reveal reveal-delay-2">
-                    <div class="service-icon"><i class="fas fa-mobile-alt" style="color:#a78bfa;"></i></div>
-                    <div class="service-title">Apps Móviles</div>
-                    <div class="service-desc">Apps nativas y PWAs responsivas para iOS y Android.</div>
-                </div>
-                <div class="service-card pink reveal reveal-delay-3">
-                    <div class="service-icon"><i class="fas fa-chart-line" style="color:#f472b6;"></i></div>
-                    <div class="service-title">Marketing Digital</div>
-                    <div class="service-desc">SEO, Meta Ads, Google Ads. Tráfico orgánico y pagado que convierte.</div>
-                </div>
-            </div>
+                         <label class="flex items-center justify-between p-5 rounded-2xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.99]">
+                            <div class="flex items-center gap-4">
+                                <div class="w-6 h-6 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 relative transition-colors">
+                                    <input type="checkbox" id="check-chatbot" data-name="Chatbot IA" value="300000" onchange="calculateTotal()" class="opacity-0 absolute inset-0 cursor-pointer peer item-checkbox">
+                                    <div class="w-3 h-3 bg-blue-500 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+                                </div>
+                                <div>
+                                    <span class="text-white font-medium group-hover:text-blue-400 transition-colors block">Chatbot IA</span>
+                                    <span class="text-xs text-gray-500">Respuestas automáticas 24/7</span>
+                                </div>
+                            </div>
+                            <span class="font-mono text-gray-400">$300.000</span>
+                        </label>
 
-            <div style="display:grid; grid-template-columns:1fr; gap:40px; align-items:center;" class="reveal">
-                <div style="display:grid; grid-template-columns:1fr; gap:40px;" id="skills-expertise">
-                    <!-- skills panel below -->
-                </div>
-            </div>
+                        <label class="flex items-center justify-between p-5 rounded-2xl bg-white/5 border border-white/5 hover:border-blue-500/50 cursor-pointer transition-all group active:scale-[0.99]">
+                            <div class="flex items-center gap-4">
+                                <div class="w-6 h-6 rounded-full border border-gray-500 flex items-center justify-center group-hover:border-blue-500 relative transition-colors">
+                                    <input type="checkbox" id="check-pwa" data-name="App PWA" value="400000" onchange="calculateTotal()" class="opacity-0 absolute inset-0 cursor-pointer peer item-checkbox">
+                                    <div class="w-3 h-3 bg-blue-500 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+                                </div>
+                                <div>
+                                    <span class="text-white font-medium group-hover:text-blue-400 transition-colors block">App Móvil (PWA)</span>
+                                    <span class="text-xs text-gray-500">Instalable en iOS y Android</span>
+                                </div>
+                            </div>
+                            <span class="font-mono text-gray-400">$400.000</span>
+                        </label>
+                    </div>
 
-            <!-- Skills layout -->
-            <div style="display:grid; grid-template-columns:1fr; gap:40px; align-items:start; margin-top:40px;" class="reveal">
-                <div class="skills-panel">
-                    <div class="skill-row">
-                        <div class="skill-meta">
-                            <span class="skill-name">React / Next.js</span>
-                            <span class="skill-pct">95%</span>
+                    <div class="mt-10 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
+                        <div class="text-center md:text-left">
+                            <p class="text-xs text-gray-500 uppercase tracking-widest mb-1">Inversión Estimada</p>
+                            <p class="text-5xl font-display font-bold text-white tracking-tight" id="total-display">$200.000</p>
+                            <p class="text-xs text-blue-500 mt-2 font-mono">*Precios en COP (Negociable)</p>
                         </div>
-                        <div class="skill-track"><div class="skill-fill" data-w="95%"></div></div>
+                        <a href="https://wa.me/573215203354" id="btn-cotizar" target="_blank" class="w-full md:w-auto px-10 py-5 bg-white text-black font-bold rounded-xl hover:bg-gray-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] text-center active:scale-95 flex items-center justify-center gap-3 group">
+                            <span>Finalizar en WhatsApp</span> 
+                            <i class="fab fa-whatsapp text-xl group-hover:scale-110 transition-transform text-green-600"></i>
+                        </a>
                     </div>
-                    <div class="skill-row">
-                        <div class="skill-meta">
-                            <span class="skill-name">E-Commerce (Shopify/Woo)</span>
-                            <span class="skill-pct">90%</span>
+                </div>
+                
+                <div class="flex flex-col justify-between reveal">
+                    <div class="bg-white/5 p-8 rounded-3xl border border-white/5 backdrop-blur-sm">
+                        <h3 class="text-2xl font-bold text-white mb-8">Hablemos de negocios</h3>
+                        <ul class="space-y-8 text-gray-400">
+                            <li class="flex items-center gap-5 group">
+                                <div class="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center group-hover:border-blue-500/50 transition-colors"><i class="fas fa-envelope text-lg group-hover:text-white transition-colors"></i></div>
+                                <div><span class="block text-xs uppercase tracking-wider text-gray-600">Email</span><span class="text-white">contacto@devinson.lat</span></div>
+                            </li>
+                            <li class="flex items-center gap-5 group">
+                                <div class="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center group-hover:border-green-500/50 transition-colors"><i class="fab fa-whatsapp text-lg group-hover:text-white transition-colors"></i></div>
+                                <div><span class="block text-xs uppercase tracking-wider text-gray-600">WhatsApp</span><span class="text-white">+57 321 520 3354</span></div>
+                            </li>
+                            <li class="flex items-center gap-5 group">
+                                <div class="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center group-hover:border-purple-500/50 transition-colors"><i class="fas fa-map-marker-alt text-lg group-hover:text-white transition-colors"></i></div>
+                                <div><span class="block text-xs uppercase tracking-wider text-gray-600">Ubicación</span><span class="text-white">Valledupar, Colombia</span></div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mt-12 text-center md:text-right">
+                        <div class="inline-block p-4 border border-white/5 rounded-2xl bg-black/50 backdrop-blur-md">
+                            <p class="text-sm text-gray-400 italic">"El código es poesía, la IA es el pincel."</p>
                         </div>
-                        <div class="skill-track"><div class="skill-fill" data-w="90%"></div></div>
-                    </div>
-                    <div class="skill-row">
-                        <div class="skill-meta">
-                            <span class="skill-name">Marketing & SEO</span>
-                            <span class="skill-pct">85%</span>
-                        </div>
-                        <div class="skill-track"><div class="skill-fill" data-w="85%"></div></div>
-                    </div>
-                    <div class="skill-row">
-                        <div class="skill-meta">
-                            <span class="skill-name">UI/UX Design</span>
-                            <span class="skill-pct">80%</span>
-                        </div>
-                        <div class="skill-track"><div class="skill-fill" data-w="80%"></div></div>
-                    </div>
-                    <div class="skill-row">
-                        <div class="skill-meta">
-                            <span class="skill-name">Backend (Node / Python)</span>
-                            <span class="skill-pct">75%</span>
-                        </div>
-                        <div class="skill-track"><div class="skill-fill" data-w="75%"></div></div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- ECOSYSTEM / STACK -->
-    <section id="ecosystem">
-        <div class="container">
-            <div class="ecosystem-inner">
-                <div class="ecosystem-copy reveal">
-                    <span class="section-tag">Tech Stack</span>
-                    <h2>El ecosistema<br>completo.</h2>
-                    <p>Trabajo con las herramientas líderes de la industria para construir soluciones que duran y escalan. Cada tecnología elegida por una razón.</p>
-                    <div class="ecosystem-tags">
-                        <span class="eco-tag">React</span>
-                        <span class="eco-tag">Next.js</span>
-                        <span class="eco-tag">Node.js</span>
-                        <span class="eco-tag">Python</span>
-                        <span class="eco-tag">Firebase</span>
-                        <span class="eco-tag">AWS</span>
-                        <span class="eco-tag">Shopify</span>
-                        <span class="eco-tag">WordPress</span>
-                        <span class="eco-tag">Astro</span>
-                        <span class="eco-tag">Figma</span>
-                    </div>
-                </div>
-                <div class="tech-grid reveal reveal-delay-2" style="opacity:0;">
-                    <div class="tech-cell">
-                        <i class="fab fa-shopify" style="color:#95BF47;"></i>
-                        <span>Shopify</span>
-                    </div>
-                    <div class="tech-cell">
-                        <i class="fab fa-wordpress" style="color:#21759B;"></i>
-                        <span>WordPress</span>
-                    </div>
-                    <div class="tech-cell">
-                        <i class="fab fa-react" style="color:#61DAFB;"></i>
-                        <span>React</span>
-                    </div>
-                    <div class="tech-cell">
-                        <i class="fab fa-node-js" style="color:#339933;"></i>
-                        <span>Node.js</span>
-                    </div>
-                    <div class="tech-cell">
-                        <i class="fab fa-python" style="color:#3776AB;"></i>
-                        <span>Python</span>
-                    </div>
-                    <div class="tech-cell">
-                        <i class="fab fa-aws" style="color:#FF9900;"></i>
-                        <span>AWS</span>
-                    </div>
-                    <div class="tech-cell">
-                        <i class="fab fa-meta" style="color:#0668E1;"></i>
-                        <span>Meta Ads</span>
-                    </div>
-                    <div class="tech-cell">
-                        <i class="fab fa-google" style="color:#EA4335;"></i>
-                        <span>Google</span>
-                    </div>
-                    <div class="tech-cell">
-                        <i class="fab fa-figma" style="color:#F24E1E;"></i>
-                        <span>Figma</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHY WEB -->
-    <section id="impact">
-        <div class="container">
-            <div class="impact-header reveal">
-                <span class="section-tag" style="display:block; text-align:center;">¿Por qué tener una Web?</span>
-                <h2 class="section-title" style="text-align:center; font-size:clamp(2rem,5vw,3.5rem);">Tu negocio,<br>sin límites.</h2>
-            </div>
-        </div>
-        <div class="carousel-wrap">
-            <div class="carousel-track">
-                <!-- Cards x2 for infinite scroll -->
-                <div class="c-card">
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" alt="Seguridad">
-                    <div class="c-card-overlay">
-                        <span class="c-card-tag" style="color:#60a5fa;">Seguridad</span>
-                        <div class="c-card-title">Confianza Total</div>
-                        <div class="c-card-desc">Infraestructura robusta que protege tus datos y los de tus clientes.</div>
-                    </div>
-                </div>
-                <div class="c-card">
-                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Expansión">
-                    <div class="c-card-overlay">
-                        <span class="c-card-tag" style="color:#a78bfa;">Expansión</span>
-                        <div class="c-card-title">Alcance Global</div>
-                        <div class="c-card-desc">Rompe las barreras geográficas. Tu mercado es el mundo entero.</div>
-                    </div>
-                </div>
-                <div class="c-card">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Analytics">
-                    <div class="c-card-overlay">
-                        <span class="c-card-tag" style="color:#f472b6;">Data</span>
-                        <div class="c-card-title">Decisiones Inteligentes</div>
-                        <div class="c-card-desc">Toma decisiones basadas en datos reales de comportamiento.</div>
-                    </div>
-                </div>
-                <div class="c-card">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Crecimiento">
-                    <div class="c-card-overlay">
-                        <span class="c-card-tag" style="color:#10b981;">Crecimiento</span>
-                        <div class="c-card-title">Escalabilidad Real</div>
-                        <div class="c-card-desc">Sistemas preparados para crecer contigo sin romperse.</div>
-                    </div>
-                </div>
-                <div class="c-card">
-                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80" alt="Ventas">
-                    <div class="c-card-overlay">
-                        <span class="c-card-tag" style="color:#fb923c;">Ventas</span>
-                        <div class="c-card-title">24/7 Activo</div>
-                        <div class="c-card-desc">Tu web vende mientras duermes. Sin días festivos ni horarios.</div>
-                    </div>
-                </div>
-                <!-- Duplicate for seamless loop -->
-                <div class="c-card">
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" alt="Seguridad">
-                    <div class="c-card-overlay">
-                        <span class="c-card-tag" style="color:#60a5fa;">Seguridad</span>
-                        <div class="c-card-title">Confianza Total</div>
-                        <div class="c-card-desc">Infraestructura robusta que protege tus datos y los de tus clientes.</div>
-                    </div>
-                </div>
-                <div class="c-card">
-                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Expansión">
-                    <div class="c-card-overlay">
-                        <span class="c-card-tag" style="color:#a78bfa;">Expansión</span>
-                        <div class="c-card-title">Alcance Global</div>
-                        <div class="c-card-desc">Rompe las barreras geográficas. Tu mercado es el mundo entero.</div>
-                    </div>
-                </div>
-                <div class="c-card">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Analytics">
-                    <div class="c-card-overlay">
-                        <span class="c-card-tag" style="color:#f472b6;">Data</span>
-                        <div class="c-card-title">Decisiones Inteligentes</div>
-                        <div class="c-card-desc">Toma decisiones basadas en datos reales de comportamiento.</div>
-                    </div>
-                </div>
-                <div class="c-card">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Crecimiento">
-                    <div class="c-card-overlay">
-                        <span class="c-card-tag" style="color:#10b981;">Crecimiento</span>
-                        <div class="c-card-title">Escalabilidad Real</div>
-                        <div class="c-card-desc">Sistemas preparados para crecer contigo sin romperse.</div>
-                    </div>
-                </div>
-                <div class="c-card">
-                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80" alt="Ventas">
-                    <div class="c-card-overlay">
-                        <span class="c-card-tag" style="color:#fb923c;">Ventas</span>
-                        <div class="c-card-title">24/7 Activo</div>
-                        <div class="c-card-desc">Tu web vende mientras duermes. Sin días festivos ni horarios.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROCESS -->
-    <section id="process">
-        <div class="container">
-            <div class="reveal">
-                <span class="section-tag">Cómo trabajo</span>
-                <h2 class="section-title">Proceso claro,<br>resultados reales.</h2>
-                <div class="section-bar"></div>
-            </div>
-            <div class="process-grid">
-                <div class="process-step reveal">
-                    <div class="process-num">01</div>
-                    <div class="process-title">Descubrimiento</div>
-                    <div class="process-desc">Entiendo tu negocio, objetivos y competencia antes de escribir una línea de código.</div>
-                </div>
-                <div class="process-step reveal reveal-delay-1">
-                    <div class="process-num">02</div>
-                    <div class="process-title">Diseño & Prototipo</div>
-                    <div class="process-desc">Wireframes y prototipos interactivos para validar la experiencia antes de desarrollar.</div>
-                </div>
-                <div class="process-step reveal reveal-delay-2">
-                    <div class="process-num">03</div>
-                    <div class="process-title">Desarrollo</div>
-                    <div class="process-desc">Código limpio, optimizado y escalable. Actualizaciones semanales de progreso.</div>
-                </div>
-                <div class="process-step reveal reveal-delay-3">
-                    <div class="process-num">04</div>
-                    <div class="process-title">Lanzamiento & Soporte</div>
-                    <div class="process-desc">Deploy, pruebas y soporte continuo para garantizar que todo funcione perfecto.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-section" id="contact">
-        <div class="container">
-            <div class="reveal">
-                <h2 class="cta-title">¿Listo para<br>construir algo<br>increíble?</h2>
-                <p class="cta-sub">Asesoría gratuita. Sin compromisos. Solo resultados.</p>
-                <div class="cta-btns">
-                    <a href="https://wa.me/573215203354" target="_blank" class="btn-primary">
-                        <i class="fab fa-whatsapp"></i> Hablar por WhatsApp
-                    </a>
-                    <a href="mailto:devinsonrodriguez68@gmail.com?subject=Quiero%20cotizar%20un%20proyecto&body=Hola%20Devinson%2C%0A%0AEstoy%20interesado%20en%20tus%20servicios.%20Me%20gustar%C3%ADa%20hablar%20sobre%3A%0A%0A" class="btn-secondary">
-                        <i class="fas fa-envelope"></i> Enviar Email
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="#" class="logo">DEVINSON<span>.</span></a>
-                    <p>Desarrollo web premium, e-commerce y soluciones digitales desde Valledupar, Colombia. Construyendo el futuro digital de tu negocio.</p>
-                    <a href="mailto:devinsonrodriguez68@gmail.com" class="email">devinsonrodriguez68@gmail.com</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Servicios</h4>
-                    <ul>
-                        <li><a href="#expertise">Desarrollo Web</a></li>
-                        <li><a href="#expertise">E-Commerce</a></li>
-                        <li><a href="#expertise">Apps Móviles</a></li>
-                        <li><a href="#expertise">Marketing Digital</a></li>
-                        <li><a href="#expertise">SEO & Analytics</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Conectar</h4>
-                    <ul>
-                        <li><a href="https://wa.me/573215203354" target="_blank">WhatsApp</a></li>
-                        <li><a href="https://github.com/Pech68" target="_blank">GitHub</a></li>
-                        <li><a href="https://www.linkedin.com/in/devinson-rodriguez" target="_blank">LinkedIn</a></li>
-                        <li><a href="mailto:devinsonrodriguez68@gmail.com?subject=Quiero%20cotizar%20un%20proyecto">Email</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <span>&copy; 2025 Devinson Rodriguez · Valledupar, Colombia</span>
-                <div class="socials">
-                    <a href="https://wa.me/573215203354" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i></a>
-                    <a href="https://github.com/Pech68" target="_blank" class="social-btn"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/devinson-rodriguez" target="_blank" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center border-t border-white/5 pt-10 mt-16 text-xs text-gray-600 font-mono uppercase tracking-widest gap-4">
+                <span>© 2026 Devinson System.</span>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                    <span>•</span>
+                    <a href="#" class="hover:text-white transition-colors">Terms</a>
                 </div>
             </div>
         </div>
     </footer>
-
-    <!-- Floating WhatsApp -->
-    <a href="https://wa.me/573215203354" target="_blank" class="wa-float">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <script>
-        // Cursor
-        const cursor = document.getElementById('cursor');
-        const cursorDot = document.getElementById('cursorDot');
-        let mx = 0, my = 0, cx = 0, cy = 0;
-        document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-        function animCursor() {
-            cx += (mx - cx) * 0.15;
-            cy += (my - cy) * 0.15;
-            cursor.style.left = cx + 'px';
-            cursor.style.top = cy + 'px';
-            cursorDot.style.left = mx + 'px';
-            cursorDot.style.top = my + 'px';
-            requestAnimationFrame(animCursor);
-        }
-        animCursor();
-        document.querySelectorAll('a, button, .c-card, .service-card, .stat-card').forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('big'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('big'));
-        });
-
-        // Navbar scroll
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            navbar.classList.toggle('scrolled', window.scrollY > 50);
-        });
-
-        // Mobile menu
-        const menuBtn = document.getElementById('menuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        let menuOpen = false;
-        menuBtn.addEventListener('click', () => {
-            menuOpen = !menuOpen;
-            mobileMenu.classList.toggle('open', menuOpen);
-            menuBtn.innerHTML = menuOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-            document.body.style.overflow = menuOpen ? 'hidden' : '';
-        });
-        document.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', () => {
-            menuOpen = false;
-            mobileMenu.classList.remove('open');
-            menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-            document.body.style.overflow = '';
-        }));
-
-        // Reveal on scroll + skill bars
-        const revealEls = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    entry.target.querySelectorAll('.skill-fill').forEach(bar => {
-                        bar.style.width = bar.getAttribute('data-w');
-                    });
-                }
-            });
-        }, { threshold: 0.1 });
-        revealEls.forEach(el => observer.observe(el));
-
-        // Also observe skills panel separately
-        const skillsObs = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.querySelectorAll('.skill-fill').forEach(bar => {
-                        bar.style.width = bar.getAttribute('data-w');
-                    });
-                }
-            });
-        }, { threshold: 0.3 });
-        document.querySelectorAll('.skills-panel').forEach(el => skillsObs.observe(el));
-    </script>
-
+    
+    <script src="script.js"></script>
 </body>
 </html>
