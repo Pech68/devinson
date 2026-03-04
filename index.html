@@ -596,7 +596,7 @@ footer{
    parkour DOWN the page structure
 ══════════════════════════════════════════════ */
 #devbot{
-  position:absolute;
+  position:fixed;
   top:0;left:0;
   z-index:9000;
   pointer-events:none;
@@ -1023,7 +1023,7 @@ footer{
       <p class="cta-sub">Solo resultados. Empecemos hoy mismo.</p>
       <div class="cta-btns">
         <a href="https://wa.me/573215203354" target="_blank" class="btn-main"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-        <a href="mailto:devinsonrodriguez68@gmail.com?subject=Cotizar%20Proyecto" class="btn-sec"><i class="fas fa-envelope"></i> Correo</a>
+        <a href="/cdn-cgi/l/email-protection#432726352a2d302c2d312c27312a24362639757b03242e222a2f6d202c2e7c303621292620377e002c372a39223166717313312c3a2620372c" class="btn-sec"><i class="fas fa-envelope"></i> Correo</a>
       </div>
     </div>
   </div>
@@ -1037,7 +1037,7 @@ footer{
         <a href="#" class="fl-logo">Devinson Rodriguez</a>
         <div class="fl-logo-rule"></div>
         <p>Desarrollo web premium, e-commerce y soluciones digitales desde Valledupar, Colombia. Construyendo el futuro digital con raíces sólidas.</p>
-        <a href="mailto:devinsonrodriguez68@gmail.com" class="footer-email">devinsonrodriguez68@gmail.com</a>
+        <a href="/cdn-cgi/l/email-protection#452120332c2b362a2b372a21372c2230203f737d052228242c296b262a28" class="footer-email"><span class="__cf_email__" data-cfemail="036766756a6d706c6d716c67716a64766679353b43646e626a6f2d606c6e">[email&#160;protected]</span></a>
       </div>
       <div class="footer-col">
         <h4>Servicios</h4>
@@ -1055,7 +1055,7 @@ footer{
           <li><a href="https://wa.me/573215203354" target="_blank">WhatsApp</a></li>
           <li><a href="https://github.com/Pech68" target="_blank">GitHub</a></li>
           <li><a href="https://www.linkedin.com/in/devinson-rodriguez" target="_blank">LinkedIn</a></li>
-          <li><a href="mailto:devinsonrodriguez68@gmail.com">Correo</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#41252437282f322e2f332e2533282634243b777901262c20282d6f222e2c">Correo</a></li>
         </ul>
       </div>
     </div>
@@ -1231,7 +1231,7 @@ footer{
   <div class="bot-shadow"></div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ── NAV ── */
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>50));
@@ -1412,17 +1412,4 @@ function handleVoice(txt){
   else if(/tecnolog|stack|herramienta|react|shopify/.test(txt)){reply='Mira su stack tecnológico completo. ⚡';target='#ecosystem'}
   else{reply=`Escuché: "${txt}". Pregúntame: proyectos, servicios, precio o proceso.`}
   botText.textContent=reply;speak(reply);
-  if(target)setTimeout(()=>document.querySelector(target)?.scrollIntoView({behavior:'smooth'}),800);
-}
-function speak(txt){
-  if(!window.speechSynthesis)return;
-  window.speechSynthesis.cancel();
-  const u=new SpeechSynthesisUtterance(txt);
-  u.lang='es-CO';u.rate=1.02;u.pitch=1.05;
-  animMouth(true);
-  u.onend=()=>animMouth(false);
-  window.speechSynthesis.speak(u);
-}
-</script>
-</body>
-</html>
+  if
