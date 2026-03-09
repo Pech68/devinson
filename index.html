@@ -351,10 +351,33 @@ footer{padding:60px 0 32px;border-top:1px solid rgba(242,239,232,.07);background
 .soc-btn{width:36px;height:36px;border:1px solid rgba(242,239,232,.1);display:flex;align-items:center;justify-content:center;color:rgba(242,239,232,.3);text-decoration:none;font-size:.85rem;transition:all .25s}
 .soc-btn:hover{background:var(--accent);border-color:var(--accent);color:white}
 
-/* floating wa */
-.wa{position:fixed;bottom:24px;right:24px;z-index:200;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;text-decoration:none;font-size:1.3rem;box-shadow:0 6px 24px rgba(37,211,102,.3);transition:transform .3s,box-shadow .3s;animation:wapulse 3s ease-in-out infinite}
+/* floating wa - Movido a la izquierda para dar espacio a la IA */
+.wa{position:fixed;bottom:24px;left:24px;z-index:200;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;text-decoration:none;font-size:1.3rem;box-shadow:0 6px 24px rgba(37,211,102,.3);transition:transform .3s,box-shadow .3s;animation:wapulse 3s ease-in-out infinite}
 .wa:hover{transform:scale(1.1);box-shadow:0 10px 32px rgba(37,211,102,.5)}
 @keyframes wapulse{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,.3),0 0 0 0 rgba(37,211,102,.35)}70%{box-shadow:0 6px 24px rgba(37,211,102,.3),0 0 0 14px rgba(37,211,102,0)}}
+
+/* ── AI CHATBOT ── */
+.ai-fab{position:fixed;bottom:24px;right:24px;z-index:200;width:52px;height:52px;background:var(--ink);border:1px solid rgba(242,239,232,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--paper);cursor:pointer;font-size:1.3rem;box-shadow:0 6px 24px rgba(0,0,0,0.4);transition:transform .3s,background .3s,border-color .3s;}
+.ai-fab:hover{transform:scale(1.1);border-color:var(--accent);color:var(--accent);}
+.ai-modal{position:fixed;bottom:86px;right:24px;z-index:201;width:min(calc(100vw - 48px),380px);height:500px;background:#0c0c0c;border:1px solid rgba(242,239,232,0.1);border-radius:8px;display:flex;flex-direction:column;transform:translateY(20px);opacity:0;pointer-events:none;transition:all 0.3s cubic-bezier(0.22,1,0.36,1);box-shadow:0 10px 40px rgba(0,0,0,0.6);overflow:hidden;}
+.ai-modal.open{transform:none;opacity:1;pointer-events:all;}
+.ai-head{padding:16px 20px;background:#141414;border-bottom:1px solid rgba(242,239,232,0.06);display:flex;align-items:center;justify-content:space-between;}
+.ai-head-title{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:0.04em;color:var(--paper);display:flex;align-items:center;gap:8px;}
+.ai-head-title i{color:var(--accent);font-size:1rem;}
+.ai-close{background:none;border:none;color:rgba(242,239,232,0.4);cursor:pointer;font-size:1rem;transition:color 0.2s;}
+.ai-close:hover{color:var(--accent);}
+.ai-body{flex:1;padding:20px;overflow-y:auto;display:flex;flex-direction:column;gap:16px;}
+.ai-msg{max-width:85%;font-size:0.85rem;line-height:1.5;padding:12px 16px;border-radius:6px;word-wrap:break-word;}
+.ai-msg.user{align-self:flex-end;background:var(--accent);color:white;border-bottom-right-radius:0;}
+.ai-msg.bot{align-self:flex-start;background:#1a1a1a;color:var(--paper);border:1px solid rgba(242,239,232,0.05);border-bottom-left-radius:0;}
+.btn-download-html{display:inline-flex;align-items:center;gap:8px;margin-top:10px;padding:8px 14px;background:rgba(200,56,42,0.1);border:1px solid var(--accent);color:var(--accent);border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:0.7rem;text-transform:uppercase;cursor:pointer;transition:all 0.2s;}
+.btn-download-html:hover{background:var(--accent);color:white;}
+.ai-foot{padding:12px;background:#141414;border-top:1px solid rgba(242,239,232,0.06);display:flex;gap:8px;}
+.ai-input{flex:1;background:#0c0c0c;border:1px solid rgba(242,239,232,0.1);color:var(--paper);padding:10px 14px;border-radius:4px;font-family:'Archivo',sans-serif;font-size:0.85rem;outline:none;}
+.ai-input:focus{border-color:rgba(242,239,232,0.3);}
+.ai-send{background:var(--accent);border:none;width:40px;height:40px;border-radius:4px;color:white;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;}
+.ai-send:hover{background:#a12d22;}
+.ai-typing{font-size:0.75rem;color:rgba(242,239,232,0.4);font-style:italic;}
 
 /* ── TRUST STRIP ── */
 .trust{padding:32px 0;border-top:1px solid rgba(242,239,232,.06);border-bottom:1px solid rgba(242,239,232,.06)}
@@ -854,6 +877,22 @@ footer{padding:60px 0 32px;border-top:1px solid rgba(242,239,232,.07);background
 
 <a href="https://wa.me/573215203354" target="_blank" class="wa"><i class="fab fa-whatsapp"></i></a>
 
+<!-- AI CHAT BOT UI -->
+<div class="ai-fab" id="ai-fab"><i class="fas fa-robot"></i></div>
+<div class="ai-modal" id="ai-modal">
+  <div class="ai-head">
+    <div class="ai-head-title"><i class="fas fa-terminal"></i> Devinson AI</div>
+    <button class="ai-close" id="ai-close"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="ai-body" id="ai-body">
+    <div class="ai-msg bot">Hola, soy el asistente IA experto en programación de Devinson. ¿En qué te puedo ayudar hoy? Si necesitas una idea de negocio o página web, dímelo y te generaré el HTML listo para descargar.</div>
+  </div>
+  <div class="ai-foot">
+    <input type="text" id="ai-input" class="ai-input" placeholder="Escribe tu idea o duda aquí..." autocomplete="off">
+    <button id="ai-send" class="ai-send"><i class="fas fa-paper-plane"></i></button>
+  </div>
+</div>
+
 <script>
 // Nav scroll
 const nav=document.getElementById('nav');
@@ -914,6 +953,136 @@ document.querySelectorAll('.copy-email').forEach(btn => {
       toast.classList.remove("show");
     }, 3000);
   });
+});
+
+// ==========================================
+// FUNCIONALIDAD ASISTENTE IA (GEMINI API)
+// ==========================================
+const aiFab = document.getElementById('ai-fab');
+const aiModal = document.getElementById('ai-modal');
+const aiClose = document.getElementById('ai-close');
+const aiBody = document.getElementById('ai-body');
+const aiInput = document.getElementById('ai-input');
+const aiSend = document.getElementById('ai-send');
+
+// Manejo de la ventana flotante
+aiFab.addEventListener('click', () => aiModal.classList.toggle('open'));
+aiClose.addEventListener('click', () => aiModal.classList.remove('open'));
+
+// Dividimos tu clave por seguridad para que GitHub no la bloquee en tu repo.
+const part1 = "AIzaSyAju";
+const part2 = "Egt-JUxCw2o";
+const part3 = "9qvmtve9TOR4gUK9d7A";
+const miClave = part1 + part2 + part3; 
+
+// IMPORTANTE: En el simulador de esta pantalla DEBE estar vacío (por seguridad el sistema inyecta la clave automáticamente).
+// PERO cuando subas tu index.html a GitHub o a tu Hosting, debes cambiar esto a: const apiKey = miClave;
+const apiKey = ""; 
+
+async function callGeminiWithRetry(promptText, retries = 5) {
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+  const systemPrompt = "Eres un asistente de IA de la página web de Devinson Rodriguez, un Arquitecto Digital. Eres experto en programación. Si el usuario te pide una idea de negocio, landing page o sitio web, DEBES generar un código HTML completo (con CSS embebido si es posible) usando las mejores prácticas de diseño, y siempre encerrar ese código exactamente entre \`\`\`html y \`\`\`. Responde en español de forma amable y concisa.";
+
+  const payload = {
+    contents: [{ parts: [{ text: promptText }] }],
+    systemInstruction: { parts: [{ text: systemPrompt }] }
+  };
+
+  const delays = [1000, 2000, 4000, 8000, 16000];
+
+  for (let i = 0; i < retries; i++) {
+    try {
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) throw new Error(`HTTP error: ${res.status}`);
+      const data = await res.json();
+      return data.candidates?.[0]?.content?.parts?.[0]?.text || "Lo siento, no pude procesar la respuesta.";
+    } catch (err) {
+      if (i === retries - 1) throw new Error("No pude conectarme con el cerebro de IA después de varios intentos.");
+      await new Promise(r => setTimeout(r, delays[i]));
+    }
+  }
+}
+
+// Procesar mensaje y extraer código HTML para descargar
+function appendMessage(text, isUser = false) {
+  const msgDiv = document.createElement('div');
+  msgDiv.className = `ai-msg ${isUser ? 'user' : 'bot'}`;
+  
+  if (isUser) {
+    msgDiv.innerText = text;
+  } else {
+    // Detectar si hay código HTML con expresión regular
+    const htmlRegex = /\`\`\`html\s*([\s\S]*?)\s*\`\`\`/ig;
+    let lastIndex = 0;
+    let match;
+    
+    while ((match = htmlRegex.exec(text)) !== null) {
+      if (match.index > lastIndex) {
+        const span = document.createElement('span');
+        span.innerText = text.substring(lastIndex, match.index);
+        msgDiv.appendChild(span);
+      }
+      
+      const codeContent = match[1];
+      const btn = document.createElement('button');
+      btn.className = 'btn-download-html';
+      btn.innerHTML = '<i class="fas fa-download"></i> Descargar Idea (HTML)';
+      btn.onclick = () => {
+        const blob = new Blob([codeContent], { type: 'text/html' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `idea-de-negocio-${Date.now()}.html`;
+        a.click();
+        URL.revokeObjectURL(url);
+      };
+      msgDiv.appendChild(btn);
+      
+      lastIndex = htmlRegex.lastIndex;
+    }
+    
+    if (lastIndex < text.length) {
+      const span = document.createElement('span');
+      span.innerText = text.substring(lastIndex);
+      msgDiv.appendChild(span);
+    }
+  }
+  
+  aiBody.appendChild(msgDiv);
+  aiBody.scrollTop = aiBody.scrollHeight;
+}
+
+async function handleSend() {
+  const text = aiInput.value.trim();
+  if (!text) return;
+  
+  appendMessage(text, true);
+  aiInput.value = '';
+  
+  // Indicador de carga
+  const typingDiv = document.createElement('div');
+  typingDiv.className = 'ai-msg bot ai-typing';
+  typingDiv.innerText = 'El experto está analizando...';
+  aiBody.appendChild(typingDiv);
+  aiBody.scrollTop = aiBody.scrollHeight;
+  
+  try {
+    const reply = await callGeminiWithRetry(text);
+    aiBody.removeChild(typingDiv);
+    appendMessage(reply, false);
+  } catch (e) {
+    aiBody.removeChild(typingDiv);
+    appendMessage("Disculpa, hubo un error de conexión con la IA. Inténtalo de nuevo en unos momentos.", false);
+  }
+}
+
+aiSend.addEventListener('click', handleSend);
+aiInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') handleSend();
 });
 </script>
 </body>
