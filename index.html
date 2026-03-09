@@ -3,9 +3,79 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ========================================== -->
+<!-- 1. SEO BÁSICO Y OPTIMIZACIÓN               -->
+<!-- ========================================== -->
 <title>Devinson Rodriguez — Desarrollo Web & Digital</title>
-<meta name="description" content="Arquitectura Digital de Impacto. Desarrollo Web, E-commerce y Soluciones Digitales desde Colombia.">
+<meta name="description" content="Arquitectura Digital de Impacto. Desarrollo Web, E-commerce, Apps Móviles y Soluciones Digitales escalables desde Valledupar, Colombia.">
+<meta name="keywords" content="Desarrollo Web, E-commerce, Shopify, React, Next.js, Páginas Web Colombia, Valledupar, Devinson Rodriguez, Desarrollo de software, SEO">
+<meta name="author" content="Devinson Rodriguez">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://devinson.lat/">
+
+<!-- ========================================== -->
+<!-- 2. FAVICON (EL LOGO EN GOOGLE Y PESTAÑAS)  -->
+<!-- ========================================== -->
+<link rel="icon" href="https://i.imgur.com/Pln191o.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://i.imgur.com/Pln191o.png">
+<meta name="theme-color" content="#0a0a0a">
+
+<!-- ========================================== -->
+<!-- 3. OPEN GRAPH (WHATSAPP, FACEBOOK, LINKEDIN)-->
+<!-- ========================================== -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://devinson.lat/">
+<meta property="og:title" content="Devinson Rodriguez — Arquitectura Digital">
+<meta property="og:description" content="Transformo ideas en ecosistemas digitales escalables. E-commerce que convierte y sitios web de alto rendimiento.">
+<meta property="og:image" content="https://i.imgur.com/Pln191o.png">
+
+<!-- ========================================== -->
+<!-- 4. TWITTER CARDS                           -->
+<!-- ========================================== -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://devinson.lat/">
+<meta name="twitter:title" content="Devinson Rodriguez — Arquitectura Digital">
+<meta name="twitter:description" content="Transformo ideas en ecosistemas digitales escalables. E-commerce que convierte y sitios web de alto rendimiento.">
+<meta name="twitter:image" content="https://i.imgur.com/Pln191o.png">
+
+<!-- ========================================== -->
+<!-- 5. GOOGLE STRUCTURED DATA (JSON-LD)        -->
+<!-- Ayuda a Google a entender quién eres y tu logo -->
+<!-- ========================================== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Devinson Rodriguez",
+  "url": "https://devinson.lat/",
+  "image": "https://i.imgur.com/Pln191o.png",
+  "jobTitle": "Desarrollador Web y Arquitecto Digital",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Valledupar",
+    "addressCountry": "CO"
+  },
+  "sameAs": [
+    "https://github.com/Pech68",
+    "https://www.linkedin.com/in/devinson-rodriguez"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Devinson Rodriguez Portfolio",
+  "url": "https://devinson.lat/"
+}
+</script>
+
+<!-- ========================================== -->
+<!-- FUENTES Y ESTILOS                          -->
+<!-- ========================================== -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:ital,wght@0,300;0,400;0,600;0,900;1,300&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
@@ -217,7 +287,7 @@ nav.scrolled{background:rgba(10,10,10,0.92);backdrop-filter:blur(24px);border-bo
 .proc-t{font-family:'Archivo',sans-serif;font-weight:900;font-size:.95rem;color:var(--paper);margin-bottom:10px}
 .proc-d{font-size:.8rem;color:rgba(242,239,232,.35);line-height:1.7}
 
-/* ── CTA ── */
+/* ── CTA & TOAST ALERT ── */
 #contact{padding:120px 0;position:relative;overflow:hidden}
 #contact::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(200,56,42,.08),transparent 70%);pointer-events:none}
 .cta-inner{text-align:center;position:relative;z-index:1}
@@ -227,10 +297,37 @@ nav.scrolled{background:rgba(10,10,10,0.92);backdrop-filter:blur(24px);border-bo
 .cta-big .hollow{-webkit-text-stroke:1px rgba(242,239,232,.25);color:transparent}
 .cta-sub{font-size:1rem;color:rgba(242,239,232,.4);margin-bottom:52px;font-weight:300}
 .cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-.btn-a{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;background:var(--accent);color:white;text-decoration:none;font-weight:600;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;transition:background .25s,transform .2s}
+.btn-a{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;background:var(--accent);color:white;text-decoration:none;font-weight:600;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;transition:background .25s,transform .2s;cursor:pointer}
 .btn-a:hover{background:#a12d22;transform:translateY(-2px)}
-.btn-b{display:inline-flex;align-items:center;gap:10px;padding:15px 36px;border:1px solid rgba(242,239,232,.15);color:var(--paper);text-decoration:none;font-weight:600;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;transition:border-color .25s,background .25s}
+.btn-b{display:inline-flex;align-items:center;gap:10px;padding:15px 36px;border:1px solid rgba(242,239,232,.15);color:var(--paper);text-decoration:none;font-weight:600;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;transition:border-color .25s,background .25s;cursor:pointer}
 .btn-b:hover{border-color:rgba(242,239,232,.4);background:rgba(242,239,232,.05)}
+
+/* Toast Notification Styles */
+.toast-msg{
+  visibility: hidden;
+  min-width: 250px;
+  background-color: var(--accent);
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 16px;
+  position: fixed;
+  z-index: 9999;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  opacity: 0;
+  transition: opacity 0.3s, bottom 0.3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.toast-msg.show {
+  visibility: visible;
+  opacity: 1;
+  bottom: 50px;
+}
 
 /* ── FOOTER ── */
 footer{padding:60px 0 32px;border-top:1px solid rgba(242,239,232,.07);background:#060606}
@@ -239,11 +336,11 @@ footer{padding:60px 0 32px;border-top:1px solid rgba(242,239,232,.07);background
 .footer-brand-logo{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:.06em;color:var(--paper);text-decoration:none;display:block;margin-bottom:14px}
 .footer-brand-logo em{color:var(--accent);font-style:normal}
 .footer-brand p{font-size:.83rem;color:rgba(242,239,232,.3);line-height:1.7;max-width:300px;margin-bottom:20px}
-.footer-email{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:rgba(242,239,232,.35);text-decoration:none;letter-spacing:.05em;border-bottom:1px solid rgba(242,239,232,.1);padding-bottom:4px;transition:color .2s,border-color .2s}
+.footer-email{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:rgba(242,239,232,.35);text-decoration:none;letter-spacing:.05em;border-bottom:1px solid rgba(242,239,232,.1);padding-bottom:4px;transition:color .2s,border-color .2s;cursor:pointer}
 .footer-email:hover{color:var(--accent);border-color:var(--accent)}
 .footer-col h4{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(242,239,232,.25);margin-bottom:20px}
 .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
-.footer-col ul a{font-size:.83rem;color:rgba(242,239,232,.3);text-decoration:none;transition:color .2s}
+.footer-col ul a{font-size:.83rem;color:rgba(242,239,232,.3);text-decoration:none;transition:color .2s;cursor:pointer}
 .footer-col ul a:hover{color:var(--paper)}
 .footer-bottom{display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center;padding-top:32px;border-top:1px solid rgba(242,239,232,.06)}
 @media(min-width:640px){.footer-bottom{flex-direction:row;justify-content:space-between;text-align:left}}
@@ -308,7 +405,9 @@ footer{padding:60px 0 32px;border-top:1px solid rgba(242,239,232,.07);background
 <!-- NAV -->
 <nav id="nav">
   <div class="nav-inner">
-    <a href="#" class="logo">DEVINSON<em>.</em></a>
+    <a href="#" class="logo" style="display: flex; align-items: center;">
+      <img src="https://i.imgur.com/Pln191o.png" alt="Devinson Logo" style="height: 40px; width: auto; object-fit: contain;">
+    </a>
     <ul class="nav-links">
       <li><a href="#stats">Trayectoria</a></li>
       <li><a href="#work">Proyectos</a></li>
@@ -687,20 +786,26 @@ footer{padding:60px 0 32px;border-top:1px solid rgba(242,239,232,.07);background
       <p class="cta-sub">Solo resultados. Empecemos hoy.</p>
       <div class="cta-btns">
         <a href="https://wa.me/573215203354" target="_blank" class="btn-a"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-        <a href="mailto:devinsonrodriguez68@gmail.com?subject=Quiero%20cotizar%20un%20proyecto" class="btn-b"><i class="fas fa-envelope"></i> Email</a>
+        <!-- BOTON EMAIL MEJORADO: Ahora copia el email al portapapeles y muestra un aviso -->
+        <a class="btn-b copy-email"><i class="fas fa-envelope"></i> Copiar Email</a>
       </div>
     </div>
   </div>
 </section>
+
+<!-- TOAST ALERT PARA EL EMAIL -->
+<div id="toast" class="toast-msg">¡Email copiado al portapapeles!</div>
 
 <!-- FOOTER -->
 <footer>
   <div class="wrap">
     <div class="footer-row">
       <div class="footer-brand">
-        <a href="#" class="footer-brand-logo">DEVINSON<em>.</em></a>
+        <a href="#" class="footer-brand-logo" style="display: inline-flex; align-items: center; margin-bottom: 20px;">
+          <img src="https://i.imgur.com/Pln191o.png" alt="Devinson Logo" style="height: 56px; width: auto; object-fit: contain;">
+        </a>
         <p>Desarrollo web premium, e-commerce y soluciones digitales desde Valledupar, Colombia. Construyendo el futuro digital de tu negocio.</p>
-        <a href="mailto:devinsonrodriguez68@gmail.com" class="footer-email">devinsonrodriguez68@gmail.com</a>
+        <a class="footer-email copy-email">devinsonrodriguez68@gmail.com</a>
       </div>
       <div class="footer-col">
         <h4>Servicios</h4>
@@ -718,7 +823,7 @@ footer{padding:60px 0 32px;border-top:1px solid rgba(242,239,232,.07);background
           <li><a href="https://wa.me/573215203354" target="_blank">WhatsApp</a></li>
           <li><a href="https://github.com/Pech68" target="_blank">GitHub</a></li>
           <li><a href="https://www.linkedin.com/in/devinson-rodriguez" target="_blank">LinkedIn</a></li>
-          <li><a href="mailto:devinsonrodriguez68@gmail.com">Email</a></li>
+          <li><a class="copy-email">Email</a></li>
         </ul>
       </div>
     </div>
@@ -769,6 +874,33 @@ const skillsObs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting)e.target.querySelectorAll('.skill-fill').forEach(b=>b.style.width=b.dataset.w)});
 },{threshold:0.3});
 document.querySelectorAll('.skill-list').forEach(el=>skillsObs.observe(el));
+
+// ==========================================
+// FUNCIONALIDAD COPIAR EMAIL (BOTONES MEJORADOS)
+// ==========================================
+document.querySelectorAll('.copy-email').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    const emailToCopy = "devinsonrodriguez68@gmail.com";
+    
+    // Función compatible para copiar
+    const tempInput = document.createElement("input");
+    tempInput.value = emailToCopy;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+
+    // Mostrar el aviso visual (Toast)
+    const toast = document.getElementById("toast");
+    toast.classList.add("show");
+    
+    // Ocultar después de 3 segundos
+    setTimeout(() => {
+      toast.classList.remove("show");
+    }, 3000);
+  });
+});
 </script>
 </body>
 </html>
