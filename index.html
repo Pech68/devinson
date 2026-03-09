@@ -885,10 +885,10 @@ footer{padding:60px 0 32px;border-top:1px solid rgba(242,239,232,.07);background
     <button class="ai-close" id="ai-close"><i class="fas fa-times"></i></button>
   </div>
   <div class="ai-body" id="ai-body">
-    <div class="ai-msg bot">Hola, soy el asistente IA experto en programación de Devinson. ¿En qué te puedo ayudar hoy? Si necesitas una idea de negocio o página web, dímelo y te generaré el HTML listo para descargar.</div>
+    <div class="ai-msg bot">Hola, soy Devinson AI, el Arquitecto Digital virtual. ¿En qué puedo ayudarte? Pídeme que programe una idea en HTML, o usa comandos como <b>/stack</b>, <b>/metodologia</b> o <b>/cotizar</b>.</div>
   </div>
   <div class="ai-foot">
-    <input type="text" id="ai-input" class="ai-input" placeholder="Escribe tu idea o duda aquí..." autocomplete="off">
+    <input type="text" id="ai-input" class="ai-input" placeholder="Escribe tu idea o comando aquí..." autocomplete="off">
     <button id="ai-send" class="ai-send"><i class="fas fa-paper-plane"></i></button>
   </div>
 </div>
@@ -981,7 +981,17 @@ const apiKey = "";
 
 async function callGeminiWithRetry(promptText, retries = 5) {
   const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-  const systemPrompt = "Eres un asistente de IA de la página web de Devinson Rodriguez, un Arquitecto Digital. Eres experto en programación. Si el usuario te pide una idea de negocio, landing page o sitio web, DEBES generar un código HTML completo (con CSS embebido si es posible) usando las mejores prácticas de diseño, y siempre encerrar ese código exactamente entre \`\`\`html y \`\`\`. Responde en español de forma amable y concisa.";
+  
+  // NUVEO CEREBRO IA: Súper Inteligente y orientado a Arquitectura Digital
+  const systemPrompt = "Eres 'Devinson AI', el Arquitecto Digital virtual y alter ego de Devinson Rodriguez. Tu personalidad es profesional, vanguardista, orientada a resultados empresariales y experta en ingeniería de software.\n\n" +
+  "DIRECTRICES:\n" +
+  "1. ENFOQUE: Tu misión es demostrar autoridad técnica. Hablas de 'construir ecosistemas digitales escalables', 'SaaS', 'e-commerce de alta conversión (Shopify)' y 'arquitecturas Cloud (AWS)', no te refieres a 'hacer páginas web simples'.\n" +
+  "2. GENERACIÓN DE CÓDIGO (MODO EXPERTO): Si el usuario pide crear una web, prototipo, landing page o idea de negocio, asume el rol de Desarrollador Senior. Genera el código completo en HTML/CSS/JS (un solo archivo) usando las mejores prácticas modernas (flexbox/grid, variables CSS, UI brutalista o minimalista). DEBES encerrar el código EXACTAMENTE entre ```html y ```.\n" +
+  "3. COMANDOS OCULTOS:\n" +
+  "- Si el usuario escribe '/stack', detalla orgullosamente que usamos React, Next.js, Node.js, Python, AWS y Shopify por su robustez y escalabilidad.\n" +
+  "- Si escribe '/metodologia', explica el proceso de Devinson: Descubrimiento, Prototipado UX/UI, Desarrollo e Implementación Continua.\n" +
+  "- Si escribe '/cotizar', pídele que especifique el rubro del negocio, si necesita integraciones (pagos/inventario) y dile que contacte directamente al WhatsApp (+573215203354).\n" +
+  "4. TONO Y LENGUAJE: Resolutivo, técnico pero sumamente claro. Demuestra en cada respuesta que Devinson es una inversión estratégica, no solo un gasto. Responde siempre en español.";
 
   const payload = {
     contents: [{ parts: [{ text: promptText }] }],
@@ -1023,20 +1033,21 @@ function appendMessage(text, isUser = false) {
     while ((match = htmlRegex.exec(text)) !== null) {
       if (match.index > lastIndex) {
         const span = document.createElement('span');
-        span.innerText = text.substring(lastIndex, match.index);
+        // Usamos innerHTML parcial con un ligero reemplazo de saltos de linea para que se lea mejor en el chat
+        span.innerHTML = text.substring(lastIndex, match.index).replace(/\n/g, '<br>');
         msgDiv.appendChild(span);
       }
       
       const codeContent = match[1];
       const btn = document.createElement('button');
       btn.className = 'btn-download-html';
-      btn.innerHTML = '<i class="fas fa-download"></i> Descargar Idea (HTML)';
+      btn.innerHTML = '<i class="fas fa-download"></i> Descargar Código de Proyecto';
       btn.onclick = () => {
         const blob = new Blob([codeContent], { type: 'text/html' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = `idea-de-negocio-${Date.now()}.html`;
+        a.download = `arquitectura-digital-${Date.now()}.html`;
         a.click();
         URL.revokeObjectURL(url);
       };
@@ -1047,7 +1058,7 @@ function appendMessage(text, isUser = false) {
     
     if (lastIndex < text.length) {
       const span = document.createElement('span');
-      span.innerText = text.substring(lastIndex);
+      span.innerHTML = text.substring(lastIndex).replace(/\n/g, '<br>');
       msgDiv.appendChild(span);
     }
   }
@@ -1066,7 +1077,7 @@ async function handleSend() {
   // Indicador de carga
   const typingDiv = document.createElement('div');
   typingDiv.className = 'ai-msg bot ai-typing';
-  typingDiv.innerText = 'El experto está analizando...';
+  typingDiv.innerText = 'El Arquitecto está procesando los datos...';
   aiBody.appendChild(typingDiv);
   aiBody.scrollTop = aiBody.scrollHeight;
   
@@ -1076,7 +1087,7 @@ async function handleSend() {
     appendMessage(reply, false);
   } catch (e) {
     aiBody.removeChild(typingDiv);
-    appendMessage("Disculpa, hubo un error de conexión con la IA. Inténtalo de nuevo en unos momentos.", false);
+    appendMessage("Disculpa, hubo un error de conexión con mi núcleo. Inténtalo de nuevo en unos momentos.", false);
   }
 }
 
