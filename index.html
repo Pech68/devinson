@@ -1084,12 +1084,12 @@ const part2 = "Egt-JUxCw2o";
 const part3 = "9qvmtve9TOR4gUK9d7A";
 const miClave = part1 + part2 + part3; 
 
-// IMPORTANTE: En el simulador de esta pantalla DEBE estar vacío (por seguridad el sistema inyecta la clave automáticamente).
-// PERO cuando subas tu index.html a GitHub o a tu Hosting, debes cambiar esto a: const apiKey = miClave;
-const apiKey = ""; 
+// Activamos tu clave real para que funcione en tu hosting / GitHub sin errores de conexión.
+const apiKey = miClave; 
 
 async function callGeminiWithRetry(promptText, retries = 5) {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+  // Usamos la versión estable pública de Gemini para evitar errores fuera del simulador
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
   
   // NUVEO CEREBRO IA: Súper Inteligente y orientado a Arquitectura Digital
   const systemPrompt = "Eres 'Devinson AI', el Arquitecto Digital virtual y alter ego de Devinson Rodriguez. Tu personalidad es profesional, vanguardista, orientada a resultados empresariales y experta en ingeniería de software.\n\n" +
