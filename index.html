@@ -257,22 +257,33 @@ nav.scrolled{background:rgba(10,10,10,0.92);backdrop-filter:blur(24px);border-bo
 .tech-c:hover i{transform:scale(1.15)}
 .tech-c span{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,239,232,.3)}
 
-/* ── WHY WEB ── */
-#impact{padding:100px 0;background:#0e0e0e;overflow:hidden}
-.impact-head{margin-bottom:60px;text-align:center}
-.impact-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,7vw,6rem);letter-spacing:.02em;color:var(--paper)}
-.impact-title em{font-style:normal;color:var(--accent)}
-.cards-track-wrap{overflow:hidden;mask-image:linear-gradient(to right,transparent,black 6%,black 94%,transparent)}
-.cards-track{display:flex;gap:16px;width:max-content;animation:slide 40s linear infinite}
-@keyframes slide{to{transform:translateX(calc(-50% - 8px))}}
-.cards-track:hover{animation-play-state:paused}
-.cc{width:min(75vw,300px);height:400px;flex-shrink:0;border-radius:4px;overflow:hidden;position:relative}
-.cc img{width:100%;height:100%;object-fit:cover;filter:saturate(.3) brightness(.6);transition:filter .5s,transform .6s}
-.cc:hover img{filter:saturate(.7) brightness(.75);transform:scale(1.04)}
-.cc-over{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.95) 0%,transparent 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:24px}
-.cc-tag{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px}
-.cc-title{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--paper);letter-spacing:.04em;margin-bottom:6px}
-.cc-desc{font-size:.75rem;color:rgba(242,239,232,.45);line-height:1.55}
+/* ── VISIÓN ESTRATÉGICA (SLIDESHOW INTERACTIVO) ── */
+#vision{padding:120px 0;background:#080808;border-top:1px solid rgba(242,239,232,0.05);overflow:hidden;}
+.vision-head{margin-bottom:60px;}
+.slider-wrap{display:grid;grid-template-columns:1fr;position:relative;max-width:1200px;margin:0 auto;}
+.slide{grid-column:1;grid-row:1;opacity:0;visibility:hidden;transform:scale(0.95);transition:all 0.6s cubic-bezier(0.22,1,0.36,1);display:grid;grid-template-columns:1fr;align-items:center;gap:40px;}
+@media(min-width:900px){.slide{grid-template-columns:1fr 1fr;gap:80px;}}
+.slide.active{opacity:1;visibility:visible;transform:scale(1);z-index:2;}
+.slide-content{padding:20px 0;}
+.slide-tag{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;margin-bottom:20px;display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(200,56,42,0.3);padding:6px 14px;border-radius:4px;background:rgba(200,56,42,0.05);}
+.slide-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,6vw,5.5rem);line-height:.9;color:var(--paper);margin-bottom:24px;letter-spacing:.02em;}
+.slide-desc{font-size:1rem;color:rgba(242,239,232,0.6);line-height:1.7;font-weight:300;}
+.slide-graphic{position:relative;aspect-ratio:4/4;border-radius:8px;overflow:hidden;border:1px solid rgba(242,239,232,0.1);background:#111;}
+@media(min-width:900px){.slide-graphic{aspect-ratio:4/3;}}
+.slide-graphic img{width:100%;height:100%;object-fit:cover;opacity:0.4;transition:opacity 0.5s,transform 0.8s;}
+.slide.active .slide-graphic img{opacity:0.8;transform:scale(1.05);}
+.slide-graphic::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,#080808 0%,transparent 50%);}
+.slider-controls{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:40px auto 0;border-top:1px solid rgba(242,239,232,0.1);padding-top:32px;}
+.slider-dots{display:flex;gap:12px;}
+.dot{width:48px;height:3px;background:rgba(242,239,232,0.15);cursor:pointer;position:relative;}
+.dot::after{content:'';position:absolute;left:0;top:-10px;bottom:-10px;right:0;}
+.dot-progress{position:absolute;left:0;top:0;bottom:0;background:var(--accent);width:0;}
+@keyframes fillDot{from{width:0;}to{width:100%;}}
+.dot.active .dot-progress{animation:fillDot 6s linear forwards;}
+#vision.paused .dot.active .dot-progress{animation-play-state:paused;}
+.slider-nav{display:flex;gap:12px;}
+.s-nav-btn{width:48px;height:48px;border:1px solid rgba(242,239,232,0.15);background:transparent;color:var(--paper);display:flex;align-items:center;justify-content:center;cursor:pointer;border-radius:4px;transition:all 0.3s;font-size:1.1rem;}
+.s-nav-btn:hover{background:var(--paper);color:var(--ink);border-color:var(--paper);}
 
 /* ── PROCESS ── */
 #process{padding:120px 0}
@@ -379,21 +390,9 @@ footer{padding:60px 0 32px;border-top:1px solid rgba(242,239,232,.07);background
 .ai-send:hover{background:#a12d22;}
 .ai-typing{font-size:0.75rem;color:rgba(242,239,232,0.4);font-style:italic;}
 
-/* ── TRUST STRIP ── */
-.trust{padding:32px 0;border-top:1px solid rgba(242,239,232,.06);border-bottom:1px solid rgba(242,239,232,.06)}
-.trust-inner{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
-.t-chip{display:flex;align-items:center;gap:8px;padding:8px 18px;border:1px solid rgba(242,239,232,.07);font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,239,232,.25)}
-.t-chip i{color:var(--accent)}
-
-/* accent colors on stat nums */
-.c1{color:var(--paper)}
-.c2{color:var(--accent)}
-.c3{color:var(--gold)}
-.c4{color:var(--paper)}
-
 /* ── MOBILE ── */
 @media(max-width:767px){
-  #work,#expertise,#ecosystem,#impact,#process{padding:72px 0}
+  #work,#expertise,#ecosystem,#vision,#process{padding:72px 0}
   #contact{padding:80px 0}
   #stats{padding:56px 0}
   .work-head{flex-direction:column;align-items:flex-start;margin-bottom:48px}
@@ -443,7 +442,7 @@ footer{padding:60px 0 32px;border-top:1px solid rgba(242,239,232,.07);background
       <li><a href="#stats">Trayectoria</a></li>
       <li><a href="#work">Proyectos</a></li>
       <li><a href="#expertise">Servicios</a></li>
-      <li><a href="#process">Proceso</a></li>
+      <li><a href="#vision">Visión</a></li>
     </ul>
     <a href="https://wa.me/573215203354" target="_blank" class="nav-pill">Agendar Cita</a>
     <button class="ham" id="ham"><i class="fas fa-bars"></i></button>
@@ -455,7 +454,7 @@ footer{padding:60px 0 32px;border-top:1px solid rgba(242,239,232,.07);background
   <a href="#stats" class="mlink">Trayectoria</a>
   <a href="#work" class="mlink">Proyectos</a>
   <a href="#expertise" class="mlink">Servicios</a>
-  <a href="#process" class="mlink">Proceso</a>
+  <a href="#vision" class="mlink">Visión</a>
   <a href="https://wa.me/573215203354" target="_blank" style="font-size:1.2rem;color:#10b981;font-family:'JetBrains Mono',monospace;letter-spacing:.1em"><i class="fab fa-whatsapp" style="margin-right:8px"></i>WhatsApp</a>
 </div>
 
@@ -747,27 +746,75 @@ footer{padding:60px 0 32px;border-top:1px solid rgba(242,239,232,.07);background
   </div>
 </section>
 
-<!-- WHY WEB -->
-<section id="impact">
+<!-- VISIÓN ESTRATÉGICA (REEMPLAZA A "WHY WEB") -->
+<section id="vision">
   <div class="wrap">
-    <div class="impact-head r">
-      <span class="label label-accent" style="display:block;text-align:center;margin-bottom:12px">¿Por qué tener una Web?</span>
-      <h2 class="impact-title">TU NEGOCIO,<br><em>SIN LÍMITES.</em></h2>
+    <div class="vision-head r">
+      <span class="label label-accent" style="display:block;text-align:center;margin-bottom:12px">Tu Ecosistema de Crecimiento</span>
+      <h2 class="slide-title" style="text-align:center; margin-bottom: 0;">DE LA IDEA A LA<br><em style="font-style:normal;color:var(--accent)">EXPANSIÓN TOTAL</em></h2>
     </div>
-  </div>
-  <div class="cards-track-wrap">
-    <div class="cards-track">
-      <div class="cc"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" alt="Seguridad"><div class="cc-over"><span class="cc-tag" style="color:#60a5fa">Seguridad</span><div class="cc-title">Confianza Total</div><div class="cc-desc">Infraestructura que protege tus datos y los de tus clientes.</div></div></div>
-      <div class="cc"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Expansión"><div class="cc-over"><span class="cc-tag" style="color:#a78bfa">Expansión</span><div class="cc-title">Alcance Global</div><div class="cc-desc">Rompe las barreras geográficas. Tu mercado es el mundo.</div></div></div>
-      <div class="cc"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Analytics"><div class="cc-over"><span class="cc-tag" style="color:#f472b6">Data</span><div class="cc-title">Decisiones Inteligentes</div><div class="cc-desc">Toma decisiones con datos reales de comportamiento.</div></div></div>
-      <div class="cc"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Crecimiento"><div class="cc-over"><span class="cc-tag" style="color:#10b981">Crecimiento</span><div class="cc-title">Escalabilidad Real</div><div class="cc-desc">Sistemas preparados para crecer contigo sin romperse.</div></div></div>
-      <div class="cc"><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80" alt="Ventas"><div class="cc-over"><span class="cc-tag" style="color:#fb923c">Ventas</span><div class="cc-title">24/7 Activo</div><div class="cc-desc">Tu web vende mientras duermes. Sin horarios ni festivos.</div></div></div>
-      <!-- duplicate -->
-      <div class="cc"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" alt="Seguridad"><div class="cc-over"><span class="cc-tag" style="color:#60a5fa">Seguridad</span><div class="cc-title">Confianza Total</div><div class="cc-desc">Infraestructura que protege tus datos y los de tus clientes.</div></div></div>
-      <div class="cc"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Expansión"><div class="cc-over"><span class="cc-tag" style="color:#a78bfa">Expansión</span><div class="cc-title">Alcance Global</div><div class="cc-desc">Rompe las barreras geográficas. Tu mercado es el mundo.</div></div></div>
-      <div class="cc"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Analytics"><div class="cc-over"><span class="cc-tag" style="color:#f472b6">Data</span><div class="cc-title">Decisiones Inteligentes</div><div class="cc-desc">Toma decisiones con datos reales de comportamiento.</div></div></div>
-      <div class="cc"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Crecimiento"><div class="cc-over"><span class="cc-tag" style="color:#10b981">Crecimiento</span><div class="cc-title">Escalabilidad Real</div><div class="cc-desc">Sistemas preparados para crecer contigo sin romperse.</div></div></div>
-      <div class="cc"><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80" alt="Ventas"><div class="cc-over"><span class="cc-tag" style="color:#fb923c">Ventas</span><div class="cc-title">24/7 Activo</div><div class="cc-desc">Tu web vende mientras duermes. Sin horarios ni festivos.</div></div></div>
+    
+    <div class="slider-wrap r" id="pitch-slider">
+      <!-- Slide 1 -->
+      <div class="slide active">
+        <div class="slide-content">
+          <span class="slide-tag">01. Presencia 24/7</span>
+          <h3 class="slide-title" style="font-size:clamp(2.5rem,5vw,4.5rem);">¿POR QUÉ UNA<br>PÁGINA WEB?</h3>
+          <p class="slide-desc">No es solo "estar en internet". Es tener una sucursal que no duerme, que atiende clientes, muestra tus servicios y genera ventas mientras tú descansas. Tu web es tu activo digital más valioso y tu mejor vendedor.</p>
+        </div>
+        <div class="slide-graphic">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Página Web y Analytics">
+        </div>
+      </div>
+      
+      <!-- Slide 2 -->
+      <div class="slide">
+        <div class="slide-content">
+          <span class="slide-tag">02. Control Operativo</span>
+          <h3 class="slide-title" style="font-size:clamp(2.5rem,5vw,4.5rem);">EL PODER DE UN<br>SISTEMA POS</h3>
+          <p class="slide-desc">Olvídate del cuaderno, el lápiz y las calculadoras. Un sistema POS automatiza tus ventas, controla tu inventario en tiempo real y te dice exactamente qué producto se vende y cuál no. Menos errores humanos, más velocidad.</p>
+        </div>
+        <div class="slide-graphic">
+          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="Punto de Venta POS">
+        </div>
+      </div>
+      
+      <!-- Slide 3 -->
+      <div class="slide">
+        <div class="slide-content">
+          <span class="slide-tag">03. Inteligencia Financiera</span>
+          <h3 class="slide-title" style="font-size:clamp(2.5rem,5vw,4.5rem);">FINANZAS CLARAS,<br>NEGOCIO SANO</h3>
+          <p class="slide-desc">Si no mides tus números, estás navegando a ciegas. Organizar y sistematizar tus finanzas te permite conocer tu margen de ganancia real, evitar fugas ocultas de dinero y tomar decisiones para escalar tu negocio sin miedo a quebrar.</p>
+        </div>
+        <div class="slide-graphic">
+          <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80" alt="Gráficas Financieras">
+        </div>
+      </div>
+      
+      <!-- Slide 4 -->
+      <div class="slide">
+        <div class="slide-content">
+          <span class="slide-tag" style="background:rgba(242,239,232,0.1); border-color:var(--paper); color:var(--paper)">04. La Solución Inicial</span>
+          <h3 class="slide-title" style="font-size:clamp(2.5rem,5vw,4.5rem);">¿POR QUÉ ELEGIR<br><span style="color:var(--accent)">PECHPOS?</span></h3>
+          <p class="slide-desc">Diseñado estratégicamente para negocios que están empezando. No necesitas equipos costosos ni manuales complejos de 100 páginas. Es intuitivo, funciona 100% en la nube y escala orgánicamente a medida que tu negocio factura más.</p>
+        </div>
+        <div class="slide-graphic">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Dashboard PechPos">
+        </div>
+      </div>
+    </div>
+    
+    <div class="slider-controls r d2">
+      <div class="slider-dots">
+        <div class="dot active" data-idx="0"><div class="dot-progress"></div></div>
+        <div class="dot" data-idx="1"><div class="dot-progress"></div></div>
+        <div class="dot" data-idx="2"><div class="dot-progress"></div></div>
+        <div class="dot" data-idx="3"><div class="dot-progress"></div></div>
+      </div>
+      <div class="slider-nav">
+        <button class="s-nav-btn prev-btn"><i class="fas fa-arrow-left"></i></button>
+        <button class="s-nav-btn next-btn"><i class="fas fa-arrow-right"></i></button>
+      </div>
     </div>
   </div>
 </section>
@@ -927,6 +974,68 @@ const skillsObs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting)e.target.querySelectorAll('.skill-fill').forEach(b=>b.style.width=b.dataset.w)});
 },{threshold:0.3});
 document.querySelectorAll('.skill-list').forEach(el=>skillsObs.observe(el));
+
+// ==========================================
+// INTERACTIVE SLIDER LOGIC (VISIÓN ESTRATÉGICA)
+// ==========================================
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+const sliderSection = document.getElementById('vision');
+
+if (slides.length > 0) {
+  let currentSlide = 0;
+  let slideInterval;
+
+  function goToSlide(index) {
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    
+    // Hack para reiniciar la animación de la barra de progreso
+    const oldProgress = dots[currentSlide].querySelector('.dot-progress');
+    if(oldProgress) {
+        oldProgress.style.animation = 'none';
+        oldProgress.offsetHeight; /* Forzar repintado del navegador */
+        oldProgress.style.animation = null; 
+    }
+
+    currentSlide = (index + slides.length) % slides.length;
+    
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+    resetInterval();
+  }
+
+  function nextSlide() { goToSlide(currentSlide + 1); }
+  function prevSlide() { goToSlide(currentSlide - 1); }
+
+  function resetInterval() {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, 6000); // 6 segundos por diapositiva
+  }
+
+  nextBtn.addEventListener('click', nextSlide);
+  prevBtn.addEventListener('click', prevSlide);
+
+  dots.forEach((dot, idx) => {
+    dot.addEventListener('click', () => {
+      goToSlide(idx);
+    });
+  });
+
+  // Pausar si el usuario tiene el mouse encima para que pueda leer tranquilamente
+  sliderSection.addEventListener('mouseenter', () => {
+    clearInterval(slideInterval);
+    sliderSection.classList.add('paused');
+  });
+  sliderSection.addEventListener('mouseleave', () => {
+    resetInterval();
+    sliderSection.classList.remove('paused');
+  });
+
+  resetInterval(); // Iniciar el carrusel
+}
 
 // ==========================================
 // FUNCIONALIDAD COPIAR EMAIL (BOTONES MEJORADOS)
